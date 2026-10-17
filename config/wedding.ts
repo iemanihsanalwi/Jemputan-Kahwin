@@ -9,25 +9,25 @@ import { WeddingConfig } from "@/types/wedding";
 export const weddingConfig: WeddingConfig = {
   couple: {
     groom: {
-      fullName: "Megat Amirul Hakimi bin Megat Zulkifli",
-      shortName: "Amirul",
+      fullName: "Ieman Ihsan Bin Alwi",
+      shortName: "Ieman",
       title: "Pengantin Lelaki",
-      fatherName: "Megat Zulkifli bin Megat Hashim",
-      motherName: "Puan Sri Rahmah binti Idris",
-      orderInFamily: "Putera sulung kepada",
-      bio: "Jurutera perisian & peminat kopi. Bersyukur dipertemukan dengan bidadari hati.",
+      fatherName: "Alwi bin Mohd Yunus",
+      motherName: "Sakinah binti Salleh",
+      orderInFamily: "Putera bongsu kepada",
+      bio: "Bersyukur dipertemukan dengan bidadari hati.",
       instagram: "https://instagram.com",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
     },
     bride: {
-      fullName: "Puteri Nur Farhana binti Dato' Seri Azman",
-      shortName: "Farhana",
+      fullName: "Alya Athirah binti Aziz",
+      shortName: "Alya",
       title: "Pengantin Perempuan",
-      fatherName: "Dato' Seri Azman bin Kamaruddin",
-      motherName: "Datin Seri Rohani binti Yaakob",
-      orderInFamily: "Puteri bongsu kepada",
-      bio: "Pereka grafik & pencinta alam. Menemui ketenangan dalam ikatan suci ini.",
+      fatherName: "Aziz bin Jamiran",
+      motherName: "Poniah binti Selamat",
+      orderInFamily: "Puteri sulung kepada",
+      bio: "Menemui ketenangan dalam ikatan suci ini.",
       instagram: "https://instagram.com",
       image:
         "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop",
@@ -44,15 +44,15 @@ export const weddingConfig: WeddingConfig = {
   },
 
   event: {
-    title: "Walimatulurus Amirul & Farhana",
+    title: "Walimatulurus Alya & Ieman",
     invitationGreeting: "Assalamu'alaikum Warahmatullahi Wabarakatuh",
     invitationMessage:
       "Dengan penuh rasa kesyukuran ke hadrat Ilahi, kami sekeluarga dengan berbesar hati menjemput Dato' / Datin / Tuan / Puan / Encik / Cik serta seisi keluarga hadir ke majlis perkahwinan putera puteri kami bagi menyerikan lagi ikatan suci ini.",
-    date: "2026-12-12", // YYYY-MM-DD
-    dateDisplay: "Sabtu, 12 Disember 2026",
+    date: "2027-03-20", // YYYY-MM-DD
+    dateDisplay: "Sabtu, 20 Mac 2027",
     hijriDate: "2 Jamadilakhir 1448H",
     receptionTime: "11:00 Pagi - 4:00 Petang",
-    venueName: "Glam Hall Damansara",
+    venueName: "Homestay Pachitan",
     venueHall: "Grand Ballroom, Tingkat 1",
     venueAddress:
       "Menara Mustapha Kamal, PJ Trade Centre, No. 8, Jalan PJU 8/8A, Bandar Damansara Perdana, 47820 Petaling Jaya, Selangor",
@@ -270,21 +270,21 @@ export const weddingConfig: WeddingConfig = {
   },
 
   admin: {
-    pin: process.env.ADMIN_PIN || "123456",
+    pin: process.env.ADMIN_PIN || "037172",
   },
 
   seo: {
-    siteName: "Walimatulurus Amirul & Farhana",
-    title: "Undangan Walimatulurus Megat Amirul & Puteri Farhana",
+    siteName: "Walimatulurus Alya & Ieman",
+    title: "Undangan Walimatulurus Alya & Ieman",
     description:
-      "Dengan penuh kesyukuran, kami menjemput anda ke Majlis Walimatulurus Megat Amirul Hakimi & Puteri Nur Farhana pada Sabtu, 12 Disember 2026 di Glam Hall Damansara.",
+      "Dengan penuh kesyukuran, kami menjemput anda ke Majlis Walimatulurus Alya & Ieman pada Sabtu, 20 Mac 2027 di Homestay Pachitan.",
     url: process.env.NEXT_PUBLIC_SITE_URL || "https://jemputan-kahwin.vercel.app",
     ogImage:
       "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop",
     keywords: [
       "Jemputan Kahwin",
       "Walimatulurus",
-      "Amirul dan Farhana",
+      "Alya dan Ieman",
       "RSVP Kahwin",
       "Kad Kahwin Digital",
       "Wedding Invitation Malaysia",
