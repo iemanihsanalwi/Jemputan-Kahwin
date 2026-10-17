@@ -205,6 +205,7 @@ export default function GuestbookSection() {
               type="text"
               name="honeypot"
               tabIndex={-1}
+              aria-hidden="true"
               autoComplete="off"
               value={form.honeypot}
               onChange={(e) => setForm({ ...form, honeypot: e.target.value })}

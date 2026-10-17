@@ -8,13 +8,13 @@ Aplikasi jemputan perkahwinan digital dan sistem pengesahan kehadiran (RSVP) mod
 
 1. **Laman Utama & Hero Anggun**
    - Paparan nama pasangan mempelai dalam tipografi klasik & elegan.
-   - Jam randik detik countdown majlis secara *real-time*.
-   - Pemain lagu latar belakang (*floating audio player*) dengan visualizer cincin emas beranimasi & kawalan *Play/Pause*.
-   - Navigasi terapung (*floating dock*) mesra telefon bimbit.
+   - Jam randik detik countdown majlis secara _real-time_.
+   - Pemain lagu latar belakang (_floating audio player_) dengan visualizer cincin emas beranimasi & kawalan _Play/Pause_.
+   - Navigasi terapung (_floating dock_) mesra telefon bimbit.
 
 2. **Pengenalan Mempelai & Keluarga**
    - Profil lengkap pengantin lelaki & pengantin perempuan.
-   - Maklumat ibu bapa & sebelah keluarga (*Keluarga Pengantin Lelaki / Perempuan*).
+   - Maklumat ibu bapa & sebelah keluarga (_Keluarga Pengantin Lelaki / Perempuan_).
    - Petikan ayat suci Al-Quran (Surah Ar-Rum : 21) dalam khat Arab & terjemahan Bahasa Melayu.
 
 3. **Maklumat Majlis & Tentatif Acara**
@@ -22,34 +22,34 @@ Aplikasi jemputan perkahwinan digital dan sistem pengesahan kehadiran (RSVP) mod
    - Integrasi **"Simpan ke Kalendar"**:
      - 1-Klik tambah ke Google Calendar.
      - Muat turun fail `.ics` untuk Apple Calendar / Microsoft Outlook.
-   - Panduan kod pakaian (*Dress Code*) dengan palet warna interaktif.
-   - Garis masa tentatif majlis (*Event Schedule Timeline*).
+   - Panduan kod pakaian (_Dress Code_) dengan palet warna interaktif.
+   - Garis masa tentatif majlis (_Event Schedule Timeline_).
 
 4. **Panduan Lokasi & Navigasi 1-Klik**
    - Integrasi peta Google Maps interaktif (Embedded iframe).
    - Butang navigasi pantas 1-klik untuk **Waze** dan **Google Maps**.
-   - Salin alamat penuh dengan fungsi salin klipbod automatik (*One-click copy*).
+   - Salin alamat penuh dengan fungsi salin klipbod automatik (_One-click copy_).
    - Panduan kemudahan parkir & valet.
 
 5. **Sistem Pengesahan Kehadiran (RSVP)**
    - Pilihan status kehadiran: **"Hadir"** atau **"Tidak Hadir"**.
    - Pemilihan bilangan pax tetamu yang hadir (1 - 5 orang).
    - Ruangan catatan / keperluan diet khas / vegetarian.
-   - Letupan animasi konfeti (*confetti burst*) meraikan tetamu yang mengesahkan kehadiran.
-   - Validasi data selamat menggunakan **Zod** & perlindungan anti-spam (*Honeypot + Rate Limiter*).
+   - Letupan animasi konfeti (_confetti burst_) meraikan tetamu yang mengesahkan kehadiran.
+   - Validasi data selamat menggunakan **Zod** & perlindungan anti-spam (_Honeypot + Rate Limiter_).
    - Penyimpanan terus ke pangkalan data **Supabase** (dengan mod demo automatik sekiranya kunci API belum ditetapkan).
 
 6. **Buku Tetamu Digital (Guestbook & Doa)**
    - Tetamu boleh menitipkan doa dan ucapan tahniah.
-   - Fungsi reaksi "Suka" (Heart Like) secara *real-time*.
-   - Susun atur kad ucapan dengan status hubungan (*Keluarga, Sahabat, Rakan Sekerja*).
-   - Paginasi butang *"Muat Turun Lagi"*.
+   - Fungsi reaksi "Suka" (Heart Like) secara _real-time_.
+   - Susun atur kad ucapan dengan status hubungan (_Keluarga, Sahabat, Rakan Sekerja_).
+   - Paginasi butang _"Muat Turun Lagi"_.
 
 7. **Senarai Hajat & Hadiah (Gift Wishlist)**
    - Kad senarai hadiah rumah impian mempelai.
-   - Penapis kategori (*Semua, Dapur, Ruang Tamu, Elektronik*).
+   - Penapis kategori (_Semua, Dapur, Ruang Tamu, Elektronik_).
    - Label platform e-dagang (**Shopee, Lazada, TikTok Shop, IKEA**).
-   - Pautan terus ke laman pembelian dan status *"Tersedia"* vs *"Telah Ditempah"*.
+   - Pautan terus ke laman pembelian dan status _"Tersedia"_ vs _"Telah Ditempah"_.
 
 8. **Salam Kaut Digital (Hadiah Ikhlas)**
    - Paparan kod QR **DuitNow** rasmi.
@@ -58,8 +58,8 @@ Aplikasi jemputan perkahwinan digital dan sistem pengesahan kehadiran (RSVP) mod
    - Butang muat turun gambar kod QR.
 
 9. **Galeri Memori & Lightbox Interaktif**
-   - Susun atur foto gaya masonry responsif dengan pemuatan malas (*lazy loading*).
-   - Pratonton skrin penuh (*Lightbox Preview Modal*) dengan butang Sebelumnya, Seterusnya, kekunci anak panah papan kekunci, dan kekunci `Esc`.
+   - Susun atur foto gaya masonry responsif dengan pemuatan malas (_lazy loading_).
+   - Pratonton skrin penuh (_Lightbox Preview Modal_) dengan butang Sebelumnya, Seterusnya, kekunci anak panah papan kekunci, dan kekunci `Esc`.
 
 10. **Hubungi Wakil Majlis**
     - Kad perhubungan pengantin lelaki, pengantin perempuan, ibu bapa & pengurus majlis.
@@ -87,17 +87,17 @@ Aplikasi jemputan perkahwinan digital dan sistem pengesahan kehadiran (RSVP) mod
 
 ## 🛠️ Senibina & Teknologi (Tech Stack)
 
-| Komponen | Teknologi | Keterangan |
-| :--- | :--- | :--- |
-| **Framework** | [Next.js 15](https://nextjs.org/) | App Router, Server Components & Serverless Route Handlers |
-| **Bahasa** | [TypeScript](https://www.typescriptlang.org/) | Strict Type Checking |
-| **Gaya & UI** | [Tailwind CSS v3](https://tailwindcss.com/) | Mobile-first luxury wedding color palette |
-| **Ikon** | [Lucide React](https://lucide.dev/) | Ikon SVG moden & ringan |
-| **Pangkalan Data** | [Supabase](https://supabase.com/) | PostgreSQL dengan Row Level Security (RLS) |
-| **Validasi** | [Zod](https://zod.dev/) | Skema validasi borang di peringkat pelanggan & pelayan |
-| **Kesan Visual** | [Canvas Confetti](https://www.npmjs.com/package/canvas-confetti) | Animasi perayaan apabila RSVP dihantar |
-| **CI / CD** | GitHub Actions | Linting & pembinaan automatik sebelum merge |
-| **Hosting** | [Vercel](https://vercel.com/) | Edge & Serverless platform |
+| Komponen           | Teknologi                                                        | Keterangan                                                |
+| :----------------- | :--------------------------------------------------------------- | :-------------------------------------------------------- |
+| **Framework**      | [Next.js 15](https://nextjs.org/)                                | App Router, Server Components & Serverless Route Handlers |
+| **Bahasa**         | [TypeScript](https://www.typescriptlang.org/)                    | Strict Type Checking                                      |
+| **Gaya & UI**      | [Tailwind CSS v3](https://tailwindcss.com/)                      | Mobile-first luxury wedding color palette                 |
+| **Ikon**           | [Lucide React](https://lucide.dev/)                              | Ikon SVG moden & ringan                                   |
+| **Pangkalan Data** | [Supabase](https://supabase.com/)                                | PostgreSQL dengan Row Level Security (RLS)                |
+| **Validasi**       | [Zod](https://zod.dev/)                                          | Skema validasi borang di peringkat pelanggan & pelayan    |
+| **Kesan Visual**   | [Canvas Confetti](https://www.npmjs.com/package/canvas-confetti) | Animasi perayaan apabila RSVP dihantar                    |
+| **CI / CD**        | GitHub Actions                                                   | Linting & pembinaan automatik sebelum merge               |
+| **Hosting**        | [Vercel](https://vercel.com/)                                    | Edge & Serverless platform                                |
 
 ---
 
@@ -162,6 +162,7 @@ Anda **TIDAK PERLU** mengubah kod komponen untuk memperibadikan jemputan perkahw
 👉 **`config/wedding.ts`**
 
 Anda boleh menukar:
+
 - Nama penuh & panggilan pengantin lelaki dan perempuan.
 - Nama ibu bapa pengantin.
 - Tarikh majlis, tarikh Hijrah & waktu jamuan.
@@ -179,23 +180,28 @@ Anda boleh menukar:
 ## 🚀 Panduan Pemasangan Tempatan (Local Development)
 
 ### 1. Klon Repositori
+
 ```bash
 git clone https://github.com/username/jemputan-kahwin.git
 cd jemputan-kahwin
 ```
 
 ### 2. Pasang Dependensi
+
 ```bash
 npm install
 ```
 
 ### 3. Sediakan Pembolehubah Persekitaran (`.env.local`)
+
 Salin fail `.env.example` kepada `.env.local`:
+
 ```bash
 cp .env.example .env.local
 ```
 
 Isikan nilai mengikut keperluan anda:
+
 ```env
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
@@ -203,12 +209,14 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 ADMIN_PIN=123456
 ```
 
-> **Nota:** Sekiranya anda belum mempunyai akaun Supabase, aplikasi ini akan berjalan secara automatik dalam **Mod Demo Tempatan** (*In-Memory / LocalStorage*) supaya anda boleh menguji kesemua ciri tanpa sebarang ralat!
+> **Nota:** Sekiranya anda belum mempunyai akaun Supabase, aplikasi ini akan berjalan secara automatik dalam **Mod Demo Tempatan** (_In-Memory / LocalStorage_) supaya anda boleh menguji kesemua ciri tanpa sebarang ralat!
 
 ### 4. Jalankan Pelayan Pembangunan
+
 ```bash
 npm run dev
 ```
+
 Buka penyemak imbas anda di `http://localhost:3000`.
 
 ---
@@ -222,15 +230,16 @@ Buka penyemak imbas anda di `http://localhost:3000`.
    - Jadual `rsvp_submissions`
    - Jadual `guest_wishes`
    - Indeks pencarian pantas
-   - Polisi Keselamatan Peringkat Baris (*Row Level Security / RLS*)
+   - Polisi Keselamatan Peringkat Baris (_Row Level Security / RLS_)
    - Fungsi RPC penambahan tanda suka `increment_wish_like`
-5. Dapatkan **Project URL** dan **Anon Key** daripada *Project Settings -> API* dan masukkan ke dalam fail `.env.local` dan tetapan Vercel.
+5. Dapatkan **Project URL** dan **Anon Key** daripada _Project Settings -> API_ dan masukkan ke dalam fail `.env.local` dan tetapan Vercel.
 
 ---
 
 ## 🌐 Panduan Penempatan ke Vercel (Deployment)
 
 1. Tolak kod anda ke repositori **GitHub**:
+
    ```bash
    git add .
    git commit -m "feat: customize wedding invitation"

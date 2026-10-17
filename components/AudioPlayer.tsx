@@ -6,34 +6,33 @@ import { weddingConfig } from "@/config/wedding";
 
 export default function AudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Attempt auto-play on first user click anywhere on document
-    const handleFirstUserInteraction = () => {
-      if (!hasInteracted && audioRef.current && weddingConfig.music.enabled) {
+    const handleStartPlayback = () => {
+      if (audioRef.current && weddingConfig.music.enabled) {
         audioRef.current
           .play()
           .then(() => {
             setIsPlaying(true);
-            setHasInteracted(true);
           })
-          .catch(() => {
-            // Browser prevented autoplay, stay paused
+          .catch((err) => {
+            console.log("Audio autoplay prevented:", err);
           });
       }
     };
 
-    window.addEventListener("click", handleFirstUserInteraction, { once: true });
+    window.addEventListener("wedding:play_audio", handleStartPlayback);
+    window.addEventListener("click", handleStartPlayback, { once: true });
+
     return () => {
-      window.removeEventListener("click", handleFirstUserInteraction);
+      window.removeEventListener("wedding:play_audio", handleStartPlayback);
+      window.removeEventListener("click", handleStartPlayback);
     };
-  }, [hasInteracted]);
+  }, []);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
-    setHasInteracted(true);
 
     if (isPlaying) {
       audioRef.current.pause();

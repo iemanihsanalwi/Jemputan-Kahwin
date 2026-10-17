@@ -1,6 +1,33 @@
 import type { Metadata, Viewport } from "next";
+import { Playfair_Display, Plus_Jakarta_Sans, Amiri, Alex_Brush } from "next/font/google";
 import { weddingConfig } from "@/config/wedding";
 import "./globals.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta",
+  display: "swap",
+});
+
+const amiri = Amiri({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  variable: "--font-amiri",
+  display: "swap",
+});
+
+const alexBrush = Alex_Brush({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-alex-brush",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -92,7 +119,10 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="ms" className="scroll-smooth">
+    <html
+      lang="ms"
+      className={`${playfair.variable} ${plusJakarta.variable} ${amiri.variable} ${alexBrush.variable} scroll-smooth`}
+    >
       <head>
         <script
           type="application/ld+json"

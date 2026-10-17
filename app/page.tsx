@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import AudioPlayer from "@/components/AudioPlayer";
+import EnvelopeModal from "@/components/EnvelopeModal";
 import Hero from "@/components/Hero";
 import BrideGroom from "@/components/BrideGroom";
 import EventInfo from "@/components/EventInfo";
@@ -15,6 +16,9 @@ import Footer from "@/components/Footer";
 export default function HomePage() {
   return (
     <main className="relative min-h-screen">
+      {/* Royal "Buka Kad" Envelope Cover Gate */}
+      <EnvelopeModal />
+
       {/* Navigation Header & Floating Mobile Dock */}
       <Navbar />
 

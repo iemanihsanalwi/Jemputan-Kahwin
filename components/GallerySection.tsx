@@ -67,8 +67,17 @@ export default function GallerySection() {
         {gallery.map((photo, index) => (
           <div
             key={photo.id}
+            role="button"
+            tabIndex={0}
+            aria-label={`Buka paparan penuh gambar: ${photo.caption || index + 1}`}
             onClick={() => setActivePhotoIndex(index)}
-            className="group relative h-72 cursor-pointer overflow-hidden rounded-2xl border border-gold-200/60 bg-stone-100 shadow-sm transition-all duration-300 hover:shadow-card sm:h-80"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setActivePhotoIndex(index);
+              }
+            }}
+            className="group relative h-72 cursor-pointer overflow-hidden rounded-2xl border border-gold-200/60 bg-stone-100 shadow-sm transition-all duration-300 hover:shadow-card focus:outline-none focus:ring-2 focus:ring-gold-500 sm:h-80"
           >
             <Image
               src={photo.url}
@@ -94,12 +103,18 @@ export default function GallerySection() {
 
       {/* Lightbox Modal */}
       {activePhotoIndex !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Paparan gambar skrin penuh"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md"
+        >
           {/* Close Button */}
           <button
             onClick={handleClose}
+            autoFocus
             aria-label="Tutup Paparan"
-            className="absolute right-5 top-5 z-50 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 active:scale-95"
+            className="absolute right-5 top-5 z-50 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-gold-400 active:scale-95"
           >
             <X size={22} />
           </button>

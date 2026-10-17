@@ -95,3 +95,4 @@ VALUES
 ('Nurul Aina', 'Rakan Sekerja Pengantin Perempuan', 'Tahniah Farhana & Amirul! Cantik sangat kedua mempelai bagai pinang dibelah dua. Semoga berkekalan sampai anak cucu!', true, 8, NOW() - INTERVAL '1 day'),
 ('Ahmad Faizal & Isteri', 'Rakan Universiti Pengantin Lelaki', 'Congrats brother Amirul! Finally tied the knot! Semoga berbahagia dan dipermudahkan segala urusan majlis kelak.', true, 5, NOW() - INTERVAL '4 hours')
 ON CONFLICT DO NOTHING;
+

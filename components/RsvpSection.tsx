@@ -334,6 +334,7 @@ export default function RsvpSection() {
               type="text"
               name="honeypot"
               tabIndex={-1}
+              aria-hidden="true"
               autoComplete="off"
               value={formData.honeypot}
               onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}

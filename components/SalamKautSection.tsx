@@ -103,8 +103,8 @@ export default function SalamKautSection() {
 
                 <button
                   onClick={handleCopy}
-                  aria-label="Salin nombor akaun"
-                  className="rounded-lg border border-gold-300 bg-white p-2 text-gold-800 transition-colors hover:bg-gold-50 active:scale-95"
+                  aria-label="Salin nombor akaun bank"
+                  className="rounded-lg border border-gold-300 bg-white p-2 text-gold-800 transition-colors hover:bg-gold-50 focus:outline-none focus:ring-2 focus:ring-gold-500 active:scale-95"
                 >
                   {copied ? (
                     <Check size={16} className="text-emerald-600" />
@@ -115,7 +115,11 @@ export default function SalamKautSection() {
               </div>
 
               {copied && (
-                <p className="mt-1.5 flex items-center gap-1 text-xs font-medium text-emerald-600">
+                <p
+                  role="status"
+                  aria-live="polite"
+                  className="mt-1.5 flex items-center gap-1 text-xs font-medium text-emerald-700"
+                >
                   <Check size={12} />
                   <span>Nombor akaun berjaya disalin!</span>
                 </p>
