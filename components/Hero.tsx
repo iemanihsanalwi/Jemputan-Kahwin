@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import BismillahHeader from "@/components/art/BismillahHeader";
 import IslamicArchFrame from "@/components/art/IslamicArchFrame";
 import IslamicMonogramSeal from "@/components/art/IslamicMonogramSeal";
@@ -36,6 +36,7 @@ function HeroPersonalizedBadge() {
 }
 
 export default function Hero() {
+  const weddingConfig = useWeddingConfig();
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,

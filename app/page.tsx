@@ -15,75 +15,85 @@ import GallerySection from "@/components/GallerySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import { fetchWeddingConfig } from "@/lib/db";
+import { WeddingConfigProvider } from "@/context/WeddingConfigContext";
 
-export default function HomePage() {
+// Ensure real-time dynamic rendering so updates are immediately visible to guests
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+export default async function HomePage() {
+  const config = await fetchWeddingConfig();
+
   return (
-    <main className="relative min-h-screen">
-      {/* Moroccan / Islamic Zellij Geometric Background & Ambient Glow */}
-      <ZellijBackground />
+    <WeddingConfigProvider config={config}>
+      <main className="relative min-h-screen">
+        {/* Moroccan / Islamic Zellij Geometric Background & Ambient Glow */}
+        <ZellijBackground />
 
-      {/* Royal "Buka Kad" Envelope Cover Gate with Guest Personalization */}
-      <EnvelopeModal />
+        {/* Royal "Buka Kad" Envelope Cover Gate with Guest Personalization */}
+        <EnvelopeModal />
 
-      {/* Desktop & Mobile Top Header Navigation */}
-      <Navbar />
+        {/* Desktop & Mobile Top Header Navigation */}
+        <Navbar />
 
-      {/* Floating Music Player with Spinning Disc & Fade Transitions (Bottom Corner) */}
-      <AudioPlayer />
+        {/* Floating Music Player with Spinning Disc & Fade Transitions (Bottom Corner) */}
+        <AudioPlayer />
 
-      {/* Sticky Bottom Floating Quick-Action Dock (Mobile 4-Triggers) */}
-      <FloatingActionDock />
+        {/* Sticky Bottom Floating Quick-Action Dock (Mobile 4-Triggers) */}
+        <FloatingActionDock />
 
-      {/* 1. Hero Section & Live Countdown */}
-      <Hero />
+        {/* 1. Hero Section & Live Countdown */}
+        <Hero />
 
-      {/* 2. Bride & Groom Section & Doa Pengantin */}
-      <ScrollReveal>
-        <BrideGroom />
-      </ScrollReveal>
+        {/* 2. Bride & Groom Section & Doa Pengantin */}
+        <ScrollReveal>
+          <BrideGroom />
+        </ScrollReveal>
 
-      {/* 3. Event Information & Tentatif */}
-      <ScrollReveal>
-        <EventInfo />
-      </ScrollReveal>
+        {/* 3. Event Information & Tentatif */}
+        <ScrollReveal>
+          <EventInfo />
+        </ScrollReveal>
 
-      {/* 4. Location & Map Section */}
-      <ScrollReveal>
-        <LocationSection />
-      </ScrollReveal>
+        {/* 4. Location & Map Section */}
+        <ScrollReveal>
+          <LocationSection />
+        </ScrollReveal>
 
-      {/* 5. RSVP System Section */}
-      <ScrollReveal>
-        <RsvpSection />
-      </ScrollReveal>
+        {/* 5. RSVP System Section */}
+        <ScrollReveal>
+          <RsvpSection />
+        </ScrollReveal>
 
-      {/* 6. Guestbook & Wishes Section */}
-      <ScrollReveal>
-        <GuestbookSection />
-      </ScrollReveal>
+        {/* 6. Guestbook & Wishes Section */}
+        <ScrollReveal>
+          <GuestbookSection />
+        </ScrollReveal>
 
-      {/* 7. Gift Wishlist Section */}
-      <ScrollReveal>
-        <WishlistSection />
-      </ScrollReveal>
+        {/* 7. Gift Wishlist Section */}
+        <ScrollReveal>
+          <WishlistSection />
+        </ScrollReveal>
 
-      {/* 8. Salam Kaut / Digital Angpow Section */}
-      <ScrollReveal>
-        <SalamKautSection />
-      </ScrollReveal>
+        {/* 8. Salam Kaut / Digital Angpow Section */}
+        <ScrollReveal>
+          <SalamKautSection />
+        </ScrollReveal>
 
-      {/* 9. Islamic Calligraphic Art & Doa Collection */}
-      <ScrollReveal>
-        <GallerySection />
-      </ScrollReveal>
+        {/* 9. Islamic Calligraphic Art & Doa Collection */}
+        <ScrollReveal>
+          <GallerySection />
+        </ScrollReveal>
 
-      {/* 10. Contact Section */}
-      <ScrollReveal>
-        <ContactSection />
-      </ScrollReveal>
+        {/* 10. Contact Section */}
+        <ScrollReveal>
+          <ContactSection />
+        </ScrollReveal>
 
-      {/* 11. Footer */}
-      <Footer />
-    </main>
+        {/* 11. Footer */}
+        <Footer />
+      </main>
+    </WeddingConfigProvider>
   );
 }

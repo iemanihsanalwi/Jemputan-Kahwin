@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { RsvpSubmission, GuestWish } from "@/types/wedding";
-import { weddingConfig } from "@/config/wedding";
+import { weddingConfig as defaultWeddingConfig } from "@/config/wedding";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import { exportToCsv, formatMalayDate, formatTimeAgo } from "@/lib/utils";
 import {
   Lock,
@@ -22,6 +23,7 @@ import {
 import WeddingConfigEditor from "@/components/admin/WeddingConfigEditor";
 
 export default function AdminPage() {
+  const [config, setConfig] = useState(defaultWeddingConfig);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [pinInput, setPinInput] = useState("");
   const [pinError, setPinError] = useState("");
@@ -81,6 +83,18 @@ export default function AdminPage() {
   const fetchAdminData = async (pin: string) => {
     setLoading(true);
     try {
+      // Fetch dynamic wedding config
+      if (isSupabaseConfigured && supabase) {
+        const { data: supaConfig } = await supabase
+          .from("wedding_config")
+          .select("config")
+          .eq("id", 1)
+          .maybeSingle();
+        if (supaConfig?.config) {
+          setConfig(supaConfig.config);
+        }
+      }
+
       // Fetch RSVPs with admin header
       const resRsvp = await fetch("/api/rsvp", {
         headers: { "x-admin-pin": pin },
@@ -139,7 +153,7 @@ export default function AdminPage() {
     }));
 
     exportToCsv(
-      `RSVP-Walimatulurus-${weddingConfig.couple.groom.shortName}-${weddingConfig.couple.bride.shortName}.csv`,
+      `RSVP-Walimatulurus-${config.couple.groom.shortName}-${config.couple.bride.shortName}.csv`,
       exportRows
     );
   };
@@ -220,8 +234,8 @@ export default function AdminPage() {
                 Papan Pemuka Majlis
               </h1>
               <p className="text-[11px] text-stone-300">
-                {weddingConfig.couple.groom.shortName} &{" "}
-                {weddingConfig.couple.bride.shortName} • {weddingConfig.event.dateDisplay}
+                {config.couple.groom.shortName} &{" "}
+                {config.couple.bride.shortName} • {config.event.dateDisplay}
               </p>
             </div>
           </div>

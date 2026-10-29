@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import confetti from "canvas-confetti";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import ArabesqueCorner from "@/components/art/ArabesqueCorner";
 import FloralDivider from "@/components/art/FloralDivider";
 import {
@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 export default function RsvpSection() {
+  const weddingConfig = useWeddingConfig();
   const { rsvp } = weddingConfig;
 
   const [formData, setFormData] = useState({

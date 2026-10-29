@@ -1,5 +1,6 @@
-import { supabase, isSupabaseConfigured } from "./supabase";
-import { RsvpSubmission, GuestWish } from "@/types/wedding";
+import { supabase, isSupabaseConfigured, getServiceSupabase } from "./supabase";
+import { RsvpSubmission, GuestWish, WeddingConfig } from "@/types/wedding";
+import { weddingConfig as defaultWeddingConfig } from "@/config/wedding";
 
 // In-memory demo store for when Supabase is not configured
 let mockRsvps: RsvpSubmission[] = [
@@ -316,3 +317,71 @@ export async function likeWish(id: string): Promise<boolean> {
     return false;
   }
 }
+
+/**
+ * Fetch Dynamic Wedding Configuration from Supabase (id = 1)
+ * Gracefully falls back to local wedding.config.json if table or connection is unavailable.
+ */
+export async function fetchWeddingConfig(): Promise<WeddingConfig> {
+  try {
+    const client = getServiceSupabase() || supabase;
+    if (isSupabaseConfigured && client) {
+      const { data, error } = await client
+        .from("wedding_config")
+        .select("config")
+        .eq("id", 1)
+        .maybeSingle();
+
+      if (!error && data?.config) {
+        return data.config as WeddingConfig;
+      }
+      if (error && error.code !== "PGRST116") {
+        console.warn("Supabase wedding_config notice:", error.message);
+      }
+    }
+  } catch (err) {
+    console.warn("fetchWeddingConfig fallback to default:", err);
+  }
+  return defaultWeddingConfig;
+}
+
+/**
+ * Save / Upsert Wedding Configuration into Supabase (id = 1)
+ */
+export async function saveWeddingConfig(
+  newConfig: WeddingConfig
+): Promise<{ success: boolean; data?: WeddingConfig; error?: string }> {
+  try {
+    const client = getServiceSupabase() || supabase;
+    if (!isSupabaseConfigured || !client) {
+      return {
+        success: false,
+        error: "Pangkalan data Supabase belum dikonfigurasikan sepenuhnya.",
+      };
+    }
+
+    const { data, error } = await client
+      .from("wedding_config")
+      .upsert(
+        {
+          id: 1,
+          config: newConfig,
+          updated_at: new Date().toISOString(),
+        },
+        { onConflict: "id" }
+      )
+      .select()
+      .single();
+
+    if (error) {
+      console.error("Supabase wedding_config save error:", error);
+      return { success: false, error: error.message };
+    }
+
+    return { success: true, data: data.config as WeddingConfig };
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : "Ralat menyimpan konfigurasi.";
+    return { success: false, error: msg };
+  }
+}
+

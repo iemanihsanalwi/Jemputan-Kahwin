@@ -1,13 +1,14 @@
 "use client";
 
 import React from "react";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import { cleanPhoneNumber } from "@/lib/utils";
 import ArabesqueCorner from "@/components/art/ArabesqueCorner";
 import FloralDivider from "@/components/art/FloralDivider";
 import { Phone, MessageCircle } from "lucide-react";
 
 export default function ContactSection() {
+  const weddingConfig = useWeddingConfig();
   const { contacts, couple } = weddingConfig;
 
   return (

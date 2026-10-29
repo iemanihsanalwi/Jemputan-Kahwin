@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import ArabesqueCorner from "@/components/art/ArabesqueCorner";
 import FloralDivider from "@/components/art/FloralDivider";
 import { X, ChevronLeft, ChevronRight, Maximize2, BookOpen, Sparkles } from "lucide-react";
 
 export default function GallerySection() {
+  const weddingConfig = useWeddingConfig();
   const blessings = weddingConfig.blessings || [
     {
       id: "doa-1",

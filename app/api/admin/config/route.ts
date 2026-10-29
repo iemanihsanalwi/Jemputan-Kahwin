@@ -1,12 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { weddingConfig } from "@/config/wedding";
-import fs from "fs";
-import path from "path";
-
-const CONFIG_PATHS = [
-  path.join(process.cwd(), "src", "config", "wedding.config.json"),
-  path.join(process.cwd(), "config", "wedding.config.json"),
-];
+import { fetchWeddingConfig, saveWeddingConfig } from "@/lib/db";
+import { WeddingConfig } from "@/types/wedding";
 
 function verifyPin(req: NextRequest): boolean {
   const adminPin = req.headers.get("x-admin-pin");
@@ -16,58 +11,61 @@ function verifyPin(req: NextRequest): boolean {
 
 export async function GET(req: NextRequest) {
   if (!verifyPin(req)) {
-    return NextResponse.json({ success: false, error: "Tidak dibenarkan. PIN tidak sah." }, { status: 401 });
+    return NextResponse.json(
+      { success: false, error: "Tidak dibenarkan. PIN tidak sah." },
+      { status: 401 }
+    );
   }
 
   try {
-    for (const p of CONFIG_PATHS) {
-      if (fs.existsSync(p)) {
-        const content = fs.readFileSync(p, "utf-8");
-        return NextResponse.json({ success: true, data: JSON.parse(content) });
-      }
-    }
-
-    return NextResponse.json({ success: true, data: weddingConfig });
+    const config = await fetchWeddingConfig();
+    return NextResponse.json({ success: true, data: config });
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "Ralat membaca fail konfigurasi.";
+    const message =
+      err instanceof Error ? err.message : "Ralat membaca konfigurasi dari Supabase.";
     return NextResponse.json({ success: false, error: message }, { status: 500 });
   }
 }
 
 export async function POST(req: NextRequest) {
   if (!verifyPin(req)) {
-    return NextResponse.json({ success: false, error: "Tidak dibenarkan. PIN tidak sah." }, { status: 401 });
+    return NextResponse.json(
+      { success: false, error: "Tidak dibenarkan. PIN tidak sah." },
+      { status: 401 }
+    );
   }
 
   try {
-    const updatedConfig = await req.json();
+    const updatedConfig = (await req.json()) as WeddingConfig;
 
-    if (!updatedConfig || typeof updatedConfig !== "object" || !updatedConfig.couple || !updatedConfig.event) {
-      return NextResponse.json({ success: false, error: "Format konfigurasi tidak sah." }, { status: 400 });
+    if (
+      !updatedConfig ||
+      typeof updatedConfig !== "object" ||
+      !updatedConfig.couple ||
+      !updatedConfig.event
+    ) {
+      return NextResponse.json(
+        { success: false, error: "Format konfigurasi tidak sah." },
+        { status: 400 }
+      );
     }
 
-    const jsonString = JSON.stringify(updatedConfig, null, 2);
-
-    for (const p of CONFIG_PATHS) {
-      try {
-        const dir = path.dirname(p);
-        if (!fs.existsSync(dir)) {
-          fs.mkdirSync(dir, { recursive: true });
-        }
-        fs.writeFileSync(p, jsonString, "utf-8");
-      } catch (writeErr) {
-        console.error(`Error writing to ${p}:`, writeErr);
-      }
+    const result = await saveWeddingConfig(updatedConfig);
+    if (!result.success) {
+      return NextResponse.json(
+        { success: false, error: result.error || "Gagal menyimpan konfigurasi ke Supabase." },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({
       success: true,
-      message: "Konfigurasi berjaya disimpan dan dikemaskini!",
-      data: updatedConfig,
+      message: "Konfigurasi berjaya disimpan dan dikemaskini dalam pangkalan data Supabase!",
+      data: result.data,
     });
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "Ralat menyimpan konfigurasi.";
+    const message =
+      err instanceof Error ? err.message : "Ralat menyimpan konfigurasi.";
     return NextResponse.json({ success: false, error: message }, { status: 500 });
   }
 }
-

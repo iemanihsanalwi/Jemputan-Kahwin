@@ -8,6 +8,8 @@ const supabaseAnonKey =
   process.env.SUPABASE_PUBLISHABLE_KEY ||
   process.env.SUPABASE_ANON_KEY ||
   "";
+const supabaseServiceRoleKey =
+  process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY || "";
 
 // Check if Supabase is properly configured
 export const isSupabaseConfigured = Boolean(
@@ -18,5 +20,21 @@ export const isSupabaseConfigured = Boolean(
 );
 
 export const supabase = isSupabaseConfigured
-  ? createClient(supabaseUrl, supabaseAnonKey)
+  ? createClient(supabaseUrl, supabaseAnonKey, {
+      auth: {
+        persistSession: false,
+      },
+    })
   : null;
+
+// Server-side service role client (bypasses RLS for secure server handlers)
+export const getServiceSupabase = () => {
+  if (isSupabaseConfigured && supabaseServiceRoleKey) {
+    return createClient(supabaseUrl, supabaseServiceRoleKey, {
+      auth: {
+        persistSession: false,
+      },
+    });
+  }
+  return supabase;
+};

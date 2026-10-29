@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import ArabesqueCorner from "@/components/art/ArabesqueCorner";
 import FloralDivider from "@/components/art/FloralDivider";
 import {
@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 export default function WishlistSection() {
+  const weddingConfig = useWeddingConfig();
   const { wishlist } = weddingConfig;
   const [selectedCategory, setSelectedCategory] = useState<string>("Semua");
 

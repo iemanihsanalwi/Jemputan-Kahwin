@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import { createGoogleCalendarUrl, downloadIcsFile } from "@/lib/utils";
 import ArabesqueCorner from "@/components/art/ArabesqueCorner";
 import FloralDivider from "@/components/art/FloralDivider";
 import { Calendar, Clock, MapPin, CalendarPlus, Shirt, Check, Sparkles, Heart, UserCheck, Camera, CheckCircle } from "lucide-react";
 
 export default function EventInfo() {
+  const weddingConfig = useWeddingConfig();
   const { event, couple } = weddingConfig;
   const [downloadedIcs, setDownloadedIcs] = useState(false);
 

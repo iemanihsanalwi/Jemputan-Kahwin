@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import ArabesqueCorner from "@/components/art/ArabesqueCorner";
 import FloralDivider from "@/components/art/FloralDivider";
 import { CreditCard, Copy, Check, QrCode } from "lucide-react";
@@ -116,6 +116,7 @@ function DuitNowVectorQr({ accountName }: { accountName: string }) {
 }
 
 export default function SalamKautSection() {
+  const weddingConfig = useWeddingConfig();
   const { salamKaut } = weddingConfig;
   const [copied, setCopied] = useState(false);
 

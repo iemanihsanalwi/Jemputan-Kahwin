@@ -1,10 +1,13 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import FloralDivider from "@/components/art/FloralDivider";
 import { Heart, Lock } from "lucide-react";
 
 export default function Footer() {
+  const weddingConfig = useWeddingConfig();
   const { couple, event } = weddingConfig;
 
   return (

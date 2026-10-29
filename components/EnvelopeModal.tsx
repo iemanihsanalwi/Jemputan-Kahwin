@@ -2,13 +2,14 @@
 
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import BismillahHeader from "@/components/art/BismillahHeader";
 import IslamicMonogramSeal from "@/components/art/IslamicMonogramSeal";
 import ArabesqueCorner from "@/components/art/ArabesqueCorner";
 import { MailOpen, Music, Sparkles } from "lucide-react";
 
 function EnvelopeContent({ onOpen }: { onOpen: () => void }) {
+  const weddingConfig = useWeddingConfig();
   const searchParams = useSearchParams();
   const [guestName, setGuestName] = useState<string>("");
 

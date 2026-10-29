@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { WeddingConfig, EventScheduleItem, ContactPerson, WishlistItem } from "@/types/wedding";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import {
   Save,
   Download,
@@ -35,15 +36,37 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [copiedJson, setCopiedJson] = useState(false);
+  const [toast, setToast] = useState<{
+    show: boolean;
+    type: "success" | "error";
+    message: string;
+  }>({ show: false, type: "success", message: "" });
+
   const [activeSection, setActiveSection] = useState<
     "couple" | "event" | "venue" | "audio" | "schedule" | "rsvp_contacts" | "salamKaut" | "wishlist" | "seo"
   >("couple");
 
-  // Fetch configuration from API
+  // Fetch latest configuration from Supabase on initial render
   const fetchConfig = useCallback(async () => {
     setLoading(true);
     setErrorMessage(null);
     try {
+      // 1. Try directly fetching from Supabase wedding_config table (row id = 1)
+      if (isSupabaseConfigured && supabase) {
+        const { data: supaData, error: supaErr } = await supabase
+          .from("wedding_config")
+          .select("config")
+          .eq("id", 1)
+          .maybeSingle();
+
+        if (!supaErr && supaData?.config) {
+          setConfig(supaData.config as WeddingConfig);
+          setLoading(false);
+          return;
+        }
+      }
+
+      // 2. Fallback to API route (which also queries Supabase / local backup)
       const res = await fetch("/api/admin/config", {
         headers: { "x-admin-pin": pin },
       });
@@ -53,7 +76,9 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
       }
       setConfig(data.data);
     } catch (err) {
-      setErrorMessage(err instanceof Error ? err.message : "Ralat memuat turun tetapan.");
+      setErrorMessage(
+        err instanceof Error ? err.message : "Ralat memuat turun tetapan."
+      );
     } finally {
       setLoading(false);
     }
@@ -63,7 +88,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
     fetchConfig();
   }, [fetchConfig]);
 
-  // Save changes to server
+  // Save changes dynamically to Supabase
   const handleSave = async () => {
     if (!config) return;
     setSaving(true);
@@ -71,6 +96,29 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
     setSaveSuccess(false);
 
     try {
+      let savedDirectly = false;
+
+      // 1. Execute direct Supabase upsert (row id = 1)
+      if (isSupabaseConfigured && supabase) {
+        const { error: supaError } = await supabase
+          .from("wedding_config")
+          .upsert(
+            {
+              id: 1,
+              config: config,
+              updated_at: new Date().toISOString(),
+            },
+            { onConflict: "id" }
+          );
+
+        if (!supaError) {
+          savedDirectly = true;
+        } else {
+          console.warn("Direct Supabase save warning:", supaError.message);
+        }
+      }
+
+      // 2. Also execute save via server API route (for admin PIN authorization & fallback)
       const res = await fetch("/api/admin/config", {
         method: "POST",
         headers: {
@@ -82,13 +130,35 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
 
       const data = await res.json();
       if (!res.ok || !data.success) {
-        throw new Error(data.error || "Gagal menyimpan konfigurasi.");
+        if (!savedDirectly) {
+          throw new Error(data.error || "Gagal menyimpan konfigurasi ke Supabase.");
+        }
       }
 
+      // Trigger success state and live toast
       setSaveSuccess(true);
-      setTimeout(() => setSaveSuccess(false), 4000);
+      setToast({
+        show: true,
+        type: "success",
+        message: "Konfigurasi berjaya disimpan ke pangkalan data Supabase! Perubahan kini aktif serta-merta di laman web.",
+      });
+
+      setTimeout(() => {
+        setSaveSuccess(false);
+        setToast((prev) => ({ ...prev, show: false }));
+      }, 4500);
     } catch (err) {
-      setErrorMessage(err instanceof Error ? err.message : "Ralat semasa menyimpan.");
+      const errorMsg =
+        err instanceof Error ? err.message : "Ralat semasa menyimpan ke Supabase.";
+      setErrorMessage(errorMsg);
+      setToast({
+        show: true,
+        type: "error",
+        message: errorMsg,
+      });
+      setTimeout(() => {
+        setToast((prev) => ({ ...prev, show: false }));
+      }, 5000);
     } finally {
       setSaving(false);
     }
@@ -218,11 +288,43 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
         </div>
       </div>
 
-      {/* Notifications */}
+      {/* Floating Live Toast Notification (Visible anywhere on screen) */}
+      {toast.show && (
+        <div
+          role="status"
+          aria-live="polite"
+          className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-2xl px-5 py-3.5 shadow-2xl backdrop-blur-md transition-all duration-300 transform translate-y-0 ${
+            toast.type === "success"
+              ? "border border-emerald-400/80 bg-emerald-950/90 text-white shadow-emerald-900/30"
+              : "border border-rose-400/80 bg-rose-950/90 text-white shadow-rose-900/30"
+          }`}
+        >
+          {toast.type === "success" ? (
+            <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white">
+              <Check size={16} />
+            </div>
+          ) : (
+            <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-rose-500 text-white">
+              <AlertCircle size={16} />
+            </div>
+          )}
+          <div className="text-xs sm:text-sm font-medium pr-2">
+            {toast.message}
+          </div>
+          <button
+            onClick={() => setToast((prev) => ({ ...prev, show: false }))}
+            className="text-stone-300 hover:text-white text-xs opacity-70 hover:opacity-100 ml-2"
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
+      {/* Inline Notifications */}
       {saveSuccess && (
         <div className="flex items-center gap-2 rounded-2xl border border-emerald-300 bg-emerald-50 p-4 text-xs font-semibold text-emerald-800 animate-fadeIn">
           <Check size={16} className="text-emerald-600 flex-shrink-0" />
-          <span>Tetapan perkahwinan telah berjaya disimpan ke fail konfigurasi! Perubahan kini aktif di laman web.</span>
+          <span>Tetapan perkahwinan telah berjaya disimpan ke pangkalan data Supabase! Perubahan kini aktif serta-merta di laman web.</span>
         </div>
       )}
 

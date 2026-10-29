@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import {
   Heart,
   Calendar,
@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 
 export default function Navbar() {
+  const weddingConfig = useWeddingConfig();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 

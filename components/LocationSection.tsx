@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import ArabesqueCorner from "@/components/art/ArabesqueCorner";
 import FloralDivider from "@/components/art/FloralDivider";
 import { MapPin, Navigation, Copy, Check, Car, ExternalLink } from "lucide-react";
 
 export default function LocationSection() {
+  const weddingConfig = useWeddingConfig();
   const { event } = weddingConfig;
   const [copied, setCopied] = useState(false);
 

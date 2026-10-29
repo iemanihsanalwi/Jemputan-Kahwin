@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import IslamicMonogramSeal from "@/components/art/IslamicMonogramSeal";
 import ArabesqueCorner from "@/components/art/ArabesqueCorner";
 import FloralDivider from "@/components/art/FloralDivider";
 import { Instagram } from "lucide-react";
 
 export default function BrideGroom() {
+  const weddingConfig = useWeddingConfig();
   const { groom, bride } = weddingConfig.couple;
   const { quote, blessings } = weddingConfig;
   const [activeTab, setActiveTab] = useState<number>(0);

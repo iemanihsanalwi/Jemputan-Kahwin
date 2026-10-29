@@ -34,9 +34,37 @@ CREATE TABLE IF NOT EXISTS public.guest_wishes (
 -- Indexing for guest wishes
 CREATE INDEX IF NOT EXISTS idx_wishes_approved_created ON public.guest_wishes (is_approved, created_at DESC);
 
--- 3. Row Level Security (RLS) Configuration
+-- 3. Create Dynamic Wedding Configuration Table
+CREATE TABLE IF NOT EXISTS public.wedding_config (
+    id INTEGER PRIMARY KEY DEFAULT 1 CHECK (id = 1),
+    config JSONB NOT NULL,
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
+);
+
+-- 4. Row Level Security (RLS) Configuration
 ALTER TABLE public.rsvp_submissions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.guest_wishes ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.wedding_config ENABLE ROW LEVEL SECURITY;
+
+-- Wedding Config Policies
+DROP POLICY IF EXISTS "Allow public read access to wedding_config" ON public.wedding_config;
+CREATE POLICY "Allow public read access to wedding_config" 
+ON public.wedding_config 
+FOR SELECT 
+USING (true);
+
+DROP POLICY IF EXISTS "Allow insert to wedding_config" ON public.wedding_config;
+CREATE POLICY "Allow insert to wedding_config" 
+ON public.wedding_config 
+FOR INSERT 
+WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow update to wedding_config" ON public.wedding_config;
+CREATE POLICY "Allow update to wedding_config" 
+ON public.wedding_config 
+FOR UPDATE 
+USING (true)
+WITH CHECK (true);
 
 -- RSVP Policies
 -- Allow anyone to submit an RSVP (insert)

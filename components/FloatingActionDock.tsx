@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { weddingConfig } from "@/config/wedding";
+import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import { cleanPhoneNumber, createGoogleCalendarUrl, downloadIcsFile } from "@/lib/utils";
 import {
   MapPin,
@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 
 export default function FloatingActionDock() {
+  const weddingConfig = useWeddingConfig();
   const [activeModal, setActiveModal] = useState<"location" | "calendar" | "whatsapp" | null>(null);
   const [copiedAddress, setCopiedAddress] = useState(false);
   const [downloadedIcs, setDownloadedIcs] = useState(false);
