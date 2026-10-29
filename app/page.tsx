@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import AudioPlayer from "@/components/AudioPlayer";
 import EnvelopeModal from "@/components/EnvelopeModal";
 import FloatingActionDock from "@/components/FloatingActionDock";
-import ZellijBackground from "@/components/art/ZellijBackground";
+import BotanicalBackground from "@/components/art/BotanicalBackground";
 import Hero from "@/components/Hero";
 import BrideGroom from "@/components/BrideGroom";
 import EventInfo from "@/components/EventInfo";
@@ -28,10 +28,10 @@ export default async function HomePage() {
   return (
     <WeddingConfigProvider config={config}>
       <main className="relative min-h-screen">
-        {/* Moroccan / Islamic Zellij Geometric Background & Ambient Glow */}
-        <ZellijBackground />
+        {/* Code-Drawn Botanical Repeating Pattern, Soft Watercolor Wash & Drifting Petals */}
+        <BotanicalBackground />
 
-        {/* Royal "Buka Kad" Envelope Cover Gate with Guest Personalization */}
+        {/* Botanical "Buka Kad" Envelope Cover Gate with Guest Personalization */}
         <EnvelopeModal />
 
         {/* Desktop & Mobile Top Header Navigation */}
@@ -81,7 +81,7 @@ export default async function HomePage() {
           <SalamKautSection />
         </ScrollReveal>
 
-        {/* 9. Islamic Calligraphic Art & Doa Collection */}
+        {/* 9. Botanical Calligraphic Art & Doa Collection */}
         <ScrollReveal>
           <GallerySection />
         </ScrollReveal>

@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useWeddingConfig } from "@/context/WeddingConfigContext";
-import FloralDivider from "@/components/art/FloralDivider";
+import FloralSectionDivider from "@/components/art/FloralSectionDivider";
 import { Heart, Lock } from "lucide-react";
 
 export default function Footer() {
@@ -11,7 +11,7 @@ export default function Footer() {
   const { couple, event } = weddingConfig;
 
   return (
-    <footer className="relative overflow-hidden border-t border-gold-400/30 bg-[#091F18] pb-28 pt-16 text-center text-white md:pb-16 select-none">
+    <footer className="relative overflow-hidden border-t-2 border-gold-400/30 bg-[#183024] pb-28 pt-16 text-center text-white md:pb-16 select-none">
       {/* Decorative Gold Arch */}
       <div className="absolute left-1/2 top-0 h-1 w-96 -translate-x-1/2 bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
 
@@ -20,31 +20,31 @@ export default function Footer() {
           {couple.groom.shortName} &amp; {couple.bride.shortName}
         </h3>
 
-        <p className="mx-auto mb-4 max-w-lg font-serif text-sm italic text-stone-300 sm:text-base">
+        <p className="mx-auto mb-4 max-w-lg font-serif text-sm italic text-cream-100/90 sm:text-base">
           “Semoga Allah memberkati ikatan ini dan menghimpunkan kami berdua dalam kebaikan
           serta kebahagiaan hingga ke syurga.”
         </p>
 
-        <div className="mb-6 flex items-center justify-center gap-2 text-xs font-medium text-gold-400 sm:text-sm">
+        <div className="mb-6 flex items-center justify-center gap-2 text-xs font-medium text-gold-300/90 sm:text-sm">
           <span>{event.dateDisplay}</span>
           <span>•</span>
           <span>{event.venueName}</span>
         </div>
 
         <div className="flex justify-center mb-6">
-          <FloralDivider size="sm" />
+          <FloralSectionDivider size="sm" variant="gold" />
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 text-xs text-stone-400 sm:flex-row pt-4 border-t border-white/10">
+        <div className="flex flex-col items-center justify-between gap-4 text-xs text-olive-300 sm:flex-row pt-4 border-t border-white/10">
           <p className="flex items-center justify-center gap-1.5">
             <span>Dihasilkan dengan penuh kasih sayang</span>
-            <Heart size={14} className="fill-rose-500 text-rose-500" />
+            <Heart size={14} className="fill-blush-400 text-blush-400" />
             <span>untuk hari bahagia</span>
           </p>
 
           <Link
             href="/admin"
-            className="flex items-center gap-1.5 rounded-full border border-gold-400/20 bg-white/5 px-3 py-1.5 text-stone-400 transition-colors hover:border-gold-400/50 hover:bg-white/10 hover:text-gold-300"
+            className="flex items-center gap-1.5 rounded-full border border-gold-400/30 bg-white/5 px-4 py-1.5 text-olive-300 transition-colors hover:border-gold-400/60 hover:bg-white/10 hover:text-gold-200"
           >
             <Lock size={12} />
             <span>Log Masuk Urusetia (Admin)</span>

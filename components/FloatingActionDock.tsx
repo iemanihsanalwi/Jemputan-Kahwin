@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import { cleanPhoneNumber, createGoogleCalendarUrl, downloadIcsFile } from "@/lib/utils";
+import BotanicalIconBadge from "@/components/art/BotanicalIconBadge";
 import {
   MapPin,
   Calendar,
@@ -62,12 +63,12 @@ export default function FloatingActionDock() {
     <>
       {/* Floating Bottom Action Dock */}
       <div className="fixed bottom-4 left-4 right-4 z-40 max-w-md mx-auto select-none">
-        <div className="flex items-center justify-around rounded-full border border-gold-400/40 bg-emerald-950/95 px-4 py-2.5 shadow-2xl backdrop-blur-lg">
+        <div className="flex items-center justify-around rounded-full border-2 border-gold-400/50 bg-[#183024]/95 px-4 py-2.5 shadow-2xl backdrop-blur-lg">
           {/* 1. Location Trigger */}
           <button
             onClick={() => setActiveModal("location")}
             aria-label="Panduan Lokasi & Peta"
-            className="flex flex-col items-center gap-1 text-stone-300 transition-colors hover:text-gold-300 active:scale-95 px-2 py-1"
+            className="flex flex-col items-center gap-1 text-cream-200 transition-colors hover:text-gold-300 active:scale-95 px-2 py-1 cursor-pointer"
           >
             <MapPin size={18} className="text-gold-400" />
             <span className="text-[10px] font-medium tracking-wide">Lokasi</span>
@@ -77,20 +78,20 @@ export default function FloatingActionDock() {
           <button
             onClick={() => setActiveModal("calendar")}
             aria-label="Simpan Tarikh Majlis"
-            className="flex flex-col items-center gap-1 text-stone-300 transition-colors hover:text-gold-300 active:scale-95 px-2 py-1"
+            className="flex flex-col items-center gap-1 text-cream-200 transition-colors hover:text-gold-300 active:scale-95 px-2 py-1 cursor-pointer"
           >
             <Calendar size={18} className="text-gold-400" />
             <span className="text-[10px] font-medium tracking-wide">Kalendar</span>
           </button>
 
-          {/* 3. Primary RSVP Action (Central Highlight) */}
+          {/* 3. Primary RSVP Action (Central Highlight with Pill Contour) */}
           <a
             href="#rsvp"
             aria-label="Sahkan Kehadiran RSVP"
-            className="-mt-5 flex flex-col items-center justify-center rounded-full bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 p-3 font-bold text-white shadow-gold-glow ring-4 ring-emerald-950 transition-transform hover:scale-105 active:scale-95"
+            className="-mt-5 flex flex-col items-center justify-center rounded-full border-2 border-gold-300 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 p-3 font-bold text-white shadow-gold-glow ring-4 ring-[#183024] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
           >
-            <CheckCircle2 size={22} className="text-emerald-950" />
-            <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-950">
+            <CheckCircle2 size={22} className="text-sage-950" />
+            <span className="text-[9px] font-bold uppercase tracking-wider text-sage-950">
               RSVP
             </span>
           </a>
@@ -99,7 +100,7 @@ export default function FloatingActionDock() {
           <button
             onClick={() => setActiveModal("whatsapp")}
             aria-label="Hubungi Wakil Pengantin via WhatsApp"
-            className="flex flex-col items-center gap-1 text-stone-300 transition-colors hover:text-gold-300 active:scale-95 px-2 py-1"
+            className="flex flex-col items-center gap-1 text-cream-200 transition-colors hover:text-gold-300 active:scale-95 px-2 py-1 cursor-pointer"
           >
             <MessageCircle size={18} className="text-gold-400" />
             <span className="text-[10px] font-medium tracking-wide">WhatsApp</span>
@@ -112,20 +113,20 @@ export default function FloatingActionDock() {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-xs p-4 transition-all"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/65 backdrop-blur-xs p-4 transition-all"
           onClick={closeModal}
         >
           <div
-            className="relative w-full max-w-sm rounded-t-3xl sm:rounded-3xl border border-gold-300/60 bg-white p-6 shadow-2xl animate-in fade-in slide-in-from-bottom-6 duration-300"
+            className="relative w-full max-w-sm rounded-t-3xl sm:rounded-3xl border-2 border-gold-300/70 bg-white p-6 shadow-2xl animate-in fade-in slide-in-from-bottom-6 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Mobile Drag Indicator Bar */}
-            <div className="w-12 h-1.5 bg-stone-300 rounded-full mx-auto mb-4 sm:hidden" />
+            <div className="w-12 h-1.5 bg-olive-200 rounded-full mx-auto mb-4 sm:hidden" />
             {/* Close Button */}
             <button
               onClick={closeModal}
               aria-label="Tutup Pilihan"
-              className="absolute right-4 top-4 rounded-full bg-stone-100 p-1.5 text-stone-500 hover:bg-stone-200 transition-colors"
+              className="absolute right-4 top-4 rounded-full bg-cream-100 p-1.5 text-olive-600 hover:bg-cream-200 transition-colors cursor-pointer"
             >
               <X size={18} />
             </button>
@@ -133,14 +134,16 @@ export default function FloatingActionDock() {
             {/* Modal: Location Actions */}
             {activeModal === "location" && (
               <div className="space-y-4 text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-gold-100 text-gold-700">
-                  <MapPin size={24} />
+                <div className="mx-auto flex justify-center">
+                  <BotanicalIconBadge size="lg" variant="gold">
+                    <MapPin size={24} className="text-gold-700" />
+                  </BotanicalIconBadge>
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-emerald-950">
+                  <h3 className="font-serif text-lg font-bold text-sage-950">
                     Panduan Arah Majlis
                   </h3>
-                  <p className="mt-1 text-xs text-stone-600 line-clamp-2">
+                  <p className="mt-1 text-xs text-olive-600 line-clamp-2">
                     {event.venueName} — {event.venueAddress}
                   </p>
                 </div>
@@ -150,32 +153,32 @@ export default function FloatingActionDock() {
                     href={event.wazeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 rounded-xl bg-[#1f8ceb] px-4 py-3 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-[#1877cb] transition-colors"
+                    className="flex items-center justify-center gap-2 rounded-full bg-[#1f8ceb] px-4 py-3 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-[#1877cb] transition-colors cursor-pointer"
                   >
                     <Navigation size={16} />
                     <span>Pandu Dengan Waze</span>
-                    <ExternalLink size={13} className="opacity-70" />
+                    <ExternalLink size={13} className="opacity-75" />
                   </a>
 
                   <a
                     href={event.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 rounded-xl bg-[#ea4335] px-4 py-3 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-[#d33426] transition-colors"
+                    className="flex items-center justify-center gap-2 rounded-full bg-[#ea4335] px-4 py-3 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-[#d33426] transition-colors cursor-pointer"
                   >
                     <MapPin size={16} />
                     <span>Pandu Dengan Google Maps</span>
-                    <ExternalLink size={13} className="opacity-70" />
+                    <ExternalLink size={13} className="opacity-75" />
                   </a>
 
                   <button
                     onClick={handleCopyAddress}
-                    className="flex items-center justify-center gap-2 rounded-xl border border-gold-300 bg-champagne-50 px-4 py-2.5 text-xs font-semibold text-stone-800 hover:bg-gold-100 transition-colors"
+                    className="flex items-center justify-center gap-2 rounded-full border-2 border-gold-300 bg-cream-50 px-4 py-2.5 text-xs font-semibold text-olive-800 hover:border-gold-400 hover:bg-gold-50 transition-colors cursor-pointer"
                   >
                     {copiedAddress ? (
                       <>
-                        <Check size={15} className="text-emerald-600" />
-                        <span className="text-emerald-700">Alamat Penuh Tersalin!</span>
+                        <Check size={15} className="text-sage-600" />
+                        <span className="text-sage-700">Alamat Penuh Tersalin!</span>
                       </>
                     ) : (
                       <>
@@ -191,14 +194,16 @@ export default function FloatingActionDock() {
             {/* Modal: Calendar Actions */}
             {activeModal === "calendar" && (
               <div className="space-y-4 text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-gold-100 text-gold-700">
-                  <Calendar size={24} />
+                <div className="mx-auto flex justify-center">
+                  <BotanicalIconBadge size="lg" variant="gold">
+                    <Calendar size={24} className="text-gold-700" />
+                  </BotanicalIconBadge>
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-emerald-950">
+                  <h3 className="font-serif text-lg font-bold text-sage-950">
                     Simpan Tarikh Majlis
                   </h3>
-                  <p className="mt-1 text-xs text-stone-600">
+                  <p className="mt-1 text-xs text-olive-600">
                     {event.dateDisplay} • {event.receptionTime}
                   </p>
                 </div>
@@ -206,7 +211,7 @@ export default function FloatingActionDock() {
                 <div className="grid grid-cols-1 gap-2.5 pt-2">
                   <button
                     onClick={handleGoogleCalendar}
-                    className="flex items-center justify-center gap-2 rounded-xl bg-emerald-900 px-4 py-3 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-emerald-850 transition-colors"
+                    className="flex items-center justify-center gap-2 rounded-full border border-sage-700 bg-sage-800 px-4 py-3 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-sage-700 transition-colors cursor-pointer"
                   >
                     <CalendarPlus size={16} />
                     <span>Simpan ke Google Calendar</span>
@@ -214,12 +219,12 @@ export default function FloatingActionDock() {
 
                   <button
                     onClick={handleIcsDownload}
-                    className="flex items-center justify-center gap-2 rounded-xl border border-gold-300 bg-white px-4 py-3 text-xs sm:text-sm font-semibold text-stone-800 hover:bg-gold-50 transition-colors"
+                    className="flex items-center justify-center gap-2 rounded-full border-2 border-gold-300 bg-white px-4 py-3 text-xs sm:text-sm font-semibold text-olive-800 hover:border-gold-400 hover:bg-gold-50 transition-colors cursor-pointer"
                   >
                     {downloadedIcs ? (
                       <>
-                        <Check size={16} className="text-emerald-600" />
-                        <span className="text-emerald-700">Fail Kalendar Dimuat Turun!</span>
+                        <Check size={16} className="text-sage-600" />
+                        <span className="text-sage-700">Fail Kalendar Dimuat Turun!</span>
                       </>
                     ) : (
                       <>
@@ -235,14 +240,16 @@ export default function FloatingActionDock() {
             {/* Modal: WhatsApp Salam Contacts */}
             {activeModal === "whatsapp" && (
               <div className="space-y-4 text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
-                  <MessageCircle size={24} />
+                <div className="mx-auto flex justify-center">
+                  <BotanicalIconBadge size="lg" variant="sage">
+                    <MessageCircle size={24} className="text-sage-700" />
+                  </BotanicalIconBadge>
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-emerald-950">
-                    WhatsApp Salam & Pertanyaan
+                  <h3 className="font-serif text-lg font-bold text-sage-950">
+                    WhatsApp Salam &amp; Pertanyaan
                   </h3>
-                  <p className="mt-1 text-xs text-stone-600">
+                  <p className="mt-1 text-xs text-olive-600">
                     Pilih wakil keluarga untuk menghantar ucapan atau pertanyaan:
                   </p>
                 </div>
@@ -258,10 +265,10 @@ export default function FloatingActionDock() {
                     return (
                       <div
                         key={idx}
-                        className="flex items-center justify-between rounded-xl border border-gold-200/80 bg-champagne-50/70 p-3 hover:border-gold-400 transition-colors"
+                        className="flex items-center justify-between rounded-2xl border border-gold-200/80 bg-cream-50/70 p-3 hover:border-gold-400 transition-colors"
                       >
                         <div>
-                          <p className="font-serif text-xs font-bold text-emerald-950">
+                          <p className="font-serif text-xs font-bold text-sage-950">
                             {contact.name}
                           </p>
                           <span className="text-[10px] text-gold-700 font-medium">
@@ -274,14 +281,14 @@ export default function FloatingActionDock() {
                             href={waUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 rounded-lg bg-emerald-600 px-3 py-1.5 text-[11px] font-semibold text-white shadow-xs hover:bg-emerald-700 transition-colors"
+                            className="flex items-center gap-1 rounded-full bg-sage-700 px-3 py-1.5 text-[11px] font-semibold text-white shadow-xs hover:bg-sage-600 transition-colors"
                           >
                             <MessageCircle size={13} />
                             <span>WhatsApp</span>
                           </a>
                           <a
                             href={`tel:${rawPhone}`}
-                            className="flex items-center rounded-lg border border-stone-200 bg-white p-1.5 text-stone-600 hover:text-emerald-700"
+                            className="flex items-center rounded-full border border-olive-200 bg-white p-1.5 text-olive-600 hover:text-sage-700"
                             title="Panggilan Telefon"
                           >
                             <Phone size={13} />
@@ -299,4 +306,3 @@ export default function FloatingActionDock() {
     </>
   );
 }
-

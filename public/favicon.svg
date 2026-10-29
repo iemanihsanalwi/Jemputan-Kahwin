@@ -1,79 +1,93 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
-    <!-- Royal Metallic Gold Gradient -->
+    <!-- Warm Antique Gold Gradient -->
     <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFF5C0"/>
-      <stop offset="20%" stop-color="#F3DC84"/>
-      <stop offset="45%" stop-color="#D4AF37"/>
-      <stop offset="70%" stop-color="#AA7C11"/>
-      <stop offset="100%" stop-color="#7A5716"/>
+      <stop offset="0%" stop-color="#FAF7EE"/>
+      <stop offset="25%" stop-color="#D4AF37"/>
+      <stop offset="55%" stop-color="#C5A059"/>
+      <stop offset="85%" stop-color="#D8A49B"/>
+      <stop offset="100%" stop-color="#86652C"/>
     </linearGradient>
 
-    <!-- Subtle Shimmer Gold Gradient -->
-    <linearGradient id="shimmerGrad" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FFEAA7"/>
-      <stop offset="50%" stop-color="#DFB743"/>
-      <stop offset="100%" stop-color="#936D19"/>
+    <!-- Soft Petal Rose Gradient -->
+    <linearGradient id="petalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF7F2"/>
+      <stop offset="50%" stop-color="#E8C5BE"/>
+      <stop offset="100%" stop-color="#C5A059"/>
     </linearGradient>
 
-    <!-- Deep Royal Emerald Radial Gradient -->
-    <radialGradient id="emeraldBg" cx="50%" cy="46%" r="65%">
-      <stop offset="0%" stop-color="#144634"/>
-      <stop offset="55%" stop-color="#091F18"/>
-      <stop offset="100%" stop-color="#04120E"/>
+    <!-- Deep Botanical Sage Background -->
+    <radialGradient id="sageBg" cx="50%" cy="46%" r="65%">
+      <stop offset="0%" stop-color="#2D5A43"/>
+      <stop offset="60%" stop-color="#183024"/>
+      <stop offset="100%" stop-color="#0C1913"/>
     </radialGradient>
 
     <!-- Ambient Gold Glow Filter -->
     <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
       <feComposite in="SourceGraphic" in2="blur" operator="over"/>
     </filter>
   </defs>
 
   <!-- Luxurious Rounded App Icon Container -->
-  <rect width="512" height="512" rx="112" fill="url(#emeraldBg)"/>
+  <rect width="512" height="512" rx="112" fill="url(#sageBg)"/>
 
-  <!-- Ornate Filigree Border System -->
-  <rect x="22" y="22" width="468" height="468" rx="94" fill="none" stroke="url(#goldGrad)" stroke-width="3.5" opacity="0.6"/>
-  <rect x="34" y="34" width="444" height="444" rx="82" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.45"/>
+  <!-- Botanical Filigree Border System -->
+  <rect x="22" y="22" width="468" height="468" rx="94" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.6"/>
+  <rect x="34" y="34" width="444" height="444" rx="82" fill="none" stroke="url(#goldGrad)" stroke-width="1.2" stroke-dasharray="6 4" opacity="0.4"/>
 
-  <!-- Islamic Pointed Arch Motif (Gerbang Mahligai Impian) -->
-  <path d="M 120 420 L 120 248 C 120 176 182 128 256 68 C 330 128 392 176 392 248 L 392 420" 
-        fill="none" stroke="url(#goldGrad)" stroke-width="8" stroke-linecap="round"/>
-  <path d="M 140 420 L 140 254 C 140 196 190 148 256 98 C 322 148 372 196 372 254 L 372 420" 
-        fill="none" stroke="url(#shimmerGrad)" stroke-width="2.5" opacity="0.8"/>
+  <!-- Botanical Circular Vine Wreath -->
+  <circle cx="256" cy="256" r="170" fill="none" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="182" fill="none" stroke="url(#goldGrad)" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.5"/>
 
-  <!-- Arch Apex Finial & Star -->
-  <path d="M 256 46 C 248 58 248 64 256 70 C 264 64 264 58 256 46 Z" fill="url(#goldGrad)"/>
-  <circle cx="256" cy="40" r="5" fill="url(#goldGrad)"/>
-
-  <!-- Islamic 8-Pointed Star (Khatam Rub' al-Hizb) -->
-  <g transform="translate(256, 168) scale(1.35)">
-    <rect x="-10" y="-10" width="20" height="20" fill="url(#goldGrad)" opacity="0.95"/>
-    <rect x="-10" y="-10" width="20" height="20" fill="url(#goldGrad)" opacity="0.95" transform="rotate(45)"/>
-    <circle cx="0" cy="0" r="4.5" fill="#091F18"/>
+  <!-- Left Olive Leaf Branch -->
+  <g stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 256 426 C 160 426, 86 352, 86 256 C 86 166, 154 90, 246 86" fill="none"/>
+    <path d="M 120 340 C 100 336, 92 356, 108 364 Z" fill="url(#petalGrad)"/>
+    <path d="M 94 280 C 74 272, 70 292, 86 300 Z" fill="url(#petalGrad)"/>
+    <path d="M 94 232 C 74 240, 70 220, 86 212 Z" fill="url(#petalGrad)"/>
+    <path d="M 120 172 C 100 176, 96 156, 112 148 Z" fill="url(#petalGrad)"/>
+    <path d="M 180 114 C 172 94, 192 90, 196 110 Z" fill="url(#petalGrad)"/>
   </g>
 
-  <!-- Interlocking Gold Rings (3D Weave) -->
-  <!-- Left Ring -->
-  <circle cx="226" cy="298" r="62" fill="none" stroke="url(#goldGrad)" stroke-width="11" filter="url(#goldGlow)"/>
-  <!-- Right Ring -->
-  <circle cx="286" cy="298" r="62" fill="none" stroke="url(#goldGrad)" stroke-width="11" filter="url(#goldGlow)"/>
+  <!-- Right Olive Leaf Branch -->
+  <g stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 256 426 C 352 426, 426 352, 426 256 C 426 166, 358 90, 266 86" fill="none"/>
+    <path d="M 392 340 C 412 336, 420 356, 404 364 Z" fill="url(#petalGrad)"/>
+    <path d="M 418 280 C 438 272, 442 292, 426 300 Z" fill="url(#petalGrad)"/>
+    <path d="M 418 232 C 438 240, 442 220, 426 212 Z" fill="url(#petalGrad)"/>
+    <path d="M 392 172 C 412 176, 416 156, 400 148 Z" fill="url(#petalGrad)"/>
+    <path d="M 332 114 C 340 94, 320 90, 316 110 Z" fill="url(#petalGrad)"/>
+  </g>
 
-  <!-- Interlock Overlay (creates true intertwining depth) -->
-  <path d="M 242 246 A 62 62 0 0 1 282 298" fill="none" stroke="url(#goldGrad)" stroke-width="11"/>
+  <!-- Apex Jasmine Blossom -->
+  <g transform="translate(256, 86)">
+    <circle cx="0" cy="0" r="4" fill="url(#goldGrad)"/>
+    <path d="M 0 0 C -4 -12, 4 -12, 0 0 Z" fill="url(#petalGrad)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <path d="M 0 0 C 12 -4, 12 4, 0 0 Z" fill="url(#petalGrad)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <path d="M 0 0 C -12 4, -12 -4, 0 0 Z" fill="url(#petalGrad)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+  </g>
 
-  <!-- Sparkling Solitaire Diamond on Bride Ring -->
-  <polygon points="256,218 265,230 256,242 247,230" fill="url(#goldGrad)"/>
-  <polygon points="256,220 263,230 256,240 249,230" fill="#FFFFFF" opacity="0.95"/>
-  <circle cx="256" cy="230" r="2.5" fill="#FFF7CC"/>
+  <!-- Base Jasmine Blossom -->
+  <g transform="translate(256, 426)">
+    <circle cx="0" cy="0" r="4" fill="url(#goldGrad)"/>
+    <path d="M 0 0 C -4 12, 4 12, 0 0 Z" fill="url(#petalGrad)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <path d="M 0 0 C 12 -4, 12 4, 0 0 Z" fill="url(#petalGrad)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <path d="M 0 0 C -12 4, -12 -4, 0 0 Z" fill="url(#petalGrad)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+  </g>
 
-  <!-- Floral Arabesque Leaves & Flourishes at Arch Base -->
-  <path d="M 166 384 C 188 372 202 394 212 410 C 200 412 184 404 166 384 Z" fill="url(#goldGrad)" opacity="0.9"/>
-  <path d="M 144 400 C 162 396 174 410 180 422 C 166 424 152 415 144 400 Z" fill="url(#goldGrad)" opacity="0.85"/>
-  <path d="M 346 384 C 324 372 310 394 300 410 C 312 412 328 404 346 384 Z" fill="url(#goldGrad)" opacity="0.9"/>
-  <path d="M 368 400 C 350 396 338 410 332 422 C 346 424 360 415 368 400 Z" fill="url(#goldGrad)" opacity="0.85"/>
+  <!-- Interlocking Gold Rings Centerpiece -->
+  <!-- Left Groom Ring -->
+  <circle cx="226" cy="256" r="56" fill="none" stroke="url(#goldGrad)" stroke-width="9" filter="url(#goldGlow)"/>
+  <!-- Right Bride Ring -->
+  <circle cx="286" cy="256" r="56" fill="none" stroke="url(#goldGrad)" stroke-width="9" filter="url(#goldGlow)"/>
 
-  <!-- Base Ground Foundation Bar -->
-  <line x1="96" y1="422" x2="416" y2="422" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Interlock Overlap -->
+  <path d="M 242 208 A 56 56 0 0 1 282 256" fill="none" stroke="url(#goldGrad)" stroke-width="9"/>
+
+  <!-- Solitaire Diamond on Bride Ring -->
+  <polygon points="286,190 294,200 286,210 278,200" fill="url(#goldGrad)"/>
+  <polygon points="286,192 292,200 286,208 280,200" fill="#FFFFFF" opacity="0.95"/>
+  <circle cx="286" cy="200" r="2.5" fill="#FFF7CC"/>
 </svg>

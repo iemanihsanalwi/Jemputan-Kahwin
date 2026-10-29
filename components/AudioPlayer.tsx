@@ -103,7 +103,7 @@ export default function AudioPlayer() {
 
       <div className="group relative flex items-center">
         {/* Floating Tooltip with Track & Status Info */}
-        <div className="pointer-events-none absolute bottom-full right-0 mb-3 hidden items-center gap-2.5 whitespace-nowrap rounded-2xl border border-gold-300/40 bg-emerald-950/95 px-4 py-2.5 text-xs text-white shadow-2xl backdrop-blur-md transition-all group-hover:flex">
+        <div className="pointer-events-none absolute bottom-full right-0 mb-3 hidden items-center gap-2.5 whitespace-nowrap rounded-2xl border border-gold-300/40 bg-sage-950/95 px-4 py-2.5 text-xs text-white shadow-2xl backdrop-blur-md transition-all group-hover:flex">
           <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gold-500/20 text-gold-400">
             {isPlaying ? (
               <Volume2 size={15} className="animate-pulse" />
@@ -119,7 +119,7 @@ export default function AudioPlayer() {
               {audioConfig?.title || "Instrumental Melayu Asli"}
             </span>
             {audioConfig?.artist && (
-              <span className="text-[10px] text-stone-300">
+              <span className="text-[10px] text-cream-200">
                 {audioConfig.artist}
               </span>
             )}
@@ -130,10 +130,10 @@ export default function AudioPlayer() {
         <button
           onClick={togglePlay}
           aria-label={isPlaying ? "Jeda Muzik Latar (Pause)" : "Mainkan Muzik Latar (Play)"}
-          className={`relative flex items-center gap-2.5 rounded-full p-2.5 sm:p-3 shadow-gold transition-all duration-300 focus:outline-none ${
+          className={`relative flex items-center gap-2.5 rounded-full p-2.5 sm:p-3 shadow-gold transition-all duration-300 focus:outline-none cursor-pointer ${
             isPlaying
-              ? "scale-105 bg-gradient-to-tr from-emerald-950 via-emerald-900 to-emerald-950 text-gold-300 border-2 border-gold-400 shadow-gold-glow"
-              : "border border-gold-300/80 bg-white/95 text-stone-700 backdrop-blur-md hover:border-gold-500 hover:text-gold-600 hover:scale-105"
+              ? "scale-105 bg-gradient-to-tr from-sage-950 via-sage-900 to-sage-950 text-gold-300 border-2 border-gold-400 shadow-gold-glow"
+              : "border-2 border-gold-300/80 bg-white/95 text-olive-700 backdrop-blur-md hover:border-gold-500 hover:text-gold-600 hover:scale-105"
           }`}
         >
           {/* Pulsating Sound Wave Ring Ripple (GPU accelerated) */}
@@ -150,7 +150,7 @@ export default function AudioPlayer() {
                 <span className="absolute h-2.5 w-2.5 rounded-full bg-gold-200 shadow-inner" />
               </>
             ) : (
-              <VolumeX size={22} className="text-stone-500" />
+              <VolumeX size={22} className="text-olive-500" />
             )}
           </div>
 
@@ -158,8 +158,8 @@ export default function AudioPlayer() {
           {isPlaying && (
             <div className="flex items-end gap-1 px-1 h-4">
               <span className="w-1 bg-gold-400 rounded-full animate-[soundWave_0.8s_ease-in-out_infinite]" style={{ height: "60%" }} />
-              <span className="w-1 bg-gold-300 rounded-full animate-[soundWave_1.1s_ease-in-out_infinite]" style={{ height: "100%", animationDelay: "0.2s" }} />
-              <span className="w-1 bg-gold-400 rounded-full animate-[soundWave_0.9s_ease-in-out_infinite]" style={{ height: "80%", animationDelay: "0.4s" }} />
+              <span className="w-1 bg-blush-300 rounded-full animate-[soundWave_1.1s_ease-in-out_infinite]" style={{ height: "100%", animationDelay: "0.2s" }} />
+              <span className="w-1 bg-gold-300 rounded-full animate-[soundWave_0.9s_ease-in-out_infinite]" style={{ height: "80%", animationDelay: "0.4s" }} />
               <span className="w-1 bg-gold-200 rounded-full animate-[soundWave_1.2s_ease-in-out_infinite]" style={{ height: "45%", animationDelay: "0.1s" }} />
             </div>
           )}

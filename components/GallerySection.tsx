@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { useWeddingConfig } from "@/context/WeddingConfigContext";
-import ArabesqueCorner from "@/components/art/ArabesqueCorner";
-import FloralDivider from "@/components/art/FloralDivider";
+import BotanicalCornerFlourish from "@/components/art/BotanicalCornerFlourish";
+import FloralSectionDivider from "@/components/art/FloralSectionDivider";
+import BotanicalIconBadge from "@/components/art/BotanicalIconBadge";
 import { X, ChevronLeft, ChevronRight, Maximize2, BookOpen, Sparkles } from "lucide-react";
 
 export default function GallerySection() {
@@ -62,11 +63,11 @@ export default function GallerySection() {
         <span className="mb-2 block text-xs font-semibold uppercase tracking-widest text-gold-700">
           Titipan Barakah
         </span>
-        <h2 className="mb-3 font-serif text-3xl font-bold text-emerald-950 sm:text-4xl md:text-5xl">
-          Koleksi Doa & Seni Khat Mempelai
+        <h2 className="mb-3 font-serif text-3xl font-bold text-sage-950 sm:text-4xl md:text-5xl">
+          Koleksi Doa &amp; Seni Khat Mempelai
         </h2>
-        <FloralDivider size="md" />
-        <p className="mx-auto max-w-md text-xs text-stone-600 sm:text-sm">
+        <FloralSectionDivider size="md" />
+        <p className="mx-auto max-w-md text-xs text-olive-600 sm:text-sm">
           Alunan doa dan ayat-ayat suci yang mengiringi ikatan mahabbah kedua mempelai hingga ke jannah.
         </p>
       </div>
@@ -86,29 +87,31 @@ export default function GallerySection() {
                 setActiveIndex(index);
               }
             }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-gold-300/80 bg-gradient-to-b from-white via-champagne-50/50 to-white p-7 shadow-sm transition-all duration-300 hover:border-gold-500 hover:shadow-gold focus:outline-none focus:ring-2 focus:ring-gold-500 cursor-pointer min-h-[300px]"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border-2 border-gold-300/80 bg-gradient-to-b from-white via-cream-50/50 to-white p-7 shadow-sm transition-all duration-300 hover:border-gold-500 hover:shadow-gold focus:outline-none focus:ring-2 focus:ring-gold-500 cursor-pointer min-h-[300px]"
           >
-            <ArabesqueCorner position="all" size={34} />
+            <BotanicalCornerFlourish position="all" size={34} variant="gold" />
 
             <div className="relative z-10 flex flex-col items-center text-center">
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-gold-100 text-gold-700">
-                <BookOpen size={18} />
+              <div className="mb-4">
+                <BotanicalIconBadge size="md" variant="gold">
+                  <BookOpen size={18} className="text-gold-700" />
+                </BotanicalIconBadge>
               </div>
 
               {/* Arabic Calligraphy Typography */}
-              <p className="dir-rtl mb-4 font-arabic text-xl sm:text-2xl leading-loose text-emerald-950 transition-colors group-hover:text-gold-900">
+              <p className="dir-rtl mb-4 font-arabic text-xl sm:text-2xl leading-loose text-sage-950 transition-colors group-hover:text-gold-900">
                 {item.arabic}
               </p>
 
               {/* Malay Translation */}
-              <p className="mb-3 font-serif text-xs italic leading-relaxed text-stone-600 line-clamp-3">
+              <p className="mb-3 font-serif text-xs italic leading-relaxed text-olive-700 line-clamp-3">
                 {item.translation}
               </p>
             </div>
 
             <div className="relative z-10 pt-4 border-t border-gold-200/60 flex items-center justify-between text-gold-800 text-[11px] font-semibold">
               <span className="truncate">{item.source}</span>
-              <Maximize2 size={14} className="opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+              <Maximize2 size={14} className="opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all text-gold-700" />
             </div>
           </div>
         ))}
@@ -127,7 +130,7 @@ export default function GallerySection() {
             onClick={handleClose}
             autoFocus
             aria-label="Tutup Paparan"
-            className="absolute right-5 top-5 z-50 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-gold-400 active:scale-95"
+            className="absolute right-5 top-5 z-50 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-gold-400 active:scale-95 cursor-pointer"
           >
             <X size={22} />
           </button>
@@ -139,17 +142,17 @@ export default function GallerySection() {
               handlePrev();
             }}
             aria-label="Doa Sebelumnya"
-            className="absolute left-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 active:scale-95"
+            className="absolute left-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 active:scale-95 cursor-pointer"
           >
             <ChevronLeft size={26} />
           </button>
 
-          {/* Main Modal Calligraphic Art Card */}
+          {/* Main Modal Calligraphic Art Card with Botanical Velvet Finish */}
           <div
-            className="relative w-full max-w-2xl rounded-3xl border border-gold-400/80 bg-gradient-to-b from-[#091F18] via-[#0c2a21] to-[#091F18] p-8 sm:p-12 text-center text-white shadow-2xl"
+            className="relative w-full max-w-2xl rounded-3xl border-2 border-gold-400/80 bg-gradient-to-b from-[#183024] via-[#234534] to-[#183024] p-8 sm:p-12 text-center text-white shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <ArabesqueCorner position="all" size={48} />
+            <BotanicalCornerFlourish position="all" size={48} variant="gold" />
 
             <div className="mb-6 flex justify-center">
               <Sparkles size={24} className="text-gold-400 animate-float-slow" />
@@ -159,17 +162,17 @@ export default function GallerySection() {
               {blessings[activeIndex].arabic}
             </p>
 
-            <FloralDivider size="md" className="my-4" />
+            <FloralSectionDivider size="md" className="my-4" />
 
-            <p className="mx-auto mb-6 max-w-lg font-serif text-sm sm:text-base italic leading-relaxed text-stone-200">
+            <p className="mx-auto mb-6 max-w-lg font-serif text-sm sm:text-base italic leading-relaxed text-cream-100">
               {blessings[activeIndex].translation}
             </p>
 
-            <span className="inline-block rounded-full border border-gold-400/40 bg-gold-900/60 px-4 py-1 text-xs font-semibold tracking-widest text-gold-300">
+            <span className="inline-block rounded-full border border-gold-400/40 bg-gold-900/60 px-5 py-1.5 text-xs font-semibold tracking-widest text-gold-300">
               — {blessings[activeIndex].source} —
             </span>
 
-            <div className="mt-6 text-[11px] text-stone-400">
+            <div className="mt-6 text-[11px] text-olive-300">
               {activeIndex + 1} daripada {blessings.length}
             </div>
           </div>
@@ -181,7 +184,7 @@ export default function GallerySection() {
               handleNext();
             }}
             aria-label="Doa Seterusnya"
-            className="absolute right-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 active:scale-95"
+            className="absolute right-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 active:scale-95 cursor-pointer"
           >
             <ChevronRight size={26} />
           </button>
