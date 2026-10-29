@@ -2,6 +2,9 @@
 
 import React, { useState } from "react";
 import confetti from "canvas-confetti";
+import { weddingConfig } from "@/config/wedding";
+import ArabesqueCorner from "@/components/art/ArabesqueCorner";
+import FloralDivider from "@/components/art/FloralDivider";
 import {
   CheckCircle2,
   XCircle,
@@ -11,10 +14,11 @@ import {
   MessageSquare,
   Send,
   Loader2,
-  CalendarCheck,
 } from "lucide-react";
 
 export default function RsvpSection() {
+  const { rsvp } = weddingConfig;
+
   const [formData, setFormData] = useState({
     guest_name: "",
     phone_number: "",
@@ -28,6 +32,9 @@ export default function RsvpSection() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState<typeof formData | null>(null);
+
+  const maxPax = rsvp?.maxPaxPerGuest || 5;
+  const paxOptions = Array.from({ length: maxPax }, (_, i) => i + 1);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,6 +88,18 @@ export default function RsvpSection() {
     setSubmittedData(null);
   };
 
+  if (rsvp?.enabled === false) {
+    return (
+      <section id="rsvp" className="mx-auto max-w-4xl px-4 py-20 sm:px-6">
+        <div className="relative overflow-hidden rounded-3xl border border-gold-300/80 bg-white/95 p-8 text-center shadow-gold backdrop-blur-md">
+          <ArabesqueCorner position="all" size={36} />
+          <h2 className="font-serif text-2xl font-bold text-emerald-950 sm:text-3xl">Pendaftaran RSVP Ditutup</h2>
+          <p className="mt-2 text-stone-600 text-sm">Pendaftaran kehadiran secara dalam talian bagi majlis ini telah ditutup. Terima kasih atas sokongan dan doa tulus anda.</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="rsvp" className="mx-auto max-w-4xl px-4 py-20 sm:px-6">
       {/* Header */}
@@ -91,19 +110,19 @@ export default function RsvpSection() {
         <h2 className="mb-3 font-serif text-3xl font-bold text-emerald-950 sm:text-4xl md:text-5xl">
           Borang RSVP
         </h2>
-        <div className="mb-4 flex items-center justify-center gap-3 text-gold-500">
-          <span className="h-px w-12 bg-gold-300" />
-          <CalendarCheck size={16} className="text-gold-500" />
-          <span className="h-px w-12 bg-gold-300" />
-        </div>
+        <FloralDivider size="md" />
         <p className="mx-auto max-w-md text-xs text-stone-600 sm:text-sm">
           Sila sahkan kehadiran anda selewat-lewatnya{" "}
-          <strong className="text-emerald-950">28 November 2026</strong> bagi memudahkan
-          urusan persiapan hidangan meja makan.
+          <strong className="text-emerald-950 font-bold">
+            {rsvp?.deadlineDisplay || rsvp?.deadline || "1 Mac 2027"}
+          </strong>{" "}
+          bagi memudahkan urusan persiapan hidangan meja makan.
         </p>
       </div>
 
       <div className="relative overflow-hidden rounded-3xl border border-gold-300/80 bg-white/95 p-6 shadow-gold backdrop-blur-md sm:p-10">
+        <ArabesqueCorner position="all" size={42} />
+
         {/* Decorative Top Accent */}
         <div className="absolute left-0 right-0 top-0 h-1.5 bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300" />
 
@@ -158,7 +177,7 @@ export default function RsvpSection() {
 
             <button
               onClick={resetForm}
-              className="rounded-full border border-gold-400 px-6 py-2.5 text-xs font-medium text-gold-800 transition-colors hover:bg-gold-50 sm:text-sm"
+              className="rounded-full border border-gold-400 px-6 py-2.5 text-xs font-semibold text-gold-900 transition-colors hover:bg-gold-50 sm:text-sm active:scale-95"
             >
               Hantar RSVP Untuk Tetamu Lain
             </button>
@@ -296,7 +315,7 @@ export default function RsvpSection() {
                     }
                     className="w-full cursor-pointer rounded-xl border border-gold-200 bg-white py-3 pl-10 pr-4 text-sm text-stone-800 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200/50"
                   >
-                    {[1, 2, 3, 4, 5, 6].map((num) => (
+                    {paxOptions.map((num) => (
                       <option key={num} value={num}>
                         {num} Orang Tetamu
                       </option>
@@ -345,7 +364,7 @@ export default function RsvpSection() {
             <button
               type="submit"
               disabled={loading}
-              className="active:scale-98 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 py-4 text-sm font-bold text-white shadow-gold transition-all duration-300 hover:from-gold-600 hover:to-gold-700 disabled:opacity-70 sm:text-base"
+              className="active:scale-98 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-500 via-gold-600 to-gold-700 py-4 text-sm font-bold text-white shadow-gold transition-all duration-300 hover:from-gold-600 hover:to-gold-800 disabled:opacity-70 sm:text-base"
             >
               {loading ? (
                 <>

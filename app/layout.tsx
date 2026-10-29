@@ -33,7 +33,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#FAF7F2",
+  themeColor: "#091F18",
 };
 
 export const metadata: Metadata = {
@@ -57,25 +57,39 @@ export const metadata: Metadata = {
     siteName: weddingConfig.seo.siteName,
     images: [
       {
-        url: weddingConfig.seo.ogImage,
-        width: 1200,
-        height: 630,
+        url: "/favicon.svg",
+        width: 512,
+        height: 512,
         alt: weddingConfig.seo.title,
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: weddingConfig.seo.title,
     description: weddingConfig.seo.description,
-    images: [weddingConfig.seo.ogImage],
+    images: ["/favicon.svg"],
   },
   robots: {
     index: true,
     follow: true,
   },
+  manifest: "/manifest.json",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/favicon.svg", type: "image/svg+xml", sizes: "180x180" },
+      { url: "/apple-icon.svg", type: "image/svg+xml", sizes: "180x180" },
+    ],
+    shortcut: "/favicon.svg",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: weddingConfig.seo.siteName,
   },
 };
 
@@ -100,9 +114,9 @@ export default function RootLayout({
       address: {
         "@type": "PostalAddress",
         streetAddress: weddingConfig.event.venueAddress,
-        addressLocality: "Petaling Jaya",
-        addressRegion: "Selangor",
-        postalCode: "47820",
+        addressLocality: "Port Dickson",
+        addressRegion: "Negeri Sembilan",
+        postalCode: "71960",
         addressCountry: "MY",
       },
       geo: {
@@ -111,7 +125,7 @@ export default function RootLayout({
         longitude: weddingConfig.event.coordinates.lng,
       },
     },
-    image: [weddingConfig.seo.ogImage],
+    image: ["/favicon.svg"],
     organizer: {
       "@type": "Person",
       name: `${weddingConfig.couple.groom.fatherName} & ${weddingConfig.couple.bride.fatherName}`,
@@ -124,6 +138,9 @@ export default function RootLayout({
       className={`${playfair.variable} ${plusJakarta.variable} ${amiri.variable} ${alexBrush.variable} scroll-smooth`}
     >
       <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <meta name="apple-mobile-web-app-title" content={weddingConfig.seo.siteName} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -3,84 +3,151 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { weddingConfig } from "@/config/wedding";
-import { MailOpen, Heart, Music, Sparkles } from "lucide-react";
+import BismillahHeader from "@/components/art/BismillahHeader";
+import IslamicMonogramSeal from "@/components/art/IslamicMonogramSeal";
+import ArabesqueCorner from "@/components/art/ArabesqueCorner";
+import { MailOpen, Music, Sparkles } from "lucide-react";
 
 function EnvelopeContent({ onOpen }: { onOpen: () => void }) {
   const searchParams = useSearchParams();
   const [guestName, setGuestName] = useState<string>("");
 
   useEffect(() => {
-    const to =
+    const toParam =
       searchParams.get("to") || searchParams.get("guest") || searchParams.get("nama");
-    if (to) {
-      setGuestName(to.replace(/\+/g, " "));
+    if (toParam) {
+      try {
+        setGuestName(decodeURIComponent(toParam.replace(/\+/g, " ")).trim());
+      } catch {
+        setGuestName(toParam.replace(/\+/g, " ").trim());
+      }
     }
   }, [searchParams]);
 
+  const initials = `${weddingConfig.couple.groom.shortName.charAt(0)} & ${weddingConfig.couple.bride.shortName.charAt(0)}`;
+
   return (
-    <div className="relative mx-auto flex w-full max-w-lg flex-col items-center p-6 text-center sm:p-10">
-      {/* Decorative Ornaments & Sparkles */}
-      <div className="mb-2 animate-float-slow text-gold-400">
-        <Sparkles size={28} />
+    <div className="relative mx-auto flex w-full max-w-md sm:max-w-lg flex-col items-center px-4 py-6 text-center select-none">
+      {/* Decorative Floating Sparkle Accents */}
+      <div className="pointer-events-none absolute -top-4 right-6 animate-float-slow text-gold-300 opacity-70">
+        <Sparkles size={24} />
+      </div>
+      <div className="pointer-events-none absolute bottom-12 left-6 animate-float-slow text-gold-400 opacity-60">
+        <Sparkles size={20} />
       </div>
 
-      <p className="mb-3 font-arabic text-xl tracking-wide text-gold-300 sm:text-2xl">
-        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-      </p>
+      {/* Ornate Islamic Arch Sanctuary Entrance Card */}
+      <div className="relative w-full overflow-hidden rounded-3xl border border-gold-400/40 bg-gradient-to-b from-[#091F18]/95 via-[#0c2a21]/95 to-[#091F18]/95 p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
+        {/* 4 Golden Arabesque Corners */}
+        <ArabesqueCorner position="all" size={48} />
 
-      {/* Royal Seal Monogram Badge */}
-      <div className="relative mb-6 flex h-20 w-20 animate-pulse-subtle items-center justify-center rounded-full bg-gradient-to-br from-gold-400 via-gold-500 to-gold-700 p-0.5 shadow-gold-glow sm:h-24 sm:w-24">
-        <div className="flex h-full w-full flex-col items-center justify-center rounded-full border-2 border-gold-300/40 bg-emerald-950">
-          <span className="font-serif text-lg font-bold tracking-wider text-gold-200 sm:text-xl">
-            {weddingConfig.couple.groom.shortName.charAt(0)} &{" "}
-            {weddingConfig.couple.bride.shortName.charAt(0)}
-          </span>
-          <Heart size={10} className="mt-0.5 fill-gold-400 text-gold-400" />
+        {/* Bismillah Classical Calligraphy */}
+        <div className="mb-4 flex justify-center">
+          <BismillahHeader variant="light" size="sm" />
         </div>
-      </div>
 
-      <span className="mb-4 inline-block rounded-full border border-gold-400/40 bg-gold-900/60 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-gold-300 shadow-sm">
-        WALIMATULURUS
-      </span>
+        {/* Ornate Islamic Pointed Arch Framing the Monogram Initials */}
+        <div className="relative mx-auto mb-5 flex flex-col items-center justify-center max-w-[280px]">
+          {/* Pure SVG Moorish Pointed Arch Silhouette Contour */}
+          <svg
+            viewBox="0 0 280 200"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute inset-0 w-full h-full pointer-events-none"
+          >
+            <defs>
+              <linearGradient id="envelopeArchGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FFF2A1" />
+                <stop offset="35%" stopColor="#D4AF37" />
+                <stop offset="70%" stopColor="#B88E28" />
+                <stop offset="100%" stopColor="#7A5716" />
+              </linearGradient>
+            </defs>
 
-      {/* Main Couple Title */}
-      <h1 className="mb-2 font-serif text-3xl font-bold tracking-tight text-white sm:text-5xl">
-        {weddingConfig.couple.groom.shortName}{" "}
-        <span className="mx-1 font-script text-2xl font-normal text-gold-400 sm:text-4xl">
-          &
-        </span>{" "}
-        {weddingConfig.couple.bride.shortName}
-      </h1>
+            {/* Pointed Arch Double Filigree Outline */}
+            <path
+              d="M 20 195 L 20 110 C 20 50, 80 25, 140 8 C 200 25, 260 50, 260 110 L 260 195"
+              stroke="url(#envelopeArchGold)"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            />
+            <path
+              d="M 28 195 L 28 112 C 28 58, 84 34, 140 18 C 196 34, 252 58, 252 112 L 252 195"
+              stroke="url(#envelopeArchGold)"
+              strokeWidth="1"
+              strokeDasharray="4 3"
+              opacity="0.75"
+            />
 
-      <p className="mb-6 text-xs font-medium text-stone-300 sm:text-sm">
-        {weddingConfig.event.dateDisplay} • {weddingConfig.event.venueName}
-      </p>
+            {/* Apex Finial Star */}
+            <circle cx="140" cy="8" r="3.5" fill="url(#envelopeArchGold)" />
+            <polygon points="140,0 143,5 140,8 137,5" fill="url(#envelopeArchGold)" />
 
-      {/* Personalized Guest Box */}
-      <div className="mb-8 w-full rounded-2xl border border-gold-400/30 bg-white/10 p-4 shadow-inner backdrop-blur-md sm:p-5">
-        <span className="mb-1 block text-[11px] font-semibold uppercase tracking-widest text-gold-300">
-          Undangan Khas Buat
-        </span>
-        <p className="line-clamp-2 font-serif text-lg font-bold text-white sm:text-2xl">
-          {guestName || "Dato' / Datin / Tuan / Puan / Sahabat Sekeluarga"}
+            {/* Multi-foil Cusps */}
+            <path
+              d="M 40 110 C 40 90, 60 85, 75 75 C 90 65, 110 50, 140 28 C 170 50, 190 65, 205 75 C 220 85, 240 90, 240 110"
+              stroke="url(#envelopeArchGold)"
+              strokeWidth="1"
+              opacity="0.45"
+              fill="none"
+            />
+          </svg>
+
+          {/* Royal Crest Monogram Seal with Couple's Initials */}
+          <div className="py-5 flex justify-center">
+            <IslamicMonogramSeal
+              initials={initials}
+              subtitle="WALIMATULURUS"
+              size="md"
+            />
+          </div>
+        </div>
+
+        {/* Invitation Sub-badge */}
+        <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-gold-400/30 bg-gold-950/60 px-4 py-1 text-[11px] font-semibold tracking-widest text-gold-300">
+          <span>UNDANGAN RAJA SEHARI</span>
+        </div>
+
+        {/* Couple Main Typography */}
+        <h1 className="mb-1 font-serif text-3xl sm:text-4xl font-bold tracking-tight text-white">
+          <span>{weddingConfig.couple.groom.shortName}</span>
+          <span className="mx-2 font-script text-2xl sm:text-3xl text-gold-400 font-normal">
+            &
+          </span>
+          <span>{weddingConfig.couple.bride.shortName}</span>
+        </h1>
+
+        <p className="mb-6 text-xs text-gold-200/80 font-medium">
+          {weddingConfig.event.dateDisplay} • {weddingConfig.event.venueName}
+        </p>
+
+        {/* Dynamic Guest Personalization Box */}
+        <div className="mb-6 w-full rounded-2xl border border-gold-400/30 bg-white/5 p-4 shadow-inner backdrop-blur-sm">
+          <span className="mb-1 block text-[11px] font-medium uppercase tracking-wider text-gold-400">
+            {guestName ? "Jemputan Khas Kepada:" : "Jemputan ke Majlis Perkahwinan"}
+          </span>
+          <p className="line-clamp-2 font-serif text-base sm:text-xl font-bold text-white">
+            {guestName || "Dato' / Datin / Tuan / Puan / Sekeluarga"}
+          </p>
+        </div>
+
+        {/* Primary Entrance Action Button */}
+        <button
+          onClick={onOpen}
+          autoFocus
+          aria-label="Buka Jemputan Perkahwinan dan mainkan lagu latar"
+          className="group relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 px-8 py-4 text-sm sm:text-base font-bold text-emerald-950 shadow-gold-glow transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-95 cursor-pointer"
+        >
+          <span className="absolute inset-0 bg-white/20 opacity-0 transition-opacity group-hover:opacity-100" />
+          <MailOpen size={18} className="transition-transform group-hover:rotate-12" />
+          <span>Buka Jemputan</span>
+        </button>
+
+        <p className="mt-3 flex items-center justify-center gap-1.5 text-[11px] text-gold-300/70">
+          <Music size={12} className="text-gold-400" />
+          <span>Disertakan bersama alunan lagu latar perkahwinan</span>
         </p>
       </div>
-
-      {/* Open Button with Direct User Interaction for Audio Unlocking */}
-      <button
-        onClick={onOpen}
-        autoFocus
-        aria-label="Buka Jemputan Perkahwinan dan mainkan lagu latar"
-        className="group flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 px-8 py-4 text-base font-bold text-emerald-950 shadow-gold-glow transition-all duration-300 hover:from-gold-500 hover:to-gold-700 active:scale-95"
-      >
-        <MailOpen size={20} className="transition-transform group-hover:rotate-12" />
-        <span>Buka Jemputan</span>
-      </button>
-
-      <p className="mt-3 flex items-center justify-center gap-1.5 text-[11px] text-stone-400">
-        <Music size={12} className="text-gold-400" />
-        <span>Disertakan bersama alunan lagu latar</span>
-      </p>
     </div>
   );
 }
@@ -94,9 +161,11 @@ export default function EnvelopeModal() {
   }, []);
 
   const handleOpen = () => {
-    setIsOpen(true);
-    // Dispatch custom event to notify AudioPlayer to start playing
+    // 1. Immediately dispatch audio trigger event for unmuted playback
     window.dispatchEvent(new CustomEvent("wedding:play_audio"));
+
+    // 2. Smoothly transition open
+    setIsOpen(true);
   };
 
   if (!mounted) return null;
@@ -104,19 +173,13 @@ export default function EnvelopeModal() {
   return (
     <div
       aria-hidden={isOpen}
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-b from-emerald-950 via-[#0d281e] to-emerald-950 px-4 transition-all duration-700 ease-in-out ${
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-b from-[#04120E] via-[#091F18] to-[#04120E] px-4 transition-all duration-700 ease-in-out ${
         isOpen
-          ? "pointer-events-none translate-y-[-100vh] scale-105 opacity-0"
+          ? "pointer-events-none -translate-y-full scale-95 opacity-0"
           : "pointer-events-auto opacity-100"
       }`}
     >
-      {/* Background Islamic Geometric Arches */}
-      <div className="bg-wedding-pattern pointer-events-none absolute inset-0 opacity-10" />
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold-400/20 sm:h-[540px] sm:w-[540px]" />
-
-      <Suspense
-        fallback={<div className="text-sm text-gold-300">Memuatkan jemputan...</div>}
-      >
+      <Suspense fallback={<div className="text-sm text-gold-300">Memuatkan jemputan...</div>}>
         <EnvelopeContent onOpen={handleOpen} />
       </Suspense>
     </div>

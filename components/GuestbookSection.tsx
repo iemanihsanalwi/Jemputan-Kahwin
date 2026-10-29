@@ -3,7 +3,9 @@
 import React, { useState, useEffect } from "react";
 import { GuestWish } from "@/types/wedding";
 import { formatTimeAgo } from "@/lib/utils";
-import { MessageSquare, Heart, Send, User, Users, Loader2, Sparkles } from "lucide-react";
+import ArabesqueCorner from "@/components/art/ArabesqueCorner";
+import FloralDivider from "@/components/art/FloralDivider";
+import { Heart, Send, User, Users, Loader2, Sparkles } from "lucide-react";
 
 export default function GuestbookSection() {
   const [wishes, setWishes] = useState<GuestWish[]>([]);
@@ -72,7 +74,6 @@ export default function GuestbookSection() {
   const handleLike = async (wishId: string) => {
     if (likedMap[wishId]) return;
 
-    // Optimistic UI update
     setLikedMap((prev) => ({ ...prev, [wishId]: true }));
     setWishes((prev) =>
       prev.map((w) =>
@@ -101,11 +102,7 @@ export default function GuestbookSection() {
         <h2 className="mb-3 font-serif text-3xl font-bold text-emerald-950 sm:text-4xl md:text-5xl">
           Buku Tetamu & Ucapan
         </h2>
-        <div className="mb-4 flex items-center justify-center gap-3 text-gold-500">
-          <span className="h-px w-12 bg-gold-300" />
-          <MessageSquare size={16} className="text-gold-500" />
-          <span className="h-px w-12 bg-gold-300" />
-        </div>
+        <FloralDivider size="md" />
         <p className="mx-auto max-w-md text-xs text-stone-600 sm:text-sm">
           Tinggalkan kata-kata manis, titipan doa restu atau pesanan ikhlas buat kedua
           mempelai.
@@ -114,7 +111,9 @@ export default function GuestbookSection() {
 
       <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
         {/* Wish Form Column */}
-        <div className="sticky top-24 rounded-3xl border border-gold-200 bg-white/95 p-6 shadow-card backdrop-blur-md sm:p-8 lg:col-span-5">
+        <div className="relative sticky top-24 rounded-3xl border border-gold-200/90 bg-white/95 p-6 shadow-gold backdrop-blur-md sm:p-8 lg:col-span-5">
+          <ArabesqueCorner position="all" size={32} />
+
           <h3 className="mb-4 flex items-center gap-2 font-serif text-xl font-bold text-emerald-950">
             <Sparkles size={18} className="text-gold-500" />
             <span>Kirimkan Ucapan Anda</span>
@@ -299,7 +298,7 @@ export default function GuestbookSection() {
                 <div className="pt-4 text-center">
                   <button
                     onClick={loadMore}
-                    className="shadow-xs rounded-full border border-gold-300 bg-white px-6 py-2.5 text-xs font-semibold text-stone-700 transition-colors hover:bg-gold-50"
+                    className="rounded-full border border-gold-300 bg-white px-6 py-2.5 text-xs font-semibold text-stone-700 transition-colors hover:bg-gold-50 shadow-xs"
                   >
                     Muat Turun Lagi ({wishes.length - visibleCount} ucapan)
                   </button>

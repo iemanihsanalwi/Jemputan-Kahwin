@@ -17,13 +17,15 @@ import {
   ArrowLeft,
   LogOut,
   Calendar,
+  SlidersHorizontal,
 } from "lucide-react";
+import WeddingConfigEditor from "@/components/admin/WeddingConfigEditor";
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [pinInput, setPinInput] = useState("");
   const [pinError, setPinError] = useState("");
-  const [activeTab, setActiveTab] = useState<"rsvp" | "wishes">("rsvp");
+  const [activeTab, setActiveTab] = useState<"config" | "rsvp" | "wishes">("config");
 
   const [rsvps, setRsvps] = useState<RsvpSubmission[]>([]);
   const [wishes, setWishes] = useState<GuestWish[]>([]);
@@ -40,6 +42,7 @@ export default function AdminPage() {
     const savedToken = sessionStorage.getItem("admin_auth_token");
     if (savedToken) {
       setIsAuthenticated(true);
+      setPinInput(savedToken);
       fetchAdminData(savedToken);
     }
   }, []);
@@ -305,8 +308,19 @@ export default function AdminPage() {
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center rounded-2xl bg-stone-200/70 p-1">
             <button
+              onClick={() => setActiveTab("config")}
+              className={`flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-semibold transition-all sm:text-sm ${
+                activeTab === "config"
+                  ? "shadow-xs bg-white text-emerald-950"
+                  : "text-stone-600 hover:text-stone-900"
+              }`}
+            >
+              <SlidersHorizontal size={15} />
+              <span>Konfigurasi Majlis (No-Code)</span>
+            </button>
+            <button
               onClick={() => setActiveTab("rsvp")}
-              className={`rounded-xl px-5 py-2 text-xs font-semibold transition-all sm:text-sm ${
+              className={`rounded-xl px-4 py-2 text-xs font-semibold transition-all sm:text-sm ${
                 activeTab === "rsvp"
                   ? "shadow-xs bg-white text-emerald-950"
                   : "text-stone-600 hover:text-stone-900"
@@ -316,7 +330,7 @@ export default function AdminPage() {
             </button>
             <button
               onClick={() => setActiveTab("wishes")}
-              className={`rounded-xl px-5 py-2 text-xs font-semibold transition-all sm:text-sm ${
+              className={`rounded-xl px-4 py-2 text-xs font-semibold transition-all sm:text-sm ${
                 activeTab === "wishes"
                   ? "shadow-xs bg-white text-emerald-950"
                   : "text-stone-600 hover:text-stone-900"
@@ -336,6 +350,11 @@ export default function AdminPage() {
             </button>
           )}
         </div>
+
+        {/* Tab 1: Configuration Editor */}
+        {activeTab === "config" && (
+          <WeddingConfigEditor pin={pinInput} />
+        )}
 
         {/* Tab 1: RSVP List */}
         {activeTab === "rsvp" && (

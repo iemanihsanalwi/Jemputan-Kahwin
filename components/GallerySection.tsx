@@ -1,38 +1,50 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
 import { weddingConfig } from "@/config/wedding";
-import {
-  Image as ImageIcon,
-  X,
-  ChevronLeft,
-  ChevronRight,
-  Maximize2,
-} from "lucide-react";
+import ArabesqueCorner from "@/components/art/ArabesqueCorner";
+import FloralDivider from "@/components/art/FloralDivider";
+import { X, ChevronLeft, ChevronRight, Maximize2, BookOpen, Sparkles } from "lucide-react";
 
 export default function GallerySection() {
-  const { gallery } = weddingConfig;
-  const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
+  const blessings = weddingConfig.blessings || [
+    {
+      id: "doa-1",
+      arabic: "بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ",
+      translation: "“Semoga Allah memberkati kamu dan melimpahkan keberkatan ke atasmu, serta menghimpunkan kamu berdua dalam kebaikan.”",
+      source: "Hadis Riwayat Abu Daud & Tirmizi",
+    },
+    {
+      id: "doa-2",
+      arabic: "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
+      translation: "“Wahai Tuhan kami, anugerahkanlah kepada kami pasangan-pasangan kami dan keturunan kami sebagai penyejuk hati (kami), dan jadikanlah kami pemimpin bagi orang-orang yang bertakwa.”",
+      source: "Surah Al-Furqan : Ayat 74",
+    },
+    {
+      id: "doa-3",
+      arabic: "اللَّهُمَّ أَلِّفْ بَيْنَ قُلُوبِهِمَا كَمَا أَلَّفْتَ بَيْنَ آدَمَ وَحَوَّاءَ وَبَيْنَ مُحَمَّدٍ وَخَدِيجَةَ",
+      translation: "“Ya Allah, satukanlah hati kedua mempelai ini sebagaimana Engkau menyatukan hati Adam dan Hawa, dan sebagaimana Engkau menyatukan hati Nabi Muhammad dan Khadijah.”",
+      source: "Doa Walimatulurus Tradisi Melayu Islam",
+    },
+  ];
+
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleNext = useCallback(() => {
-    if (activePhotoIndex === null) return;
-    setActivePhotoIndex((prev) => (prev! + 1) % gallery.length);
-  }, [activePhotoIndex, gallery.length]);
+    if (activeIndex === null) return;
+    setActiveIndex((prev) => (prev! + 1) % blessings.length);
+  }, [activeIndex, blessings.length]);
 
   const handlePrev = useCallback(() => {
-    if (activePhotoIndex === null) return;
-    setActivePhotoIndex((prev) => (prev! - 1 + gallery.length) % gallery.length);
-  }, [activePhotoIndex, gallery.length]);
+    if (activeIndex === null) return;
+    setActiveIndex((prev) => (prev! - 1 + blessings.length) % blessings.length);
+  }, [activeIndex, blessings.length]);
 
-  const handleClose = () => {
-    setActivePhotoIndex(null);
-  };
+  const handleClose = () => setActiveIndex(null);
 
-  // Keyboard navigation for Lightbox
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (activePhotoIndex === null) return;
+      if (activeIndex === null) return;
       if (e.key === "Escape") handleClose();
       if (e.key === "ArrowRight") handleNext();
       if (e.key === "ArrowLeft") handlePrev();
@@ -40,74 +52,74 @@ export default function GallerySection() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activePhotoIndex, handleNext, handlePrev]);
+  }, [activeIndex, handleNext, handlePrev]);
 
   return (
     <section id="galeri" className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
       {/* Header */}
       <div className="mb-16 text-center">
         <span className="mb-2 block text-xs font-semibold uppercase tracking-widest text-gold-700">
-          Memori Terindah
+          Titipan Barakah
         </span>
         <h2 className="mb-3 font-serif text-3xl font-bold text-emerald-950 sm:text-4xl md:text-5xl">
-          Galeri Kenangan
+          Koleksi Doa & Seni Khat Mempelai
         </h2>
-        <div className="mb-4 flex items-center justify-center gap-3 text-gold-500">
-          <span className="h-px w-12 bg-gold-300" />
-          <ImageIcon size={16} className="text-gold-500" />
-          <span className="h-px w-12 bg-gold-300" />
-        </div>
+        <FloralDivider size="md" />
         <p className="mx-auto max-w-md text-xs text-stone-600 sm:text-sm">
-          Setiap detik pertemuan dan perjalanan yang mengukir kisah kasih abadi kami.
+          Alunan doa dan ayat-ayat suci yang mengiringi ikatan mahabbah kedua mempelai hingga ke jannah.
         </p>
       </div>
 
-      {/* Masonry / Grid Gallery */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-        {gallery.map((photo, index) => (
+      {/* Islamic Calligraphic Digital Art Plaques Grid */}
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {blessings.map((item, index) => (
           <div
-            key={photo.id}
+            key={item.id}
             role="button"
             tabIndex={0}
-            aria-label={`Buka paparan penuh gambar: ${photo.caption || index + 1}`}
-            onClick={() => setActivePhotoIndex(index)}
+            aria-label={`Buka paparan penuh: ${item.source}`}
+            onClick={() => setActiveIndex(index)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
-                setActivePhotoIndex(index);
+                setActiveIndex(index);
               }
             }}
-            className="group relative h-72 cursor-pointer overflow-hidden rounded-2xl border border-gold-200/60 bg-stone-100 shadow-sm transition-all duration-300 hover:shadow-card focus:outline-none focus:ring-2 focus:ring-gold-500 sm:h-80"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-gold-300/80 bg-gradient-to-b from-white via-champagne-50/50 to-white p-7 shadow-sm transition-all duration-300 hover:border-gold-500 hover:shadow-gold focus:outline-none focus:ring-2 focus:ring-gold-500 cursor-pointer min-h-[300px]"
           >
-            <Image
-              src={photo.url}
-              alt={photo.caption || `Foto Mempelai ${index + 1}`}
-              fill
-              loading="lazy"
-              className="group-hover:scale-108 object-cover transition-transform duration-700"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
+            <ArabesqueCorner position="all" size={34} />
 
-            {/* Hover Overlay */}
-            <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-emerald-950/80 via-emerald-950/20 to-transparent p-5 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <div className="flex items-center justify-between">
-                <span className="line-clamp-1 text-xs font-medium sm:text-sm">
-                  {photo.caption || "Klik untuk paparan skrin penuh"}
-                </span>
-                <Maximize2 size={16} className="flex-shrink-0 text-gold-300" />
+            <div className="relative z-10 flex flex-col items-center text-center">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-gold-100 text-gold-700">
+                <BookOpen size={18} />
               </div>
+
+              {/* Arabic Calligraphy Typography */}
+              <p className="dir-rtl mb-4 font-arabic text-xl sm:text-2xl leading-loose text-emerald-950 transition-colors group-hover:text-gold-900">
+                {item.arabic}
+              </p>
+
+              {/* Malay Translation */}
+              <p className="mb-3 font-serif text-xs italic leading-relaxed text-stone-600 line-clamp-3">
+                {item.translation}
+              </p>
+            </div>
+
+            <div className="relative z-10 pt-4 border-t border-gold-200/60 flex items-center justify-between text-gold-800 text-[11px] font-semibold">
+              <span className="truncate">{item.source}</span>
+              <Maximize2 size={14} className="opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
             </div>
           </div>
         ))}
       </div>
 
-      {/* Lightbox Modal */}
-      {activePhotoIndex !== null && (
+      {/* Lightbox Modal with Full-fidelity Calligraphy Art */}
+      {activeIndex !== null && (
         <div
           role="dialog"
           aria-modal="true"
-          aria-label="Paparan gambar skrin penuh"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md"
+          onClick={handleClose}
         >
           {/* Close Button */}
           <button
@@ -125,36 +137,39 @@ export default function GallerySection() {
               e.stopPropagation();
               handlePrev();
             }}
-            aria-label="Foto Sebelumnya"
+            aria-label="Doa Sebelumnya"
             className="absolute left-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 active:scale-95"
           >
             <ChevronLeft size={26} />
           </button>
 
-          {/* Main Lightbox Image */}
+          {/* Main Modal Calligraphic Art Card */}
           <div
-            className="relative flex h-[70vh] max-h-[80vh] w-full max-w-4xl flex-col items-center justify-center"
+            className="relative w-full max-w-2xl rounded-3xl border border-gold-400/80 bg-gradient-to-b from-[#091F18] via-[#0c2a21] to-[#091F18] p-8 sm:p-12 text-center text-white shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative h-full w-full">
-              <Image
-                src={gallery[activePhotoIndex].url}
-                alt={gallery[activePhotoIndex].caption || "Foto Mempelai"}
-                fill
-                priority
-                className="object-contain"
-                sizes="100vw"
-              />
+            <ArabesqueCorner position="all" size={48} />
+
+            <div className="mb-6 flex justify-center">
+              <Sparkles size={24} className="text-gold-400 animate-float-slow" />
             </div>
 
-            {/* Caption & Counter */}
-            <div className="mt-4 text-center text-white">
-              <p className="mb-0.5 text-sm font-medium text-gold-300">
-                {gallery[activePhotoIndex].caption}
-              </p>
-              <span className="text-xs text-stone-400">
-                {activePhotoIndex + 1} daripada {gallery.length}
-              </span>
+            <p className="dir-rtl mb-6 font-arabic text-2xl sm:text-3xl leading-loose text-gold-200">
+              {blessings[activeIndex].arabic}
+            </p>
+
+            <FloralDivider size="md" className="my-4" />
+
+            <p className="mx-auto mb-6 max-w-lg font-serif text-sm sm:text-base italic leading-relaxed text-stone-200">
+              {blessings[activeIndex].translation}
+            </p>
+
+            <span className="inline-block rounded-full border border-gold-400/40 bg-gold-900/60 px-4 py-1 text-xs font-semibold tracking-widest text-gold-300">
+              — {blessings[activeIndex].source} —
+            </span>
+
+            <div className="mt-6 text-[11px] text-stone-400">
+              {activeIndex + 1} daripada {blessings.length}
             </div>
           </div>
 
@@ -164,7 +179,7 @@ export default function GallerySection() {
               e.stopPropagation();
               handleNext();
             }}
-            aria-label="Foto Seterusnya"
+            aria-label="Doa Seterusnya"
             className="absolute right-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 active:scale-95"
           >
             <ChevronRight size={26} />

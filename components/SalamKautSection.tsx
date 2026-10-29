@@ -1,27 +1,132 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { weddingConfig } from "@/config/wedding";
-import { CreditCard, Copy, Check, Download, HeartHandshake } from "lucide-react";
+import ArabesqueCorner from "@/components/art/ArabesqueCorner";
+import FloralDivider from "@/components/art/FloralDivider";
+import { CreditCard, Copy, Check, QrCode } from "lucide-react";
+
+/**
+ * Pure SVG DuitNow QR Code Component
+ * Stylized vector representation of the standard Malaysian DuitNow QR code
+ */
+function DuitNowVectorQr({ accountName }: { accountName: string }) {
+  const idPrefix = React.useId().replace(/:/g, "");
+
+  return (
+    <div className="relative flex flex-col items-center justify-center p-3 rounded-2xl bg-white border-2 border-gold-300 shadow-md">
+      {/* Top DuitNow Banner in SVG */}
+      <div className="w-full flex items-center justify-center py-1.5 px-3 mb-2 rounded-lg bg-[#ED1C24] text-white">
+        <span className="font-sans font-bold text-xs tracking-wider">DuitNow</span>
+        <span className="text-[10px] ml-1.5 opacity-90 font-medium">QR</span>
+      </div>
+
+      <svg
+        viewBox="0 0 160 160"
+        className="w-40 h-40 sm:w-44 sm:h-44"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id={`${idPrefix}-qrDark`} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1C1917" />
+            <stop offset="100%" stopColor="#292524" />
+          </linearGradient>
+        </defs>
+
+        {/* QR Position Squares (Top-Left, Top-Right, Bottom-Left) */}
+        {/* Top-Left */}
+        <rect x="10" y="10" width="40" height="40" rx="6" fill="#1C1917" />
+        <rect x="18" y="18" width="24" height="24" rx="3" fill="#FFFFFF" />
+        <rect x="24" y="24" width="12" height="12" rx="2" fill="#ED1C24" />
+
+        {/* Top-Right */}
+        <rect x="110" y="10" width="40" height="40" rx="6" fill="#1C1917" />
+        <rect x="118" y="18" width="24" height="24" rx="3" fill="#FFFFFF" />
+        <rect x="124" y="24" width="12" height="12" rx="2" fill="#ED1C24" />
+
+        {/* Bottom-Left */}
+        <rect x="10" y="110" width="40" height="40" rx="6" fill="#1C1917" />
+        <rect x="18" y="118" width="24" height="24" rx="3" fill="#FFFFFF" />
+        <rect x="24" y="124" width="12" height="12" rx="2" fill="#ED1C24" />
+
+        {/* Decorative Grid Pattern Data Cells */}
+        <g fill={`url(#${idPrefix}-qrDark)`}>
+          {/* Timing Patterns */}
+          <rect x="56" y="16" width="6" height="6" rx="1" />
+          <rect x="68" y="16" width="6" height="6" rx="1" />
+          <rect x="80" y="16" width="6" height="6" rx="1" />
+          <rect x="92" y="16" width="6" height="6" rx="1" />
+
+          <rect x="16" y="56" width="6" height="6" rx="1" />
+          <rect x="16" y="68" width="6" height="6" rx="1" />
+          <rect x="16" y="80" width="6" height="6" rx="1" />
+          <rect x="16" y="92" width="6" height="6" rx="1" />
+
+          {/* Random Seeded QR Modules */}
+          <rect x="56" y="32" width="12" height="6" rx="1" />
+          <rect x="74" y="32" width="6" height="12" rx="1" />
+          <rect x="86" y="32" width="12" height="6" rx="1" />
+
+          <rect x="36" y="56" width="12" height="6" rx="1" />
+          <rect x="56" y="56" width="6" height="12" rx="1" />
+          <rect x="68" y="56" width="12" height="6" rx="1" />
+          <rect x="86" y="56" width="6" height="12" rx="1" />
+          <rect x="98" y="56" width="12" height="6" rx="1" />
+          <rect x="116" y="56" width="6" height="12" rx="1" />
+          <rect x="128" y="56" width="12" height="6" rx="1" />
+
+          {/* Center Khatam Emblem (Islamic 8-point star in QR center) */}
+          <rect x="70" y="70" width="20" height="20" rx="3" fill="#D4AF37" />
+          <rect x="70" y="70" width="20" height="20" rx="3" fill="#D4AF37" transform="rotate(45 80 80)" />
+          <circle cx="80" cy="80" r="4" fill="#091F18" />
+
+          {/* Lower Quadrant Modules */}
+          <rect x="36" y="80" width="8" height="8" rx="1" />
+          <rect x="56" y="80" width="8" height="8" rx="1" />
+          <rect x="96" y="80" width="8" height="8" rx="1" />
+          <rect x="110" y="80" width="14" height="6" rx="1" />
+          <rect x="130" y="80" width="12" height="8" rx="1" />
+
+          <rect x="56" y="96" width="14" height="6" rx="1" />
+          <rect x="76" y="96" width="8" height="8" rx="1" />
+          <rect x="96" y="96" width="12" height="6" rx="1" />
+          <rect x="114" y="96" width="8" height="12" rx="1" />
+          <rect x="128" y="96" width="14" height="6" rx="1" />
+
+          <rect x="56" y="116" width="12" height="8" rx="1" />
+          <rect x="74" y="116" width="14" height="6" rx="1" />
+          <rect x="94" y="116" width="8" height="12" rx="1" />
+          <rect x="108" y="116" width="12" height="6" rx="1" />
+          <rect x="126" y="116" width="14" height="8" rx="1" />
+
+          <rect x="56" y="132" width="16" height="8" rx="1" />
+          <rect x="78" y="132" width="10" height="8" rx="1" />
+          <rect x="94" y="132" width="14" height="8" rx="1" />
+          <rect x="114" y="132" width="8" height="8" rx="1" />
+          <rect x="128" y="132" width="14" height="8" rx="1" />
+        </g>
+      </svg>
+
+      <span className="mt-2 text-[10px] font-mono font-medium text-stone-500 uppercase tracking-wider">
+        {accountName}
+      </span>
+    </div>
+  );
+}
 
 export default function SalamKautSection() {
   const { salamKaut } = weddingConfig;
   const [copied, setCopied] = useState(false);
 
+  if (salamKaut.enabled === false) {
+    return null;
+  }
+
   const handleCopy = () => {
     navigator.clipboard.writeText(salamKaut.accountNumber);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
-  };
-
-  const handleDownloadQr = () => {
-    // Open or download QR code image
-    const link = document.createElement("a");
-    link.href = salamKaut.qrCodeUrl;
-    link.target = "_blank";
-    link.download = `QR-Salam-Kaut-${salamKaut.accountName.replace(/\s+/g, "-")}.png`;
-    link.click();
   };
 
   return (
@@ -34,11 +139,7 @@ export default function SalamKautSection() {
         <h2 className="mb-3 font-serif text-3xl font-bold text-emerald-950 sm:text-4xl md:text-5xl">
           Salam Kaut Digital
         </h2>
-        <div className="mb-4 flex items-center justify-center gap-3 text-gold-500">
-          <span className="h-px w-12 bg-gold-300" />
-          <HeartHandshake size={16} className="text-gold-500" />
-          <span className="h-px w-12 bg-gold-300" />
-        </div>
+        <FloralDivider size="md" />
         <p className="mx-auto max-w-md text-xs leading-relaxed text-stone-600 sm:text-sm">
           {salamKaut.instructionText ||
             "Bagi tetamu yang berhajat menitipkan ingatan tulus dan hadiah ikhlas secara digital, anda boleh menyalurkannya melalui DuitNow QR atau pindahan akaun bank berikut."}
@@ -46,29 +147,19 @@ export default function SalamKautSection() {
       </div>
 
       <div className="relative mx-auto max-w-2xl overflow-hidden rounded-3xl border border-gold-300/80 bg-white/95 p-6 text-center shadow-gold backdrop-blur-md sm:p-10">
+        <ArabesqueCorner position="all" size={42} />
+
         {/* Decorative Top Accent */}
         <div className="absolute left-0 right-0 top-0 h-1.5 bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300" />
 
         <div className="mb-8 flex flex-col items-center justify-center gap-8 sm:flex-row">
-          {/* QR Code Container */}
+          {/* Pure SVG DuitNow QR Code (No raster images) */}
           <div className="flex flex-col items-center">
-            <div className="group relative flex h-48 w-48 items-center justify-center overflow-hidden rounded-2xl border-2 border-gold-200 bg-white p-3 shadow-sm sm:h-56 sm:w-56">
-              <Image
-                src={salamKaut.qrCodeUrl}
-                alt="DuitNow QR Kod"
-                fill
-                className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
-                sizes="(max-width: 640px) 192px, 224px"
-              />
-            </div>
-
-            <button
-              onClick={handleDownloadQr}
-              className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-gold-800 underline underline-offset-4 transition-colors hover:text-gold-900"
-            >
-              <Download size={13} />
-              <span>Muat Turun Kod QR</span>
-            </button>
+            <DuitNowVectorQr accountName={salamKaut.accountName} />
+            <span className="mt-2 text-[11px] text-stone-400 font-medium flex items-center gap-1">
+              <QrCode size={13} className="text-gold-600" />
+              <span>Imbas menggunakan mana-mana aplikasi perbankan</span>
+            </span>
           </div>
 
           {/* Account Details Box */}
@@ -104,7 +195,7 @@ export default function SalamKautSection() {
                 <button
                   onClick={handleCopy}
                   aria-label="Salin nombor akaun bank"
-                  className="rounded-lg border border-gold-300 bg-white p-2 text-gold-800 transition-colors hover:bg-gold-50 focus:outline-none focus:ring-2 focus:ring-gold-500 active:scale-95"
+                  className="rounded-lg border border-gold-300 bg-white p-2 text-gold-800 transition-colors hover:bg-gold-50 focus:outline-none focus:ring-2 focus:ring-gold-500 active:scale-95 shadow-xs"
                 >
                   {copied ? (
                     <Check size={16} className="text-emerald-600" />

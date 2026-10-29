@@ -73,6 +73,16 @@ body {
   background-size: 24px 24px;
 }
 
+/* Pulsating Sound Wave Animation */
+@keyframes soundWave {
+  0%, 100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
 /* WCAG 2.2 AA Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   *,

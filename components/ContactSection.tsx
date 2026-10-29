@@ -3,10 +3,12 @@
 import React from "react";
 import { weddingConfig } from "@/config/wedding";
 import { cleanPhoneNumber } from "@/lib/utils";
+import ArabesqueCorner from "@/components/art/ArabesqueCorner";
+import FloralDivider from "@/components/art/FloralDivider";
 import { Phone, MessageCircle } from "lucide-react";
 
 export default function ContactSection() {
-  const { contacts } = weddingConfig;
+  const { contacts, couple } = weddingConfig;
 
   return (
     <section id="hubungi" className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
@@ -18,11 +20,7 @@ export default function ContactSection() {
         <h2 className="mb-3 font-serif text-3xl font-bold text-emerald-950 sm:text-4xl md:text-5xl">
           Hubungi Wakil Majlis
         </h2>
-        <div className="mb-4 flex items-center justify-center gap-3 text-gold-500">
-          <span className="h-px w-12 bg-gold-300" />
-          <Phone size={16} className="text-gold-500" />
-          <span className="h-px w-12 bg-gold-300" />
-        </div>
+        <FloralDivider size="md" />
         <p className="mx-auto max-w-md text-xs text-stone-600 sm:text-sm">
           Sebarang pertanyaan lanjut berkenaan majlis, panduan arah, atau pengesahan
           kehadiran boleh diajukan kepada wakil kami.
@@ -33,18 +31,18 @@ export default function ContactSection() {
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {contacts.map((contact, index) => {
           const rawPhone = cleanPhoneNumber(contact.phone);
-          const encodedMessage = encodeURIComponent(
-            contact.whatsappMessage ||
-              "Salam, saya ingin bertanya berkenaan majlis perkahwinan..."
-          );
+          const defaultMessage = `Salam, saya ingin bertanya berkenaan majlis perkahwinan ${couple.groom.shortName} & ${couple.bride.shortName}...`;
+          const encodedMessage = encodeURIComponent(contact.whatsappMessage || defaultMessage);
           const waUrl = `https://wa.me/${rawPhone}?text=${encodedMessage}`;
           const telUrl = `tel:${rawPhone}`;
 
           return (
             <div
               key={index}
-              className="flex flex-col justify-between rounded-3xl border border-gold-200 bg-white/90 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-gold-400 hover:shadow-card"
+              className="relative flex flex-col justify-between rounded-3xl border border-gold-200/90 bg-white/95 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-gold-400 hover:shadow-gold"
             >
+              <ArabesqueCorner position="top-right" size={28} />
+
               <div>
                 <span className="mb-3 inline-block rounded-full border border-gold-200/60 bg-champagne-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-gold-800">
                   {contact.relation}
@@ -60,13 +58,13 @@ export default function ContactSection() {
               </div>
 
               {/* Action Buttons */}
-              <div className="grid grid-cols-2 gap-2 border-t border-stone-100 pt-2">
+              <div className="grid grid-cols-2 gap-2 border-t border-stone-100 pt-3">
                 {/* WhatsApp Button */}
                 <a
                   href={waUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="shadow-xs flex items-center justify-center gap-1.5 rounded-xl bg-emerald-600 px-3 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-emerald-700 active:scale-95"
+                  className="flex items-center justify-center gap-1.5 rounded-xl bg-emerald-600 px-3 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-emerald-700 active:scale-95 shadow-xs"
                 >
                   <MessageCircle size={15} />
                   <span>WhatsApp</span>
@@ -75,7 +73,7 @@ export default function ContactSection() {
                 {/* Call Button */}
                 <a
                   href={telUrl}
-                  className="flex items-center justify-center gap-1.5 rounded-xl border border-stone-200 bg-white px-3 py-2.5 text-xs font-semibold text-stone-700 transition-colors hover:bg-stone-50 active:scale-95"
+                  className="flex items-center justify-center gap-1.5 rounded-xl border border-stone-200 bg-white px-3 py-2.5 text-xs font-semibold text-stone-700 transition-colors hover:bg-stone-50 active:scale-95 shadow-xs"
                 >
                   <Phone size={14} className="text-gold-600" />
                   <span>Hubungi</span>

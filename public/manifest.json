@@ -1,0 +1,18 @@
+{
+  "name": "Walimatulurus Alya & Ieman",
+  "short_name": "Alya & Ieman",
+  "description": "Undangan Majlis Perkahwinan Alya & Ieman",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#091F18",
+  "theme_color": "#091F18",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

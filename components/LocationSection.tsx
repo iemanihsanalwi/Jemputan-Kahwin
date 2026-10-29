@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { weddingConfig } from "@/config/wedding";
+import ArabesqueCorner from "@/components/art/ArabesqueCorner";
+import FloralDivider from "@/components/art/FloralDivider";
 import { MapPin, Navigation, Copy, Check, Car, ExternalLink } from "lucide-react";
 
 export default function LocationSection() {
@@ -24,14 +26,12 @@ export default function LocationSection() {
         <h2 className="mb-3 font-serif text-3xl font-bold text-emerald-950 sm:text-4xl md:text-5xl">
           Lokasi Majlis
         </h2>
-        <div className="flex items-center justify-center gap-3 text-gold-500">
-          <span className="h-px w-12 bg-gold-300" />
-          <MapPin size={16} className="text-gold-500" />
-          <span className="h-px w-12 bg-gold-300" />
-        </div>
+        <FloralDivider size="md" />
       </div>
 
-      <div className="overflow-hidden rounded-3xl border border-gold-200 bg-white/90 p-6 shadow-card backdrop-blur-md sm:p-8">
+      <div className="relative overflow-hidden rounded-3xl border border-gold-200/90 bg-white/95 p-6 shadow-gold backdrop-blur-md sm:p-8">
+        <ArabesqueCorner position="all" size={40} />
+
         {/* Venue Info Top */}
         <div className="flex flex-col items-start justify-between gap-6 border-b border-gold-200/60 pb-6 md:flex-row md:items-center">
           <div>
@@ -41,7 +41,9 @@ export default function LocationSection() {
             <h3 className="font-serif text-2xl font-bold text-emerald-950 sm:text-3xl">
               {event.venueName}
             </h3>
-            <p className="mb-1 text-sm font-medium text-gold-700">{event.venueHall}</p>
+            {event.venueHall && (
+              <p className="mb-1 text-sm font-medium text-gold-700">{event.venueHall}</p>
+            )}
             <p className="max-w-xl text-xs leading-relaxed text-stone-600 sm:text-sm">
               {event.venueAddress}
             </p>
@@ -50,7 +52,7 @@ export default function LocationSection() {
           <button
             onClick={handleCopyAddress}
             aria-label="Salin alamat penuh majlis"
-            className="flex flex-shrink-0 items-center gap-2 rounded-xl border border-gold-300 bg-champagne-50 px-4 py-2 text-xs font-medium text-stone-800 transition-colors hover:bg-gold-100/70 focus:outline-none focus:ring-2 focus:ring-gold-500 active:scale-95"
+            className="flex flex-shrink-0 items-center gap-2 rounded-xl border border-gold-300 bg-champagne-50 px-4 py-2.5 text-xs font-medium text-stone-800 transition-colors hover:bg-gold-100/70 focus:outline-none focus:ring-2 focus:ring-gold-500 active:scale-95 shadow-xs"
           >
             {copied ? (
               <span
@@ -111,14 +113,15 @@ export default function LocationSection() {
         </div>
 
         {/* Parking & Practical Tips */}
-        <div className="mt-6 flex items-start gap-3 rounded-xl border border-gold-200/50 bg-champagne-50/70 p-4 text-xs text-stone-600 sm:text-sm">
-          <Car size={20} className="mt-0.5 flex-shrink-0 text-gold-600" />
-          <p>
-            <strong className="text-stone-800">Kemudahan Tempat Letak Kereta:</strong>{" "}
-            Ruang parkir bawah tanah disediakan di Aras B1 & B2 Menara PJ Trade Centre.
-            Perkhidmatan valet turut disediakan di lobi utama.
-          </p>
-        </div>
+        {event.parkingInfo && (
+          <div className="mt-6 flex items-start gap-3 rounded-2xl border border-gold-200/50 bg-champagne-50/80 p-4 text-xs text-stone-700 sm:text-sm">
+            <Car size={20} className="mt-0.5 flex-shrink-0 text-gold-600" />
+            <p>
+              <strong className="text-emerald-950 font-bold">Kemudahan Tempat Letak Kereta:</strong>{" "}
+              {event.parkingInfo}
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

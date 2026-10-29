@@ -1,5 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <circle cx="16" cy="16" r="16" fill="#133C30"/>
-  <path d="M16 22.5S8.5 17.5 8.5 12.8a4.3 4.3 0 0 1 7.5-2.8 4.3 4.3 0 0 1 7.5 2.8C23.5 17.5 16 22.5 16 22.5z" fill="#D4AF37"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Royal Metallic Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5C0"/>
+      <stop offset="20%" stop-color="#F3DC84"/>
+      <stop offset="45%" stop-color="#D4AF37"/>
+      <stop offset="70%" stop-color="#AA7C11"/>
+      <stop offset="100%" stop-color="#7A5716"/>
+    </linearGradient>
 
+    <!-- Subtle Shimmer Gold Gradient -->
+    <linearGradient id="shimmerGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFEAA7"/>
+      <stop offset="50%" stop-color="#DFB743"/>
+      <stop offset="100%" stop-color="#936D19"/>
+    </linearGradient>
+
+    <!-- Deep Royal Emerald Radial Gradient -->
+    <radialGradient id="emeraldBg" cx="50%" cy="46%" r="65%">
+      <stop offset="0%" stop-color="#144634"/>
+      <stop offset="55%" stop-color="#091F18"/>
+      <stop offset="100%" stop-color="#04120E"/>
+    </radialGradient>
+
+    <!-- Ambient Gold Glow Filter -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Luxurious Rounded App Icon Container -->
+  <rect width="512" height="512" rx="112" fill="url(#emeraldBg)"/>
+
+  <!-- Ornate Filigree Border System -->
+  <rect x="22" y="22" width="468" height="468" rx="94" fill="none" stroke="url(#goldGrad)" stroke-width="3.5" opacity="0.6"/>
+  <rect x="34" y="34" width="444" height="444" rx="82" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.45"/>
+
+  <!-- Islamic Pointed Arch Motif (Gerbang Mahligai Impian) -->
+  <path d="M 120 420 L 120 248 C 120 176 182 128 256 68 C 330 128 392 176 392 248 L 392 420" 
+        fill="none" stroke="url(#goldGrad)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 140 420 L 140 254 C 140 196 190 148 256 98 C 322 148 372 196 372 254 L 372 420" 
+        fill="none" stroke="url(#shimmerGrad)" stroke-width="2.5" opacity="0.8"/>
+
+  <!-- Arch Apex Finial & Star -->
+  <path d="M 256 46 C 248 58 248 64 256 70 C 264 64 264 58 256 46 Z" fill="url(#goldGrad)"/>
+  <circle cx="256" cy="40" r="5" fill="url(#goldGrad)"/>
+
+  <!-- Islamic 8-Pointed Star (Khatam Rub' al-Hizb) -->
+  <g transform="translate(256, 168) scale(1.35)">
+    <rect x="-10" y="-10" width="20" height="20" fill="url(#goldGrad)" opacity="0.95"/>
+    <rect x="-10" y="-10" width="20" height="20" fill="url(#goldGrad)" opacity="0.95" transform="rotate(45)"/>
+    <circle cx="0" cy="0" r="4.5" fill="#091F18"/>
+  </g>
+
+  <!-- Interlocking Gold Rings (3D Weave) -->
+  <!-- Left Ring -->
+  <circle cx="226" cy="298" r="62" fill="none" stroke="url(#goldGrad)" stroke-width="11" filter="url(#goldGlow)"/>
+  <!-- Right Ring -->
+  <circle cx="286" cy="298" r="62" fill="none" stroke="url(#goldGrad)" stroke-width="11" filter="url(#goldGlow)"/>
+
+  <!-- Interlock Overlay (creates true intertwining depth) -->
+  <path d="M 242 246 A 62 62 0 0 1 282 298" fill="none" stroke="url(#goldGrad)" stroke-width="11"/>
+
+  <!-- Sparkling Solitaire Diamond on Bride Ring -->
+  <polygon points="256,218 265,230 256,242 247,230" fill="url(#goldGrad)"/>
+  <polygon points="256,220 263,230 256,240 249,230" fill="#FFFFFF" opacity="0.95"/>
+  <circle cx="256" cy="230" r="2.5" fill="#FFF7CC"/>
+
+  <!-- Floral Arabesque Leaves & Flourishes at Arch Base -->
+  <path d="M 166 384 C 188 372 202 394 212 410 C 200 412 184 404 166 384 Z" fill="url(#goldGrad)" opacity="0.9"/>
+  <path d="M 144 400 C 162 396 174 410 180 422 C 166 424 152 415 144 400 Z" fill="url(#goldGrad)" opacity="0.85"/>
+  <path d="M 346 384 C 324 372 310 394 300 410 C 312 412 328 404 346 384 Z" fill="url(#goldGrad)" opacity="0.9"/>
+  <path d="M 368 400 C 350 396 338 410 332 422 C 346 424 360 415 368 400 Z" fill="url(#goldGrad)" opacity="0.85"/>
+
+  <!-- Base Ground Foundation Bar -->
+  <line x1="96" y1="422" x2="416" y2="422" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round"/>
+</svg>
