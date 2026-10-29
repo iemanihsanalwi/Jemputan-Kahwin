@@ -60,10 +60,22 @@
       "title": "Tema & Kod Pakaian",
       "description": "Pakaian Tradisional Melayu / Formal & Sopan (Bebas bergaya)",
       "colorPalette": [
-        { "name": "Sage Green", "hex": "#8A9A86" },
-        { "name": "Soft Champagne", "hex": "#F3E5AB" },
-        { "name": "Cream White", "hex": "#FDFBF7" },
-        { "name": "Warm Gold", "hex": "#D4AF37" }
+        {
+          "name": "Sage Green",
+          "hex": "#8A9A86"
+        },
+        {
+          "name": "Soft Champagne",
+          "hex": "#F3E5AB"
+        },
+        {
+          "name": "Cream White",
+          "hex": "#FDFBF7"
+        },
+        {
+          "name": "Warm Gold",
+          "hex": "#D4AF37"
+        }
       ]
     },
     "schedule": [
@@ -101,8 +113,8 @@
   },
   "audio": {
     "enabled": true,
-    "title": "Instrumental Melayu Asli - Akustik Gambus & Piano",
-    "artist": "Gubahan Kasih Melayu",
+    "title": "Kita Lewati Berdua",
+    "artist": "Overnight",
     "src": "/audio/wedding-bgm.mp3",
     "source": "/audio/wedding-bgm.mp3",
     "autoPlayPrompt": true,
@@ -234,4 +246,3 @@
     ]
   }
 }
-
