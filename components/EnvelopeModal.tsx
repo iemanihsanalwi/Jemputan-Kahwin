@@ -1,168 +1,39 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import React, { useState, useEffect } from "react";
 import { useWeddingConfig } from "@/context/WeddingConfigContext";
-import BismillahHeader from "@/components/art/BismillahHeader";
-import FloralWreathHeader from "@/components/art/FloralWreathHeader";
-import BotanicalCornerFlourish from "@/components/art/BotanicalCornerFlourish";
-import { MailOpen, Music, Sparkles } from "lucide-react";
+import FloralGardenGate from "@/components/art/FloralGardenGate";
+import { MailOpen } from "lucide-react";
 
-function EnvelopeContent({ onOpen }: { onOpen: () => void }) {
-  const weddingConfig = useWeddingConfig();
-  const searchParams = useSearchParams();
-  const [guestName, setGuestName] = useState<string>("");
-
-  useEffect(() => {
-    const toParam =
-      searchParams.get("to") || searchParams.get("guest") || searchParams.get("nama");
-    if (toParam) {
-      try {
-        setGuestName(decodeURIComponent(toParam.replace(/\+/g, " ")).trim());
-      } catch {
-        setGuestName(toParam.replace(/\+/g, " ").trim());
-      }
-    }
-  }, [searchParams]);
-
-  const initials = `${weddingConfig.couple.groom.shortName.charAt(0)} & ${weddingConfig.couple.bride.shortName.charAt(0)}`;
-
-  return (
-    <div className="relative mx-auto flex w-full max-w-md sm:max-w-lg flex-col items-center px-4 py-6 text-center select-none">
-      {/* Decorative Floating Sparkle Accents */}
-      <div className="pointer-events-none absolute -top-4 right-6 animate-float-slow text-gold-300 opacity-70">
-        <Sparkles size={24} />
-      </div>
-      <div className="pointer-events-none absolute bottom-12 left-6 animate-float-slow text-blush-300 opacity-60">
-        <Sparkles size={20} />
-      </div>
-
-      {/* Ornate Botanical Velvet Sanctuary Entrance Card */}
-      <div className="relative w-full overflow-hidden rounded-3xl border-2 border-gold-400/50 bg-gradient-to-b from-[#183024]/95 via-[#234534]/95 to-[#183024]/95 p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
-        {/* 4 Hand-Crafted Botanical Corner Flourishes */}
-        <BotanicalCornerFlourish position="all" size={48} variant="gold" />
-
-        {/* Bismillah Vector Calligraphy with Botanical Touches */}
-        <div className="mb-4 flex justify-center">
-          <BismillahHeader variant="light" size="sm" />
-        </div>
-
-        {/* Botanical Organic Arch Framing the Monogram Wreath */}
-        <div className="relative mx-auto mb-5 flex flex-col items-center justify-center max-w-[280px]">
-          {/* Pure SVG Botanical Arch Contour */}
-          <svg
-            viewBox="0 0 280 200"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            aria-hidden="true"
-          >
-            <defs>
-              <linearGradient id="envelopeBotanicalGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FAF7EE" />
-                <stop offset="30%" stopColor="#D4AF37" />
-                <stop offset="65%" stopColor="#C5A059" />
-                <stop offset="100%" stopColor="#D8A49B" />
-              </linearGradient>
-            </defs>
-
-            {/* Organic Curved Arch Contour */}
-            <path
-              d="M 22 195 L 22 110 C 22 55, 75 22, 140 10 C 205 22, 258 55, 258 110 L 258 195"
-              stroke="url(#envelopeBotanicalGold)"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-            />
-            <path
-              d="M 30 195 L 30 112 C 30 62, 80 32, 140 20 C 200 32, 250 62, 250 112 L 250 195"
-              stroke="url(#envelopeBotanicalGold)"
-              strokeWidth="1"
-              strokeDasharray="4 3"
-              opacity="0.65"
-            />
-
-            {/* Apex Floral Blossom Accent */}
-            <circle cx="140" cy="10" r="3.5" fill="url(#envelopeBotanicalGold)" />
-            <path
-              d="M 140 2 C 144 6, 144 8, 140 10 C 136 8, 136 6, 140 2 Z"
-              fill="url(#envelopeBotanicalGold)"
-            />
-            <path
-              d="M 132 10 C 136 6, 138 6, 140 10 Z"
-              fill="url(#envelopeBotanicalGold)"
-            />
-            <path
-              d="M 148 10 C 144 6, 142 6, 140 10 Z"
-              fill="url(#envelopeBotanicalGold)"
-            />
-          </svg>
-
-          {/* Floral Wreath Monogram Medallion */}
-          <div className="py-5 flex justify-center">
-            <FloralWreathHeader
-              initials={initials}
-              subtitle="WALIMATULURUS"
-              size="md"
-            />
-          </div>
-        </div>
-
-        {/* Invitation Sub-badge */}
-        <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-gold-400/40 bg-gold-950/70 px-4 py-1 text-[11px] font-semibold tracking-widest text-gold-300">
-          <span>UNDANGAN RAJA SEHARI</span>
-        </div>
-
-        {/* Couple Main Typography */}
-        <h1 className="mb-1 font-serif text-3xl sm:text-4xl font-bold tracking-tight text-white">
-          <span>{weddingConfig.couple.groom.shortName}</span>
-          <span className="mx-2 font-script text-2xl sm:text-3xl text-gold-400 font-normal">
-            &amp;
-          </span>
-          <span>{weddingConfig.couple.bride.shortName}</span>
-        </h1>
-
-        <p className="mb-6 text-xs text-gold-200/90 font-medium">
-          {weddingConfig.event.dateDisplay} • {weddingConfig.event.venueName}
-        </p>
-
-        {/* Dynamic Guest Personalization Box */}
-        <div className="mb-6 w-full rounded-2xl border border-gold-400/30 bg-white/5 p-4 shadow-inner backdrop-blur-sm">
-          <span className="mb-1 block text-[11px] font-medium uppercase tracking-wider text-gold-300">
-            {guestName ? "Jemputan Khas Kepada:" : "Jemputan ke Majlis Perkahwinan"}
-          </span>
-          <p className="line-clamp-2 font-serif text-base sm:text-xl font-bold text-white">
-            {guestName || "Dato' / Datin / Tuan / Puan / Sekeluarga"}
-          </p>
-        </div>
-
-        {/* Primary Entrance Action Button (Rounded Pill with Gold Botanical Border) */}
-        <button
-          onClick={onOpen}
-          autoFocus
-          aria-label="Buka Jemputan Perkahwinan dan mainkan lagu latar"
-          className="group relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full border-2 border-gold-300 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 px-8 py-4 text-sm sm:text-base font-bold text-sage-950 shadow-gold-glow transition-all duration-300 hover:scale-[1.02] hover:border-gold-200 hover:shadow-xl active:scale-95 cursor-pointer"
-        >
-          <span className="absolute inset-0 bg-white/20 opacity-0 transition-opacity group-hover:opacity-100" />
-          <MailOpen size={18} className="transition-transform group-hover:rotate-12 text-sage-950" />
-          <span>Buka Jemputan</span>
-        </button>
-
-        <p className="mt-3 flex items-center justify-center gap-1.5 text-[11px] text-gold-300/80">
-          <Music size={12} className="text-gold-400" />
-          <span>Disertakan bersama alunan lagu latar perkahwinan</span>
-        </p>
-      </div>
-    </div>
-  );
-}
-
+/**
+ * EnvelopeModal - Minimalist, soothing floral garden entrance popup (/ landing cover modal).
+ * 
+ * Features:
+ * - Color Palette: Romantic soft pink garden palette (zero green tones)
+ *   * Background: Soft blush & petal cream gradient (#FFF8F8 to #FCE4E8)
+ *   * Card Surface: Frosted glass / translucent alabaster (rgba(255, 255, 255, 0.75) with blur)
+ *   * Accent & Outlines: Brushed rose gold / champagne gold (#C89B7B / #D4A373)
+ *   * Primary Typography: Warm espresso / deep mulberry (#3D262A / #4A2E35)
+ * - Pure Minimalist Layout (displays ONLY 4 elements):
+ *   1. Code-drawn Floral Garden Gate
+ *   2. Refined serif monogram initials in center ("I & A")
+ *   3. Soft pill "Buka Jemputan" button with rose-gold gradient
+ *   4. Discreet music hint: "♪ Lagu Latar"
+ * - Ambient gentle CSS drifting pink petals
+ * - Smooth fade / parting gate transition triggering unmuted background music
+ */
 export default function EnvelopeModal() {
+  const weddingConfig = useWeddingConfig();
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const groomInitial = weddingConfig.couple.groom.shortName?.charAt(0) || "I";
+  const brideInitial = weddingConfig.couple.bride.shortName?.charAt(0) || "A";
+  const initials = `${groomInitial} & ${brideInitial}`;
 
   const handleOpen = () => {
     // 1. Immediately dispatch audio trigger event for unmuted playback
@@ -177,15 +48,110 @@ export default function EnvelopeModal() {
   return (
     <div
       aria-hidden={isOpen}
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-b from-[#0C1913] via-[#183024] to-[#0C1913] px-4 transition-all duration-700 ease-in-out ${
+      className={`fixed inset-0 z-50 flex items-center justify-center px-4 overflow-hidden select-none transition-all duration-1000 ease-out ${
         isOpen
-          ? "pointer-events-none -translate-y-full scale-95 opacity-0"
-          : "pointer-events-auto opacity-100"
+          ? "pointer-events-none scale-105 opacity-0"
+          : "pointer-events-auto scale-100 opacity-100"
       }`}
+      style={{
+        background: "linear-gradient(180deg, #FFF8F8 0%, #FDF2F4 50%, #FCE4E8 100%)",
+      }}
     >
-      <Suspense fallback={<div className="text-sm text-gold-300">Memuatkan jemputan...</div>}>
-        <EnvelopeContent onOpen={handleOpen} />
-      </Suspense>
+      {/* ================= 1. AMBIENT SOFT KOMOREBI & BLUSH GLOW SPOTS ================= */}
+      {/* Top Center Warm Champagne Glow */}
+      <div
+        className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] sm:w-[720px] h-[520px] sm:h-[720px] rounded-full blur-[120px] opacity-70"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(255, 245, 242, 0.95) 0%, rgba(252, 228, 232, 0.5) 45%, transparent 70%)",
+        }}
+      />
+      {/* Bottom Center Soft Rose Mist */}
+      <div
+        className="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-[480px] sm:w-[680px] h-[480px] rounded-full blur-[110px] opacity-60"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(245, 183, 177, 0.4) 0%, rgba(250, 219, 216, 0.2) 50%, transparent 70%)",
+        }}
+      />
+
+      {/* ================= 2. AMBIENT GENTLE SLOW DRIFTING PINK PETALS ================= */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        {[
+          { left: "8%", delay: "0s", duration: "16s", size: 18, rotate: "rotate-12", color: "#FADBD8" },
+          { left: "22%", delay: "4s", duration: "19s", size: 22, rotate: "-rotate-45", color: "#F5B7B1" },
+          { left: "42%", delay: "1.5s", duration: "17s", size: 16, rotate: "rotate-45", color: "#FFF0F2" },
+          { left: "62%", delay: "6s", duration: "20s", size: 20, rotate: "-rotate-12", color: "#FADBD8" },
+          { left: "78%", delay: "3s", duration: "18s", size: 24, rotate: "rotate-90", color: "#D88A96" },
+          { left: "90%", delay: "8s", duration: "21s", size: 16, rotate: "-rotate-90", color: "#F5B7B1" },
+          { left: "32%", delay: "9s", duration: "22s", size: 18, rotate: "rotate-30", color: "#FCE4E8" },
+        ].map((p, idx) => (
+          <div
+            key={idx}
+            className="absolute top-0 animate-garden-drift opacity-0"
+            style={{
+              left: p.left,
+              animationDelay: p.delay,
+              animationDuration: p.duration,
+              willChange: "transform, opacity",
+              transform: "translate3d(0, -40px, 0)",
+            }}
+          >
+            <svg
+              width={p.size}
+              height={p.size}
+              viewBox="0 0 30 30"
+              fill="none"
+              className={`transform ${p.rotate} drop-shadow-xs`}
+            >
+              <path
+                d="M 15 2 C 22 2, 28 8, 28 15 C 28 22, 20 28, 15 28 C 10 28, 2 22, 2 15 C 2 8, 8 2, 15 2 Z"
+                fill={p.color}
+                fillOpacity="0.85"
+                stroke="#D4A373"
+                strokeWidth="0.8"
+                strokeOpacity="0.55"
+              />
+              <path d="M 15 6 C 15 12, 15 18, 15 24" stroke="#FFFFFF" strokeWidth="0.6" strokeOpacity="0.75" />
+            </svg>
+          </div>
+        ))}
+      </div>
+
+      {/* ================= 3. FROSTED ALABASTER ENTRANCE CARD ================= */}
+      <div className="relative z-10 mx-auto flex w-full max-w-[360px] sm:max-w-[420px] flex-col items-center rounded-3xl border border-[#D4A373]/30 bg-white/75 p-6 sm:p-8 text-center shadow-[0_20px_50px_rgba(216,138,150,0.22)] backdrop-blur-md">
+        {/* Soft Rose Gold Corner Accents */}
+        <div className="pointer-events-none absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-[#D4A373]/50 rounded-tl-lg" />
+        <div className="pointer-events-none absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-[#D4A373]/50 rounded-tr-lg" />
+        <div className="pointer-events-none absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-[#D4A373]/50 rounded-bl-lg" />
+        <div className="pointer-events-none absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-[#D4A373]/50 rounded-br-lg" />
+
+        {/* 1. Code-Drawn Floral Garden Gate & 2. Refined Serif Monogram */}
+        <div className="w-full mb-6">
+          <FloralGardenGate initials={initials} />
+        </div>
+
+        {/* 3. Primary Action Button: "Buka Jemputan" */}
+        <button
+          onClick={handleOpen}
+          autoFocus
+          aria-label="Buka Jemputan"
+          className="group relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full border border-[#D4A373]/40 bg-gradient-to-r from-[#D4A373] via-[#C89B7B] to-[#D88A96] px-8 py-3.5 sm:py-4 text-sm sm:text-base font-serif font-medium tracking-widest text-white shadow-[0_8px_20px_rgba(216,138,150,0.28)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_10px_24px_rgba(216,138,150,0.38)] active:scale-95 cursor-pointer"
+        >
+          {/* Subtle Shimmer Sheen on Hover */}
+          <span className="absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          
+          {/* Elegant Envelope / Wax Seal Icon */}
+          <MailOpen size={17} className="transition-transform duration-300 group-hover:-translate-y-0.5 text-white/95" />
+          
+          <span>Buka Jemputan</span>
+        </button>
+
+        {/* 4. Discreet Tiny Music Hint: "♪ Lagu Latar" */}
+        <p className="mt-3 text-[11px] sm:text-xs font-serif italic tracking-wider text-[#4A2E35]/70">
+          ♪ Lagu Latar
+        </p>
+      </div>
     </div>
   );
 }
