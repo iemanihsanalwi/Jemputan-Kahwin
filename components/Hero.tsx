@@ -4,8 +4,7 @@ import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import BismillahHeader from "@/components/art/BismillahHeader";
-import PetalFrame from "@/components/art/PetalFrame";
-import FloralWreathHeader from "@/components/art/FloralWreathHeader";
+import GardenArchHeader from "@/components/art/GardenArchHeader";
 import FloralSectionDivider from "@/components/art/FloralSectionDivider";
 import { Calendar, ChevronDown, Heart, MapPin } from "lucide-react";
 
@@ -74,7 +73,7 @@ export default function Hero() {
   }, [event.date]);
 
   return (
-    <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden px-4 pb-16 pt-24 sm:min-h-screen">
+    <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden px-3 sm:px-6 pb-16 pt-24 sm:min-h-screen">
       {/* Background Decorative Rings */}
       <div className="pointer-events-none absolute left-1/2 top-16 -z-0 h-[340px] w-[340px] -translate-x-1/2 rounded-full border border-gold-300/25 sm:h-[580px] sm:w-[580px]" />
       <div className="pointer-events-none absolute left-1/2 top-10 -z-0 h-[380px] w-[380px] -translate-x-1/2 rounded-full border border-blush-300/20 sm:h-[640px] sm:w-[640px]" />
@@ -102,17 +101,12 @@ export default function Hero() {
           {couple.familySideNote}
         </p>
 
-        {/* Pure SVG PetalFrame Framing the Monogram Wreath & Names */}
-        <PetalFrame className="w-full max-w-2xl mb-6">
-          {/* Floral Wreath Monogram Medallion */}
-          <div className="mb-6 flex justify-center">
-            <FloralWreathHeader
-              initials={initials}
-              subtitle="RAJA SEHARI"
-              size="lg"
-            />
-          </div>
-
+        {/* Expansive Multi-Layered Garden Trellis & Floral Archway (Requirement 1) */}
+        <GardenArchHeader
+          initials={initials}
+          subtitle="RAJA SEHARI"
+          className="w-full max-w-2xl mb-8"
+        >
           {/* Couple Calligraphic Names */}
           <div className="mb-3">
             <h1 className="font-serif text-4xl font-bold leading-tight tracking-tight text-sage-950 sm:text-6xl md:text-7xl">
@@ -130,7 +124,7 @@ export default function Hero() {
 
           <FloralSectionDivider size="sm" className="my-3" />
 
-          {/* Date & Venue Subtitle with Micro-Botanical Badges */}
+          {/* Date & Venue Subtitle */}
           <div className="flex flex-col items-center justify-center gap-2 text-xs font-medium text-olive-700 sm:flex-row sm:gap-4 sm:text-sm">
             <div className="flex items-center gap-1.5 text-gold-800">
               <Calendar size={15} className="text-gold-600" />
@@ -144,9 +138,9 @@ export default function Hero() {
               <span>{event.venueName}</span>
             </div>
           </div>
-        </PetalFrame>
+        </GardenArchHeader>
 
-        {/* Live Countdown Timer with Gold Borders */}
+        {/* Live Countdown Timer with Pressed-Flower Botanical Enclosures (Requirement 5) */}
         <div className="mb-10 w-full max-w-lg">
           <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gold-800">
             {timeLeft.isExpired ? "Alhamdulillah, Hari Bahagia Telah Tiba" : "Menghitung Hari Bahagia"}
@@ -161,8 +155,28 @@ export default function Hero() {
             ].map((unit, index) => (
               <div
                 key={index}
-                className="group relative flex flex-col items-center justify-center rounded-2xl border-2 border-gold-300/90 ring-1 ring-gold-200/50 bg-gradient-to-b from-white via-cream-50/70 to-white p-3 shadow-gold backdrop-blur-sm transition-all hover:border-gold-500 hover:scale-105 sm:p-4"
+                className="group relative flex flex-col items-center justify-center rounded-2xl border-2 border-gold-300/90 ring-1 ring-gold-200/50 bg-gradient-to-b from-white via-cream-50/70 to-white p-3 shadow-gold backdrop-blur-sm transition-all hover:border-gold-500 hover:scale-105 sm:p-4 overflow-hidden"
               >
+                {/* Micro Petal Corner Florets in Each Box */}
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  className="absolute top-1 left-1 w-3.5 h-3.5 text-gold-400 opacity-60 pointer-events-none"
+                  aria-hidden="true"
+                >
+                  <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#D8A49B" opacity="0.8" />
+                  <circle cx="2" cy="2" r="1.5" fill="#C5A059" />
+                </svg>
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  className="absolute top-1 right-1 w-3.5 h-3.5 text-gold-400 opacity-60 pointer-events-none rotate-90"
+                  aria-hidden="true"
+                >
+                  <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#D8A49B" opacity="0.8" />
+                  <circle cx="2" cy="2" r="1.5" fill="#C5A059" />
+                </svg>
+
                 <div className="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
                 <span className="font-serif text-2xl font-bold text-sage-950 sm:text-4xl group-hover:text-gold-700 transition-colors">
                   {String(unit.value).padStart(2, "0")}
@@ -179,14 +193,14 @@ export default function Hero() {
         <div className="flex w-full flex-col items-center gap-3.5 sm:w-auto sm:flex-row">
           <a
             href="#rsvp"
-            className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-gold-400 bg-gradient-to-r from-gold-500 via-gold-600 to-gold-700 px-8 py-3.5 text-sm font-semibold text-white shadow-gold transition-all duration-300 hover:from-gold-600 hover:to-gold-800 hover:shadow-gold-glow hover:border-gold-300 active:scale-95 sm:w-auto sm:text-base"
+            className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-gold-400 bg-gradient-to-r from-gold-500 via-gold-600 to-gold-700 px-8 py-3.5 text-sm font-semibold text-white shadow-gold transition-all duration-300 hover:from-gold-600 hover:to-gold-800 hover:shadow-gold-glow hover:border-gold-300 active:scale-95 sm:w-auto sm:text-base cursor-pointer"
           >
             <span>Sahkan Kehadiran (RSVP)</span>
           </a>
 
           <a
             href="#acara"
-            className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-gold-300/80 bg-white/95 px-7 py-3.5 text-sm font-medium text-olive-800 shadow-sm transition-all duration-300 hover:border-gold-500 hover:bg-gold-50/50 hover:shadow-gold active:scale-95 sm:w-auto sm:text-base"
+            className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-gold-300/80 bg-white/95 px-7 py-3.5 text-sm font-medium text-olive-800 shadow-sm transition-all duration-300 hover:border-gold-500 hover:bg-gold-50/50 hover:shadow-gold active:scale-95 sm:w-auto sm:text-base cursor-pointer"
           >
             <span>Maklumat Acara &amp; Lokasi</span>
           </a>

@@ -147,6 +147,70 @@ body {
   }
 }
 
+/* Garden Drift: Diagonal gentle drifting of petals and leaves using GPU-accelerated translate3d and rotateZ */
+@keyframes gardenDrift {
+  0% {
+    transform: translate3d(0, -40px, 0) rotateZ(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(140px, 108vh, 0) rotateZ(420deg);
+    opacity: 0;
+  }
+}
+
+/* Ambient Golden Pollen Float */
+@keyframes pollenFloat {
+  0% {
+    transform: translate3d(0, -20px, 0) scale(0.85);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate3d(35px, 50vh, 0) scale(1.15);
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(70px, 104vh, 0) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* Dappled Sunlight Breathing Glow (Komorebi) */
+@keyframes sunbeamPulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08) translate3d(15px, -10px, 0);
+  }
+}
+
+.animate-garden-drift {
+  animation: gardenDrift 16s linear infinite;
+}
+
+.animate-pollen-float {
+  animation: pollenFloat 14s ease-in-out infinite;
+}
+
+.animate-sunbeam {
+  animation: sunbeamPulse 8s ease-in-out infinite;
+}
+
 /* WCAG 2.2 AA Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -6,6 +6,7 @@ import { createGoogleCalendarUrl, downloadIcsFile } from "@/lib/utils";
 import BotanicalCornerFlourish from "@/components/art/BotanicalCornerFlourish";
 import FloralSectionDivider from "@/components/art/FloralSectionDivider";
 import BotanicalIconBadge from "@/components/art/BotanicalIconBadge";
+import VineTimeline from "@/components/art/VineTimeline";
 import {
   Calendar,
   Clock,
@@ -13,11 +14,6 @@ import {
   CalendarPlus,
   Shirt,
   Check,
-  Sparkles,
-  Heart,
-  UserCheck,
-  Camera,
-  CheckCircle,
 } from "lucide-react";
 
 export default function EventInfo() {
@@ -46,22 +42,6 @@ export default function EventInfo() {
     setTimeout(() => setDownloadedIcs(false), 3000);
   };
 
-  const getIcon = (iconName?: string) => {
-    switch (iconName) {
-      case "UserCheck":
-        return <UserCheck size={16} className="text-gold-600" />;
-      case "Sparkles":
-        return <Sparkles size={16} className="text-gold-600" />;
-      case "Heart":
-        return <Heart size={16} className="text-gold-600" />;
-      case "Camera":
-        return <Camera size={16} className="text-gold-600" />;
-      case "CheckCircle":
-        return <CheckCircle size={16} className="text-gold-600" />;
-      default:
-        return <Clock size={16} className="text-gold-600" />;
-    }
-  };
 
   return (
     <section id="acara" className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
@@ -231,36 +211,7 @@ export default function EventInfo() {
           </p>
         </div>
 
-        <div className="relative ml-4 space-y-8 border-l-2 border-gold-300/70 py-2 pl-6 sm:ml-32 sm:pl-8">
-          {event.schedule.map((item, index) => (
-            <div key={index} className="group relative">
-              {/* Timeline Gold Dot with Micro-Botanical Enclosure */}
-              <div className="absolute -left-[31px] top-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-gold-500 shadow-md transition-transform group-hover:scale-125 sm:-left-[41px]">
-                <div className="h-2 w-2 rounded-full bg-white" />
-              </div>
-
-              {/* Time indicator (Rounded Pill) */}
-              <div className="sm:absolute sm:-left-32 sm:top-0 sm:w-24 sm:text-right">
-                <span className="inline-block rounded-full border border-gold-200 bg-gold-50 px-2.5 py-1 font-mono text-xs font-bold text-gold-900 shadow-xs">
-                  {item.time}
-                </span>
-              </div>
-
-              {/* Event Content */}
-              <div>
-                <h4 className="flex items-center gap-2 font-serif text-lg font-bold text-sage-950 transition-colors group-hover:text-gold-700">
-                  {getIcon(item.iconName)}
-                  <span>{item.title}</span>
-                </h4>
-                {item.description && (
-                  <p className="mt-1 text-xs leading-relaxed text-olive-600 sm:text-sm">
-                    {item.description}
-                  </p>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+        <VineTimeline schedule={event.schedule} />
       </div>
     </section>
   );

@@ -3,6 +3,7 @@ import AudioPlayer from "@/components/AudioPlayer";
 import EnvelopeModal from "@/components/EnvelopeModal";
 import FloatingActionDock from "@/components/FloatingActionDock";
 import BotanicalBackground from "@/components/art/BotanicalBackground";
+import GardenBedDivider from "@/components/art/GardenBedDivider";
 import Hero from "@/components/Hero";
 import BrideGroom from "@/components/BrideGroom";
 import EventInfo from "@/components/EventInfo";
@@ -56,6 +57,9 @@ export default async function HomePage() {
           <EventInfo />
         </ScrollReveal>
 
+        {/* Botanical Meadow Transition */}
+        <GardenBedDivider variant="meadow" />
+
         {/* 4. Location & Map Section */}
         <ScrollReveal>
           <LocationSection />
@@ -81,6 +85,9 @@ export default async function HomePage() {
           <SalamKautSection />
         </ScrollReveal>
 
+        {/* Botanical Meadow Transition */}
+        <GardenBedDivider variant="meadow" />
+
         {/* 9. Botanical Calligraphic Art & Doa Collection */}
         <ScrollReveal>
           <GallerySection />
@@ -91,7 +98,7 @@ export default async function HomePage() {
           <ContactSection />
         </ScrollReveal>
 
-        {/* 11. Footer */}
+        {/* 11. Footer with Inverted Canopy & Grounding Meadow */}
         <Footer />
       </main>
     </WeddingConfigProvider>

@@ -198,24 +198,31 @@ export default function RsvpSection() {
 
             {/* Attendance Toggle (Rounded Pills with Botanical Highlight) */}
             <div>
-              <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-olive-800">
-                Adakah Anda Akan Hadir? <span className="text-rose-500">*</span>
+              <label className="mb-2 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-olive-800">
+                <span>Adakah Anda Akan Hadir?</span>
+                <span className="text-rose-500">*</span>
               </label>
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, attendance_status: "hadir" })}
-                  className={`flex items-center justify-center gap-2 rounded-full border-2 px-4 py-3.5 text-sm font-semibold transition-all duration-300 cursor-pointer ${
+                  className={`relative flex items-center justify-center gap-2 rounded-full border-2 px-4 py-3.5 text-sm font-semibold transition-all duration-300 cursor-pointer overflow-hidden ${
                     formData.attendance_status === "hadir"
-                      ? "border-sage-600 bg-sage-50 text-sage-900 shadow-sm"
-                      : "border-olive-200 bg-cream-50/50 text-olive-600 hover:border-gold-300"
+                      ? "border-sage-600 bg-sage-50 text-sage-950 shadow-sm ring-2 ring-sage-200"
+                      : "border-gold-200/80 bg-cream-50/50 text-olive-700 hover:border-gold-400"
                   }`}
                 >
+                  {/* Subtle Leaf Bud Accent on Selected State */}
+                  {formData.attendance_status === "hadir" && (
+                    <svg viewBox="0 0 16 16" className="absolute top-1 left-2 w-3 h-3 text-sage-600 opacity-60 pointer-events-none" aria-hidden="true">
+                      <path d="M 0 8 C 4 2, 8 2, 12 0 C 10 6, 8 8, 0 8 Z" fill="#2D5A43" />
+                    </svg>
+                  )}
                   <CheckCircle2
                     size={18}
                     className={
                       formData.attendance_status === "hadir"
-                        ? "text-sage-600"
+                        ? "text-sage-700"
                         : "text-olive-400"
                     }
                   />
@@ -227,17 +234,22 @@ export default function RsvpSection() {
                   onClick={() =>
                     setFormData({ ...formData, attendance_status: "tidak_hadir" })
                   }
-                  className={`flex items-center justify-center gap-2 rounded-full border-2 px-4 py-3.5 text-sm font-semibold transition-all duration-300 cursor-pointer ${
+                  className={`relative flex items-center justify-center gap-2 rounded-full border-2 px-4 py-3.5 text-sm font-semibold transition-all duration-300 cursor-pointer overflow-hidden ${
                     formData.attendance_status === "tidak_hadir"
-                      ? "border-blush-500 bg-blush-50 text-blush-900 shadow-sm"
-                      : "border-olive-200 bg-cream-50/50 text-olive-600 hover:border-gold-300"
+                      ? "border-blush-500 bg-blush-50 text-blush-950 shadow-sm ring-2 ring-blush-200"
+                      : "border-gold-200/80 bg-cream-50/50 text-olive-700 hover:border-gold-400"
                   }`}
                 >
+                  {formData.attendance_status === "tidak_hadir" && (
+                    <svg viewBox="0 0 16 16" className="absolute top-1 right-2 w-3 h-3 text-blush-500 opacity-60 pointer-events-none" aria-hidden="true">
+                      <path d="M 12 8 C 8 2, 4 2, 0 0 C 2 6, 4 8, 12 8 Z" fill="#D8A49B" />
+                    </svg>
+                  )}
                   <XCircle
                     size={18}
                     className={
                       formData.attendance_status === "tidak_hadir"
-                        ? "text-blush-500"
+                        ? "text-blush-600"
                         : "text-olive-400"
                     }
                   />
@@ -250,12 +262,13 @@ export default function RsvpSection() {
             <div>
               <label
                 htmlFor="guest_name"
-                className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-olive-800"
+                className="mb-1.5 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-olive-800"
               >
-                Nama Penuh <span className="text-rose-500">*</span>
+                <span>Nama Penuh</span>
+                <span className="text-rose-500">*</span>
               </label>
-              <div className="relative">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-olive-400">
+              <div className="relative group">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-olive-400 group-focus-within:text-gold-600 transition-colors">
                   <User size={18} />
                 </div>
                 <input
@@ -267,7 +280,7 @@ export default function RsvpSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, guest_name: e.target.value })
                   }
-                  className="w-full rounded-2xl border border-gold-200 bg-white py-3 pl-10 pr-4 text-sm text-stone-800 placeholder-olive-400 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200/50"
+                  className="w-full rounded-2xl border-2 border-gold-200/90 bg-white py-3 pl-10 pr-4 text-sm font-medium text-stone-900 placeholder-olive-400 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200/60 shadow-xs"
                 />
               </div>
             </div>
@@ -276,12 +289,13 @@ export default function RsvpSection() {
             <div>
               <label
                 htmlFor="phone_number"
-                className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-olive-800"
+                className="mb-1.5 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-olive-800"
               >
-                Nombor Telefon (WhatsApp) <span className="text-rose-500">*</span>
+                <span>Nombor Telefon (WhatsApp)</span>
+                <span className="text-rose-500">*</span>
               </label>
-              <div className="relative">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-olive-400">
+              <div className="relative group">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-olive-400 group-focus-within:text-gold-600 transition-colors">
                   <Phone size={18} />
                 </div>
                 <input
@@ -293,7 +307,7 @@ export default function RsvpSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, phone_number: e.target.value })
                   }
-                  className="w-full rounded-2xl border border-gold-200 bg-white py-3 pl-10 pr-4 text-sm text-stone-800 placeholder-olive-400 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200/50"
+                  className="w-full rounded-2xl border-2 border-gold-200/90 bg-white py-3 pl-10 pr-4 text-sm font-medium text-stone-900 placeholder-olive-400 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200/60 shadow-xs"
                 />
               </div>
             </div>
@@ -301,12 +315,12 @@ export default function RsvpSection() {
             {/* Number of Pax */}
             {formData.attendance_status === "hadir" && (
               <div>
-                <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-olive-800">
-                  Bilangan Kehadiran (Termasuk Anda){" "}
+                <label className="mb-1.5 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-olive-800">
+                  <span>Bilangan Kehadiran (Termasuk Anda)</span>
                   <span className="text-rose-500">*</span>
                 </label>
-                <div className="relative">
-                  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-olive-400">
+                <div className="relative group">
+                  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-olive-400 group-focus-within:text-gold-600 transition-colors">
                     <Users size={18} />
                   </div>
                   <select
@@ -317,7 +331,7 @@ export default function RsvpSection() {
                         attendees_count: parseInt(e.target.value, 10),
                       })
                     }
-                    className="w-full cursor-pointer rounded-2xl border border-gold-200 bg-white py-3 pl-10 pr-4 text-sm text-stone-800 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200/50"
+                    className="w-full cursor-pointer rounded-2xl border-2 border-gold-200/90 bg-white py-3 pl-10 pr-4 text-sm font-medium text-stone-900 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200/60 shadow-xs"
                   >
                     {paxOptions.map((num) => (
                       <option key={num} value={num}>
@@ -337,8 +351,8 @@ export default function RsvpSection() {
               >
                 Catatan / Keperluan Khas / Ucapan Ringkas (Pilihan)
               </label>
-              <div className="relative">
-                <div className="pointer-events-none absolute left-3 top-3 text-olive-400">
+              <div className="relative group">
+                <div className="pointer-events-none absolute left-3 top-3 text-olive-400 group-focus-within:text-gold-600 transition-colors">
                   <MessageSquare size={18} />
                 </div>
                 <textarea
@@ -347,7 +361,7 @@ export default function RsvpSection() {
                   placeholder="Contoh: Vegetarian / alahan makanan / ucapan tahniah..."
                   value={formData.remarks}
                   onChange={(e) => setFormData({ ...formData, remarks: e.target.value })}
-                  className="w-full rounded-2xl border border-gold-200 bg-white py-3 pl-10 pr-4 text-sm text-stone-800 placeholder-olive-400 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200/50"
+                  className="w-full rounded-2xl border-2 border-gold-200/90 bg-white py-3 pl-10 pr-4 text-sm font-medium text-stone-900 placeholder-olive-400 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200/60 shadow-xs"
                 />
               </div>
             </div>

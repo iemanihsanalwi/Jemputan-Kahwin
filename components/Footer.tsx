@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import FloralSectionDivider from "@/components/art/FloralSectionDivider";
+import GardenBedDivider from "@/components/art/GardenBedDivider";
 import { Heart, Lock } from "lucide-react";
 
 export default function Footer() {
@@ -11,11 +12,13 @@ export default function Footer() {
   const { couple, event } = weddingConfig;
 
   return (
-    <footer className="relative overflow-hidden border-t-2 border-gold-400/30 bg-[#183024] pb-28 pt-16 text-center text-white md:pb-16 select-none">
-      {/* Decorative Gold Arch */}
-      <div className="absolute left-1/2 top-0 h-1 w-96 -translate-x-1/2 bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
+    <footer className="relative overflow-hidden border-t-2 border-gold-400/30 bg-[#183024] pb-28 pt-10 text-center text-white md:pb-16 select-none">
+      {/* Decorative Garden Hanging Canopy at top of footer */}
+      <div className="w-full mb-6 opacity-70">
+        <GardenBedDivider variant="canopy" />
+      </div>
 
-      <div className="mx-auto max-w-4xl px-4">
+      <div className="mx-auto max-w-4xl px-4 relative z-10">
         <h3 className="mb-2 font-serif text-3xl font-bold tracking-tight text-gold-200 sm:text-4xl">
           {couple.groom.shortName} &amp; {couple.bride.shortName}
         </h3>
@@ -50,6 +53,11 @@ export default function Footer() {
             <span>Log Masuk Urusetia (Admin)</span>
           </Link>
         </div>
+      </div>
+
+      {/* Lush Meadow Base Grounding the Footer Viewport */}
+      <div className="w-full mt-10 -mb-28 md:-mb-16 opacity-85">
+        <GardenBedDivider variant="footer" />
       </div>
     </footer>
   );
