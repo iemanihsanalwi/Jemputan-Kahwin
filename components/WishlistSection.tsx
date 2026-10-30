@@ -59,13 +59,13 @@ export default function WishlistSection() {
         className="mb-14"
       />
 
-      {/* Category Filter Pills (Rounded Contours) */}
+      {/* Category Filter Pills (Rounded Contours & HIG 44pt Targets) */}
       <div className="mb-10 flex flex-wrap items-center justify-center gap-2">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-300 cursor-pointer ${
+            className={`flex items-center justify-center min-h-[44px] rounded-full px-5 py-2 text-xs font-semibold transition-all duration-300 active:scale-[0.96] cursor-pointer ${
               selectedCategory === cat
                 ? "bg-gradient-to-r from-[#D88A96] to-[#C56D7E] text-white shadow-rose border border-[#C56D7E]"
                 : "border border-[#EAD5D5] bg-white/85 text-[#7A555C] hover:border-[#D88A96] hover:bg-[#FFF8F8]"
@@ -144,15 +144,15 @@ export default function WishlistSection() {
                 </div>
               )}
 
-              {/* Action Button (Rounded Pill Contour with Soft Rose Styling) */}
+              {/* Action Button (Rounded Pill Contour with Soft Rose Styling & 44pt Target) */}
               <a
                 href={item.storeLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex w-full items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold transition-all cursor-pointer ${
+                className={`flex w-full min-h-[44px] items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-semibold transition-all cursor-pointer ${
                   item.isReserved
                     ? "pointer-events-none cursor-not-allowed bg-stone-100 text-stone-400"
-                    : "bg-gradient-to-r from-[#D88A96] to-[#C56D7E] text-white hover:opacity-95 shadow-xs hover:shadow-rose active:scale-95"
+                    : "bg-gradient-to-r from-[#D88A96] to-[#C56D7E] text-white hover:opacity-95 shadow-xs hover:shadow-rose active:scale-[0.97]"
                 }`}
               >
                 <ShoppingBag size={14} />

@@ -206,7 +206,7 @@ export default function GuestbookSection() {
             <button
               type="submit"
               disabled={submitting}
-              className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#E2B686] bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] py-3 text-xs font-semibold text-white shadow-rose transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-70 sm:text-sm cursor-pointer"
+              className="flex w-full min-h-[44px] items-center justify-center gap-2 rounded-full border-2 border-[#E2B686] bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] py-3 text-xs font-semibold text-white shadow-rose transition-all hover:scale-[1.02] active:scale-[0.97] disabled:opacity-70 sm:text-sm cursor-pointer"
             >
               {submitting ? (
                 <>
@@ -263,7 +263,7 @@ export default function GuestbookSection() {
                       <button
                         onClick={() => handleLike(wish.id)}
                         aria-label="Suka ucapan ini"
-                        className={`flex items-center gap-1 rounded-full px-2.5 py-1 text-xs transition-all cursor-pointer ${
+                        className={`flex items-center justify-center min-h-[36px] gap-1.5 rounded-full px-3 py-1.5 text-xs transition-all active:scale-[0.95] cursor-pointer ${
                           likedMap[wish.id]
                             ? "border border-[#D88A96] bg-[#FDE8EC] text-[#C56D7E]"
                             : "border border-[#EAD5D5] bg-[#FFF8F8] text-[#7A555C] hover:bg-[#FDE8EC] hover:text-[#C56D7E]"
@@ -290,7 +290,7 @@ export default function GuestbookSection() {
                 <div className="pt-4 text-center">
                   <button
                     onClick={loadMore}
-                    className="rounded-full border-2 border-[#EAD5D5] bg-white px-7 py-2.5 text-xs font-semibold text-[#3D2429] transition-colors hover:border-[#D4A373] hover:bg-[#FDE8EC]/60 shadow-xs cursor-pointer"
+                    className="flex items-center justify-center min-h-[44px] mx-auto rounded-full border-2 border-[#EAD5D5] bg-white px-7 py-2.5 text-xs font-semibold text-[#3D2429] transition-all hover:border-[#D4A373] hover:bg-[#FDE8EC]/60 active:scale-[0.97] shadow-xs cursor-pointer"
                   >
                     Muat Turun Lagi ({wishes.length - visibleCount} ucapan)
                   </button>

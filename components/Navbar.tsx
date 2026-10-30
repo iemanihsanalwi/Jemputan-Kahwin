@@ -80,25 +80,25 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - HIG 44pt Touch Targets */}
         <div className="flex items-center gap-2 md:hidden">
           <a
             href="#rsvp"
-            className="rounded-full bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-3.5 py-1 text-xs font-semibold text-white shadow-rose"
+            className="flex items-center justify-center min-h-[44px] rounded-full bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-4 py-2 text-xs font-semibold text-white shadow-rose active:scale-[0.96] transition-all"
           >
             RSVP
           </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
-            className="rounded-full border border-[#EAD5D5] bg-white/80 p-2 text-[#7A555C] hover:text-[#C56D7E] cursor-pointer"
+            className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full border border-[#EAD5D5] bg-white/80 p-2 text-[#7A555C] hover:text-[#C56D7E] active:scale-[0.96] transition-all cursor-pointer"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown Menu with 44pt Targets */}
       {mobileMenuOpen && (
         <div className="border-b border-[#EAD5D5] bg-white/95 px-6 py-4 shadow-xl backdrop-blur-lg transition-all md:hidden">
           <div className="grid grid-cols-2 gap-3 text-sm">
@@ -109,7 +109,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2 rounded-2xl p-2.5 text-[#7A555C] transition-colors hover:bg-[#FFF8F8] hover:text-[#C56D7E]"
+                  className="flex items-center min-h-[44px] gap-2 rounded-2xl p-2.5 text-[#7A555C] transition-all hover:bg-[#FFF8F8] hover:text-[#C56D7E] active:scale-[0.98]"
                 >
                   <Icon size={16} className="text-[#C56D7E]" />
                   <span>{item.label}</span>

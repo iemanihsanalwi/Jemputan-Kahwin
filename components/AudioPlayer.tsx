@@ -91,7 +91,7 @@ export default function AudioPlayer() {
 
   return (
     <div
-      className="fixed bottom-24 right-4 z-40 sm:bottom-6 sm:right-6 select-none"
+      className="fixed bottom-[max(5.5rem,calc(env(safe-area-inset-bottom)+5rem))] right-4 z-40 sm:bottom-6 sm:right-6 select-none"
       aria-label="Pemain Muzik Latar Majlis"
     >
       <audio
@@ -126,14 +126,14 @@ export default function AudioPlayer() {
           </div>
         </div>
 
-        {/* Main Floating Audio Control Widget in Bottom Corner */}
+        {/* Main Floating Audio Control Widget with 44pt Touch Target */}
         <button
           onClick={togglePlay}
           aria-label={isPlaying ? "Jeda Muzik Latar (Pause)" : "Mainkan Muzik Latar (Play)"}
-          className={`relative flex items-center gap-2.5 rounded-full p-2.5 sm:p-3 shadow-sm transition-all duration-300 focus:outline-none cursor-pointer ${
+          className={`relative flex items-center justify-center min-w-[44px] min-h-[44px] gap-2.5 rounded-full p-2.5 sm:p-3 shadow-sm transition-all duration-300 focus:outline-none cursor-pointer ${
             isPlaying
-              ? "scale-105 bg-gradient-to-tr from-[#3D2429] via-[#4A2E35] to-[#2B191D] text-[#D4A373] border-2 border-[#D4A373] shadow-rose"
-              : "border-2 border-[#EAD5D5] bg-white/95 text-[#7A555C] backdrop-blur-md hover:border-[#D88A96] hover:text-[#C56D7E] hover:scale-105"
+              ? "scale-105 bg-gradient-to-tr from-[#3D2429] via-[#4A2E35] to-[#2B191D] text-[#D4A373] border-2 border-[#D4A373] shadow-rose active:scale-[0.98]"
+              : "border-2 border-[#EAD5D5] bg-white/95 text-[#7A555C] backdrop-blur-md hover:border-[#D88A96] hover:text-[#C56D7E] hover:scale-105 active:scale-[0.98]"
           }`}
         >
           {/* Pulsating Sound Wave Ring Ripple (GPU accelerated) */}

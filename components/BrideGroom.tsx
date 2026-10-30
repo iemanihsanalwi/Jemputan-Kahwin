@@ -136,7 +136,7 @@ export default function BrideGroom() {
               href={groom.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-[#B56576] transition-colors hover:text-[#3D2429]"
+              className="inline-flex items-center justify-center min-h-[44px] gap-1.5 px-4 py-2 rounded-full border border-[#EAD5D5] bg-[#FFF8F8] text-xs font-medium text-[#B56576] transition-all hover:border-[#D88A96] hover:bg-[#FDE8EC] hover:text-[#3D2429] active:scale-[0.96] cursor-pointer"
             >
               <Instagram size={15} />
               <span>@{groom.shortName.toLowerCase()}</span>
@@ -185,7 +185,7 @@ export default function BrideGroom() {
               href={bride.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-[#B56576] transition-colors hover:text-[#3D2429]"
+              className="inline-flex items-center justify-center min-h-[44px] gap-1.5 px-4 py-2 rounded-full border border-[#EAD5D5] bg-[#FFF8F8] text-xs font-medium text-[#B56576] transition-all hover:border-[#D88A96] hover:bg-[#FDE8EC] hover:text-[#3D2429] active:scale-[0.96] cursor-pointer"
             >
               <Instagram size={15} />
               <span>@{bride.shortName.toLowerCase()}</span>

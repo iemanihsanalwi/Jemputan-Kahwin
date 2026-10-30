@@ -46,19 +46,19 @@ export default function ContactSection() {
                   {contact.name}
                 </h3>
 
-                <p className="mb-6 font-mono text-xs text-[#7A555C] sm:text-sm">
+                <p className="mb-6 font-mono tabular-nums text-xs text-[#7A555C] sm:text-sm select-all">
                   {contact.phone}
                 </p>
               </div>
 
-              {/* Action Buttons (Rounded Pills) */}
+              {/* Action Buttons (Rounded Pills with HIG 44pt Touch Targets) */}
               <div className="grid grid-cols-2 gap-2.5 border-t border-[#F0D5DA] pt-3.5">
                 {/* WhatsApp Button */}
                 <a
                   href={waUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-3 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-95 active:scale-95 shadow-xs hover:shadow-rose cursor-pointer"
+                  className="flex items-center justify-center min-h-[44px] gap-1.5 rounded-full bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-3 py-2.5 text-xs font-semibold text-white transition-all hover:opacity-95 active:scale-[0.96] shadow-xs hover:shadow-rose cursor-pointer"
                 >
                   <MessageCircle size={15} />
                   <span>WhatsApp</span>
@@ -67,7 +67,7 @@ export default function ContactSection() {
                 {/* Call Button */}
                 <a
                   href={telUrl}
-                  className="flex items-center justify-center gap-1.5 rounded-full border border-[#EAD5D5] bg-white px-3 py-2 text-xs font-semibold text-[#4A2E35] transition-colors hover:border-[#D88A96] hover:bg-[#FFF8F8] active:scale-95 shadow-xs cursor-pointer"
+                  className="flex items-center justify-center min-h-[44px] gap-1.5 rounded-full border border-[#EAD5D5] bg-white px-3 py-2.5 text-xs font-semibold text-[#4A2E35] transition-all hover:border-[#D88A96] hover:bg-[#FFF8F8] active:scale-[0.96] shadow-xs cursor-pointer"
                 >
                   <Phone size={14} className="text-[#D4A373]" />
                   <span>Hubungi</span>

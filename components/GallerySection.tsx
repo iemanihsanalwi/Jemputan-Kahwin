@@ -120,24 +120,24 @@ export default function GallerySection() {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md"
           onClick={handleClose}
         >
-          {/* Close Button */}
+          {/* Close Button - 48pt Touch Target */}
           <button
             onClick={handleClose}
             autoFocus
             aria-label="Tutup Paparan"
-            className="absolute right-5 top-5 z-50 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-[#D88A96] active:scale-95 cursor-pointer"
+            className="absolute right-4 top-[max(1rem,env(safe-area-inset-top))] z-50 flex items-center justify-center min-w-[48px] min-h-[48px] rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-[#D88A96] active:scale-[0.96] cursor-pointer"
           >
             <X size={22} />
           </button>
 
-          {/* Previous Button */}
+          {/* Previous Button - 48pt Touch Target */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               handlePrev();
             }}
             aria-label="Doa Sebelumnya"
-            className="absolute left-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 active:scale-95 cursor-pointer"
+            className="absolute left-3 top-1/2 z-50 -translate-y-1/2 flex items-center justify-center min-w-[48px] min-h-[48px] rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/25 active:scale-[0.96] cursor-pointer"
           >
             <ChevronLeft size={26} />
           </button>
@@ -172,14 +172,14 @@ export default function GallerySection() {
             </div>
           </div>
 
-          {/* Next Button */}
+          {/* Next Button - 48pt Touch Target */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               handleNext();
             }}
             aria-label="Doa Seterusnya"
-            className="absolute right-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/25 active:scale-95 cursor-pointer"
+            className="absolute right-3 top-1/2 z-50 -translate-y-1/2 flex items-center justify-center min-w-[48px] min-h-[48px] rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/25 active:scale-[0.96] cursor-pointer"
           >
             <ChevronRight size={26} />
           </button>

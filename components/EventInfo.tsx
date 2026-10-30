@@ -139,7 +139,7 @@ export default function EventInfo() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3 border-t border-[#EAD5D5] pt-8">
           <button
             onClick={handleGoogleCalendar}
-            className="flex items-center gap-2 rounded-full border border-[#E2B686] bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] px-6 py-2.5 text-xs font-semibold text-white shadow-rose transition-all hover:scale-[1.02] active:scale-95 sm:text-sm cursor-pointer"
+            className="flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-[#E2B686] bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] px-6 py-3 text-xs font-semibold text-white shadow-rose transition-all hover:scale-[1.02] active:scale-[0.97] sm:text-sm cursor-pointer"
           >
             <CalendarPlus size={16} />
             <span>Simpan ke Google Calendar</span>
@@ -147,7 +147,7 @@ export default function EventInfo() {
 
           <button
             onClick={handleIcsDownload}
-            className="flex items-center gap-2 rounded-full border-2 border-[#EAD5D5] bg-white px-6 py-2.5 text-xs font-semibold text-[#3D2429] shadow-sm transition-all hover:border-[#D4A373] hover:bg-[#FDE8EC]/60 sm:text-sm active:scale-95 cursor-pointer"
+            className="flex min-h-[44px] items-center justify-center gap-2 rounded-full border-2 border-[#EAD5D5] bg-white px-6 py-3 text-xs font-semibold text-[#3D2429] shadow-sm transition-all hover:border-[#D4A373] hover:bg-[#FDE8EC]/60 sm:text-sm active:scale-[0.97] cursor-pointer"
           >
             {downloadedIcs ? (
               <>

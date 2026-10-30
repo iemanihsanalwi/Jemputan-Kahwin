@@ -203,7 +203,7 @@ export default function RsvpSection() {
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, attendance_status: "hadir" })}
-                  className={`relative flex items-center justify-center gap-2 rounded-full border-2 px-4 py-3.5 text-sm font-semibold transition-all duration-300 cursor-pointer overflow-hidden ${
+                  className={`relative flex items-center justify-center min-h-[48px] gap-2 rounded-full border-2 px-4 py-3 text-sm font-semibold transition-all duration-300 cursor-pointer overflow-hidden active:scale-[0.97] ${
                     formData.attendance_status === "hadir"
                       ? "border-[#C56D7E] bg-[#FDE8EC] text-[#3D2429] shadow-sm ring-2 ring-[#FADBD8]"
                       : "border-[#EAD5D5] bg-white text-[#7A555C] hover:border-[#D4A373]"
@@ -225,7 +225,7 @@ export default function RsvpSection() {
                   onClick={() =>
                     setFormData({ ...formData, attendance_status: "tidak_hadir" })
                   }
-                  className={`relative flex items-center justify-center gap-2 rounded-full border-2 px-4 py-3.5 text-sm font-semibold transition-all duration-300 cursor-pointer overflow-hidden ${
+                  className={`relative flex items-center justify-center min-h-[48px] gap-2 rounded-full border-2 px-4 py-3 text-sm font-semibold transition-all duration-300 cursor-pointer overflow-hidden active:scale-[0.97] ${
                     formData.attendance_status === "tidak_hadir"
                       ? "border-[#B56576] bg-[#FCE4E8] text-[#3D2429] shadow-sm ring-2 ring-[#FADBD8]"
                       : "border-[#EAD5D5] bg-white text-[#7A555C] hover:border-[#D4A373]"
@@ -364,11 +364,11 @@ export default function RsvpSection() {
               className="hidden"
             />
 
-            {/* Submit Button (Rounded Pill Contour with Rose Gold Gradient) */}
+            {/* Submit Button (Rounded Pill Contour with Rose Gold Gradient & HIG 48pt Target) */}
             <button
               type="submit"
               disabled={loading}
-              className="active:scale-98 flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#E2B686] bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] py-4 text-sm font-bold text-white shadow-rose transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_10px_24px_rgba(201,122,139,0.35)] disabled:opacity-70 sm:text-base cursor-pointer"
+              className="flex w-full min-h-[48px] items-center justify-center gap-2 rounded-full border-2 border-[#E2B686] bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] py-3.5 text-sm font-bold text-white shadow-rose transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_10px_24px_rgba(201,122,139,0.35)] active:scale-[0.97] disabled:opacity-70 sm:text-base cursor-pointer"
             >
               {loading ? (
                 <>

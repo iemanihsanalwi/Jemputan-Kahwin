@@ -61,14 +61,14 @@ export default function FloatingActionDock() {
 
   return (
     <>
-      {/* Floating Bottom Action Dock */}
-      <div className="fixed bottom-4 left-4 right-4 z-40 max-w-md mx-auto select-none">
-        <div className="flex items-center justify-around rounded-full border border-[#EAD5D5] bg-white/90 px-4 py-2.5 shadow-rose backdrop-blur-lg">
+      {/* Floating Bottom Action Dock - Appllama HIG Compliant Safe Area Inset */}
+      <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-4 right-4 z-40 max-w-md mx-auto select-none">
+        <div className="flex items-center justify-around rounded-full border border-[#EAD5D5] bg-white/90 px-3 py-2 shadow-rose backdrop-blur-lg">
           {/* 1. Location Trigger */}
           <button
             onClick={() => setActiveModal("location")}
             aria-label="Panduan Lokasi & Peta"
-            className="flex flex-col items-center gap-1 text-[#7A555C] transition-colors hover:text-[#C56D7E] active:scale-95 px-2 py-1 cursor-pointer"
+            className="flex flex-col items-center justify-center min-w-[52px] min-h-[44px] gap-1 text-[#7A555C] transition-all hover:text-[#C56D7E] active:scale-[0.96] px-2 py-1 cursor-pointer"
           >
             <MapPin size={18} className="text-[#C56D7E]" />
             <span className="text-[10px] font-medium tracking-wide">Lokasi</span>
@@ -78,7 +78,7 @@ export default function FloatingActionDock() {
           <button
             onClick={() => setActiveModal("calendar")}
             aria-label="Simpan Tarikh Majlis"
-            className="flex flex-col items-center gap-1 text-[#7A555C] transition-colors hover:text-[#C56D7E] active:scale-95 px-2 py-1 cursor-pointer"
+            className="flex flex-col items-center justify-center min-w-[52px] min-h-[44px] gap-1 text-[#7A555C] transition-all hover:text-[#C56D7E] active:scale-[0.96] px-2 py-1 cursor-pointer"
           >
             <Calendar size={18} className="text-[#C56D7E]" />
             <span className="text-[10px] font-medium tracking-wide">Kalendar</span>
@@ -88,7 +88,7 @@ export default function FloatingActionDock() {
           <a
             href="#rsvp"
             aria-label="Sahkan Kehadiran RSVP"
-            className="-mt-5 flex flex-col items-center justify-center rounded-full border border-[#D4A373]/40 bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] p-3 font-bold text-white shadow-rose ring-4 ring-[#FFF8F8] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+            className="-mt-6 flex flex-col items-center justify-center min-w-[56px] min-h-[56px] rounded-full border border-[#D4A373]/40 bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] p-3 font-bold text-white shadow-rose ring-4 ring-[#FFF8F8] transition-all hover:scale-105 active:scale-[0.96] cursor-pointer"
           >
             <CheckCircle2 size={22} className="text-white" />
             <span className="text-[9px] font-bold uppercase tracking-wider text-white">
@@ -100,7 +100,7 @@ export default function FloatingActionDock() {
           <button
             onClick={() => setActiveModal("whatsapp")}
             aria-label="Hubungi Wakil Pengantin via WhatsApp"
-            className="flex flex-col items-center gap-1 text-[#7A555C] transition-colors hover:text-[#C56D7E] active:scale-95 px-2 py-1 cursor-pointer"
+            className="flex flex-col items-center justify-center min-w-[52px] min-h-[44px] gap-1 text-[#7A555C] transition-all hover:text-[#C56D7E] active:scale-[0.96] px-2 py-1 cursor-pointer"
           >
             <MessageCircle size={18} className="text-[#C56D7E]" />
             <span className="text-[10px] font-medium tracking-wide">WhatsApp</span>
@@ -108,7 +108,7 @@ export default function FloatingActionDock() {
         </div>
       </div>
 
-      {/* Interactive Bottom Sheet Modals */}
+      {/* Interactive Bottom Sheet Modals with iOS Safe Area Padding */}
       {activeModal && (
         <div
           role="dialog"
@@ -117,16 +117,16 @@ export default function FloatingActionDock() {
           onClick={closeModal}
         >
           <div
-            className="relative w-full max-w-sm rounded-t-3xl sm:rounded-3xl border border-[#EAD5D5] bg-white/95 backdrop-blur-md p-6 shadow-2xl animate-in fade-in slide-in-from-bottom-6 duration-300"
+            className="relative w-full max-w-sm rounded-t-3xl sm:rounded-3xl border border-[#EAD5D5] bg-white/95 backdrop-blur-md p-6 pb-[max(1.5rem,calc(env(safe-area-inset-bottom)+1rem))] shadow-2xl animate-in fade-in slide-in-from-bottom-6 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Mobile Drag Indicator Bar */}
             <div className="w-12 h-1.5 bg-[#EAD5D5] rounded-full mx-auto mb-4 sm:hidden" />
-            {/* Close Button */}
+            {/* Accessible 44pt Close Button */}
             <button
               onClick={closeModal}
               aria-label="Tutup Pilihan"
-              className="absolute right-4 top-4 rounded-full bg-[#FFF8F8] p-1.5 text-[#7A555C] hover:bg-[#FDE8EC] transition-colors cursor-pointer"
+              className="absolute right-3 top-3 flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full bg-[#FFF8F8] text-[#7A555C] hover:bg-[#FDE8EC] active:scale-[0.96] transition-all cursor-pointer"
             >
               <X size={18} />
             </button>

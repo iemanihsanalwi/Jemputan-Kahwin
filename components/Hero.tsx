@@ -178,7 +178,7 @@ export default function Hero() {
                 </svg>
 
                 <div className="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-[#D4A373] to-transparent" />
-                <span className="font-serif text-2xl font-bold text-[#3D2429] sm:text-4xl group-hover:text-[#B56576] transition-colors">
+                <span className="font-serif text-2xl font-bold text-[#3D2429] sm:text-4xl group-hover:text-[#B56576] transition-colors tabular-nums font-mono">
                   {String(unit.value).padStart(2, "0")}
                 </span>
                 <span className="mt-1 text-[10px] font-bold uppercase tracking-wider text-[#7A555C] sm:text-xs">
@@ -189,11 +189,11 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Primary Call to Actions (Rounded Pill Contours with Rose Gold Borders) */}
+        {/* Primary Call to Actions (Rounded Pill Contours with Rose Gold Borders & Native Press Feedback) */}
         <div className="flex w-full flex-col items-center gap-3.5 sm:w-auto sm:flex-row">
           <a
             href="#rsvp"
-            className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#E2B686] bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] px-8 py-3.5 text-sm font-semibold text-white shadow-rose transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_10px_24px_rgba(201,122,139,0.35)] active:scale-95 sm:w-auto sm:text-base cursor-pointer"
+            className="flex w-full min-h-[48px] items-center justify-center gap-2 rounded-full border-2 border-[#E2B686] bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] px-8 py-3.5 text-sm font-semibold text-white shadow-rose transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_10px_24px_rgba(201,122,139,0.35)] active:scale-[0.97] sm:w-auto sm:text-base cursor-pointer"
           >
             <span>Sahkan Kehadiran (RSVP)</span>
           </a>

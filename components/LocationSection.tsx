@@ -41,7 +41,7 @@ export default function LocationSection() {
             {event.venueHall && (
               <p className="mb-1 text-sm font-medium text-[#D4A373]">{event.venueHall}</p>
             )}
-            <p className="max-w-xl text-xs leading-relaxed text-[#7A555C] sm:text-sm">
+            <p className="max-w-xl text-xs leading-relaxed text-[#7A555C] sm:text-sm select-text">
               {event.venueAddress}
             </p>
           </div>
@@ -49,7 +49,7 @@ export default function LocationSection() {
           <button
             onClick={handleCopyAddress}
             aria-label="Salin alamat penuh majlis"
-            className="flex flex-shrink-0 items-center gap-2 rounded-full border-2 border-[#EAD5D5] bg-[#FFF8F8] px-5 py-2.5 text-xs font-semibold text-[#3D2429] transition-colors hover:border-[#D4A373] hover:bg-[#FDE8EC]/70 focus:outline-none focus:ring-2 focus:ring-[#D88A96] active:scale-95 shadow-xs cursor-pointer"
+            className="flex flex-shrink-0 items-center justify-center min-h-[44px] gap-2 rounded-full border-2 border-[#EAD5D5] bg-[#FFF8F8] px-5 py-2.5 text-xs font-semibold text-[#3D2429] transition-all hover:border-[#D4A373] hover:bg-[#FDE8EC]/70 focus:outline-none focus:ring-2 focus:ring-[#D88A96] active:scale-[0.97] shadow-xs cursor-pointer"
           >
             {copied ? (
               <span
@@ -69,13 +69,13 @@ export default function LocationSection() {
           </button>
         </div>
 
-        {/* 1-Click Navigation Buttons with Soft Pink Borders, Rose-Gold Icons & Ivory Hover States */}
+        {/* 1-Click Navigation Buttons with HIG 44pt Touch Targets */}
         <div className="flex flex-col items-center gap-4 py-6 sm:flex-row">
           <a
             href={event.wazeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-2.5 rounded-full border-2 border-[#EAD5D5] bg-white px-6 py-3.5 text-sm font-semibold text-[#3D2429] shadow-sm transition-all hover:bg-[#FFF8F8] hover:border-[#D4A373] hover:shadow-rose active:scale-95 sm:flex-1 cursor-pointer"
+            className="flex w-full min-h-[48px] items-center justify-center gap-2.5 rounded-full border-2 border-[#EAD5D5] bg-white px-6 py-3.5 text-sm font-semibold text-[#3D2429] shadow-sm transition-all hover:bg-[#FFF8F8] hover:border-[#D4A373] hover:shadow-rose active:scale-[0.97] sm:flex-1 cursor-pointer"
           >
             <Navigation size={18} className="text-[#D4A373]" />
             <span>Pandu Dengan Waze</span>
@@ -86,7 +86,7 @@ export default function LocationSection() {
             href={event.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-2.5 rounded-full border-2 border-[#EAD5D5] bg-white px-6 py-3.5 text-sm font-semibold text-[#3D2429] shadow-sm transition-all hover:bg-[#FFF8F8] hover:border-[#D4A373] hover:shadow-rose active:scale-95 sm:flex-1 cursor-pointer"
+            className="flex w-full min-h-[48px] items-center justify-center gap-2.5 rounded-full border-2 border-[#EAD5D5] bg-white px-6 py-3.5 text-sm font-semibold text-[#3D2429] shadow-sm transition-all hover:bg-[#FFF8F8] hover:border-[#D4A373] hover:shadow-rose active:scale-[0.97] sm:flex-1 cursor-pointer"
           >
             <MapPin size={18} className="text-[#C56D7E]" />
             <span>Pandu Dengan Google Maps</span>

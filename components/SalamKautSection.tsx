@@ -216,14 +216,14 @@ export default function SalamKautSection() {
                 Nombor Akaun
               </span>
               <div className="flex items-center justify-between gap-2">
-                <span className="font-mono text-base font-bold tracking-wider text-[#3D2429] sm:text-lg">
+                <span className="font-mono tabular-nums text-base font-bold tracking-wider text-[#3D2429] sm:text-lg select-all">
                   {salamKaut.accountNumber}
                 </span>
 
                 <button
                   onClick={handleCopy}
                   aria-label="Salin nombor akaun bank"
-                  className="rounded-full border border-[#EAD5D5] bg-white p-2.5 text-[#B56576] transition-colors hover:border-[#D88A96] hover:bg-[#FDE8EC] hover:text-[#3D2429] focus:outline-none focus:ring-2 focus:ring-[#D88A96] active:scale-95 shadow-xs cursor-pointer"
+                  className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full border border-[#EAD5D5] bg-white p-2.5 text-[#B56576] transition-all hover:border-[#D88A96] hover:bg-[#FDE8EC] hover:text-[#3D2429] focus:outline-none focus:ring-2 focus:ring-[#D88A96] active:scale-[0.96] shadow-xs cursor-pointer"
                 >
                   {copied ? (
                     <Check size={16} className="text-[#C56D7E]" />

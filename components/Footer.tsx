@@ -12,7 +12,7 @@ export default function Footer() {
   const { couple, event } = weddingConfig;
 
   return (
-    <footer className="relative overflow-hidden border-t-2 border-[#D4A373]/30 bg-[#3D2429] pb-28 pt-10 text-center text-white md:pb-16 select-none">
+    <footer className="relative overflow-hidden border-t-2 border-[#D4A373]/30 bg-[#3D2429] pb-[max(7.5rem,calc(env(safe-area-inset-bottom)+7rem))] pt-10 text-center text-white md:pb-20 select-none">
       {/* Decorative Garden Hanging Canopy at top of footer */}
       <div className="w-full mb-6 opacity-70">
         <GardenBedDivider variant="canopy" />
