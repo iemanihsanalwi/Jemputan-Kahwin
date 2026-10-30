@@ -3,18 +3,18 @@ import React from "react";
 export interface BotanicalIconBadgeProps {
   children: React.ReactNode;
   size?: "sm" | "md" | "lg";
-  variant?: "gold" | "sage" | "blush" | "cream";
+  variant?: "gold" | "sage" | "blush" | "cream" | "rose";
   className?: string;
 }
 
 /**
  * BotanicalIconBadge - Wraps action icons in a micro-botanical enclosure
- * featuring circular antique gold borders with tiny leaf and petal accents.
+ * featuring circular rose gold borders with tiny petal accents (Zero Green).
  */
 export default function BotanicalIconBadge({
   children,
   size = "md",
-  variant = "gold",
+  variant = "rose",
   className = "",
 }: BotanicalIconBadgeProps) {
   const idPrefix = React.useId().replace(/:/g, "");
@@ -26,10 +26,11 @@ export default function BotanicalIconBadge({
   };
 
   const bgClasses = {
-    gold: "bg-gradient-to-b from-white via-gold-50/80 to-cream-100/90 text-gold-700",
-    sage: "bg-gradient-to-b from-white via-sage-50 to-sage-100/80 text-sage-700",
-    blush: "bg-gradient-to-b from-white via-blush-50 to-blush-100/80 text-blush-700",
-    cream: "bg-cream-50 text-olive-600",
+    gold: "bg-gradient-to-b from-white via-[#FAEDE3] to-[#F3DAC8] text-[#D4A373]",
+    sage: "bg-gradient-to-b from-white via-[#FDE8EC] to-[#FADBD8] text-[#C56D7E]",
+    blush: "bg-gradient-to-b from-white via-[#FDE8EC] to-[#FADBD8] text-[#D88A96]",
+    rose: "bg-gradient-to-b from-white via-[#FDE8EC] to-[#FADBD8] text-[#C56D7E]",
+    cream: "bg-[#FFF8F8] text-[#7A555C]",
   };
 
   return (
@@ -46,24 +47,18 @@ export default function BotanicalIconBadge({
       >
         <defs>
           <linearGradient id={`${idPrefix}-badgeBorder`} x1="0%" y1="0%" x2="100%" y2="100%">
-            {variant === "sage" ? (
+            {variant === "sage" || variant === "rose" || variant === "blush" ? (
               <>
-                <stop offset="0%" stopColor="#7CA58A" />
-                <stop offset="60%" stopColor="#2D5A43" />
-                <stop offset="100%" stopColor="#C5A059" />
-              </>
-            ) : variant === "blush" ? (
-              <>
-                <stop offset="0%" stopColor="#E8C5BE" />
-                <stop offset="70%" stopColor="#D8A49B" />
-                <stop offset="100%" stopColor="#C5A059" />
+                <stop offset="0%" stopColor="#FADBD8" />
+                <stop offset="60%" stopColor="#D88A96" />
+                <stop offset="100%" stopColor="#D4A373" />
               </>
             ) : (
               <>
-                <stop offset="0%" stopColor="#F5EED6" />
-                <stop offset="35%" stopColor="#D4AF37" />
-                <stop offset="75%" stopColor="#C5A059" />
-                <stop offset="100%" stopColor="#D8A49B" />
+                <stop offset="0%" stopColor="#FFF8F2" />
+                <stop offset="35%" stopColor="#E2B686" />
+                <stop offset="75%" stopColor="#D4A373" />
+                <stop offset="100%" stopColor="#C89B7B" />
               </>
             )}
           </linearGradient>

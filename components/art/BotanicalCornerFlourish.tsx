@@ -32,34 +32,28 @@ export default function BotanicalCornerFlourish({
     >
       <defs>
         <linearGradient id={`${idPrefix}-grad`} x1="0%" y1="0%" x2="100%" y2="100%">
-          {variant === "sage" || variant === "emerald" ? (
+          {variant === "sage" || variant === "emerald" || variant === "rose" ? (
             <>
-              <stop offset="0%" stopColor="#7CA58A" />
-              <stop offset="45%" stopColor="#2D5A43" />
-              <stop offset="85%" stopColor="#C5A059" />
-              <stop offset="100%" stopColor="#3E5C49" />
-            </>
-          ) : variant === "rose" ? (
-            <>
-              <stop offset="0%" stopColor="#E8C5BE" />
-              <stop offset="50%" stopColor="#D8A49B" />
-              <stop offset="100%" stopColor="#C5A059" />
+              <stop offset="0%" stopColor="#FADBD8" />
+              <stop offset="45%" stopColor="#D88A96" />
+              <stop offset="85%" stopColor="#C56D7E" />
+              <stop offset="100%" stopColor="#B56576" />
             </>
           ) : (
-            // Default "gold": warm antique gold transitioning to soft rose
+            // Default "gold": warm rose gold & champagne
             <>
-              <stop offset="0%" stopColor="#F5EED6" />
-              <stop offset="35%" stopColor="#D4AF37" />
-              <stop offset="70%" stopColor="#C5A059" />
-              <stop offset="100%" stopColor="#D8A49B" />
+              <stop offset="0%" stopColor="#FFF8F2" />
+              <stop offset="35%" stopColor="#E2B686" />
+              <stop offset="70%" stopColor="#D4A373" />
+              <stop offset="100%" stopColor="#D88A96" />
             </>
           )}
         </linearGradient>
 
         <linearGradient id={`${idPrefix}-petal`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#FAF7F2" stopOpacity="0.9" />
-          <stop offset="50%" stopColor="#E8C5BE" stopOpacity="0.75" />
-          <stop offset="100%" stopColor="#C5A059" stopOpacity="0.85" />
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.95" />
+          <stop offset="50%" stopColor="#FADBD8" stopOpacity="0.85" />
+          <stop offset="100%" stopColor="#D88A96" stopOpacity="0.85" />
         </linearGradient>
       </defs>
 

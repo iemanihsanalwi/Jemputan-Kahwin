@@ -10,79 +10,107 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Botanical Sage & Deep Forest (Primary Botanical)
-        sage: {
-          50: "#F4F7F5",
-          100: "#E3ECE6",
-          200: "#C6D8CD",
-          300: "#A3C0AD",
-          400: "#7CA58A",
-          500: "#5A8B6B",
-          600: "#3E5C49", // Deep Forest
-          700: "#2D5A43", // Botanical Sage Primary
-          800: "#224433",
-          900: "#183024",
-          950: "#0C1913",
+        // Deep Romantic Mulberry & Warm Espresso (Headings & Primary Text)
+        mulberry: {
+          50: "#FAF0F2",
+          100: "#F4DFE3",
+          200: "#E8BFC7",
+          300: "#D697A4",
+          400: "#C16F81",
+          500: "#B56576", // Muted Dusty Rose
+          600: "#9E475A",
+          700: "#7A3545",
+          800: "#5E2935",
+          900: "#4A2E35", // Deep Mulberry
+          950: "#3D2429", // Warm Espresso Primary
+        },
+        // Dusty Rose & Romantic Pink (Primary Romantic Palette)
+        rose: {
+          50: "#FFF8F8",
+          100: "#FDE8EC", // Soft Blush
+          200: "#FADBD8",
+          300: "#F5B7B1", // Pastel Blossom
+          400: "#E8A598",
+          500: "#D88A96", // Dusty Rose Primary
+          600: "#C56D7E", // Warm Dusty Rose CTA
+          700: "#B56576", // Eyebrow Accent
+          800: "#8C4A58",
+          900: "#4A2E35",
+          950: "#3D2429",
         },
         // Dusty Rose & Soft Blush (Romance / Secondary)
         blush: {
-          50: "#FDF9F8",
-          100: "#FAF1EE",
-          200: "#F4E0DC",
-          300: "#E8C5BE", // Soft Blush
-          400: "#D8A49B", // Dusty Rose
-          500: "#C5857B",
-          600: "#AC665B",
-          700: "#8E4D43",
-          800: "#703C34",
-          900: "#562E28",
+          50: "#FFF8F8",
+          100: "#FDF2F4",
+          200: "#FCE4E8",
+          300: "#FADBD8", // Soft Blush
+          400: "#F5B7B1", // Pastel Blossom
+          500: "#E8A598",
+          600: "#D88A96", // Dusty Rose
+          700: "#C56D7E",
+          800: "#8C4A58",
+          900: "#4A2E35",
         },
-        // Warm Antique Gold (Elegance / Accent)
+        // Brushed Rose Gold & Champagne Gold (Accents / Outlines)
         gold: {
-          50: "#FAF7EE",
-          100: "#F5EED6",
-          200: "#EBDDB1",
-          300: "#DFC785",
-          400: "#D4AF37", // Warm Gold
-          500: "#C5A059", // Warm Antique Gold Primary
-          600: "#A7823F",
-          700: "#86652C",
-          800: "#644A1E",
-          900: "#443213",
+          50: "#FFF8F2",
+          100: "#FAEDE3",
+          200: "#F3DAC8",
+          300: "#EAD5D5", // Rose-Gold Border
+          400: "#E2B686", // Brushed Champagne Gold
+          500: "#D4A373", // Rose Gold Primary
+          600: "#C89B7B", // Brushed Rose Gold
+          700: "#B3806D",
+          800: "#8C5E4E",
+          900: "#4A2E35",
         },
-        // Warm Cream & Alabaster Pearl (Background / Surface)
+        // Petal Cream & Alabaster Pearl (Background / Surface)
         cream: {
-          50: "#FAF7F2", // Warm Cream
-          100: "#F4EFE6", // Alabaster Pearl
-          200: "#EBE3D4",
-          300: "#DFD2BC",
-          400: "#CEBC9F",
-          500: "#B8A381",
+          50: "#FFF8F8", // Soft Petal Cream Primary
+          100: "#FFF1F3",
+          200: "#FDE8EC", // Soft Blush Fading
+          300: "#FADBD8",
+          400: "#EAD5D5", // Rose-Gold Frosted Border
+          500: "#C89B7B",
         },
-        // Muted Olive & Taupe (Text & Borders)
+        // Muted Rose Taupe (Text & Borders - Zero Green)
         olive: {
-          100: "#ECEEE8",
-          200: "#D7DCD1",
-          300: "#BFC6B6",
-          400: "#A5A58D", // Taupe
-          500: "#8B9074",
-          600: "#6B705C", // Muted Olive
-          700: "#515545",
-          800: "#383B30",
-          900: "#22241D",
+          100: "#FAF0F2",
+          200: "#F3E2E5",
+          300: "#DFC1C7",
+          400: "#C9A7AF", // Rose Taupe
+          500: "#9C767E",
+          600: "#7A555C", // Deep Rose Taupe Text
+          700: "#5E3E44",
+          800: "#4A2E35", // Deep Mulberry
+          900: "#3D2429", // Warm Espresso
         },
-        // Legacy compatibility colors
+        // Complete Green-to-Pink safety mapping: Sage mapped to Romantic Rose & Mulberry
+        sage: {
+          50: "#FFF8F8",
+          100: "#FDE8EC",
+          200: "#FADBD8",
+          300: "#F5B7B1",
+          400: "#E8A598",
+          500: "#D88A96",
+          600: "#C56D7E",
+          700: "#B56576",
+          800: "#8C4A58",
+          900: "#4A2E35",
+          950: "#3D2429",
+        },
+        // Legacy compatibility colors mapped to Romantic Mulberry & Blush
         emerald: {
-          850: "#224433",
-          950: "#183024",
+          850: "#4A2E35",
+          950: "#3D2429",
         },
         champagne: {
-          50: "#FAF7F2",
-          100: "#F4EFE6",
-          200: "#EBE3D4",
-          300: "#DFD2BC",
+          50: "#FFF8F8",
+          100: "#FFF1F3",
+          200: "#FDE8EC",
+          300: "#FADBD8",
         },
-        parchment: "#FAF7F2",
+        parchment: "#FFF8F8",
       },
       fontFamily: {
         serif: ["var(--font-playfair)", "Georgia", "serif"],
@@ -133,11 +161,13 @@ const config: Config = {
         },
       },
       boxShadow: {
-        gold: "0 10px 30px -10px rgba(197, 160, 89, 0.28)",
-        "gold-glow": "0 0 25px rgba(212, 175, 55, 0.35)",
-        card: "0 10px 40px -15px rgba(45, 90, 67, 0.08)",
-        botanical: "0 12px 36px -12px rgba(45, 90, 67, 0.15)",
-        blush: "0 10px 30px -10px rgba(216, 164, 155, 0.3)",
+        gold: "0 10px 30px -10px rgba(212, 163, 115, 0.28)",
+        "gold-glow": "0 0 25px rgba(212, 163, 115, 0.35)",
+        card: "0 10px 40px -15px rgba(216, 138, 150, 0.12)",
+        botanical: "0 12px 36px -12px rgba(216, 138, 150, 0.18)",
+        blush: "0 10px 30px -10px rgba(216, 138, 150, 0.28)",
+        rose: "0 8px 18px rgba(201, 122, 139, 0.25)",
+        "rose-glow": "0 8px 24px rgba(216, 138, 150, 0.32)",
       },
     },
   },

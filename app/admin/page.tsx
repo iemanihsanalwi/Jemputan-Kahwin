@@ -166,7 +166,7 @@ export default function AdminPage() {
             <Lock size={30} />
           </div>
 
-          <h1 className="mb-1 font-serif text-2xl font-bold text-emerald-950">
+          <h1 className="mb-1 font-serif text-2xl font-bold text-[#3D2429]">
             Portal Urusetia
           </h1>
           <p className="mb-6 text-xs text-stone-500">
@@ -219,7 +219,7 @@ export default function AdminPage() {
   return (
     <main className="min-h-screen bg-stone-50 pb-20">
       {/* Top Admin Header */}
-      <header className="sticky top-0 z-30 border-b border-gold-400/30 bg-emerald-950 text-white shadow-md">
+      <header className="sticky top-0 z-30 border-b border-[#D4A373]/30 bg-[#3D2429] text-white shadow-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
           <div className="flex items-center gap-3">
             <Link
@@ -270,7 +270,7 @@ export default function AdminPage() {
               </span>
               <Users size={18} className="text-gold-500" />
             </div>
-            <p className="font-serif text-3xl font-bold text-emerald-950">
+            <p className="font-serif text-3xl font-bold text-[#3D2429]">
               {totalResponses}
             </p>
             <span className="text-[11px] text-stone-500">Penyertaan RSVP</span>
@@ -281,9 +281,9 @@ export default function AdminPage() {
               <span className="text-xs font-bold uppercase tracking-wider">
                 Jumlah Pax Hadir
               </span>
-              <CheckCircle2 size={18} className="text-emerald-600" />
+              <CheckCircle2 size={18} className="text-[#C56D7E]" />
             </div>
-            <p className="font-serif text-3xl font-bold text-emerald-600">
+            <p className="font-serif text-3xl font-bold text-[#C56D7E]">
               {totalPaxHadir}
             </p>
             <span className="text-[11px] text-stone-500">
@@ -309,9 +309,9 @@ export default function AdminPage() {
               <span className="text-xs font-bold uppercase tracking-wider">
                 Kadar Kehadiran
               </span>
-              <Calendar size={18} className="text-emerald-700" />
+              <Calendar size={18} className="text-[#B56576]" />
             </div>
-            <p className="font-serif text-3xl font-bold text-emerald-950">
+            <p className="font-serif text-3xl font-bold text-[#3D2429]">
               {attendanceRate}%
             </p>
             <span className="text-[11px] text-stone-500">Nisbah Hadir vs Respons</span>
@@ -325,7 +325,7 @@ export default function AdminPage() {
               onClick={() => setActiveTab("config")}
               className={`flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-semibold transition-all sm:text-sm ${
                 activeTab === "config"
-                  ? "shadow-xs bg-white text-emerald-950"
+                  ? "shadow-xs bg-white text-[#3D2429]"
                   : "text-stone-600 hover:text-stone-900"
               }`}
             >
@@ -336,7 +336,7 @@ export default function AdminPage() {
               onClick={() => setActiveTab("rsvp")}
               className={`rounded-xl px-4 py-2 text-xs font-semibold transition-all sm:text-sm ${
                 activeTab === "rsvp"
-                  ? "shadow-xs bg-white text-emerald-950"
+                  ? "shadow-xs bg-white text-[#3D2429]"
                   : "text-stone-600 hover:text-stone-900"
               }`}
             >
@@ -346,7 +346,7 @@ export default function AdminPage() {
               onClick={() => setActiveTab("wishes")}
               className={`rounded-xl px-4 py-2 text-xs font-semibold transition-all sm:text-sm ${
                 activeTab === "wishes"
-                  ? "shadow-xs bg-white text-emerald-950"
+                  ? "shadow-xs bg-white text-[#3D2429]"
                   : "text-stone-600 hover:text-stone-900"
               }`}
             >
@@ -357,7 +357,7 @@ export default function AdminPage() {
           {activeTab === "rsvp" && (
             <button
               onClick={handleExportCsv}
-              className="shadow-xs flex items-center gap-2 rounded-xl bg-emerald-900 px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-emerald-850 active:scale-95"
+              className="shadow-xs flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-4 py-2.5 text-xs font-semibold text-white transition-opacity hover:opacity-95 active:scale-95"
             >
               <Download size={15} />
               <span>Eksport ke CSV</span>
@@ -405,8 +405,8 @@ export default function AdminPage() {
                   onClick={() => setStatusFilter("hadir")}
                   className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
                     statusFilter === "hadir"
-                      ? "bg-emerald-700 text-white"
-                      : "bg-emerald-50 text-emerald-800 hover:bg-emerald-100"
+                      ? "bg-[#D88A96] text-white"
+                      : "bg-[#FFF8F8] text-[#B56576] hover:bg-[#FDE8EC]"
                   }`}
                 >
                   Hadir
@@ -458,7 +458,7 @@ export default function AdminPage() {
                         </td>
                         <td className="px-4 py-3.5">
                           {rsvp.attendance_status === "hadir" ? (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-800">
+                            <span className="inline-flex items-center gap-1 rounded-full bg-[#FDE8EC] px-2.5 py-1 text-xs font-semibold text-[#B56576]">
                               <CheckCircle2 size={12} />
                               <span>Hadir</span>
                             </span>
@@ -500,7 +500,7 @@ export default function AdminPage() {
                 <div>
                   <div className="mb-2 flex items-start justify-between gap-2">
                     <div>
-                      <h4 className="font-serif text-base font-bold text-emerald-950">
+                      <h4 className="font-serif text-base font-bold text-[#3D2429]">
                         {wish.sender_name}
                       </h4>
                       <div className="mt-0.5 flex items-center gap-2">
@@ -516,7 +516,7 @@ export default function AdminPage() {
                     <span
                       className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${
                         wish.is_approved
-                          ? "bg-emerald-100 text-emerald-800"
+                          ? "bg-[#FDE8EC] text-[#B56576]"
                           : "bg-amber-100 text-amber-800"
                       }`}
                     >

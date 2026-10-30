@@ -217,7 +217,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
       {/* Top Action Bar */}
       <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-gold-200/80 bg-white p-5 shadow-sm">
         <div>
-          <h2 className="font-serif text-xl font-bold text-emerald-950 sm:text-2xl">
+          <h2 className="font-serif text-xl font-bold text-[#3D2429] sm:text-2xl">
             Editor Konfigurasi Majlis (No-Code)
           </h2>
           <p className="text-xs text-stone-500">
@@ -233,7 +233,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
             className="flex items-center gap-1.5 rounded-xl border border-stone-200 bg-stone-50 px-3.5 py-2 text-xs font-semibold text-stone-700 transition hover:bg-stone-100"
             title="Buka jemputan di tab baru"
           >
-            <Eye size={14} className="text-emerald-700" />
+            <Eye size={14} className="text-[#B56576]" />
             <span>Pratonton Laman</span>
             <ExternalLink size={12} className="opacity-60" />
           </a>
@@ -246,8 +246,8 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
           >
             {copiedJson ? (
               <>
-                <Check size={14} className="text-emerald-600" />
-                <span className="text-emerald-700">Tersalin!</span>
+                <Check size={14} className="text-[#C56D7E]" />
+                <span className="text-[#B56576]">Tersalin!</span>
               </>
             ) : (
               <>
@@ -271,7 +271,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
             type="button"
             onClick={handleSave}
             disabled={saving}
-            className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-800 to-emerald-950 px-5 py-2 text-xs font-bold text-white shadow-sm transition hover:from-emerald-750 hover:to-emerald-900 active:scale-95 disabled:opacity-50"
+            className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-5 py-2 text-xs font-bold text-white shadow-sm transition hover:opacity-95 active:scale-95 disabled:opacity-50"
           >
             {saving ? (
               <>
@@ -295,12 +295,12 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
           aria-live="polite"
           className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-2xl px-5 py-3.5 shadow-2xl backdrop-blur-md transition-all duration-300 transform translate-y-0 ${
             toast.type === "success"
-              ? "border border-emerald-400/80 bg-emerald-950/90 text-white shadow-emerald-900/30"
+              ? "border border-[#D4A373]/80 bg-[#3D2429]/90 text-white shadow-rose"
               : "border border-rose-400/80 bg-rose-950/90 text-white shadow-rose-900/30"
           }`}
         >
           {toast.type === "success" ? (
-            <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white">
+            <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[#D88A96] text-white">
               <Check size={16} />
             </div>
           ) : (
@@ -322,8 +322,8 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
 
       {/* Inline Notifications */}
       {saveSuccess && (
-        <div className="flex items-center gap-2 rounded-2xl border border-emerald-300 bg-emerald-50 p-4 text-xs font-semibold text-emerald-800 animate-fadeIn">
-          <Check size={16} className="text-emerald-600 flex-shrink-0" />
+        <div className="flex items-center gap-2 rounded-2xl border border-[#EAD5D5] bg-[#FFF8F8] p-4 text-xs font-semibold text-[#4A2E35] animate-fadeIn">
+          <Check size={16} className="text-[#C56D7E] flex-shrink-0" />
           <span>Tetapan perkahwinan telah berjaya disimpan ke pangkalan data Supabase! Perubahan kini aktif serta-merta di laman web.</span>
         </div>
       )}
@@ -357,7 +357,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
               onClick={() => setActiveSection(tab.id as typeof activeSection)}
               className={`flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-semibold transition ${
                 isActive
-                  ? "bg-emerald-950 text-gold-300 shadow-sm"
+                  ? "bg-[#3D2429] text-gold-300 shadow-sm"
                   : "bg-white text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200"
               }`}
             >
@@ -372,7 +372,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
       {activeSection === "couple" && (
         <div className="space-y-6">
           <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm space-y-4">
-            <h3 className="font-serif text-lg font-bold text-emerald-950 flex items-center gap-2">
+            <h3 className="font-serif text-lg font-bold text-[#3D2429] flex items-center gap-2">
               <Heart size={18} className="text-gold-600" />
               <span>Nota Jemputan Pihak Keluarga</span>
             </h3>
@@ -399,8 +399,8 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
             {/* Groom Details */}
             <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm space-y-4">
               <div className="flex items-center justify-between border-b border-stone-100 pb-3">
-                <h3 className="font-serif text-base font-bold text-emerald-950 flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-emerald-600" />
+                <h3 className="font-serif text-base font-bold text-[#3D2429] flex items-center gap-2">
+                  <span className="h-3 w-3 rounded-full bg-[#D88A96]" />
                   <span>Pengantin Lelaki (Groom)</span>
                 </h3>
                 <span className="text-[11px] font-semibold text-gold-700 uppercase">Raja Sehari</span>
@@ -557,7 +557,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
             {/* Bride Details */}
             <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm space-y-4">
               <div className="flex items-center justify-between border-b border-stone-100 pb-3">
-                <h3 className="font-serif text-base font-bold text-emerald-950 flex items-center gap-2">
+                <h3 className="font-serif text-base font-bold text-[#3D2429] flex items-center gap-2">
                   <span className="h-3 w-3 rounded-full bg-gold-500" />
                   <span>Pengantin Perempuan (Bride)</span>
                 </h3>
@@ -718,7 +718,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
       {/* SECTION 2: EVENT DETAILS */}
       {activeSection === "event" && (
         <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm space-y-6">
-          <h3 className="font-serif text-lg font-bold text-emerald-950 flex items-center gap-2">
+          <h3 className="font-serif text-lg font-bold text-[#3D2429] flex items-center gap-2">
             <Calendar size={18} className="text-gold-600" />
             <span>Butiran Tarikh & Atur Cara Utama</span>
           </h3>
@@ -839,7 +839,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-stone-100">
             {/* Akad Nikah */}
             <div className="rounded-2xl border border-gold-200 bg-champagne-50/60 p-4 space-y-3">
-              <h4 className="font-serif text-sm font-bold text-emerald-950">Upacara Akad Nikah</h4>
+              <h4 className="font-serif text-sm font-bold text-[#3D2429]">Upacara Akad Nikah</h4>
               <div>
                 <label className="block text-[11px] font-semibold text-stone-700 mb-1">Waktu</label>
                 <input
@@ -888,7 +888,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
 
             {/* Resepsi */}
             <div className="rounded-2xl border border-gold-200 bg-champagne-50/60 p-4 space-y-3">
-              <h4 className="font-serif text-sm font-bold text-emerald-950">Majlis Resepsi</h4>
+              <h4 className="font-serif text-sm font-bold text-[#3D2429]">Majlis Resepsi</h4>
               <div>
                 <label className="block text-[11px] font-semibold text-stone-700 mb-1">Waktu</label>
                 <input
@@ -941,7 +941,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
       {/* SECTION 3: VENUE & MAPS */}
       {activeSection === "venue" && (
         <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm space-y-4">
-          <h3 className="font-serif text-lg font-bold text-emerald-950 flex items-center gap-2">
+          <h3 className="font-serif text-lg font-bold text-[#3D2429] flex items-center gap-2">
             <MapPin size={18} className="text-gold-600" />
             <span>Lokasi, Alamat & Pautan Navigasi GPS</span>
           </h3>
@@ -1111,7 +1111,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
         <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm space-y-6">
           <div className="flex items-center justify-between border-b border-stone-100 pb-4">
             <div>
-              <h3 className="font-serif text-lg font-bold text-emerald-950 flex items-center gap-2">
+              <h3 className="font-serif text-lg font-bold text-[#3D2429] flex items-center gap-2">
                 <Music size={18} className="text-gold-600" />
                 <span>Tetapan Lagu Latar & Pemain Muzik</span>
               </h3>
@@ -1133,7 +1133,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
                 }
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-stone-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+              <div className="w-11 h-6 bg-stone-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#D88A96]"></div>
               <span className="ml-2 text-xs font-semibold text-stone-700">Aktifkan Audio</span>
             </label>
           </div>
@@ -1202,7 +1202,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
                     audio: { ...config.audio, autoLoop: e.target.checked },
                   })
                 }
-                className="rounded text-emerald-700 focus:ring-gold-500 h-4 w-4"
+                className="rounded text-[#B56576] focus:ring-gold-500 h-4 w-4"
               />
               <span className="text-xs font-semibold text-stone-700">Ulang Automatik (Auto Loop)</span>
             </label>
@@ -1217,7 +1217,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
                     audio: { ...config.audio, autoPlayPrompt: e.target.checked },
                   })
                 }
-                className="rounded text-emerald-700 focus:ring-gold-500 h-4 w-4"
+                className="rounded text-[#B56576] focus:ring-gold-500 h-4 w-4"
               />
               <span className="text-xs font-semibold text-stone-700">Minta Main Semasa Buka Sampul (Autoplay on Open)</span>
             </label>
@@ -1230,7 +1230,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
         <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm space-y-6">
           <div className="flex items-center justify-between border-b border-stone-100 pb-4">
             <div>
-              <h3 className="font-serif text-lg font-bold text-emerald-950 flex items-center gap-2">
+              <h3 className="font-serif text-lg font-bold text-[#3D2429] flex items-center gap-2">
                 <Clock size={18} className="text-gold-600" />
                 <span>Tentatif Majlis (Itinerary Timeline)</span>
               </h3>
@@ -1277,7 +1277,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
                       updated[index].time = e.target.value;
                       setConfig({ ...config, event: { ...config.event, schedule: updated } });
                     }}
-                    className="w-full rounded-lg border border-stone-300 p-2 text-xs font-mono font-bold text-emerald-950"
+                    className="w-full rounded-lg border border-stone-300 p-2 text-xs font-mono font-bold text-[#3D2429]"
                   />
                 </div>
 
@@ -1356,7 +1356,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
           {/* RSVP Settings Box */}
           <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm space-y-4">
             <div className="flex items-center justify-between border-b border-stone-100 pb-3">
-              <h3 className="font-serif text-lg font-bold text-emerald-950 flex items-center gap-2">
+              <h3 className="font-serif text-lg font-bold text-[#3D2429] flex items-center gap-2">
                 <Check size={18} className="text-gold-600" />
                 <span>Tetapan Borang RSVP</span>
               </h3>
@@ -1373,7 +1373,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
                   }
                   className="sr-only peer"
                 />
-                <div className="w-11 h-6 bg-stone-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+                <div className="w-11 h-6 bg-stone-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#D88A96]"></div>
                 <span className="ml-2 text-xs font-semibold text-stone-700">Aktifkan RSVP</span>
               </label>
             </div>
@@ -1432,7 +1432,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
           {/* Contact Persons for WhatsApp Salam */}
           <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm space-y-4">
             <div className="flex items-center justify-between border-b border-stone-100 pb-3">
-              <h3 className="font-serif text-lg font-bold text-emerald-950 flex items-center gap-2">
+              <h3 className="font-serif text-lg font-bold text-[#3D2429] flex items-center gap-2">
                 <Phone size={18} className="text-gold-600" />
                 <span>Wakil Majlis (WhatsApp & Panggilan)</span>
               </h3>
@@ -1465,7 +1465,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
                   className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4 space-y-3"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-emerald-950">Wakil #{index + 1}</span>
+                    <span className="text-xs font-bold text-[#3D2429]">Wakil #{index + 1}</span>
                     <button
                       type="button"
                       onClick={() => {
@@ -1549,7 +1549,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
         <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm space-y-6">
           <div className="flex items-center justify-between border-b border-stone-100 pb-4">
             <div>
-              <h3 className="font-serif text-lg font-bold text-emerald-950 flex items-center gap-2">
+              <h3 className="font-serif text-lg font-bold text-[#3D2429] flex items-center gap-2">
                 <CreditCard size={18} className="text-gold-600" />
                 <span>Salam Kaut Digital & Butiran Bank</span>
               </h3>
@@ -1573,7 +1573,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
                 }
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-stone-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+              <div className="w-11 h-6 bg-stone-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#D88A96]"></div>
               <span className="ml-2 text-xs font-semibold text-stone-700">Aktifkan Salam Kaut</span>
             </label>
           </div>
@@ -1648,7 +1648,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
         <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm space-y-6">
           <div className="flex items-center justify-between border-b border-stone-100 pb-4">
             <div>
-              <h3 className="font-serif text-lg font-bold text-emerald-950 flex items-center gap-2">
+              <h3 className="font-serif text-lg font-bold text-[#3D2429] flex items-center gap-2">
                 <Gift size={18} className="text-gold-600" />
                 <span>Senarai Hajat & Hadiah (Gift Wishlist)</span>
               </h3>
@@ -1687,7 +1687,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
                 className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4 space-y-3"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-emerald-950">Hadiah #{index + 1}</span>
+                  <span className="text-xs font-bold text-[#3D2429]">Hadiah #{index + 1}</span>
                   <div className="flex items-center gap-4">
                     <label className="flex items-center gap-1.5 text-xs font-medium text-stone-600 cursor-pointer">
                       <input
@@ -1698,7 +1698,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
                           updated[index].isReserved = e.target.checked;
                           setConfig({ ...config, wishlist: updated });
                         }}
-                        className="rounded text-emerald-700 h-3.5 w-3.5"
+                        className="rounded text-[#B56576] h-3.5 w-3.5"
                       />
                       <span>Telah Dihadiahkan (Reserved)</span>
                     </label>
@@ -1819,7 +1819,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
       {/* SECTION 9: SEO & METADATA */}
       {activeSection === "seo" && (
         <div className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm space-y-4">
-          <h3 className="font-serif text-lg font-bold text-emerald-950 flex items-center gap-2">
+          <h3 className="font-serif text-lg font-bold text-[#3D2429] flex items-center gap-2">
             <Globe size={18} className="text-gold-600" />
             <span>SEO, Meta Tajuk & Pratonton Carian</span>
           </h3>
@@ -1887,7 +1887,7 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
           type="button"
           onClick={handleSave}
           disabled={saving}
-          className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-800 to-emerald-950 px-6 py-2.5 text-xs font-bold text-white shadow-gold transition hover:from-emerald-750 hover:to-emerald-900 active:scale-95 disabled:opacity-50"
+          className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-6 py-2.5 text-xs font-bold text-white shadow-gold transition hover:opacity-95 active:scale-95 disabled:opacity-50"
         >
           {saving ? (
             <>

@@ -3,16 +3,17 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --color-sage-deep: #2d5a43;
-  --color-sage-forest: #3e5c49;
-  --color-rose-dusty: #d8a49b;
-  --color-blush-soft: #e8c5be;
-  --color-gold-antique: #c5a059;
-  --color-gold-warm: #d4af37;
-  --color-cream-warm: #faf7f2;
-  --color-cream-pearl: #f4efe6;
-  --color-olive-muted: #6b705c;
-  --color-taupe: #a5a58d;
+  --color-mulberry-deep: #3d2429;
+  --color-mulberry: #4a2e35;
+  --color-rose-dusty: #d88a96;
+  --color-rose-muted: #b56576;
+  --color-blush-soft: #fde8ec;
+  --color-gold-rose: #d4a373;
+  --color-gold-champagne: #e2b686;
+  --color-cream-petal: #fff8f8;
+  --color-cream-pearl: #fff1f3;
+  --color-rose-border: #ead5d5;
+  --color-taupe-rose: #7a555c;
 }
 
 html {
@@ -21,101 +22,125 @@ html {
 }
 
 body {
-  background-color: #faf7f2;
-  color: #262821;
+  background-color: #fff8f8;
+  color: #3d2429;
   overflow-x: hidden;
-  selection-background-color: #c5a059;
+  selection-background-color: #d88a96;
   selection-color: #ffffff;
 }
 
 ::selection {
-  background: #c5a059;
+  background: #d88a96;
   color: #ffffff;
 }
 
-/* Botanical Sage & Gold Custom Scrollbar */
+/* Romantic Dusty Rose & Rose-Gold Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f4efe6;
+  background: #fff1f3;
 }
 ::-webkit-scrollbar-thumb {
-  background: #7ca58a;
+  background: #d88a96;
   border-radius: 9999px;
-  border: 2px solid #f4efe6;
+  border: 2px solid #fff1f3;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3e5c49;
+  background: #b56576;
 }
 
-/* Warm Antique Gold & Rose Gradient Text */
+/* Warm Rose Gold & Dusty Rose Gradient Text */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #86652c 0%, #c5a059 40%, #d8a49b 75%, #a7823f 100%);
+  background: linear-gradient(135deg, #a66f58 0%, #d4a373 40%, #e2b686 75%, #c89b7b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gold-light {
-  background: linear-gradient(135deg, #faf7ee 0%, #ebdcb1 50%, #f5eed6 100%);
+  background: linear-gradient(135deg, #fff8f2 0%, #faede3 50%, #f3dac8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-mulberry-gradient {
+  background: linear-gradient(135deg, #3d2429 0%, #4a2e35 60%, #7a3545 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-sage-gradient {
-  background: linear-gradient(135deg, #183024 0%, #2d5a43 60%, #3e5c49 100%);
+  background: linear-gradient(135deg, #3d2429 0%, #4a2e35 60%, #7a3545 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-rose-gradient {
-  background: linear-gradient(135deg, #8e4d43 0%, #d8a49b 60%, #e8c5be 100%);
+  background: linear-gradient(135deg, #b56576 0%, #d88a96 60%, #f5b7b1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Botanical Gradients */
+/* Romantic Pink Floral Gradients */
 .bg-gold-gradient {
-  background: linear-gradient(135deg, #d4af37 0%, #c5a059 50%, #a7823f 100%);
+  background: linear-gradient(135deg, #e2b686 0%, #d4a373 50%, #c89b7b 100%);
+}
+
+.bg-rose-gradient {
+  background: linear-gradient(135deg, #d88a96 0%, #c56d7e 100%);
+}
+
+.bg-mulberry-gradient {
+  background: linear-gradient(145deg, #4a2e35 0%, #3d2429 100%);
+}
+
+.bg-rose-gradient {
+  background: linear-gradient(135deg, #d88a96 0%, #c56d7e 100%);
 }
 
 .bg-sage-gradient {
-  background: linear-gradient(145deg, #2d5a43 0%, #183024 100%);
+  background: linear-gradient(145deg, #4a2e35 0%, #3d2429 100%);
 }
 
 .bg-blush-gradient {
-  background: linear-gradient(135deg, #f4e0dc 0%, #e8c5be 50%, #d8a49b 100%);
+  background: linear-gradient(135deg, #fff8f8 0%, #fde8ec 50%, #fadbd8 100%);
 }
 
-.bg-emerald-gradient {
-  background: linear-gradient(145deg, #2d5a43 0%, #183024 100%);
-}
-
-/* Card Styling */
+/* Card Styling: Translucent Alabaster / Soft White Frosted Cards */
 .bg-champagne-card {
-  background: rgba(254, 252, 249, 0.88);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(197, 160, 89, 0.28);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid #ead5d5;
 }
 
 .bg-botanical-card {
-  background: rgba(250, 247, 242, 0.92);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(197, 160, 89, 0.32);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid #ead5d5;
+}
+
+.bg-frosted-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid #ead5d5;
 }
 
 .gold-border {
-  border-color: rgba(197, 160, 89, 0.35);
+  border-color: rgba(212, 163, 115, 0.35);
 }
 
 .sage-border {
-  border-color: rgba(45, 90, 67, 0.25);
+  border-color: #ead5d5;
 }
 
-/* Repeating Botanical Leaf & Flower Pattern */
+.rose-border {
+  border-color: #ead5d5;
+}
+
+/* Repeating Romantic Floral Motif Pattern */
 .bg-wedding-pattern {
-  background-color: #faf7f2;
-  background-image: radial-gradient(rgba(197, 160, 89, 0.12) 1.2px, transparent 1.2px);
+  background-color: #fff8f8;
+  background-image: radial-gradient(rgba(216, 138, 150, 0.15) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
 }
 

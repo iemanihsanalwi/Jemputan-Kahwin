@@ -2,13 +2,13 @@ import React from "react";
 
 interface BismillahHeaderProps {
   className?: string;
-  variant?: "gold" | "emerald" | "light" | "sage" | "rose";
+  variant?: "gold" | "rose" | "light" | "mulberry" | "sage" | "emerald";
   size?: "sm" | "md" | "lg";
 }
 
 /**
  * BismillahHeader - Pure vector SVG calligraphy of Bismillah Ar-Rahman Ar-Rahim
- * Classical Thuluth / Diwani style rendering framed by delicate botanical olive flourishes.
+ * Classical Thuluth / Diwani style rendering framed by delicate botanical rose-gold flourishes.
  */
 export default function BismillahHeader({
   className = "",
@@ -37,22 +37,22 @@ export default function BismillahHeader({
         <defs>
           <linearGradient id={`${idPrefix}-gold`} x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#F5EED6" />
-            <stop offset="25%" stopColor="#D4AF37" />
+            <stop offset="25%" stopColor="#D4A373" />
             <stop offset="50%" stopColor="#FFF2A1" />
-            <stop offset="75%" stopColor="#C5A059" />
-            <stop offset="100%" stopColor="#86652C" />
+            <stop offset="75%" stopColor="#C56D7E" />
+            <stop offset="100%" stopColor="#8C4A58" />
           </linearGradient>
 
-          <linearGradient id={`${idPrefix}-sage`} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#2D5A43" />
-            <stop offset="50%" stopColor="#3E5C49" />
-            <stop offset="100%" stopColor="#183024" />
+          <linearGradient id={`${idPrefix}-rose`} x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#4A2E35" />
+            <stop offset="50%" stopColor="#B56576" />
+            <stop offset="100%" stopColor="#3D2429" />
           </linearGradient>
 
           <linearGradient id={`${idPrefix}-light`} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#FAF7EE" />
-            <stop offset="50%" stopColor="#F5EED6" />
-            <stop offset="100%" stopColor="#EBDDB1" />
+            <stop offset="0%" stopColor="#FFF8F8" />
+            <stop offset="50%" stopColor="#FCE4E8" />
+            <stop offset="100%" stopColor="#FADBD8" />
           </linearGradient>
 
           <filter id={`${idPrefix}-glow`} x="-15%" y="-15%" width="130%" height="130%">
@@ -63,8 +63,8 @@ export default function BismillahHeader({
 
         <g
           fill={
-            variant === "emerald" || variant === "sage"
-              ? `url(#${idPrefix}-sage)`
+            variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
+              ? `url(#${idPrefix}-rose)`
               : variant === "light"
               ? `url(#${idPrefix}-light)`
               : `url(#${idPrefix}-gold)`
@@ -104,7 +104,11 @@ export default function BismillahHeader({
 
         {/* Botanical Olive Leaf Sprigs Flanking Both Sides */}
         <g
-          stroke={variant === "emerald" || variant === "sage" ? "#2D5A43" : `url(#${idPrefix}-gold)`}
+          stroke={
+            variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
+              ? "#B56576"
+              : `url(#${idPrefix}-gold)`
+          }
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -115,25 +119,59 @@ export default function BismillahHeader({
           <path d="M 16 95 C 28 92, 42 84, 52 74" />
           <path
             d="M 28 90 C 26 80, 36 80, 36 90 Z"
-            fill={variant === "emerald" || variant === "sage" ? "#2D5A43" : `url(#${idPrefix}-gold)`}
+            fill={
+              variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
+                ? "#B56576"
+                : `url(#${idPrefix}-gold)`
+            }
           />
           <path
             d="M 40 82 C 40 72, 50 74, 48 84 Z"
-            fill={variant === "emerald" || variant === "sage" ? "#2D5A43" : `url(#${idPrefix}-gold)`}
+            fill={
+              variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
+                ? "#B56576"
+                : `url(#${idPrefix}-gold)`
+            }
           />
-          <circle cx="14" cy="95" r="2.5" fill={variant === "emerald" || variant === "sage" ? "#2D5A43" : `url(#${idPrefix}-gold)`} />
+          <circle
+            cx="14"
+            cy="95"
+            r="2.5"
+            fill={
+              variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
+                ? "#B56576"
+                : `url(#${idPrefix}-gold)`
+            }
+          />
 
           {/* Right Olive Branch Sprig */}
           <path d="M 664 95 C 652 92, 638 84, 628 74" />
           <path
             d="M 652 90 C 654 80, 644 80, 644 90 Z"
-            fill={variant === "emerald" || variant === "sage" ? "#2D5A43" : `url(#${idPrefix}-gold)`}
+            fill={
+              variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
+                ? "#B56576"
+                : `url(#${idPrefix}-gold)`
+            }
           />
           <path
             d="M 640 82 C 640 72, 630 74, 632 84 Z"
-            fill={variant === "emerald" || variant === "sage" ? "#2D5A43" : `url(#${idPrefix}-gold)`}
+            fill={
+              variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
+                ? "#B56576"
+                : `url(#${idPrefix}-gold)`
+            }
           />
-          <circle cx="666" cy="95" r="2.5" fill={variant === "emerald" || variant === "sage" ? "#2D5A43" : `url(#${idPrefix}-gold)`} />
+          <circle
+            cx="666"
+            cy="95"
+            r="2.5"
+            fill={
+              variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
+                ? "#B56576"
+                : `url(#${idPrefix}-gold)`
+            }
+          />
         </g>
       </svg>
     </div>

@@ -42,18 +42,12 @@ export default function PetalFrame({
         >
           <defs>
             <linearGradient id={`${idPrefix}-frameGrad`} x1="0%" y1="0%" x2="100%" y2="100%">
-              {variant === "sage" || variant === "emerald" ? (
+              {variant === "sage" || variant === "emerald" || variant === "rose" ? (
                 <>
-                  <stop offset="0%" stopColor="#7CA58A" />
-                  <stop offset="30%" stopColor="#2D5A43" />
-                  <stop offset="65%" stopColor="#C5A059" />
-                  <stop offset="100%" stopColor="#3E5C49" />
-                </>
-              ) : variant === "rose" ? (
-                <>
-                  <stop offset="0%" stopColor="#E8C5BE" />
-                  <stop offset="50%" stopColor="#D8A49B" />
-                  <stop offset="100%" stopColor="#C5A059" />
+                  <stop offset="0%" stopColor="#FADBD8" />
+                  <stop offset="30%" stopColor="#D88A96" />
+                  <stop offset="65%" stopColor="#D4A373" />
+                  <stop offset="100%" stopColor="#B56576" />
                 </>
               ) : (
                 // Warm antique gold to soft rose gradient

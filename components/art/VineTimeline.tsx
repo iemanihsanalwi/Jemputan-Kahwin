@@ -17,11 +17,11 @@ interface VineTimelineProps {
 }
 
 /**
- * VineTimeline - An organic climbing vine component replacing rigid vertical timeline lines.
+ * VineTimeline - An organic climbing vine component in romantic rose gold and dusty rose.
  * Features:
- * - A continuous winding stem connecting each itinerary checkpoint
- * - Tiny blooming buds / floral rosettes at each milestone time node
- * - Subtle leaf offshoots extending toward time badges and activity titles
+ * - Rose-tinted continuous winding timeline stem
+ * - Dusty rose floral rosette markers at each milestone
+ * - Delicate rose-taupe leaf offshoots extending toward time badges
  */
 export default function VineTimeline({ schedule, className = "" }: VineTimelineProps) {
   const idPrefix = React.useId().replace(/:/g, "");
@@ -29,17 +29,17 @@ export default function VineTimeline({ schedule, className = "" }: VineTimelineP
   const getIcon = (iconName?: string) => {
     switch (iconName) {
       case "UserCheck":
-        return <UserCheck size={16} className="text-gold-600" />;
+        return <UserCheck size={16} className="text-[#C56D7E]" />;
       case "Sparkles":
-        return <Sparkles size={16} className="text-gold-600" />;
+        return <Sparkles size={16} className="text-[#D4A373]" />;
       case "Heart":
-        return <Heart size={16} className="text-gold-600" />;
+        return <Heart size={16} className="text-[#D88A96]" />;
       case "Camera":
-        return <Camera size={16} className="text-gold-600" />;
+        return <Camera size={16} className="text-[#C56D7E]" />;
       case "CheckCircle":
-        return <CheckCircle size={16} className="text-gold-600" />;
+        return <CheckCircle size={16} className="text-[#B56576]" />;
       default:
-        return <Clock size={16} className="text-gold-600" />;
+        return <Clock size={16} className="text-[#C56D7E]" />;
     }
   };
 
@@ -56,22 +56,22 @@ export default function VineTimeline({ schedule, className = "" }: VineTimelineP
         >
           <defs>
             <linearGradient id={`${idPrefix}-vineGrad`} x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#C5A059" />
-              <stop offset="30%" stopColor="#2D5A43" />
-              <stop offset="70%" stopColor="#3E5C49" />
-              <stop offset="100%" stopColor="#C5A059" />
+              <stop offset="0%" stopColor="#D4A373" />
+              <stop offset="35%" stopColor="#D88A96" />
+              <stop offset="70%" stopColor="#C56D7E" />
+              <stop offset="100%" stopColor="#D4A373" />
             </linearGradient>
 
             <linearGradient id={`${idPrefix}-leafGrad`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#7CA58A" />
-              <stop offset="70%" stopColor="#2D5A43" />
-              <stop offset="100%" stopColor="#183024" />
+              <stop offset="0%" stopColor="#FADBD8" />
+              <stop offset="60%" stopColor="#D88A96" />
+              <stop offset="100%" stopColor="#B56576" />
             </linearGradient>
 
             <radialGradient id={`${idPrefix}-budGrad`} cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#FAF7F2" />
-              <stop offset="60%" stopColor="#E8C5BE" />
-              <stop offset="100%" stopColor="#D8A49B" />
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="60%" stopColor="#FADBD8" />
+              <stop offset="100%" stopColor="#D88A96" />
             </radialGradient>
           </defs>
 
@@ -89,10 +89,10 @@ export default function VineTimeline({ schedule, className = "" }: VineTimelineP
             vectorEffect="non-scaling-stroke"
           />
 
-          {/* Secondary Delicate Gold Tendril Spirals */}
+          {/* Secondary Delicate Tendril Spirals */}
           <path
             d="M 24 90 C 38 85, 46 95, 42 105 C 38 112, 28 108, 30 100"
-            stroke="#C5A059"
+            stroke="#D4A373"
             strokeWidth="1.2"
             fill="none"
             opacity="0.85"
@@ -100,7 +100,7 @@ export default function VineTimeline({ schedule, className = "" }: VineTimelineP
           />
           <path
             d="M 24 270 C 10 265, 2 275, 6 285 C 10 292, 20 288, 18 280"
-            stroke="#C5A059"
+            stroke="#D4A373"
             strokeWidth="1.2"
             fill="none"
             opacity="0.85"
@@ -108,14 +108,14 @@ export default function VineTimeline({ schedule, className = "" }: VineTimelineP
           />
           <path
             d="M 24 450 C 38 445, 46 455, 42 465 C 38 472, 28 468, 30 460"
-            stroke="#C5A059"
+            stroke="#D4A373"
             strokeWidth="1.2"
             fill="none"
             opacity="0.85"
             vectorEffect="non-scaling-stroke"
           />
 
-          {/* Leaf Offshoots Along the Sinuous Path */}
+          {/* Leaf Offshoots Along the Sinuous Path (Dusty Rose & Blossom) */}
           <path
             d="M 24 60 C 34 52, 42 56, 38 68 C 30 70, 26 66, 24 60 Z"
             fill={`url(#${idPrefix}-leafGrad)`}
@@ -149,8 +149,7 @@ export default function VineTimeline({ schedule, className = "" }: VineTimelineP
           <div key={index} className="group relative">
             {/* Blooming Rosette / Bud Milestone Node */}
             <div className="absolute -left-[44px] sm:-left-[34px] top-0.5 z-10 flex items-center justify-center transition-transform duration-300 group-hover:scale-125">
-              {/* SVG 5-Petal Rosette Node */}
-              <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-white shadow-md border-2 border-gold-300">
+              <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-white shadow-md border-2 border-[#D4A373]">
                 <svg
                   viewBox="0 0 32 32"
                   fill="none"
@@ -159,9 +158,9 @@ export default function VineTimeline({ schedule, className = "" }: VineTimelineP
                 >
                   <defs>
                     <linearGradient id={`nodePetal-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#FAF7F2" />
-                      <stop offset="60%" stopColor="#E8C5BE" />
-                      <stop offset="100%" stopColor="#D8A49B" />
+                      <stop offset="0%" stopColor="#FFFFFF" />
+                      <stop offset="60%" stopColor="#FADBD8" />
+                      <stop offset="100%" stopColor="#D88A96" />
                     </linearGradient>
                   </defs>
 
@@ -172,36 +171,36 @@ export default function VineTimeline({ schedule, className = "" }: VineTimelineP
                       d="M 16 16 C 13 8, 19 8, 16 16 Z"
                       transform={`rotate(${deg} 16 16)`}
                       fill={`url(#nodePetal-${index})`}
-                      stroke="#C5A059"
+                      stroke="#D4A373"
                       strokeWidth="0.8"
                     />
                   ))}
 
-                  {/* Center Golden Pistil Dot */}
-                  <circle cx="16" cy="16" r="3" fill="#C5A059" />
-                  <circle cx="16" cy="16" r="1.5" fill="#FAF7EE" />
+                  {/* Center Golden/Mulberry Pistil Dot */}
+                  <circle cx="16" cy="16" r="3" fill="#D4A373" />
+                  <circle cx="16" cy="16" r="1.5" fill="#FAF0F2" />
                 </svg>
               </div>
             </div>
 
             {/* Time Indicator Badge (Desktop Left Offset, Mobile Top) */}
             <div className="sm:absolute sm:-left-36 sm:top-1 sm:w-24 sm:text-right">
-              <span className="inline-flex items-center gap-1 rounded-full border border-gold-300/80 bg-gradient-to-r from-cream-100 via-white to-cream-100 px-3 py-1 font-mono text-xs font-bold text-gold-900 shadow-xs backdrop-blur-xs">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[#EAD5D5] bg-[#FFF8F8] px-3 py-1 font-mono text-xs font-bold text-[#3D2429] shadow-xs backdrop-blur-xs">
                 {item.time}
               </span>
             </div>
 
             {/* Event Activity Card & Details */}
-            <div className="rounded-2xl border border-gold-200/80 bg-gradient-to-r from-white via-cream-50/50 to-white p-4 shadow-sm backdrop-blur-xs transition-all duration-300 hover:border-gold-400 hover:shadow-gold">
-              <h4 className="flex items-center gap-2.5 font-serif text-lg font-bold text-sage-950 transition-colors group-hover:text-gold-700">
-                <BotanicalIconBadge size="sm" variant="gold">
+            <div className="rounded-2xl border border-[#EAD5D5] bg-white/85 p-4 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-[#D4A373] hover:shadow-rose">
+              <h4 className="flex items-center gap-2.5 font-serif text-lg font-bold text-[#3D2429] transition-colors group-hover:text-[#B56576]">
+                <BotanicalIconBadge size="sm" variant="rose">
                   {getIcon(item.iconName)}
                 </BotanicalIconBadge>
                 <span>{item.title}</span>
               </h4>
 
               {item.description && (
-                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-olive-600 font-sans pl-10">
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#7A555C] font-sans pl-10">
                   {item.description}
                 </p>
               )}

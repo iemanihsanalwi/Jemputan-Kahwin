@@ -2,77 +2,90 @@ import React from "react";
 
 export interface FloralSectionDividerProps {
   className?: string;
-  variant?: "gold" | "sage" | "rose" | "emerald";
+  variant?: "rose" | "gold" | "mulberry";
   size?: "sm" | "md" | "lg";
 }
 
 /**
- * FloralSectionDivider - A centered, slender floral vine divider
- * featuring blooming jasmine/rose petals and delicate olive leaves
- * replacing rigid straight horizontal rules.
+ * FloralSectionDivider - A strictly centered, slender floral vine divider
+ * featuring blooming rose petals and delicate leaves in romantic rose gold and dusty rose.
+ * 
+ * Strict Centering:
+ * - width: 100%
+ * - max-width: 220px
+ * - margin: 0.75rem auto
+ * - display: block
+ * - preserveAspectRatio: "xMidYMid meet"
  */
 export default function FloralSectionDivider({
   className = "",
-  variant = "gold",
+  variant = "rose",
   size = "md",
 }: FloralSectionDividerProps) {
   const idPrefix = React.useId().replace(/:/g, "");
 
-  const sizeClasses = {
-    sm: "w-44 h-6",
-    md: "w-64 sm:w-80 h-8",
-    lg: "w-80 sm:w-96 md:w-[460px] h-10",
+  const maxWidthClasses = {
+    sm: "max-w-[160px] h-5",
+    md: "max-w-[220px] h-6",
+    lg: "max-w-[280px] h-7",
   };
 
   return (
     <div
-      className={`relative flex items-center justify-center my-6 select-none ${sizeClasses[size]} ${className}`}
+      className={`w-full mx-auto my-3 flex items-center justify-center select-none ${maxWidthClasses[size]} ${className}`}
+      style={{
+        display: "block",
+        margin: "0.75rem auto",
+        width: "100%",
+      }}
       aria-hidden="true"
     >
       <svg
         viewBox="0 0 500 50"
+        preserveAspectRatio="xMidYMid meet"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full drop-shadow-xs"
+        className="w-full h-full block mx-auto drop-shadow-xs"
       >
         <defs>
-          {/* Subtle gold-to-rose gradient along horizontal axis */}
+          {/* Subtle rose-gold to dusty-rose gradient along horizontal axis */}
           <linearGradient id={`${idPrefix}-vine`} x1="0%" y1="0%" x2="100%" y2="0%">
-            {variant === "sage" || variant === "emerald" ? (
+            {variant === "gold" ? (
               <>
-                <stop offset="0%" stopColor="#2D5A43" stopOpacity="0" />
-                <stop offset="20%" stopColor="#2D5A43" stopOpacity="0.8" />
-                <stop offset="50%" stopColor="#C5A059" />
-                <stop offset="80%" stopColor="#2D5A43" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#2D5A43" stopOpacity="0" />
+                <stop offset="0%" stopColor="#D4A373" stopOpacity="0" />
+                <stop offset="25%" stopColor="#D4A373" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#E2B686" />
+                <stop offset="75%" stopColor="#D4A373" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#D4A373" stopOpacity="0" />
               </>
-            ) : variant === "rose" ? (
+            ) : variant === "mulberry" ? (
               <>
-                <stop offset="0%" stopColor="#D8A49B" stopOpacity="0" />
-                <stop offset="25%" stopColor="#D8A49B" stopOpacity="0.8" />
-                <stop offset="50%" stopColor="#E8C5BE" />
-                <stop offset="75%" stopColor="#D8A49B" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#D8A49B" stopOpacity="0" />
+                <stop offset="0%" stopColor="#B56576" stopOpacity="0" />
+                <stop offset="25%" stopColor="#B56576" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#D88A96" />
+                <stop offset="75%" stopColor="#B56576" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#B56576" stopOpacity="0" />
               </>
             ) : (
-              // Default gold-to-rose gradient
+              // Default Rose Gold & Dusty Rose
               <>
-                <stop offset="0%" stopColor="#C5A059" stopOpacity="0" />
-                <stop offset="20%" stopColor="#C5A059" stopOpacity="0.75" />
-                <stop offset="42%" stopColor="#D8A49B" />
-                <stop offset="50%" stopColor="#FAF7EE" />
-                <stop offset="58%" stopColor="#D8A49B" />
-                <stop offset="80%" stopColor="#C5A059" stopOpacity="0.75" />
-                <stop offset="100%" stopColor="#C5A059" stopOpacity="0" />
+                <stop offset="0%" stopColor="#D88A96" stopOpacity="0" />
+                <stop offset="20%" stopColor="#D88A96" stopOpacity="0.75" />
+                <stop offset="42%" stopColor="#D4A373" />
+                <stop offset="50%" stopColor="#FAF0F2" />
+                <stop offset="58%" stopColor="#D4A373" />
+                <stop offset="80%" stopColor="#D88A96" stopOpacity="0.75" />
+                <stop offset="100%" stopColor="#D88A96" stopOpacity="0" />
               </>
             )}
           </linearGradient>
 
           {/* Radial Petal Shading */}
           <radialGradient id={`${idPrefix}-blossom`} cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FAF7F2" />
-            <stop offset="60%" stopColor="#E8C5BE" />
-            <stop offset="100%" stopColor="#C5A059" />
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="55%" stopColor="#FADBD8" />
+            <stop offset="85%" stopColor="#D88A96" />
+            <stop offset="100%" stopColor="#D4A373" />
           </radialGradient>
         </defs>
 
@@ -94,7 +107,6 @@ export default function FloralSectionDivider({
 
         {/* Left Side Organic Foliage & Tendrils */}
         <g stroke={`url(#${idPrefix}-vine)`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none">
-          {/* Sinuous Left Vine Curve */}
           <path d="M 205 25 C 215 23, 225 17, 235 20 C 242 22, 245 28, 239 33 C 234 37, 226 33, 230 26" />
 
           {/* Left Leaf Pair */}
@@ -119,7 +131,6 @@ export default function FloralSectionDivider({
 
         {/* Right Side Organic Foliage & Tendrils */}
         <g stroke={`url(#${idPrefix}-vine)`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none">
-          {/* Sinuous Right Vine Curve */}
           <path d="M 295 25 C 285 23, 275 17, 265 20 C 258 22, 255 28, 261 33 C 266 37, 274 33, 270 26" />
 
           {/* Right Leaf Pair */}
@@ -142,7 +153,7 @@ export default function FloralSectionDivider({
           />
         </g>
 
-        {/* Centerpiece: Symmetrical Blooming Flower Motif */}
+        {/* Centerpiece: Symmetrical Blooming Flower Motif (Center at X=250, Y=25) */}
         <g transform="translate(250, 25)">
           {/* Outer Petals Ring */}
           <circle cx="0" cy="0" r="14" stroke={`url(#${idPrefix}-vine)`} strokeWidth="1" opacity="0.35" fill="none" strokeDasharray="2 2" />
@@ -160,9 +171,9 @@ export default function FloralSectionDivider({
             </g>
           ))}
 
-          {/* Center Golden Pistil Core */}
-          <circle cx="0" cy="0" r="3.2" fill="#FAF7EE" stroke={`url(#${idPrefix}-vine)`} strokeWidth="1.2" />
-          <circle cx="0" cy="0" r="1.5" fill="#C5A059" />
+          {/* Center Golden/Mulberry Pistil Core */}
+          <circle cx="0" cy="0" r="3.2" fill="#FAF0F2" stroke={`url(#${idPrefix}-vine)`} strokeWidth="1.2" />
+          <circle cx="0" cy="0" r="1.5" fill="#D4A373" />
         </g>
 
         {/* Lateral Decorative Dewdrop Accents */}

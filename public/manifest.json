@@ -4,8 +4,8 @@
   "description": "Undangan Majlis Perkahwinan Alya & Ieman",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#091F18",
-  "theme_color": "#091F18",
+  "background_color": "#FFF8F8",
+  "theme_color": "#D88A96",
   "icons": [
     {
       "src": "/favicon.svg",

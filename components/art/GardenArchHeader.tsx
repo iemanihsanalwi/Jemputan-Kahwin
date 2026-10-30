@@ -26,10 +26,10 @@ export default function GardenArchHeader({
     <div className={`relative flex flex-col items-center justify-center p-3 sm:p-6 select-none ${className}`}>
       {/* Ambient Dappled Sunlight Glow Behind Arch Apex */}
       <div
-        className="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 -z-10 w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] rounded-full blur-[90px] opacity-60"
+        className="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 -z-10 w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] rounded-full blur-[90px] opacity-70"
         style={{
           background:
-            "radial-gradient(circle, rgba(245, 238, 214, 0.8) 0%, rgba(216, 164, 155, 0.25) 50%, transparent 72%)",
+            "radial-gradient(circle, rgba(255, 245, 242, 0.95) 0%, rgba(253, 232, 236, 0.45) 50%, transparent 72%)",
         }}
       />
 
@@ -43,37 +43,38 @@ export default function GardenArchHeader({
           className="w-full h-full drop-shadow-md"
         >
           <defs>
-            {/* Gradients */}
+            {/* Rose Gold Trellis Gradient */}
             <linearGradient id={`${idPrefix}-goldStroke`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FAF7EE" />
-              <stop offset="30%" stopColor="#D4AF37" />
-              <stop offset="65%" stopColor="#C5A059" />
-              <stop offset="100%" stopColor="#86652C" />
+              <stop offset="0%" stopColor="#FFF8F2" />
+              <stop offset="30%" stopColor="#E2B686" />
+              <stop offset="65%" stopColor="#D4A373" />
+              <stop offset="100%" stopColor="#C89B7B" />
             </linearGradient>
 
+            {/* Soft Champagne & Rose Foliage Gradient (Zero Green) */}
             <linearGradient id={`${idPrefix}-sageFoliage`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3E5C49" />
-              <stop offset="50%" stopColor="#2D5A43" />
-              <stop offset="100%" stopColor="#183024" />
+              <stop offset="0%" stopColor="#E5C3B2" />
+              <stop offset="50%" stopColor="#D4A373" />
+              <stop offset="100%" stopColor="#C89B7B" />
             </linearGradient>
 
             <linearGradient id={`${idPrefix}-rosePetal`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FAF7F2" />
-              <stop offset="45%" stopColor="#E8C5BE" />
-              <stop offset="85%" stopColor="#D8A49B" />
-              <stop offset="100%" stopColor="#C5857B" />
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="45%" stopColor="#FADBD8" />
+              <stop offset="85%" stopColor="#F5B7B1" />
+              <stop offset="100%" stopColor="#D88A96" />
             </linearGradient>
 
             <linearGradient id={`${idPrefix}-archFill`} x1="50%" y1="0%" x2="50%" y2="100%">
-              <stop offset="0%" stopColor="#FAF7F2" stopOpacity="0.95" />
-              <stop offset="50%" stopColor="#FAF7EE" stopOpacity="0.97" />
-              <stop offset="100%" stopColor="#F4EFE6" stopOpacity="0.96" />
+              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.88" />
+              <stop offset="50%" stopColor="#FFF8F8" stopOpacity="0.92" />
+              <stop offset="100%" stopColor="#FDE8EC" stopOpacity="0.90" />
             </linearGradient>
 
             <radialGradient id={`${idPrefix}-jasminePetal`} cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#FFFFFF" />
-              <stop offset="70%" stopColor="#F4E0DC" />
-              <stop offset="100%" stopColor="#C5A059" stopOpacity="0.8" />
+              <stop offset="70%" stopColor="#FADBD8" />
+              <stop offset="100%" stopColor="#D4A373" stopOpacity="0.8" />
             </radialGradient>
           </defs>
 
@@ -114,9 +115,9 @@ export default function GardenArchHeader({
           </g>
 
           {/* ========================================================= */}
-          {/* LAYER 1: Deep Sage / Forest Green Eucalyptus & Vines       */}
+          {/* LAYER 1: Rose Gold & Champagne Eucalyptus & Vines          */}
           {/* ========================================================= */}
-          <g fill={`url(#${idPrefix}-sageFoliage)`} stroke="#183024" strokeWidth="0.8">
+          <g fill={`url(#${idPrefix}-sageFoliage)`} stroke="#C89B7B" strokeWidth="0.8">
             {/* Left Climbing Vine Main Stems */}
             <path
               d="M 40 740 C 44 600, 32 460, 48 340 C 60 240, 95 160, 160 100 C 205 60, 255 40, 298 30"

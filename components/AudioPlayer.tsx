@@ -103,8 +103,8 @@ export default function AudioPlayer() {
 
       <div className="group relative flex items-center">
         {/* Floating Tooltip with Track & Status Info */}
-        <div className="pointer-events-none absolute bottom-full right-0 mb-3 hidden items-center gap-2.5 whitespace-nowrap rounded-2xl border border-gold-300/40 bg-sage-950/95 px-4 py-2.5 text-xs text-white shadow-2xl backdrop-blur-md transition-all group-hover:flex">
-          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gold-500/20 text-gold-400">
+        <div className="pointer-events-none absolute bottom-full right-0 mb-3 hidden items-center gap-2.5 whitespace-nowrap rounded-2xl border border-[#EAD5D5] bg-[#3D2429]/95 px-4 py-2.5 text-xs text-white shadow-2xl backdrop-blur-md transition-all group-hover:flex">
+          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#D88A96]/20 text-[#D4A373]">
             {isPlaying ? (
               <Volume2 size={15} className="animate-pulse" />
             ) : (
@@ -112,14 +112,14 @@ export default function AudioPlayer() {
             )}
           </div>
           <div className="flex flex-col text-left">
-            <span className="text-[10px] font-semibold uppercase tracking-wider text-gold-400">
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-[#D4A373]">
               {isPlaying ? "Sedang Dimainkan" : "Muzik Latar"}
             </span>
-            <span className="font-serif font-bold text-white max-w-[200px] truncate">
+            <span className="font-serif font-bold text-[#FFF8F8] max-w-[200px] truncate">
               {audioConfig?.title || "Instrumental Melayu Asli"}
             </span>
             {audioConfig?.artist && (
-              <span className="text-[10px] text-cream-200">
+              <span className="text-[10px] text-[#FADBD8]">
                 {audioConfig.artist}
               </span>
             )}
@@ -130,37 +130,37 @@ export default function AudioPlayer() {
         <button
           onClick={togglePlay}
           aria-label={isPlaying ? "Jeda Muzik Latar (Pause)" : "Mainkan Muzik Latar (Play)"}
-          className={`relative flex items-center gap-2.5 rounded-full p-2.5 sm:p-3 shadow-gold transition-all duration-300 focus:outline-none cursor-pointer ${
+          className={`relative flex items-center gap-2.5 rounded-full p-2.5 sm:p-3 shadow-sm transition-all duration-300 focus:outline-none cursor-pointer ${
             isPlaying
-              ? "scale-105 bg-gradient-to-tr from-sage-950 via-sage-900 to-sage-950 text-gold-300 border-2 border-gold-400 shadow-gold-glow"
-              : "border-2 border-gold-300/80 bg-white/95 text-olive-700 backdrop-blur-md hover:border-gold-500 hover:text-gold-600 hover:scale-105"
+              ? "scale-105 bg-gradient-to-tr from-[#3D2429] via-[#4A2E35] to-[#2B191D] text-[#D4A373] border-2 border-[#D4A373] shadow-rose"
+              : "border-2 border-[#EAD5D5] bg-white/95 text-[#7A555C] backdrop-blur-md hover:border-[#D88A96] hover:text-[#C56D7E] hover:scale-105"
           }`}
         >
           {/* Pulsating Sound Wave Ring Ripple (GPU accelerated) */}
           {isPlaying && (
-            <span className="absolute -inset-1.5 animate-ping rounded-full border border-gold-400/50 opacity-60 pointer-events-none" />
+            <span className="absolute -inset-1.5 animate-ping rounded-full border border-[#D4A373]/50 opacity-60 pointer-events-none" />
           )}
 
           {/* Spinning Vinyl Disc Motif */}
           <div className="relative flex items-center justify-center">
             {isPlaying ? (
               <>
-                <Disc size={26} className="animate-spin-slow text-gold-400" />
-                {/* Center Vinyl Gold Core */}
-                <span className="absolute h-2.5 w-2.5 rounded-full bg-gold-200 shadow-inner" />
+                <Disc size={26} className="animate-spin-slow text-[#D4A373]" />
+                {/* Center Vinyl Rose Gold Core */}
+                <span className="absolute h-2.5 w-2.5 rounded-full bg-[#FADBD8] shadow-inner" />
               </>
             ) : (
-              <VolumeX size={22} className="text-olive-500" />
+              <VolumeX size={22} className="text-[#7A555C]" />
             )}
           </div>
 
           {/* Pulsating Sound Wave Bars (Visual Equalizer) */}
           {isPlaying && (
             <div className="flex items-end gap-1 px-1 h-4">
-              <span className="w-1 bg-gold-400 rounded-full animate-[soundWave_0.8s_ease-in-out_infinite]" style={{ height: "60%" }} />
-              <span className="w-1 bg-blush-300 rounded-full animate-[soundWave_1.1s_ease-in-out_infinite]" style={{ height: "100%", animationDelay: "0.2s" }} />
-              <span className="w-1 bg-gold-300 rounded-full animate-[soundWave_0.9s_ease-in-out_infinite]" style={{ height: "80%", animationDelay: "0.4s" }} />
-              <span className="w-1 bg-gold-200 rounded-full animate-[soundWave_1.2s_ease-in-out_infinite]" style={{ height: "45%", animationDelay: "0.1s" }} />
+              <span className="w-1 bg-[#D88A96] rounded-full animate-[soundWave_0.8s_ease-in-out_infinite]" style={{ height: "60%" }} />
+              <span className="w-1 bg-[#FADBD8] rounded-full animate-[soundWave_1.1s_ease-in-out_infinite]" style={{ height: "100%", animationDelay: "0.2s" }} />
+              <span className="w-1 bg-[#D4A373] rounded-full animate-[soundWave_0.9s_ease-in-out_infinite]" style={{ height: "80%", animationDelay: "0.4s" }} />
+              <span className="w-1 bg-[#E2B686] rounded-full animate-[soundWave_1.2s_ease-in-out_infinite]" style={{ height: "45%", animationDelay: "0.1s" }} />
             </div>
           )}
         </button>

@@ -27,8 +27,8 @@ function HeroPersonalizedBadge() {
   if (!guestName) return null;
 
   return (
-    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold-400/80 bg-white/95 px-4 py-1.5 text-xs font-semibold text-sage-900 shadow-sm backdrop-blur-sm animate-pulse-subtle">
-      <span className="h-2 w-2 rounded-full bg-gold-500 animate-ping" />
+    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#EAD5D5] bg-white/95 px-4 py-1.5 text-xs font-semibold text-[#3D2429] shadow-sm backdrop-blur-sm animate-pulse-subtle">
+      <span className="h-2 w-2 rounded-full bg-[#D4A373] animate-ping" />
       <span>Undangan Khas Buat: <strong>{guestName}</strong></span>
     </div>
   );
@@ -86,22 +86,22 @@ export default function Hero() {
 
         {/* Bismillah Vector Calligraphy */}
         <div className="mb-4">
-          <BismillahHeader variant="sage" size="md" />
+          <BismillahHeader variant="light" size="md" />
         </div>
 
         {/* Invitation Category Badge */}
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold-400/60 bg-gold-100/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold-900 shadow-sm">
-          <Heart size={13} className="fill-gold-600 text-gold-600" />
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#EAD5D5] bg-[#FDE8EC] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-[#B56576] shadow-sm">
+          <Heart size={13} className="fill-[#D88A96] text-[#D88A96]" />
           <span>WALIMATULURUS</span>
-          <Heart size={13} className="fill-gold-600 text-gold-600" />
+          <Heart size={13} className="fill-[#D88A96] text-[#D88A96]" />
         </div>
 
         {/* Family Side Greeting */}
-        <p className="mb-6 max-w-md text-xs tracking-wide text-olive-600 sm:text-sm">
+        <p className="mb-6 max-w-md text-xs tracking-wide text-[#7A555C] sm:text-sm">
           {couple.familySideNote}
         </p>
 
-        {/* Expansive Multi-Layered Garden Trellis & Floral Archway (Requirement 1) */}
+        {/* Expansive Multi-Layered Garden Trellis & Floral Archway */}
         <GardenArchHeader
           initials={initials}
           subtitle="RAJA SEHARI"
@@ -109,40 +109,40 @@ export default function Hero() {
         >
           {/* Couple Calligraphic Names */}
           <div className="mb-3">
-            <h1 className="font-serif text-4xl font-bold leading-tight tracking-tight text-sage-950 sm:text-6xl md:text-7xl">
+            <h1 className="font-serif text-4xl font-bold leading-tight tracking-tight text-[#3D2429] sm:text-6xl md:text-7xl">
               <span>{couple.groom.shortName}</span>
-              <span className="mx-3 font-script text-3xl font-normal text-gold-500 sm:mx-4 sm:text-5xl md:text-6xl">
+              <span className="mx-3 font-script text-3xl font-normal text-[#D4A373] sm:mx-4 sm:text-5xl md:text-6xl">
                 &amp;
               </span>
               <span>{couple.bride.shortName}</span>
             </h1>
           </div>
 
-          <p className="font-serif text-xs sm:text-sm text-olive-600 italic max-w-md mx-auto mb-2">
+          <p className="font-serif text-xs sm:text-sm text-[#7A555C] italic max-w-md mx-auto mb-2">
             {couple.groom.fullName} &amp; {couple.bride.fullName}
           </p>
 
           <FloralSectionDivider size="sm" className="my-3" />
 
           {/* Date & Venue Subtitle */}
-          <div className="flex flex-col items-center justify-center gap-2 text-xs font-medium text-olive-700 sm:flex-row sm:gap-4 sm:text-sm">
-            <div className="flex items-center gap-1.5 text-gold-800">
-              <Calendar size={15} className="text-gold-600" />
+          <div className="flex flex-col items-center justify-center gap-2 text-xs font-medium text-[#7A555C] sm:flex-row sm:gap-4 sm:text-sm">
+            <div className="flex items-center gap-1.5 text-[#D4A373]">
+              <Calendar size={15} className="text-[#C56D7E]" />
               <span className="font-semibold">{event.dateDisplay}</span>
             </div>
-            <span className="hidden text-gold-400 sm:inline">•</span>
-            <span className="text-olive-600">{event.hijriDate}</span>
-            <span className="hidden text-gold-400 sm:inline">•</span>
-            <div className="flex items-center gap-1 text-sage-900 font-semibold">
-              <MapPin size={15} className="text-sage-700" />
+            <span className="hidden text-[#D4A373] sm:inline">•</span>
+            <span className="text-[#7A555C]">{event.hijriDate}</span>
+            <span className="hidden text-[#D4A373] sm:inline">•</span>
+            <div className="flex items-center gap-1 text-[#3D2429] font-semibold">
+              <MapPin size={15} className="text-[#B56576]" />
               <span>{event.venueName}</span>
             </div>
           </div>
         </GardenArchHeader>
 
-        {/* Live Countdown Timer with Pressed-Flower Botanical Enclosures (Requirement 5) */}
+        {/* Live Countdown Timer with Pressed-Flower Botanical Enclosures */}
         <div className="mb-10 w-full max-w-lg">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gold-800">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#B56576]">
             {timeLeft.isExpired ? "Alhamdulillah, Hari Bahagia Telah Tiba" : "Menghitung Hari Bahagia"}
           </p>
 
@@ -155,33 +155,33 @@ export default function Hero() {
             ].map((unit, index) => (
               <div
                 key={index}
-                className="group relative flex flex-col items-center justify-center rounded-2xl border-2 border-gold-300/90 ring-1 ring-gold-200/50 bg-gradient-to-b from-white via-cream-50/70 to-white p-3 shadow-gold backdrop-blur-sm transition-all hover:border-gold-500 hover:scale-105 sm:p-4 overflow-hidden"
+                className="group relative flex flex-col items-center justify-center rounded-2xl border-2 border-[#EAD5D5] ring-1 ring-[#FADBD8]/60 bg-white/85 p-3 shadow-rose backdrop-blur-sm transition-all hover:border-[#D4A373] hover:scale-105 sm:p-4 overflow-hidden"
               >
                 {/* Micro Petal Corner Florets in Each Box */}
                 <svg
                   viewBox="0 0 20 20"
                   fill="none"
-                  className="absolute top-1 left-1 w-3.5 h-3.5 text-gold-400 opacity-60 pointer-events-none"
+                  className="absolute top-1 left-1 w-3.5 h-3.5 text-[#D4A373] opacity-60 pointer-events-none"
                   aria-hidden="true"
                 >
-                  <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#D8A49B" opacity="0.8" />
-                  <circle cx="2" cy="2" r="1.5" fill="#C5A059" />
+                  <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#D88A96" opacity="0.8" />
+                  <circle cx="2" cy="2" r="1.5" fill="#D4A373" />
                 </svg>
                 <svg
                   viewBox="0 0 20 20"
                   fill="none"
-                  className="absolute top-1 right-1 w-3.5 h-3.5 text-gold-400 opacity-60 pointer-events-none rotate-90"
+                  className="absolute top-1 right-1 w-3.5 h-3.5 text-[#D4A373] opacity-60 pointer-events-none rotate-90"
                   aria-hidden="true"
                 >
-                  <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#D8A49B" opacity="0.8" />
-                  <circle cx="2" cy="2" r="1.5" fill="#C5A059" />
+                  <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#D88A96" opacity="0.8" />
+                  <circle cx="2" cy="2" r="1.5" fill="#D4A373" />
                 </svg>
 
-                <div className="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
-                <span className="font-serif text-2xl font-bold text-sage-950 sm:text-4xl group-hover:text-gold-700 transition-colors">
+                <div className="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-[#D4A373] to-transparent" />
+                <span className="font-serif text-2xl font-bold text-[#3D2429] sm:text-4xl group-hover:text-[#B56576] transition-colors">
                   {String(unit.value).padStart(2, "0")}
                 </span>
-                <span className="mt-1 text-[10px] font-bold uppercase tracking-wider text-olive-500 sm:text-xs">
+                <span className="mt-1 text-[10px] font-bold uppercase tracking-wider text-[#7A555C] sm:text-xs">
                   {unit.label}
                 </span>
               </div>
@@ -189,18 +189,18 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Primary Call to Actions (Rounded Pill Contours with Gold Botanical Borders) */}
+        {/* Primary Call to Actions (Rounded Pill Contours with Rose Gold Borders) */}
         <div className="flex w-full flex-col items-center gap-3.5 sm:w-auto sm:flex-row">
           <a
             href="#rsvp"
-            className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-gold-400 bg-gradient-to-r from-gold-500 via-gold-600 to-gold-700 px-8 py-3.5 text-sm font-semibold text-white shadow-gold transition-all duration-300 hover:from-gold-600 hover:to-gold-800 hover:shadow-gold-glow hover:border-gold-300 active:scale-95 sm:w-auto sm:text-base cursor-pointer"
+            className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#E2B686] bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] px-8 py-3.5 text-sm font-semibold text-white shadow-rose transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_10px_24px_rgba(201,122,139,0.35)] active:scale-95 sm:w-auto sm:text-base cursor-pointer"
           >
             <span>Sahkan Kehadiran (RSVP)</span>
           </a>
 
           <a
             href="#acara"
-            className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-gold-300/80 bg-white/95 px-7 py-3.5 text-sm font-medium text-olive-800 shadow-sm transition-all duration-300 hover:border-gold-500 hover:bg-gold-50/50 hover:shadow-gold active:scale-95 sm:w-auto sm:text-base cursor-pointer"
+            className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#EAD5D5] bg-white/95 px-7 py-3.5 text-sm font-medium text-[#3D2429] shadow-sm transition-all duration-300 hover:border-[#D4A373] hover:bg-[#FDE8EC]/60 hover:shadow-rose active:scale-95 sm:w-auto sm:text-base cursor-pointer"
           >
             <span>Maklumat Acara &amp; Lokasi</span>
           </a>
@@ -210,7 +210,7 @@ export default function Hero() {
         <a
           href="#mempelai"
           aria-label="Skrol ke bawah"
-          className="mt-12 flex animate-bounce flex-col items-center gap-1 text-olive-400 transition-colors hover:text-gold-600"
+          className="mt-12 flex animate-bounce flex-col items-center gap-1 text-[#B56576] transition-colors hover:text-[#3D2429]"
         >
           <span className="text-[11px] uppercase tracking-wider">Teruskan Membaca</span>
           <ChevronDown size={18} />

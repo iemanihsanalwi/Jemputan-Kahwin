@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { GuestWish } from "@/types/wedding";
 import { formatTimeAgo } from "@/lib/utils";
 import BotanicalCornerFlourish from "@/components/art/BotanicalCornerFlourish";
-import FloralSectionDivider from "@/components/art/FloralSectionDivider";
+import SectionHeader from "@/components/SectionHeader";
 import { Heart, Send, User, Users, Loader2, Sparkles } from "lucide-react";
 
 export default function GuestbookSection() {
@@ -94,34 +94,26 @@ export default function GuestbookSection() {
 
   return (
     <section id="ucapan" className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
-      {/* Header */}
-      <div className="mb-16 text-center">
-        <span className="mb-2 block text-xs font-semibold uppercase tracking-widest text-gold-700">
-          Titipan Doa
-        </span>
-        <h2 className="mb-3 font-serif text-3xl font-bold text-sage-950 sm:text-4xl md:text-5xl">
-          Buku Tetamu &amp; Ucapan
-        </h2>
-        <FloralSectionDivider size="md" />
-        <p className="mx-auto max-w-md text-xs text-olive-600 sm:text-sm">
-          Tinggalkan kata-kata manis, titipan doa restu atau pesanan ikhlas buat kedua
-          mempelai.
-        </p>
-      </div>
+      {/* Strictly-Centered Section Header */}
+      <SectionHeader
+        eyebrow="TITIPAN KASIH &amp; UCAPAN"
+        title="Buku Tetamu &amp; Ucapan"
+        subtitle="Tinggalkan kata-kata manis, titipan doa restu atau pesanan ikhlas buat kedua mempelai."
+      />
 
       <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
         {/* Wish Form Column */}
-        <div className="relative sticky top-24 rounded-3xl border-2 border-gold-200/90 bg-white/95 p-6 shadow-gold backdrop-blur-md sm:p-8 lg:col-span-5">
-          <BotanicalCornerFlourish position="all" size={32} variant="gold" />
+        <div className="relative sticky top-24 rounded-3xl border-2 border-[#EAD5D5] bg-white/85 p-6 shadow-rose backdrop-blur-md sm:p-8 lg:col-span-5">
+          <BotanicalCornerFlourish position="all" size={32} variant="rose" />
 
-          <h3 className="mb-4 flex items-center gap-2 font-serif text-xl font-bold text-sage-950">
-            <Sparkles size={18} className="text-gold-500" />
+          <h3 className="mb-4 flex items-center gap-2 font-serif text-xl font-bold text-[#3D2429]">
+            <Sparkles size={18} className="text-[#D4A373]" />
             <span>Kirimkan Ucapan Anda</span>
           </h3>
 
           {successToast && (
-            <div className="mb-4 flex items-center gap-2 rounded-2xl border border-sage-200 bg-sage-50 p-3 text-xs text-sage-800">
-              <Heart size={14} className="fill-sage-600 text-sage-600" />
+            <div className="mb-4 flex items-center gap-2 rounded-2xl border border-[#EAD5D5] bg-[#FDE8EC] p-3 text-xs text-[#B56576]">
+              <Heart size={14} className="fill-[#D88A96] text-[#D88A96]" />
               <span>Ucapan anda telah berjaya dimuat naik!</span>
             </div>
           )}
@@ -130,12 +122,12 @@ export default function GuestbookSection() {
             <div>
               <label
                 htmlFor="sender_name"
-                className="mb-1 block text-xs font-bold uppercase tracking-wider text-olive-800"
+                className="mb-1 block text-xs font-bold uppercase tracking-[0.15em] text-[#B56576]"
               >
                 Nama Anda
               </label>
-              <div className="relative">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-olive-400">
+              <div className="relative group">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-[#7A555C]/60 group-focus-within:text-[#C56D7E] transition-colors">
                   <User size={16} />
                 </div>
                 <input
@@ -145,7 +137,7 @@ export default function GuestbookSection() {
                   placeholder="Nama penuh atau panggilan"
                   value={form.sender_name}
                   onChange={(e) => setForm({ ...form, sender_name: e.target.value })}
-                  className="w-full rounded-2xl border border-gold-200 bg-white py-2.5 pl-9 pr-3 text-xs outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200/50 sm:text-sm"
+                  className="w-full rounded-2xl border-2 border-[#EAD5D5] bg-white py-2.5 pl-9 pr-3 text-xs text-[#3D2429] placeholder-[#7A555C]/60 outline-none transition focus:border-[#D4A373] focus:ring-2 focus:ring-[#D88A96]/30 sm:text-sm"
                 />
               </div>
             </div>
@@ -153,19 +145,19 @@ export default function GuestbookSection() {
             <div>
               <label
                 htmlFor="relationship"
-                className="mb-1 block text-xs font-bold uppercase tracking-wider text-olive-800"
+                className="mb-1 block text-xs font-bold uppercase tracking-[0.15em] text-[#B56576]"
               >
                 Hubungan Dengan Pengantin
               </label>
-              <div className="relative">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-olive-400">
+              <div className="relative group">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-[#7A555C]/60 group-focus-within:text-[#C56D7E] transition-colors">
                   <Users size={16} />
                 </div>
                 <select
                   id="relationship"
                   value={form.relationship}
                   onChange={(e) => setForm({ ...form, relationship: e.target.value })}
-                  className="w-full cursor-pointer rounded-2xl border border-gold-200 bg-white py-2.5 pl-9 pr-3 text-xs outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200/50 sm:text-sm"
+                  className="w-full cursor-pointer rounded-2xl border-2 border-[#EAD5D5] bg-white py-2.5 pl-9 pr-3 text-xs text-[#3D2429] outline-none transition focus:border-[#D4A373] focus:ring-2 focus:ring-[#D88A96]/30 sm:text-sm"
                 >
                   <option value="Keluarga">Keluarga</option>
                   <option value="Sahabat Pengantin Lelaki">
@@ -184,7 +176,7 @@ export default function GuestbookSection() {
             <div>
               <label
                 htmlFor="wish_message"
-                className="mb-1 block text-xs font-bold uppercase tracking-wider text-olive-800"
+                className="mb-1 block text-xs font-bold uppercase tracking-[0.15em] text-[#B56576]"
               >
                 Ucapan &amp; Doa Restu
               </label>
@@ -195,7 +187,7 @@ export default function GuestbookSection() {
                 placeholder="Tuliskan ucapan tahniah atau doa anda di sini..."
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full rounded-2xl border border-gold-200 bg-white p-3 text-xs outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200/50 sm:text-sm"
+                className="w-full rounded-2xl border-2 border-[#EAD5D5] bg-white p-3 text-xs text-[#3D2429] placeholder-[#7A555C]/60 outline-none transition focus:border-[#D4A373] focus:ring-2 focus:ring-[#D88A96]/30 sm:text-sm"
               />
             </div>
 
@@ -214,7 +206,7 @@ export default function GuestbookSection() {
             <button
               type="submit"
               disabled={submitting}
-              className="flex w-full items-center justify-center gap-2 rounded-full border border-sage-700 bg-sage-800 py-3 text-xs font-semibold text-white shadow-sm transition-all hover:bg-sage-700 active:scale-95 disabled:opacity-70 sm:text-sm cursor-pointer"
+              className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#E2B686] bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] py-3 text-xs font-semibold text-white shadow-rose transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-70 sm:text-sm cursor-pointer"
             >
               {submitting ? (
                 <>
@@ -234,12 +226,12 @@ export default function GuestbookSection() {
         {/* Wishes List Column */}
         <div className="space-y-4 lg:col-span-7">
           {loading ? (
-            <div className="flex flex-col items-center justify-center gap-2 py-16 text-center text-olive-400">
-              <Loader2 size={24} className="animate-spin text-gold-500" />
+            <div className="flex flex-col items-center justify-center gap-2 py-16 text-center text-[#7A555C]/60">
+              <Loader2 size={24} className="animate-spin text-[#D4A373]" />
               <span className="text-xs">Memuat turun ucapan para tetamu...</span>
             </div>
           ) : wishes.length === 0 ? (
-            <div className="rounded-3xl border border-gold-200 bg-white/70 p-8 text-center text-sm text-olive-600">
+            <div className="rounded-3xl border border-[#EAD5D5] bg-white/70 p-8 text-center text-sm text-[#7A555C]">
               Belum ada ucapan lagi. Jadilah orang pertama mengirimkan doa buat mempelai!
             </div>
           ) : (
@@ -248,20 +240,20 @@ export default function GuestbookSection() {
                 {wishes.slice(0, visibleCount).map((wish) => (
                   <div
                     key={wish.id}
-                    className="rounded-2xl border border-gold-200/80 bg-white/90 p-5 shadow-sm backdrop-blur-sm transition-all hover:border-gold-300"
+                    className="rounded-2xl border border-[#EAD5D5] bg-white/90 p-5 shadow-sm backdrop-blur-sm transition-all hover:border-[#D4A373] hover:shadow-rose"
                   >
                     <div className="mb-2 flex items-start justify-between gap-3">
                       <div>
-                        <h4 className="font-serif text-base font-bold text-sage-950">
+                        <h4 className="font-serif text-base font-bold text-[#3D2429]">
                           {wish.sender_name}
                         </h4>
                         <div className="mt-0.5 flex items-center gap-2">
                           {wish.relationship && (
-                            <span className="rounded-full border border-gold-200/60 bg-gold-50 px-2.5 py-0.5 text-[11px] font-medium text-gold-800">
+                            <span className="rounded-full border border-[#EAD5D5] bg-[#FDE8EC] px-2.5 py-0.5 text-[11px] font-medium text-[#B56576]">
                               {wish.relationship}
                             </span>
                           )}
-                          <span className="text-[11px] text-olive-400">
+                          <span className="text-[11px] text-[#7A555C]/60">
                             {formatTimeAgo(wish.created_at)}
                           </span>
                         </div>
@@ -273,21 +265,21 @@ export default function GuestbookSection() {
                         aria-label="Suka ucapan ini"
                         className={`flex items-center gap-1 rounded-full px-2.5 py-1 text-xs transition-all cursor-pointer ${
                           likedMap[wish.id]
-                            ? "border border-blush-300 bg-blush-50 text-blush-600"
-                            : "border border-olive-200 bg-cream-50 text-olive-600 hover:bg-blush-50 hover:text-blush-600"
+                            ? "border border-[#D88A96] bg-[#FDE8EC] text-[#C56D7E]"
+                            : "border border-[#EAD5D5] bg-[#FFF8F8] text-[#7A555C] hover:bg-[#FDE8EC] hover:text-[#C56D7E]"
                         }`}
                       >
                         <Heart
                           size={13}
                           className={
-                            likedMap[wish.id] ? "fill-blush-500 text-blush-500" : ""
+                            likedMap[wish.id] ? "fill-[#D88A96] text-[#D88A96]" : ""
                           }
                         />
                         <span className="font-semibold">{wish.likes_count || 0}</span>
                       </button>
                     </div>
 
-                    <p className="whitespace-pre-line text-xs leading-relaxed text-olive-800 sm:text-sm">
+                    <p className="whitespace-pre-line text-xs leading-relaxed text-[#3D2429] sm:text-sm">
                       {wish.message}
                     </p>
                   </div>
@@ -298,7 +290,7 @@ export default function GuestbookSection() {
                 <div className="pt-4 text-center">
                   <button
                     onClick={loadMore}
-                    className="rounded-full border-2 border-gold-300 bg-white px-7 py-2.5 text-xs font-semibold text-olive-800 transition-colors hover:border-gold-400 hover:bg-gold-50 shadow-xs cursor-pointer"
+                    className="rounded-full border-2 border-[#EAD5D5] bg-white px-7 py-2.5 text-xs font-semibold text-[#3D2429] transition-colors hover:border-[#D4A373] hover:bg-[#FDE8EC]/60 shadow-xs cursor-pointer"
                   >
                     Muat Turun Lagi ({wishes.length - visibleCount} ucapan)
                   </button>

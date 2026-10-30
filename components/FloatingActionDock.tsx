@@ -63,14 +63,14 @@ export default function FloatingActionDock() {
     <>
       {/* Floating Bottom Action Dock */}
       <div className="fixed bottom-4 left-4 right-4 z-40 max-w-md mx-auto select-none">
-        <div className="flex items-center justify-around rounded-full border-2 border-gold-400/50 bg-[#183024]/95 px-4 py-2.5 shadow-2xl backdrop-blur-lg">
+        <div className="flex items-center justify-around rounded-full border border-[#EAD5D5] bg-white/90 px-4 py-2.5 shadow-rose backdrop-blur-lg">
           {/* 1. Location Trigger */}
           <button
             onClick={() => setActiveModal("location")}
             aria-label="Panduan Lokasi & Peta"
-            className="flex flex-col items-center gap-1 text-cream-200 transition-colors hover:text-gold-300 active:scale-95 px-2 py-1 cursor-pointer"
+            className="flex flex-col items-center gap-1 text-[#7A555C] transition-colors hover:text-[#C56D7E] active:scale-95 px-2 py-1 cursor-pointer"
           >
-            <MapPin size={18} className="text-gold-400" />
+            <MapPin size={18} className="text-[#C56D7E]" />
             <span className="text-[10px] font-medium tracking-wide">Lokasi</span>
           </button>
 
@@ -78,9 +78,9 @@ export default function FloatingActionDock() {
           <button
             onClick={() => setActiveModal("calendar")}
             aria-label="Simpan Tarikh Majlis"
-            className="flex flex-col items-center gap-1 text-cream-200 transition-colors hover:text-gold-300 active:scale-95 px-2 py-1 cursor-pointer"
+            className="flex flex-col items-center gap-1 text-[#7A555C] transition-colors hover:text-[#C56D7E] active:scale-95 px-2 py-1 cursor-pointer"
           >
-            <Calendar size={18} className="text-gold-400" />
+            <Calendar size={18} className="text-[#C56D7E]" />
             <span className="text-[10px] font-medium tracking-wide">Kalendar</span>
           </button>
 
@@ -88,10 +88,10 @@ export default function FloatingActionDock() {
           <a
             href="#rsvp"
             aria-label="Sahkan Kehadiran RSVP"
-            className="-mt-5 flex flex-col items-center justify-center rounded-full border-2 border-gold-300 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 p-3 font-bold text-white shadow-gold-glow ring-4 ring-[#183024] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+            className="-mt-5 flex flex-col items-center justify-center rounded-full border border-[#D4A373]/40 bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] p-3 font-bold text-white shadow-rose ring-4 ring-[#FFF8F8] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
           >
-            <CheckCircle2 size={22} className="text-sage-950" />
-            <span className="text-[9px] font-bold uppercase tracking-wider text-sage-950">
+            <CheckCircle2 size={22} className="text-white" />
+            <span className="text-[9px] font-bold uppercase tracking-wider text-white">
               RSVP
             </span>
           </a>
@@ -100,9 +100,9 @@ export default function FloatingActionDock() {
           <button
             onClick={() => setActiveModal("whatsapp")}
             aria-label="Hubungi Wakil Pengantin via WhatsApp"
-            className="flex flex-col items-center gap-1 text-cream-200 transition-colors hover:text-gold-300 active:scale-95 px-2 py-1 cursor-pointer"
+            className="flex flex-col items-center gap-1 text-[#7A555C] transition-colors hover:text-[#C56D7E] active:scale-95 px-2 py-1 cursor-pointer"
           >
-            <MessageCircle size={18} className="text-gold-400" />
+            <MessageCircle size={18} className="text-[#C56D7E]" />
             <span className="text-[10px] font-medium tracking-wide">WhatsApp</span>
           </button>
         </div>
@@ -117,16 +117,16 @@ export default function FloatingActionDock() {
           onClick={closeModal}
         >
           <div
-            className="relative w-full max-w-sm rounded-t-3xl sm:rounded-3xl border-2 border-gold-300/70 bg-white p-6 shadow-2xl animate-in fade-in slide-in-from-bottom-6 duration-300"
+            className="relative w-full max-w-sm rounded-t-3xl sm:rounded-3xl border border-[#EAD5D5] bg-white/95 backdrop-blur-md p-6 shadow-2xl animate-in fade-in slide-in-from-bottom-6 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Mobile Drag Indicator Bar */}
-            <div className="w-12 h-1.5 bg-olive-200 rounded-full mx-auto mb-4 sm:hidden" />
+            <div className="w-12 h-1.5 bg-[#EAD5D5] rounded-full mx-auto mb-4 sm:hidden" />
             {/* Close Button */}
             <button
               onClick={closeModal}
               aria-label="Tutup Pilihan"
-              className="absolute right-4 top-4 rounded-full bg-cream-100 p-1.5 text-olive-600 hover:bg-cream-200 transition-colors cursor-pointer"
+              className="absolute right-4 top-4 rounded-full bg-[#FFF8F8] p-1.5 text-[#7A555C] hover:bg-[#FDE8EC] transition-colors cursor-pointer"
             >
               <X size={18} />
             </button>
@@ -135,15 +135,15 @@ export default function FloatingActionDock() {
             {activeModal === "location" && (
               <div className="space-y-4 text-center">
                 <div className="mx-auto flex justify-center">
-                  <BotanicalIconBadge size="lg" variant="gold">
-                    <MapPin size={24} className="text-gold-700" />
+                  <BotanicalIconBadge size="lg" variant="rose">
+                    <MapPin size={24} className="text-[#C56D7E]" />
                   </BotanicalIconBadge>
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-sage-950">
+                  <h3 className="font-serif text-lg font-bold text-[#3D2429]">
                     Panduan Arah Majlis
                   </h3>
-                  <p className="mt-1 text-xs text-olive-600 line-clamp-2">
+                  <p className="mt-1 text-xs text-[#7A555C] line-clamp-2">
                     {event.venueName} — {event.venueAddress}
                   </p>
                 </div>
@@ -173,16 +173,16 @@ export default function FloatingActionDock() {
 
                   <button
                     onClick={handleCopyAddress}
-                    className="flex items-center justify-center gap-2 rounded-full border-2 border-gold-300 bg-cream-50 px-4 py-2.5 text-xs font-semibold text-olive-800 hover:border-gold-400 hover:bg-gold-50 transition-colors cursor-pointer"
+                    className="flex items-center justify-center gap-2 rounded-full border border-[#EAD5D5] bg-[#FFF8F8] px-4 py-2.5 text-xs font-semibold text-[#4A2E35] hover:border-[#D88A96] hover:bg-[#FDE8EC] transition-colors cursor-pointer"
                   >
                     {copiedAddress ? (
                       <>
-                        <Check size={15} className="text-sage-600" />
-                        <span className="text-sage-700">Alamat Penuh Tersalin!</span>
+                        <Check size={15} className="text-[#C56D7E]" />
+                        <span className="text-[#C56D7E]">Alamat Penuh Tersalin!</span>
                       </>
                     ) : (
                       <>
-                        <Copy size={15} className="text-gold-700" />
+                        <Copy size={15} className="text-[#C56D7E]" />
                         <span>Salin Alamat Penuh</span>
                       </>
                     )}
@@ -195,15 +195,15 @@ export default function FloatingActionDock() {
             {activeModal === "calendar" && (
               <div className="space-y-4 text-center">
                 <div className="mx-auto flex justify-center">
-                  <BotanicalIconBadge size="lg" variant="gold">
-                    <Calendar size={24} className="text-gold-700" />
+                  <BotanicalIconBadge size="lg" variant="rose">
+                    <Calendar size={24} className="text-[#C56D7E]" />
                   </BotanicalIconBadge>
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-sage-950">
+                  <h3 className="font-serif text-lg font-bold text-[#3D2429]">
                     Simpan Tarikh Majlis
                   </h3>
-                  <p className="mt-1 text-xs text-olive-600">
+                  <p className="mt-1 text-xs text-[#7A555C]">
                     {event.dateDisplay} • {event.receptionTime}
                   </p>
                 </div>
@@ -211,7 +211,7 @@ export default function FloatingActionDock() {
                 <div className="grid grid-cols-1 gap-2.5 pt-2">
                   <button
                     onClick={handleGoogleCalendar}
-                    className="flex items-center justify-center gap-2 rounded-full border border-sage-700 bg-sage-800 px-4 py-3 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-sage-700 transition-colors cursor-pointer"
+                    className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-4 py-3 text-xs sm:text-sm font-semibold text-white shadow-rose hover:opacity-95 transition-opacity cursor-pointer"
                   >
                     <CalendarPlus size={16} />
                     <span>Simpan ke Google Calendar</span>
@@ -219,16 +219,16 @@ export default function FloatingActionDock() {
 
                   <button
                     onClick={handleIcsDownload}
-                    className="flex items-center justify-center gap-2 rounded-full border-2 border-gold-300 bg-white px-4 py-3 text-xs sm:text-sm font-semibold text-olive-800 hover:border-gold-400 hover:bg-gold-50 transition-colors cursor-pointer"
+                    className="flex items-center justify-center gap-2 rounded-full border border-[#EAD5D5] bg-white px-4 py-3 text-xs sm:text-sm font-semibold text-[#4A2E35] hover:border-[#D88A96] hover:bg-[#FFF8F8] transition-colors cursor-pointer"
                   >
                     {downloadedIcs ? (
                       <>
-                        <Check size={16} className="text-sage-600" />
-                        <span className="text-sage-700">Fail Kalendar Dimuat Turun!</span>
+                        <Check size={16} className="text-[#C56D7E]" />
+                        <span className="text-[#C56D7E]">Fail Kalendar Dimuat Turun!</span>
                       </>
                     ) : (
                       <>
-                        <Calendar size={16} className="text-gold-600" />
+                        <Calendar size={16} className="text-[#C56D7E]" />
                         <span>Apple Calendar / iCal (.ics)</span>
                       </>
                     )}
@@ -241,15 +241,15 @@ export default function FloatingActionDock() {
             {activeModal === "whatsapp" && (
               <div className="space-y-4 text-center">
                 <div className="mx-auto flex justify-center">
-                  <BotanicalIconBadge size="lg" variant="sage">
-                    <MessageCircle size={24} className="text-sage-700" />
+                  <BotanicalIconBadge size="lg" variant="rose">
+                    <MessageCircle size={24} className="text-[#C56D7E]" />
                   </BotanicalIconBadge>
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-sage-950">
+                  <h3 className="font-serif text-lg font-bold text-[#3D2429]">
                     WhatsApp Salam &amp; Pertanyaan
                   </h3>
-                  <p className="mt-1 text-xs text-olive-600">
+                  <p className="mt-1 text-xs text-[#7A555C]">
                     Pilih wakil keluarga untuk menghantar ucapan atau pertanyaan:
                   </p>
                 </div>
@@ -265,13 +265,13 @@ export default function FloatingActionDock() {
                     return (
                       <div
                         key={idx}
-                        className="flex items-center justify-between rounded-2xl border border-gold-200/80 bg-cream-50/70 p-3 hover:border-gold-400 transition-colors"
+                        className="flex items-center justify-between rounded-2xl border border-[#EAD5D5] bg-[#FFF8F8] p-3 hover:border-[#D88A96] transition-colors"
                       >
                         <div>
-                          <p className="font-serif text-xs font-bold text-sage-950">
+                          <p className="font-serif text-xs font-bold text-[#3D2429]">
                             {contact.name}
                           </p>
-                          <span className="text-[10px] text-gold-700 font-medium">
+                          <span className="text-[10px] text-[#B56576] font-medium">
                             {contact.relation}
                           </span>
                         </div>
@@ -281,14 +281,14 @@ export default function FloatingActionDock() {
                             href={waUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 rounded-full bg-sage-700 px-3 py-1.5 text-[11px] font-semibold text-white shadow-xs hover:bg-sage-600 transition-colors"
+                            className="flex items-center gap-1 rounded-full bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-3 py-1.5 text-[11px] font-semibold text-white shadow-xs hover:opacity-95 transition-opacity"
                           >
                             <MessageCircle size={13} />
                             <span>WhatsApp</span>
                           </a>
                           <a
                             href={`tel:${rawPhone}`}
-                            className="flex items-center rounded-full border border-olive-200 bg-white p-1.5 text-olive-600 hover:text-sage-700"
+                            className="flex items-center rounded-full border border-[#EAD5D5] bg-white p-1.5 text-[#7A555C] hover:text-[#C56D7E]"
                             title="Panggilan Telefon"
                           >
                             <Phone size={13} />

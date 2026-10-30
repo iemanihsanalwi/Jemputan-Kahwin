@@ -5,6 +5,7 @@ import { useWeddingConfig } from "@/context/WeddingConfigContext";
 import FloralWreathHeader from "@/components/art/FloralWreathHeader";
 import BotanicalCornerFlourish from "@/components/art/BotanicalCornerFlourish";
 import FloralSectionDivider from "@/components/art/FloralSectionDivider";
+import SectionHeader from "@/components/SectionHeader";
 import { Instagram } from "lucide-react";
 
 export default function BrideGroom() {
@@ -46,10 +47,10 @@ export default function BrideGroom() {
 
   return (
     <section id="mempelai" className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
-      {/* Doa Pengantin & Quranic Verse Calligraphy Card with Botanical Corner Flourishes */}
-      <div className="relative mx-auto mb-20 max-w-3xl overflow-hidden rounded-3xl border-2 border-gold-300/90 ring-1 ring-gold-200/60 bg-gradient-to-b from-white via-cream-50/70 to-white p-6 text-center shadow-gold backdrop-blur-md sm:p-10">
-        <BotanicalCornerFlourish position="all" size={44} variant="gold" />
-        <div className="absolute left-0 right-0 top-0 h-1.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
+      {/* Doa Pengantin & Quranic Verse Calligraphy Card */}
+      <div className="relative mx-auto mb-20 max-w-3xl overflow-hidden rounded-3xl border-2 border-[#EAD5D5] bg-white/85 p-6 text-center shadow-rose backdrop-blur-md sm:p-10">
+        <BotanicalCornerFlourish position="all" size={44} variant="rose" />
+        <div className="absolute left-0 right-0 top-0 h-1.5 bg-gradient-to-r from-transparent via-[#D4A373] to-transparent" />
 
         {/* Tab Selector for Doa & Verse (Rounded Pills) */}
         <div className="relative z-10 mb-6 flex flex-wrap items-center justify-center gap-2">
@@ -60,8 +61,8 @@ export default function BrideGroom() {
               onClick={() => setActiveTab(idx)}
               className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-300 ${
                 activeTab === idx
-                  ? "bg-sage-800 text-gold-300 shadow-sm border border-gold-400/60"
-                  : "bg-white/85 text-olive-700 hover:bg-gold-50 hover:text-stone-900 border border-gold-200/60"
+                  ? "bg-gradient-to-r from-[#D88A96] to-[#C56D7E] text-white shadow-sm border border-[#E2B686]"
+                  : "bg-white/85 text-[#7A555C] hover:bg-[#FDE8EC] hover:text-[#3D2429] border border-[#EAD5D5]"
               }`}
             >
               <span>{item.label}</span>
@@ -70,38 +71,33 @@ export default function BrideGroom() {
         </div>
 
         <div className="relative z-10 transition-all duration-300">
-          <p className="dir-rtl mb-4 font-arabic text-xl leading-loose text-sage-950 sm:text-2xl md:text-3xl">
+          <p className="dir-rtl mb-4 font-arabic text-xl leading-loose text-[#3D2429] sm:text-2xl md:text-3xl">
             {currentItem.arabic}
           </p>
 
-          <p className="mb-3 font-serif text-xs sm:text-sm italic leading-relaxed text-olive-700 max-w-xl mx-auto">
+          <p className="mb-3 font-serif text-xs sm:text-sm italic leading-relaxed text-[#7A555C] max-w-xl mx-auto">
             {currentItem.translation}
           </p>
 
           <FloralSectionDivider size="sm" className="my-3" />
 
-          <span className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-widest text-gold-800">
+          <span className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-[0.15em] text-[#B56576]">
             — {currentItem.source} —
           </span>
         </div>
       </div>
 
-      {/* Section Title */}
-      <div className="mb-16 text-center">
-        <span className="mb-2 block text-xs font-semibold uppercase tracking-widest text-gold-700">
-          Raja Sehari
-        </span>
-        <h2 className="mb-3 font-serif text-3xl font-bold text-sage-950 sm:text-4xl md:text-5xl">
-          Pasangan Mempelai
-        </h2>
-        <FloralSectionDivider size="md" />
-      </div>
+      {/* Unified Strictly-Centered Section Header */}
+      <SectionHeader
+        eyebrow="MEMPELAI RAJA SEHARI"
+        title="Pasangan Mempelai"
+      />
 
       {/* Couple Profiles Grid */}
       <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 lg:gap-14">
         {/* Groom Card */}
-        <div className="group relative flex flex-col items-center rounded-3xl border-2 border-gold-200/90 bg-white/95 p-6 text-center shadow-card backdrop-blur-md transition-all duration-300 hover:border-gold-400 hover:shadow-gold sm:p-8">
-          <BotanicalCornerFlourish position="all" size={38} variant="gold" />
+        <div className="group relative flex flex-col items-center rounded-3xl border-2 border-[#EAD5D5] bg-white/90 p-6 text-center shadow-rose backdrop-blur-md transition-all duration-300 hover:border-[#D4A373] hover:shadow-[0_12px_30px_rgba(216,138,150,0.22)] sm:p-8">
+          <BotanicalCornerFlourish position="all" size={38} variant="rose" />
 
           {/* Floral Wreath Monogram Medallion */}
           <div className="relative mb-6">
@@ -113,25 +109,25 @@ export default function BrideGroom() {
             />
           </div>
 
-          <span className="mb-2 inline-block rounded-full border border-sage-200 bg-sage-50 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-sage-900">
+          <span className="mb-2 inline-block rounded-full border border-[#EAD5D5] bg-[#FDE8EC] px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#B56576]">
             {groom.title}
           </span>
 
-          <h3 className="mb-1 font-serif text-2xl font-bold text-sage-950 sm:text-3xl">
+          <h3 className="mb-1 font-serif text-2xl font-bold text-[#3D2429] sm:text-3xl">
             {groom.fullName}
           </h3>
 
-          <p className="mb-4 text-xs font-medium text-gold-700 sm:text-sm">
+          <p className="mb-4 text-xs font-medium text-[#D4A373] sm:text-sm">
             {groom.orderInFamily}
           </p>
 
-          <div className="mb-4 w-full rounded-2xl border border-gold-200/60 bg-cream-50/80 p-3 text-xs text-olive-800 sm:text-sm">
-            <p className="font-semibold text-stone-900">{groom.fatherName}</p>
-            <p className="my-0.5 text-gold-600 font-serif italic">&amp;</p>
-            <p className="font-semibold text-stone-900">{groom.motherName}</p>
+          <div className="mb-4 w-full rounded-2xl border border-[#EAD5D5] bg-[#FFF8F8] p-3 text-xs text-[#7A555C] sm:text-sm">
+            <p className="font-semibold text-[#3D2429]">{groom.fatherName}</p>
+            <p className="my-0.5 text-[#D4A373] font-serif italic">&amp;</p>
+            <p className="font-semibold text-[#3D2429]">{groom.motherName}</p>
           </div>
 
-          <p className="mb-4 text-xs italic leading-relaxed text-olive-600 sm:text-sm">
+          <p className="mb-4 text-xs italic leading-relaxed text-[#7A555C] sm:text-sm">
             &ldquo;{groom.bio}&rdquo;
           </p>
 
@@ -140,7 +136,7 @@ export default function BrideGroom() {
               href={groom.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-olive-400 transition-colors hover:text-gold-600"
+              className="inline-flex items-center gap-1.5 text-xs text-[#B56576] transition-colors hover:text-[#3D2429]"
             >
               <Instagram size={15} />
               <span>@{groom.shortName.toLowerCase()}</span>
@@ -149,8 +145,8 @@ export default function BrideGroom() {
         </div>
 
         {/* Bride Card */}
-        <div className="group relative flex flex-col items-center rounded-3xl border-2 border-gold-200/90 bg-white/95 p-6 text-center shadow-card backdrop-blur-md transition-all duration-300 hover:border-gold-400 hover:shadow-gold sm:p-8">
-          <BotanicalCornerFlourish position="all" size={38} variant="gold" />
+        <div className="group relative flex flex-col items-center rounded-3xl border-2 border-[#EAD5D5] bg-white/90 p-6 text-center shadow-rose backdrop-blur-md transition-all duration-300 hover:border-[#D4A373] hover:shadow-[0_12px_30px_rgba(216,138,150,0.22)] sm:p-8">
+          <BotanicalCornerFlourish position="all" size={38} variant="rose" />
 
           {/* Floral Wreath Monogram Medallion */}
           <div className="relative mb-6">
@@ -162,25 +158,25 @@ export default function BrideGroom() {
             />
           </div>
 
-          <span className="mb-2 inline-block rounded-full border border-blush-200 bg-blush-50 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-blush-800">
+          <span className="mb-2 inline-block rounded-full border border-[#EAD5D5] bg-[#FDE8EC] px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#B56576]">
             {bride.title}
           </span>
 
-          <h3 className="mb-1 font-serif text-2xl font-bold text-sage-950 sm:text-3xl">
+          <h3 className="mb-1 font-serif text-2xl font-bold text-[#3D2429] sm:text-3xl">
             {bride.fullName}
           </h3>
 
-          <p className="mb-4 text-xs font-medium text-gold-700 sm:text-sm">
+          <p className="mb-4 text-xs font-medium text-[#D4A373] sm:text-sm">
             {bride.orderInFamily}
           </p>
 
-          <div className="mb-4 w-full rounded-2xl border border-gold-200/60 bg-cream-50/80 p-3 text-xs text-olive-800 sm:text-sm">
-            <p className="font-semibold text-stone-900">{bride.fatherName}</p>
-            <p className="my-0.5 text-gold-600 font-serif italic">&amp;</p>
-            <p className="font-semibold text-stone-900">{bride.motherName}</p>
+          <div className="mb-4 w-full rounded-2xl border border-[#EAD5D5] bg-[#FFF8F8] p-3 text-xs text-[#7A555C] sm:text-sm">
+            <p className="font-semibold text-[#3D2429]">{bride.fatherName}</p>
+            <p className="my-0.5 text-[#D4A373] font-serif italic">&amp;</p>
+            <p className="font-semibold text-[#3D2429]">{bride.motherName}</p>
           </div>
 
-          <p className="mb-4 text-xs italic leading-relaxed text-olive-600 sm:text-sm">
+          <p className="mb-4 text-xs italic leading-relaxed text-[#7A555C] sm:text-sm">
             &ldquo;{bride.bio}&rdquo;
           </p>
 
@@ -189,7 +185,7 @@ export default function BrideGroom() {
               href={bride.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-olive-400 transition-colors hover:text-gold-600"
+              className="inline-flex items-center gap-1.5 text-xs text-[#B56576] transition-colors hover:text-[#3D2429]"
             >
               <Instagram size={15} />
               <span>@{bride.shortName.toLowerCase()}</span>

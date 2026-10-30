@@ -41,7 +41,7 @@ export default function FloralWreathHeader({
       aria-label={`${initials} ${subtitle}`}
     >
       {/* Outer Soft Botanical Radial Glow */}
-      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gold-300/30 via-blush-300/30 to-sage-300/30 opacity-40 blur-md animate-pulse-subtle" />
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gold-300/30 via-blush-300/30 to-rose-300/30 opacity-40 blur-md animate-pulse-subtle" />
 
       {/* Pure SVG Botanical Wreath Medallion */}
       <svg
@@ -53,39 +53,39 @@ export default function FloralWreathHeader({
         <defs>
           {/* Gold to Rose Gradient for Stems and Outlines */}
           <linearGradient id={`${idPrefix}-wreathGold`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FAF7EE" />
-            <stop offset="25%" stopColor="#D4AF37" />
-            <stop offset="60%" stopColor="#C5A059" />
-            <stop offset="85%" stopColor="#D8A49B" />
-            <stop offset="100%" stopColor="#86652C" />
+            <stop offset="0%" stopColor="#FFF8F2" />
+            <stop offset="25%" stopColor="#E2B686" />
+            <stop offset="60%" stopColor="#D4A373" />
+            <stop offset="85%" stopColor="#D88A96" />
+            <stop offset="100%" stopColor="#B3806D" />
           </linearGradient>
 
           {/* Soft Petal Shading */}
           <linearGradient id={`${idPrefix}-petalShade`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FAF7F2" stopOpacity="0.95" />
-            <stop offset="50%" stopColor="#E8C5BE" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#C5A059" stopOpacity="0.9" />
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.95" />
+            <stop offset="50%" stopColor="#FADBD8" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#D4A373" stopOpacity="0.9" />
           </linearGradient>
 
-          {/* Deep Forest Sage / Velvet Background for the Inner Medallion */}
+          {/* Deep Romantic Mulberry Background for the Inner Medallion */}
           <radialGradient id={`${idPrefix}-centerBg`} cx="50%" cy="45%" r="65%">
             {variant === "groom" ? (
               <>
-                <stop offset="0%" stopColor="#2D5A43" />
-                <stop offset="70%" stopColor="#183024" />
-                <stop offset="100%" stopColor="#0C1913" />
+                <stop offset="0%" stopColor="#4A2E35" />
+                <stop offset="70%" stopColor="#3D2429" />
+                <stop offset="100%" stopColor="#2B191D" />
               </>
             ) : variant === "bride" ? (
               <>
-                <stop offset="0%" stopColor="#3E5C49" />
-                <stop offset="60%" stopColor="#224433" />
-                <stop offset="100%" stopColor="#183024" />
+                <stop offset="0%" stopColor="#8C4A58" />
+                <stop offset="60%" stopColor="#5E2935" />
+                <stop offset="100%" stopColor="#3D2429" />
               </>
             ) : (
               <>
-                <stop offset="0%" stopColor="#2D5A43" />
-                <stop offset="65%" stopColor="#183024" />
-                <stop offset="100%" stopColor="#0C1913" />
+                <stop offset="0%" stopColor="#4A2E35" />
+                <stop offset="65%" stopColor="#3D2429" />
+                <stop offset="100%" stopColor="#2B191D" />
               </>
             )}
           </radialGradient>
