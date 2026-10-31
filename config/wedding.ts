@@ -1,10 +1,10 @@
 import { WeddingConfig } from "@/types/wedding";
-import rawConfig from "@/src/config/wedding.config.json";
+import rawConfig from "./wedding.config.json";
 
 /**
  * WEDDING APPLICATION CONFIGURATION
  *
- * Diimport secara langsung dari `src/config/wedding.config.json` (atau `config/wedding.config.json`).
+ * Diimport secara langsung dari `config/wedding.config.json`.
  * Perubahan maklumat perkahwinan kini boleh diubah melalui JSON atau Antaramuka Admin /admin.
  */
 export const weddingConfig: WeddingConfig = {

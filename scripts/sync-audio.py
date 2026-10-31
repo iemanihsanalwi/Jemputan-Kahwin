@@ -14,7 +14,6 @@ import shutil
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AUDIO_DIR = os.path.join(ROOT_DIR, "public", "audio")
 CONFIG_PATHS = [
-    os.path.join(ROOT_DIR, "src", "config", "wedding.config.json"),
     os.path.join(ROOT_DIR, "config", "wedding.config.json"),
 ]
 

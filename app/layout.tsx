@@ -55,20 +55,11 @@ export const metadata: Metadata = {
     title: weddingConfig.seo.title,
     description: weddingConfig.seo.description,
     siteName: weddingConfig.seo.siteName,
-    images: [
-      {
-        url: "/favicon.svg",
-        width: 512,
-        height: 512,
-        alt: weddingConfig.seo.title,
-      },
-    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: weddingConfig.seo.title,
     description: weddingConfig.seo.description,
-    images: ["/favicon.svg"],
   },
   robots: {
     index: true,

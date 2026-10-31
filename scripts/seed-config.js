@@ -36,7 +36,7 @@ async function seed() {
     process.exit(1);
   }
 
-  const configPath = path.join(__dirname, "..", "src", "config", "wedding.config.json");
+  const configPath = path.join(__dirname, "..", "config", "wedding.config.json");
   if (!fs.existsSync(configPath)) {
     console.error("Could not find configuration at:", configPath);
     process.exit(1);

@@ -23,16 +23,6 @@ export default function SectionHeader({
   return (
     <div
       className={`w-full flex flex-col items-center justify-center text-center mx-auto mb-12 sm:mb-16 select-none ${className}`}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-        width: "100%",
-        marginLeft: "auto",
-        marginRight: "auto",
-      }}
     >
       {/* Eyebrow Label (e.g. "PANDUAN ARAH") */}
       {eyebrow && (
