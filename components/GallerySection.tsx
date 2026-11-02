@@ -82,31 +82,31 @@ export default function GallerySection() {
                 setActiveIndex(index);
               }
             }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#EAD5D5] bg-white/85 p-7 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-[#D88A96] hover:shadow-rose focus:outline-none focus:ring-2 focus:ring-[#D88A96] cursor-pointer min-h-[300px]"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#E8E2D9] bg-white/90 p-7 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-[#D4AF37]/60 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#7D8B74] cursor-pointer min-h-[300px]"
           >
-            <BotanicalCornerFlourish position="all" size={34} variant="rose" />
+            <BotanicalCornerFlourish position="all" size={34} variant="gold" />
 
             <div className="relative z-10 flex flex-col items-center text-center">
               <div className="mb-4">
-                <BotanicalIconBadge size="md" variant="rose">
-                  <BookOpen size={18} className="text-[#C56D7E]" />
+                <BotanicalIconBadge size="md" variant="gold">
+                  <BookOpen size={18} className="text-[#C5A059]" />
                 </BotanicalIconBadge>
               </div>
 
               {/* Arabic Calligraphy Typography */}
-              <p className="dir-rtl mb-4 font-arabic text-xl sm:text-2xl leading-loose text-[#3D2429] transition-colors group-hover:text-[#B56576]">
+              <p className="dir-rtl mb-4 font-arabic text-xl sm:text-2xl leading-loose text-[#2D3748] transition-colors group-hover:text-[#556B2F]">
                 {item.arabic}
               </p>
 
               {/* Malay Translation */}
-              <p className="mb-3 font-serif text-xs italic leading-relaxed text-[#7A555C] line-clamp-3">
+              <p className="mb-3 font-serif text-xs italic leading-relaxed text-[#4A5568] line-clamp-3">
                 {item.translation}
               </p>
             </div>
 
-            <div className="relative z-10 pt-4 border-t border-[#F0D5DA] flex items-center justify-between text-[#B56576] text-[11px] font-semibold">
+            <div className="relative z-10 pt-4 border-t border-[#E8E2D9] flex items-center justify-between text-[#7D8B74] text-[11px] font-semibold">
               <span className="truncate">{item.source}</span>
-              <Maximize2 size={14} className="opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all text-[#C56D7E]" />
+              <Maximize2 size={14} className="opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all text-[#C5A059]" />
             </div>
           </div>
         ))}
@@ -125,7 +125,7 @@ export default function GallerySection() {
             onClick={handleClose}
             autoFocus
             aria-label="Tutup Paparan"
-            className="absolute right-4 top-[max(1rem,env(safe-area-inset-top))] z-50 flex items-center justify-center min-w-[48px] min-h-[48px] rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-[#D88A96] active:scale-[0.96] cursor-pointer"
+            className="absolute right-4 top-[max(1rem,env(safe-area-inset-top))] z-50 flex items-center justify-center min-w-[48px] min-h-[48px] rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-[#D4AF37] active:scale-[0.96] cursor-pointer"
           >
             <X size={22} />
           </button>
@@ -142,32 +142,32 @@ export default function GallerySection() {
             <ChevronLeft size={26} />
           </button>
 
-          {/* Main Modal Calligraphic Art Card with Romantic Mulberry Velvet Finish */}
+          {/* Main Modal Calligraphic Art Card with Elegant Charcoal Velvet Finish */}
           <div
-            className="relative w-full max-w-2xl rounded-3xl border-2 border-[#D4A373]/80 bg-gradient-to-b from-[#3D2429] via-[#4A2E35] to-[#2B191D] p-8 sm:p-12 text-center text-white shadow-2xl"
+            className="relative w-full max-w-2xl rounded-3xl border-2 border-[#D4AF37]/80 bg-gradient-to-b from-[#1A202C] via-[#2D3748] to-[#1A202C] p-8 sm:p-12 text-center text-white shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <BotanicalCornerFlourish position="all" size={48} variant="rose" />
+            <BotanicalCornerFlourish position="all" size={48} variant="gold" />
 
             <div className="mb-6 flex justify-center">
-              <Sparkles size={24} className="text-[#D4A373] animate-float-slow" />
+              <Sparkles size={24} className="text-[#D4AF37] animate-float-slow" />
             </div>
 
-            <p className="dir-rtl mb-6 font-arabic text-2xl sm:text-3xl leading-loose text-[#FADBD8]">
+            <p className="dir-rtl mb-6 font-arabic text-2xl sm:text-3xl leading-loose text-[#FDFBF7]">
               {blessings[activeIndex].arabic}
             </p>
 
-            <FloralSectionDivider size="md" variant="rose" className="my-4" />
+            <FloralSectionDivider size="md" variant="gold" className="my-4" />
 
-            <p className="mx-auto mb-6 max-w-lg font-serif text-sm sm:text-base italic leading-relaxed text-[#FFF8F8]">
+            <p className="mx-auto mb-6 max-w-lg font-serif text-sm sm:text-base italic leading-relaxed text-[#FAF7F2]">
               {blessings[activeIndex].translation}
             </p>
 
-            <span className="inline-block rounded-full border border-[#D4A373]/40 bg-[#2B191D]/80 px-5 py-1.5 text-xs font-semibold tracking-widest text-[#D4A373]">
+            <span className="inline-block rounded-full border border-[#D4AF37]/40 bg-[#1A202C]/80 px-5 py-1.5 text-xs font-semibold tracking-widest text-[#D4AF37]">
               — {blessings[activeIndex].source} —
             </span>
 
-            <div className="mt-6 text-[11px] text-[#FADBD8]/70">
+            <div className="mt-6 text-[11px] text-[#CBD5E0]/70">
               {activeIndex + 1} daripada {blessings.length}
             </div>
           </div>

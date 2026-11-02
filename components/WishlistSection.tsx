@@ -37,15 +37,15 @@ export default function WishlistSection() {
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case "Dapur":
-        return <UtensilsCrossed size={28} className="text-[#C56D7E]" />;
+        return <UtensilsCrossed size={26} className="text-[#556B2F]" />;
       case "Elektronik":
-        return <Tv size={28} className="text-[#C56D7E]" />;
+        return <Tv size={26} className="text-[#556B2F]" />;
       case "Ruang Tamu":
-        return <Armchair size={28} className="text-[#C56D7E]" />;
+        return <Armchair size={26} className="text-[#556B2F]" />;
       case "Bilik Tidur":
-        return <Home size={28} className="text-[#C56D7E]" />;
+        return <Home size={26} className="text-[#556B2F]" />;
       default:
-        return <Gift size={28} className="text-[#C56D7E]" />;
+        return <Gift size={26} className="text-[#556B2F]" />;
     }
   };
 
@@ -54,21 +54,22 @@ export default function WishlistSection() {
       {/* Centered Section Header */}
       <SectionHeader
         eyebrow="TANDA INGATAN"
-        title="Senarai Hajat & Hadiah"
+        title="Senarai Hajat &amp; Hadiah"
         subtitle="Kehadiran dan doa ikhlas anda adalah hadiah paling bermakna bagi kami. Bagi yang berhajat menitipkan buah tangan untuk melengkapi kediaman baharu kami, berikut adalah beberapa keperluan yang kami impikan."
+        dividerVariant="gold"
         className="mb-14"
       />
 
-      {/* Category Filter Pills (Rounded Contours & HIG 44pt Targets) */}
+      {/* Category Filter Pills */}
       <div className="mb-10 flex flex-wrap items-center justify-center gap-2">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`flex items-center justify-center min-h-[44px] rounded-full px-5 py-2 text-xs font-semibold transition-all duration-300 active:scale-[0.96] cursor-pointer ${
+            className={`flex items-center justify-center min-h-[44px] rounded-full px-5 py-2 text-xs font-semibold transition-all duration-300 active:scale-95 cursor-pointer ${
               selectedCategory === cat
-                ? "bg-gradient-to-r from-[#D88A96] to-[#C56D7E] text-white shadow-rose border border-[#C56D7E]"
-                : "border border-[#EAD5D5] bg-white/85 text-[#7A555C] hover:border-[#D88A96] hover:bg-[#FFF8F8]"
+                ? "bg-[#556B2F] text-[#FAF7F2] shadow-xs border border-[#C5A059]/40"
+                : "border border-[#E8E2D8] bg-[#FAF7F2] text-[#556377] hover:border-[#C5A059] hover:text-[#2D3748]"
             }`}
           >
             {cat}
@@ -81,23 +82,18 @@ export default function WishlistSection() {
         {filteredItems.map((item) => (
           <div
             key={item.id}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#EAD5D5] bg-white/85 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-[#D88A96] hover:shadow-rose"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#E8E2D8] bg-[#FDFBF7] p-6 shadow-xs transition-all duration-300 hover:border-[#C5A059]"
           >
-            <BotanicalCornerFlourish position="top-right" size={32} variant="rose" />
+            <BotanicalCornerFlourish position="top-right" size={32} variant="gold" />
 
             <div>
               {/* Category Botanical Art Emblem */}
-              <div className="relative mb-5 flex h-36 w-full items-center justify-center rounded-2xl border border-[#EAD5D5]/80 bg-gradient-to-b from-[#FFF8F8] via-[#FDE8EC]/30 to-white shadow-inner">
-                <div className="absolute flex items-center justify-center">
-                  <div className="h-20 w-20 rounded-full border border-[#D4A373]/30 opacity-70 animate-pulse-subtle" />
-                  <div className="absolute h-24 w-24 rounded-full border border-[#FADBD8]/40" />
-                </div>
-
+              <div className="relative mb-5 flex h-36 w-full items-center justify-center rounded-2xl border border-[#E8E2D8] bg-[#FAF7F2] shadow-inner">
                 <div className="relative z-10 flex flex-col items-center">
-                  <BotanicalIconBadge size="lg" variant="rose">
+                  <BotanicalIconBadge size="lg" variant="sage">
                     {getCategoryIcon(item.category)}
                   </BotanicalIconBadge>
-                  <span className="mt-2 text-[10px] font-bold uppercase tracking-wider text-[#B56576]">
+                  <span className="mt-2 text-[10px] font-bold uppercase tracking-wider text-[#7D8B74]">
                     {item.category}
                   </span>
                 </div>
@@ -105,13 +101,13 @@ export default function WishlistSection() {
                 {/* Reserved vs Available Tag */}
                 <div className="absolute left-3 top-3">
                   {item.isReserved ? (
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[#3D2429]/80 px-2.5 py-0.5 text-[10px] font-semibold text-white shadow-sm backdrop-blur-xs">
-                      <Check size={11} className="text-[#FADBD8]" />
+                    <span className="inline-flex items-center gap-1 rounded-full bg-[#2D3748]/80 px-2.5 py-0.5 text-[10px] font-semibold text-white shadow-xs">
+                      <Check size={11} className="text-[#C5A059]" />
                       <span>Ditempah</span>
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-1 rounded-full border border-[#D4A373]/40 bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-2.5 py-0.5 text-[10px] font-semibold text-white shadow-xs backdrop-blur-xs">
-                      <Sparkles size={11} className="text-[#FFF8F8]" />
+                    <span className="inline-flex items-center gap-1 rounded-full border border-[#C5A059]/40 bg-[#556B2F] px-2.5 py-0.5 text-[10px] font-semibold text-white shadow-xs">
+                      <Sparkles size={11} className="text-[#FAF7F2]" />
                       <span>Tersedia</span>
                     </span>
                   )}
@@ -119,32 +115,32 @@ export default function WishlistSection() {
 
                 {/* Platform Badge */}
                 <div className="absolute right-3 top-3">
-                  <span className="rounded-full border border-[#EAD5D5] bg-white/95 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#7A555C] shadow-xs">
+                  <span className="rounded-full border border-[#E8E2D8] bg-white px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#718096] shadow-xs">
                     {item.platform}
                   </span>
                 </div>
               </div>
 
               {/* Title & Description */}
-              <h3 className="mb-2 font-serif text-lg font-bold leading-snug text-[#3D2429]">
+              <h3 className="mb-2 font-serif text-lg font-bold leading-snug text-[#2D3748]">
                 {item.title}
               </h3>
-              <p className="mb-4 text-xs leading-relaxed text-[#7A555C] line-clamp-3">
+              <p className="mb-4 text-xs leading-relaxed text-[#556377] line-clamp-3">
                 {item.description}
               </p>
             </div>
 
             <div>
               {item.priceEstimate && (
-                <div className="mb-4 flex items-center justify-between border-t border-[#F0D5DA] pt-3">
-                  <span className="text-xs text-[#9B7077]">Anggaran Harga:</span>
-                  <span className="text-sm font-semibold text-[#3D2429] font-mono">
+                <div className="mb-4 flex items-center justify-between border-t border-[#E8E2D8] pt-3">
+                  <span className="text-xs text-[#718096]">Anggaran Harga:</span>
+                  <span className="text-sm font-semibold text-[#2D3748] font-mono">
                     {item.priceEstimate}
                   </span>
                 </div>
               )}
 
-              {/* Action Button (Rounded Pill Contour with Soft Rose Styling & 44pt Target) */}
+              {/* Action Button */}
               <a
                 href={item.storeLink}
                 target="_blank"
@@ -152,7 +148,7 @@ export default function WishlistSection() {
                 className={`flex w-full min-h-[44px] items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-semibold transition-all cursor-pointer ${
                   item.isReserved
                     ? "pointer-events-none cursor-not-allowed bg-stone-100 text-stone-400"
-                    : "bg-gradient-to-r from-[#D88A96] to-[#C56D7E] text-white hover:opacity-95 shadow-xs hover:shadow-rose active:scale-[0.97]"
+                    : "border border-[#C5A059]/40 bg-gradient-to-r from-[#556B2F] via-[#7D8B74] to-[#556B2F] text-white hover:opacity-95 shadow-xs active:scale-98"
                 }`}
               >
                 <ShoppingBag size={14} />

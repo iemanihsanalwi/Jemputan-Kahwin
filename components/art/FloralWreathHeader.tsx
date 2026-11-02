@@ -10,14 +10,14 @@ export interface FloralWreathHeaderProps {
 
 /**
  * FloralWreathHeader - A circular botanical wreath featuring stylized
- * olive branches, blooming jasmine, and delicate petals framing the couple's monogram typography.
+ * olive branches and delicate floral petals framing the monogram typography.
  */
 export default function FloralWreathHeader({
   initials = "I & A",
   subtitle = "Walimatulurus",
   size = "lg",
   className = "",
-  variant = "couple",
+  variant: _variant = "couple",
 }: FloralWreathHeaderProps) {
   const idPrefix = React.useId().replace(/:/g, "");
 
@@ -40,198 +40,132 @@ export default function FloralWreathHeader({
       className={`relative flex items-center justify-center select-none ${sizeMap[size]} ${className}`}
       aria-label={`${initials} ${subtitle}`}
     >
-      {/* Outer Soft Botanical Radial Glow */}
-      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gold-300/30 via-blush-300/30 to-rose-300/30 opacity-40 blur-md animate-pulse-subtle" />
+      {/* Outer Static Botanical Subtle Glow */}
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#D4AF37]/15 to-[#7D8B74]/15 opacity-40" />
 
       {/* Pure SVG Botanical Wreath Medallion */}
       <svg
         viewBox="0 0 200 200"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full drop-shadow-xl"
+        className="w-full h-full drop-shadow-xs"
       >
         <defs>
-          {/* Gold to Rose Gradient for Stems and Outlines */}
+          {/* Champagne Gold Gradient */}
           <linearGradient id={`${idPrefix}-wreathGold`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FFF8F2" />
-            <stop offset="25%" stopColor="#E2B686" />
-            <stop offset="60%" stopColor="#D4A373" />
-            <stop offset="85%" stopColor="#D88A96" />
-            <stop offset="100%" stopColor="#B3806D" />
+            <stop offset="0%" stopColor="#FFF8EE" />
+            <stop offset="25%" stopColor="#E2C882" />
+            <stop offset="60%" stopColor="#C5A059" />
+            <stop offset="100%" stopColor="#9C7838" />
           </linearGradient>
 
-          {/* Soft Petal Shading */}
-          <linearGradient id={`${idPrefix}-petalShade`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.95" />
-            <stop offset="50%" stopColor="#FADBD8" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#D4A373" stopOpacity="0.9" />
+          {/* Botanical Sage Foliage Gradient */}
+          <linearGradient id={`${idPrefix}-wreathSage`} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#A2B09B" />
+            <stop offset="50%" stopColor="#7D8B74" />
+            <stop offset="100%" stopColor="#556B2F" />
           </linearGradient>
 
-          {/* Deep Romantic Mulberry Background for the Inner Medallion */}
-          <radialGradient id={`${idPrefix}-centerBg`} cx="50%" cy="45%" r="65%">
-            {variant === "groom" ? (
-              <>
-                <stop offset="0%" stopColor="#4A2E35" />
-                <stop offset="70%" stopColor="#3D2429" />
-                <stop offset="100%" stopColor="#2B191D" />
-              </>
-            ) : variant === "bride" ? (
-              <>
-                <stop offset="0%" stopColor="#8C4A58" />
-                <stop offset="60%" stopColor="#5E2935" />
-                <stop offset="100%" stopColor="#3D2429" />
-              </>
-            ) : (
-              <>
-                <stop offset="0%" stopColor="#4A2E35" />
-                <stop offset="65%" stopColor="#3D2429" />
-                <stop offset="100%" stopColor="#2B191D" />
-              </>
-            )}
+          {/* Dusty Rose Petal Gradient */}
+          <linearGradient id={`${idPrefix}-wreathRose`} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="50%" stopColor="#E8C5BE" />
+            <stop offset="100%" stopColor="#D4A5A5" />
+          </linearGradient>
+
+          {/* Alabaster Core Fill */}
+          <radialGradient id={`${idPrefix}-coreFill`} cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#FAF7F2" stopOpacity="0.95" />
+            <stop offset="70%" stopColor="#FDFBF7" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#F5EFEB" stopOpacity="0.85" />
           </radialGradient>
         </defs>
 
-        {/* Outer Delicate Dewdrop Ring */}
+        {/* Central Translucent Alabaster Core */}
+        <circle cx="100" cy="100" r="76" fill={`url(#${idPrefix}-coreFill)`} />
+
+        {/* Outer Circular Vine Branches */}
         <circle
           cx="100"
           cy="100"
-          r="94"
+          r="78"
           stroke={`url(#${idPrefix}-wreathGold)`}
           strokeWidth="1.2"
-          strokeDasharray="3 3"
-          opacity="0.45"
-        />
-
-        {/* Primary Circular Vine Ring */}
-        <circle
-          cx="100"
-          cy="100"
-          r="86"
-          stroke={`url(#${idPrefix}-wreathGold)`}
-          strokeWidth="1.8"
           strokeLinecap="round"
         />
 
-        {/* Inner Sanctuary Disc (Deep Velvet Botanical Sage) */}
+        {/* Delicate Inner Beaded/Dashed Ring */}
         <circle
           cx="100"
           cy="100"
           r="72"
-          fill={`url(#${idPrefix}-centerBg)`}
-          stroke={`url(#${idPrefix}-wreathGold)`}
-          strokeWidth="2.2"
-        />
-
-        {/* Inner Beaded Contour */}
-        <circle
-          cx="100"
-          cy="100"
-          r="66"
           stroke={`url(#${idPrefix}-wreathGold)`}
           strokeWidth="0.8"
-          strokeDasharray="2 2"
-          opacity="0.6"
+          strokeDasharray="3 3"
+          opacity="0.65"
         />
 
-        {/* Symmetrical Left Botanical Olive Branch */}
-        <g stroke={`url(#${idPrefix}-wreathGold)`} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-          {/* Main Left Sweeping Branch */}
-          <path d="M 100 188 C 50 186, 12 148, 12 100 C 12 56, 48 18, 96 12" fill="none" />
+        {/* Left Side Climbing Olive Foliage */}
+        <g stroke={`url(#${idPrefix}-wreathSage)`} strokeWidth="1.2" strokeLinecap="round" fill="none">
+          <path d="M 24 100 C 24 62, 54 30, 94 22" />
+          <path d="M 94 22 C 78 30, 68 45, 62 62" strokeWidth="0.8" opacity="0.6" />
 
-          {/* Left Leaf Clusters along the curvature */}
-          {/* Pair 1 - Lower */}
-          <path d="M 38 152 C 28 150, 24 160, 32 164 Z" fill={`url(#${idPrefix}-petalShade)`} />
-          <path d="M 44 146 C 42 136, 52 134, 52 144 Z" fill={`url(#${idPrefix}-petalShade)`} />
-
-          {/* Pair 2 - Mid Lower */}
-          <path d="M 16 118 C 6 114, 4 124, 12 128 Z" fill={`url(#${idPrefix}-petalShade)`} />
-          <path d="M 22 110 C 22 100, 32 100, 30 110 Z" fill={`url(#${idPrefix}-petalShade)`} />
-
-          {/* Pair 3 - Mid Upper */}
-          <path d="M 16 82 C 6 86, 4 76, 12 72 Z" fill={`url(#${idPrefix}-petalShade)`} />
-          <path d="M 24 88 C 24 98, 34 98, 32 88 Z" fill={`url(#${idPrefix}-petalShade)`} />
-
-          {/* Pair 4 - Upper */}
-          <path d="M 38 48 C 28 50, 26 40, 34 36 Z" fill={`url(#${idPrefix}-petalShade)`} />
-          <path d="M 46 54 C 44 64, 54 66, 54 56 Z" fill={`url(#${idPrefix}-petalShade)`} />
-
-          {/* Pair 5 - Apex */}
-          <path d="M 74 24 C 70 14, 80 12, 82 22 Z" fill={`url(#${idPrefix}-petalShade)`} />
+          {/* Olive Leaf Clusters on Left Branch */}
+          <path d="M 32 78 C 22 74, 20 64, 28 60 C 34 66, 34 72, 32 78 Z" fill="#7D8B74" strokeWidth="0.8" />
+          <path d="M 46 54 C 40 44, 44 36, 52 40 C 52 48, 48 52, 46 54 Z" fill="#7D8B74" strokeWidth="0.8" />
+          <path d="M 68 36 C 66 26, 74 20, 80 26 C 78 32, 72 36, 68 36 Z" fill="#7D8B74" strokeWidth="0.8" />
         </g>
 
-        {/* Symmetrical Right Botanical Olive Branch */}
-        <g stroke={`url(#${idPrefix}-wreathGold)`} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-          {/* Main Right Sweeping Branch */}
-          <path d="M 100 188 C 150 186, 188 148, 188 100 C 188 56, 152 18, 104 12" fill="none" />
+        {/* Right Side Climbing Olive Foliage */}
+        <g stroke={`url(#${idPrefix}-wreathSage)`} strokeWidth="1.2" strokeLinecap="round" fill="none">
+          <path d="M 176 100 C 176 62, 146 30, 106 22" />
+          <path d="M 106 22 C 122 30, 132 45, 138 62" strokeWidth="0.8" opacity="0.6" />
 
-          {/* Right Leaf Clusters along the curvature */}
-          {/* Pair 1 - Lower */}
-          <path d="M 162 152 C 172 150, 176 160, 168 164 Z" fill={`url(#${idPrefix}-petalShade)`} />
-          <path d="M 156 146 C 158 136, 148 134, 148 144 Z" fill={`url(#${idPrefix}-petalShade)`} />
-
-          {/* Pair 2 - Mid Lower */}
-          <path d="M 184 118 C 194 114, 196 124, 188 128 Z" fill={`url(#${idPrefix}-petalShade)`} />
-          <path d="M 178 110 C 178 100, 168 100, 170 110 Z" fill={`url(#${idPrefix}-petalShade)`} />
-
-          {/* Pair 3 - Mid Upper */}
-          <path d="M 184 82 C 194 86, 196 76, 188 72 Z" fill={`url(#${idPrefix}-petalShade)`} />
-          <path d="M 176 88 C 176 98, 166 98, 168 88 Z" fill={`url(#${idPrefix}-petalShade)`} />
-
-          {/* Pair 4 - Upper */}
-          <path d="M 162 48 C 172 50, 174 40, 166 36 Z" fill={`url(#${idPrefix}-petalShade)`} />
-          <path d="M 154 54 C 156 64, 146 66, 146 56 Z" fill={`url(#${idPrefix}-petalShade)`} />
-
-          {/* Pair 5 - Apex */}
-          <path d="M 126 24 C 130 14, 120 12, 118 22 Z" fill={`url(#${idPrefix}-petalShade)`} />
+          {/* Olive Leaf Clusters on Right Branch */}
+          <path d="M 168 78 C 178 74, 180 64, 172 60 C 166 66, 166 72, 168 78 Z" fill="#7D8B74" strokeWidth="0.8" />
+          <path d="M 154 54 C 160 44, 156 36, 148 40 C 148 48, 152 52, 154 54 Z" fill="#7D8B74" strokeWidth="0.8" />
+          <path d="M 132 36 C 134 26, 126 20, 120 26 C 122 32, 128 36, 132 36 Z" fill="#7D8B74" strokeWidth="0.8" />
         </g>
 
-        {/* Lower Junction Blossom (Jasmine Flower) */}
-        <g transform="translate(100, 188)">
-          {[0, 72, 144, 216, 288].map((angle, i) => (
-            <path
-              key={i}
-              d="M 0 0 C -3 -8, 3 -8, 0 0 Z"
-              transform={`rotate(${angle})`}
-              fill={`url(#${idPrefix}-petalShade)`}
-              stroke={`url(#${idPrefix}-wreathGold)`}
-              strokeWidth="1"
-            />
-          ))}
-          <circle cx="0" cy="0" r="2.5" fill={`url(#${idPrefix}-wreathGold)`} />
+        {/* Lower Left & Right Laurel Base Branches */}
+        <g stroke={`url(#${idPrefix}-wreathSage)`} strokeWidth="1.2" strokeLinecap="round" fill="none">
+          <path d="M 24 100 C 24 138, 54 170, 94 178" />
+          <path d="M 176 100 C 176 138, 146 170, 106 178" />
+
+          {/* Lower Leaflets */}
+          <path d="M 32 122 C 22 126, 20 136, 28 140 C 34 134, 34 128, 32 122 Z" fill="#7D8B74" strokeWidth="0.8" />
+          <path d="M 50 148 C 44 156, 48 164, 56 160 C 56 152, 52 148, 50 148 Z" fill="#7D8B74" strokeWidth="0.8" />
+          <path d="M 168 122 C 178 126, 180 136, 172 140 C 166 134, 166 128, 168 122 Z" fill="#7D8B74" strokeWidth="0.8" />
+          <path d="M 150 148 C 156 156, 152 164, 144 160 C 144 152, 148 148, 150 148 Z" fill="#7D8B74" strokeWidth="0.8" />
         </g>
 
-        {/* Upper Apex Blossom (Delicate Jasmine Crest) */}
-        <g transform="translate(100, 12)">
-          {[0, 72, 144, 216, 288].map((angle, i) => (
-            <path
-              key={i}
-              d="M 0 0 C -3 -8, 3 -8, 0 0 Z"
-              transform={`rotate(${angle})`}
-              fill={`url(#${idPrefix}-petalShade)`}
-              stroke={`url(#${idPrefix}-wreathGold)`}
-              strokeWidth="1"
-            />
-          ))}
-          <circle cx="0" cy="0" r="2.5" fill={`url(#${idPrefix}-wreathGold)`} />
+        {/* Blooming Jasmine Petal Accents */}
+        <g transform="translate(100, 22)">
+          <circle cx="0" cy="0" r="5" fill={`url(#${idPrefix}-wreathRose)`} stroke={`url(#${idPrefix}-wreathGold)`} strokeWidth="0.8" />
+          <circle cx="0" cy="0" r="1.5" fill="#D4AF37" />
         </g>
 
-        {/* Delicate Dewdrop Accents */}
-        <circle cx="48" cy="100" r="2" fill={`url(#${idPrefix}-wreathGold)`} opacity="0.6" />
-        <circle cx="152" cy="100" r="2" fill={`url(#${idPrefix}-wreathGold)`} opacity="0.6" />
-        <circle cx="100" cy="48" r="2" fill={`url(#${idPrefix}-wreathGold)`} opacity="0.6" />
-        <circle cx="100" cy="152" r="2" fill={`url(#${idPrefix}-wreathGold)`} opacity="0.6" />
+        <g transform="translate(100, 178)">
+          <circle cx="0" cy="0" r="5" fill={`url(#${idPrefix}-wreathRose)`} stroke={`url(#${idPrefix}-wreathGold)`} strokeWidth="0.8" />
+          <circle cx="0" cy="0" r="1.5" fill="#D4AF37" />
+        </g>
+
+        <g transform="translate(24, 100)">
+          <circle cx="0" cy="0" r="4" fill={`url(#${idPrefix}-wreathRose)`} stroke={`url(#${idPrefix}-wreathGold)`} strokeWidth="0.8" />
+        </g>
+
+        <g transform="translate(176, 100)">
+          <circle cx="0" cy="0" r="4" fill={`url(#${idPrefix}-wreathRose)`} stroke={`url(#${idPrefix}-wreathGold)`} strokeWidth="0.8" />
+        </g>
       </svg>
 
-      {/* Center Monogram Typography */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-2 z-10 pointer-events-none">
-        <span
-          className={`font-serif font-bold tracking-wider leading-none text-gold-gradient drop-shadow-md ${textSizes[size]}`}
-        >
+      {/* Centered Monogram Typography strictly inside the medallion */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center select-none pointer-events-none p-4">
+        <span className={`font-serif font-bold text-[#2D3748] tracking-widest ${textSizes[size]}`}>
           {initials}
         </span>
-
         {subtitle && size !== "sm" && (
-          <span className="mt-1 font-sans text-[9px] sm:text-[10px] uppercase tracking-widest text-gold-300 font-medium opacity-90">
+          <span className="text-[9px] sm:text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#7D8B74] mt-0.5 max-w-[120px] truncate">
             {subtitle}
           </span>
         )}

@@ -4,6 +4,8 @@ import { checkRateLimit } from "@/lib/rate-limit";
 import { submitRsvp, getRsvpList } from "@/lib/db";
 import { weddingConfig } from "@/config/wedding";
 
+export const runtime = "edge";
+
 export async function POST(req: NextRequest) {
   try {
     const ip =

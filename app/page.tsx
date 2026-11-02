@@ -3,7 +3,7 @@ import AudioPlayer from "@/components/AudioPlayer";
 import EnvelopeModal from "@/components/EnvelopeModal";
 import FloatingActionDock from "@/components/FloatingActionDock";
 import BotanicalBackground from "@/components/art/BotanicalBackground";
-import GardenBedDivider from "@/components/art/GardenBedDivider";
+import FloralSectionDivider from "@/components/art/FloralSectionDivider";
 import Hero from "@/components/Hero";
 import BrideGroom from "@/components/BrideGroom";
 import EventInfo from "@/components/EventInfo";
@@ -28,17 +28,17 @@ export default async function HomePage() {
 
   return (
     <WeddingConfigProvider config={config}>
-      <main className="relative min-h-screen">
-        {/* Code-Drawn Botanical Repeating Pattern, Soft Watercolor Wash & Drifting Petals */}
+      <main className="relative min-h-screen bg-[#FAF7F2] text-[#2D3748]">
+        {/* Code-Drawn Static Botanical Ambient Background */}
         <BotanicalBackground />
 
-        {/* Botanical "Buka Kad" Envelope Cover Gate with Guest Personalization */}
+        {/* Botanical "Buka Kad" Envelope Cover Gate with Zero Layout Shift */}
         <EnvelopeModal />
 
         {/* Desktop & Mobile Top Header Navigation */}
         <Navbar />
 
-        {/* Floating Music Player with Spinning Disc & Fade Transitions (Bottom Corner) */}
+        {/* Floating Music Player with Lazy Loading & Visibility Detection */}
         <AudioPlayer />
 
         {/* Sticky Bottom Floating Quick-Action Dock (Mobile 4-Triggers) */}
@@ -57,8 +57,10 @@ export default async function HomePage() {
           <EventInfo />
         </ScrollReveal>
 
-        {/* Botanical Meadow Transition */}
-        <GardenBedDivider variant="meadow" />
+        {/* Subtle Botanical Transition */}
+        <div className="flex justify-center my-8">
+          <FloralSectionDivider variant="gold" size="md" />
+        </div>
 
         {/* 4. Location & Map Section */}
         <ScrollReveal>
@@ -85,8 +87,10 @@ export default async function HomePage() {
           <SalamKautSection />
         </ScrollReveal>
 
-        {/* Botanical Meadow Transition */}
-        <GardenBedDivider variant="meadow" />
+        {/* Subtle Botanical Transition */}
+        <div className="flex justify-center my-8">
+          <FloralSectionDivider variant="gold" size="md" />
+        </div>
 
         {/* 9. Botanical Calligraphic Art & Doa Collection */}
         <ScrollReveal>
@@ -98,7 +102,7 @@ export default async function HomePage() {
           <ContactSection />
         </ScrollReveal>
 
-        {/* 11. Footer with Inverted Canopy & Grounding Meadow */}
+        {/* 11. Footer */}
         <Footer />
       </main>
     </WeddingConfigProvider>

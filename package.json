@@ -9,6 +9,7 @@
     "lint": "next lint",
     "sync-song": "python scripts/sync-audio.py",
     "seed:config": "node scripts/seed-config.js",
+    "pages:build": "npx @cloudflare/next-on-pages",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,css}\""
   },

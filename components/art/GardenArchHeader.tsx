@@ -24,14 +24,6 @@ export default function GardenArchHeader({
 
   return (
     <div className={`relative flex flex-col items-center justify-center p-3 sm:p-6 select-none ${className}`}>
-      {/* Ambient Dappled Sunlight Glow Behind Arch Apex */}
-      <div
-        className="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 -z-10 w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] rounded-full blur-[90px] opacity-70"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(255, 245, 242, 0.95) 0%, rgba(253, 232, 236, 0.45) 50%, transparent 72%)",
-        }}
-      />
 
       {/* SVG Multi-Layered Garden Trellis & Floral Arch Frame */}
       <div className="absolute inset-0 pointer-events-none w-full h-full" aria-hidden="true">
@@ -43,32 +35,31 @@ export default function GardenArchHeader({
           className="w-full h-full drop-shadow-md"
         >
           <defs>
-            {/* Rose Gold Trellis Gradient */}
+            {/* Champagne Gold Trellis Gradient */}
             <linearGradient id={`${idPrefix}-goldStroke`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FFF8F2" />
-              <stop offset="30%" stopColor="#E2B686" />
-              <stop offset="65%" stopColor="#D4A373" />
-              <stop offset="100%" stopColor="#C89B7B" />
+              <stop offset="0%" stopColor="#FFF8EE" />
+              <stop offset="30%" stopColor="#E2C882" />
+              <stop offset="65%" stopColor="#C5A059" />
+              <stop offset="100%" stopColor="#9C7838" />
             </linearGradient>
 
-            {/* Soft Champagne & Rose Foliage Gradient (Zero Green) */}
+            {/* Botanical Sage Foliage Gradient */}
             <linearGradient id={`${idPrefix}-sageFoliage`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#E5C3B2" />
-              <stop offset="50%" stopColor="#D4A373" />
-              <stop offset="100%" stopColor="#C89B7B" />
+              <stop offset="0%" stopColor="#A2B09B" />
+              <stop offset="50%" stopColor="#7D8B74" />
+              <stop offset="100%" stopColor="#556B2F" />
             </linearGradient>
 
             <linearGradient id={`${idPrefix}-rosePetal`} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#FFFFFF" />
-              <stop offset="45%" stopColor="#FADBD8" />
-              <stop offset="85%" stopColor="#F5B7B1" />
-              <stop offset="100%" stopColor="#D88A96" />
+              <stop offset="50%" stopColor="#E8C5BE" />
+              <stop offset="100%" stopColor="#D4A5A5" />
             </linearGradient>
 
             <linearGradient id={`${idPrefix}-archFill`} x1="50%" y1="0%" x2="50%" y2="100%">
-              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.88" />
-              <stop offset="50%" stopColor="#FFF8F8" stopOpacity="0.92" />
-              <stop offset="100%" stopColor="#FDE8EC" stopOpacity="0.90" />
+              <stop offset="0%" stopColor="#FAF7F2" stopOpacity="0.95" />
+              <stop offset="50%" stopColor="#FDFBF7" stopOpacity="0.96" />
+              <stop offset="100%" stopColor="#F5EFEB" stopOpacity="0.95" />
             </linearGradient>
 
             <radialGradient id={`${idPrefix}-jasminePetal`} cx="50%" cy="50%" r="50%">
@@ -307,12 +298,12 @@ export default function GardenArchHeader({
       <div className="relative z-10 w-full pt-20 sm:pt-28 pb-10 px-5 sm:px-12 text-center">
         {/* Crown Monogram Seal Emblem */}
         <div className="mb-4 flex flex-col items-center justify-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-gold-300/80 bg-white/90 px-4 py-1 text-[11px] font-bold tracking-widest text-gold-900 shadow-sm backdrop-blur-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-gold-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A059]/40 bg-[#FAF7F2] px-4 py-1 text-[11px] font-bold tracking-widest text-[#2D3748] shadow-xs">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#C5A059]" />
             <span>{subtitle}</span>
-            <span className="h-1.5 w-1.5 rounded-full bg-gold-500 animate-pulse" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#C5A059]" />
           </div>
-          <div className="mt-2 text-gold-700 font-serif text-xl sm:text-2xl font-bold tracking-widest drop-shadow-xs">
+          <div className="mt-2 text-[#2D3748] font-serif text-xl sm:text-2xl font-bold tracking-widest">
             {initials}
           </div>
         </div>

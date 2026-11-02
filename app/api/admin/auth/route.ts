@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { weddingConfig } from "@/config/wedding";
 
+export const runtime = "edge";
+
 export async function POST(req: NextRequest) {
   try {
     const { pin } = await req.json();
@@ -13,10 +15,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const payload = `admin:${pin}:${Date.now()}`;
+    const token = typeof btoa !== "undefined"
+      ? btoa(payload)
+      : Buffer.from(payload).toString("base64");
+
     return NextResponse.json({
       success: true,
       message: "Pengesahan pentadbir berjaya.",
-      token: Buffer.from(`admin:${pin}:${Date.now()}`).toString("base64"),
+      token,
     });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : "Ralat pelayan.";

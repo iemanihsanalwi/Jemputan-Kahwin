@@ -33,32 +33,32 @@ export default function ContactSection() {
           return (
             <div
               key={index}
-              className="relative flex flex-col justify-between rounded-3xl border border-[#EAD5D5] bg-white/85 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-[#D88A96] hover:shadow-rose"
+              className="relative flex flex-col justify-between rounded-3xl border border-[#E8E2D9] bg-white/90 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-[#D4AF37]/60 hover:shadow-md"
             >
-              <BotanicalCornerFlourish position="top-right" size={28} variant="rose" />
+              <BotanicalCornerFlourish position="top-right" size={28} variant="gold" />
 
               <div>
-                <span className="mb-3 inline-block rounded-full border border-[#EAD5D5] bg-[#FFF8F8] px-3.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#B56576]">
+                <span className="mb-3 inline-block rounded-full border border-[#E8E2D9] bg-[#FDFBF7] px-3.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#7D8B74]">
                   {contact.relation}
                 </span>
 
-                <h3 className="mb-1 font-serif text-lg font-bold text-[#3D2429] sm:text-xl">
+                <h3 className="mb-1 font-serif text-lg font-bold text-[#2D3748] sm:text-xl">
                   {contact.name}
                 </h3>
 
-                <p className="mb-6 font-mono tabular-nums text-xs text-[#7A555C] sm:text-sm select-all">
+                <p className="mb-6 font-mono tabular-nums text-xs text-[#4A5568] sm:text-sm select-all">
                   {contact.phone}
                 </p>
               </div>
 
               {/* Action Buttons (Rounded Pills with HIG 44pt Touch Targets) */}
-              <div className="grid grid-cols-2 gap-2.5 border-t border-[#F0D5DA] pt-3.5">
+              <div className="grid grid-cols-2 gap-2.5 border-t border-[#E8E2D9] pt-3.5">
                 {/* WhatsApp Button */}
                 <a
                   href={waUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center min-h-[44px] gap-1.5 rounded-full bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-3 py-2.5 text-xs font-semibold text-white transition-all hover:opacity-95 active:scale-[0.96] shadow-xs hover:shadow-rose cursor-pointer"
+                  className="flex items-center justify-center min-h-[44px] gap-1.5 rounded-full bg-gradient-to-r from-[#7D8B74] to-[#556B2F] px-3 py-2.5 text-xs font-semibold text-white transition-all hover:opacity-95 active:scale-[0.96] shadow-xs hover:shadow-md cursor-pointer"
                 >
                   <MessageCircle size={15} />
                   <span>WhatsApp</span>
@@ -67,9 +67,9 @@ export default function ContactSection() {
                 {/* Call Button */}
                 <a
                   href={telUrl}
-                  className="flex items-center justify-center min-h-[44px] gap-1.5 rounded-full border border-[#EAD5D5] bg-white px-3 py-2.5 text-xs font-semibold text-[#4A2E35] transition-all hover:border-[#D88A96] hover:bg-[#FFF8F8] active:scale-[0.96] shadow-xs cursor-pointer"
+                  className="flex items-center justify-center min-h-[44px] gap-1.5 rounded-full border border-[#E8E2D9] bg-white px-3 py-2.5 text-xs font-semibold text-[#2D3748] transition-all hover:border-[#7D8B74] hover:bg-[#FDFBF7] active:scale-[0.96] shadow-xs cursor-pointer"
                 >
-                  <Phone size={14} className="text-[#D4A373]" />
+                  <Phone size={14} className="text-[#C5A059]" />
                   <span>Hubungi</span>
                 </a>
               </div>

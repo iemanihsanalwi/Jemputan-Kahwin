@@ -24,24 +24,25 @@ export default function LocationSection() {
       <SectionHeader
         eyebrow="PANDUAN ARAH"
         title="Lokasi Majlis"
+        dividerVariant="gold"
       />
 
-      <div className="relative overflow-hidden rounded-3xl border-2 border-[#EAD5D5] bg-white/85 p-6 shadow-rose backdrop-blur-md sm:p-8">
-        <BotanicalCornerFlourish position="all" size={40} variant="rose" />
+      <div className="relative overflow-hidden rounded-3xl border border-[#E8E2D8] bg-[#FDFBF7] p-6 shadow-xs sm:p-8">
+        <BotanicalCornerFlourish position="all" size={40} variant="gold" />
 
         {/* Venue Info Top */}
-        <div className="flex flex-col items-start justify-between gap-6 border-b border-[#EAD5D5] pb-6 md:flex-row md:items-center">
+        <div className="flex flex-col items-start justify-between gap-6 border-b border-[#E8E2D8] pb-6 md:flex-row md:items-center">
           <div>
-            <span className="mb-2 inline-block rounded-full border border-[#EAD5D5] bg-[#FDE8EC] px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#B56576]">
+            <span className="mb-2 inline-block rounded-full border border-[#E8E2D8] bg-[#F4F6F2] px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#556B2F]">
               Dewan Majlis
             </span>
-            <h3 className="font-serif text-2xl font-bold text-[#3D2429] sm:text-3xl">
+            <h3 className="font-serif text-2xl font-bold text-[#2D3748] sm:text-3xl">
               {event.venueName}
             </h3>
             {event.venueHall && (
-              <p className="mb-1 text-sm font-medium text-[#D4A373]">{event.venueHall}</p>
+              <p className="mb-1 text-sm font-medium text-[#C5A059]">{event.venueHall}</p>
             )}
-            <p className="max-w-xl text-xs leading-relaxed text-[#7A555C] sm:text-sm select-text">
+            <p className="max-w-xl text-xs leading-relaxed text-[#556377] sm:text-sm select-text">
               {event.venueAddress}
             </p>
           </div>
@@ -49,53 +50,53 @@ export default function LocationSection() {
           <button
             onClick={handleCopyAddress}
             aria-label="Salin alamat penuh majlis"
-            className="flex flex-shrink-0 items-center justify-center min-h-[44px] gap-2 rounded-full border-2 border-[#EAD5D5] bg-[#FFF8F8] px-5 py-2.5 text-xs font-semibold text-[#3D2429] transition-all hover:border-[#D4A373] hover:bg-[#FDE8EC]/70 focus:outline-none focus:ring-2 focus:ring-[#D88A96] active:scale-[0.97] shadow-xs cursor-pointer"
+            className="flex flex-shrink-0 items-center justify-center min-h-[44px] gap-2 rounded-full border border-[#E8E2D8] bg-[#FAF7F2] px-5 py-2.5 text-xs font-semibold text-[#2D3748] transition-all hover:border-[#C5A059] hover:bg-white focus:outline-none active:scale-98 shadow-xs cursor-pointer"
           >
             {copied ? (
               <span
                 role="status"
                 aria-live="polite"
-                className="flex items-center gap-1.5 font-semibold text-[#C56D7E]"
+                className="flex items-center gap-1.5 font-semibold text-[#556B2F]"
               >
-                <Check size={14} className="text-[#C56D7E]" />
+                <Check size={14} className="text-[#556B2F]" />
                 <span>Alamat Tersalin!</span>
               </span>
             ) : (
               <>
-                <Copy size={14} className="text-[#D4A373]" />
+                <Copy size={14} className="text-[#C5A059]" />
                 <span>Salin Alamat Penuh</span>
               </>
             )}
           </button>
         </div>
 
-        {/* 1-Click Navigation Buttons with HIG 44pt Touch Targets */}
+        {/* Navigation Buttons */}
         <div className="flex flex-col items-center gap-4 py-6 sm:flex-row">
           <a
             href={event.wazeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex w-full min-h-[48px] items-center justify-center gap-2.5 rounded-full border-2 border-[#EAD5D5] bg-white px-6 py-3.5 text-sm font-semibold text-[#3D2429] shadow-sm transition-all hover:bg-[#FFF8F8] hover:border-[#D4A373] hover:shadow-rose active:scale-[0.97] sm:flex-1 cursor-pointer"
+            className="flex w-full min-h-[48px] items-center justify-center gap-2.5 rounded-full border border-[#E8E2D8] bg-[#FAF7F2] px-6 py-3.5 text-sm font-semibold text-[#2D3748] shadow-xs transition-all hover:bg-white hover:border-[#C5A059] active:scale-98 sm:flex-1 cursor-pointer"
           >
-            <Navigation size={18} className="text-[#D4A373]" />
+            <Navigation size={18} className="text-[#C5A059]" />
             <span>Pandu Dengan Waze</span>
-            <ExternalLink size={14} className="opacity-60 text-[#7A555C]" />
+            <ExternalLink size={14} className="opacity-60 text-[#556377]" />
           </a>
 
           <a
             href={event.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex w-full min-h-[48px] items-center justify-center gap-2.5 rounded-full border-2 border-[#EAD5D5] bg-white px-6 py-3.5 text-sm font-semibold text-[#3D2429] shadow-sm transition-all hover:bg-[#FFF8F8] hover:border-[#D4A373] hover:shadow-rose active:scale-[0.97] sm:flex-1 cursor-pointer"
+            className="flex w-full min-h-[48px] items-center justify-center gap-2.5 rounded-full border border-[#E8E2D8] bg-[#FAF7F2] px-6 py-3.5 text-sm font-semibold text-[#2D3748] shadow-xs transition-all hover:bg-white hover:border-[#C5A059] active:scale-98 sm:flex-1 cursor-pointer"
           >
-            <MapPin size={18} className="text-[#C56D7E]" />
+            <MapPin size={18} className="text-[#556B2F]" />
             <span>Pandu Dengan Google Maps</span>
-            <ExternalLink size={14} className="opacity-60 text-[#7A555C]" />
+            <ExternalLink size={14} className="opacity-60 text-[#556377]" />
           </a>
         </div>
 
         {/* Embedded Google Maps Frame */}
-        <div className="relative h-[320px] w-full overflow-hidden rounded-2xl border-2 border-[#EAD5D5] shadow-inner sm:h-[420px]">
+        <div className="relative h-[320px] w-full overflow-hidden rounded-2xl border border-[#E8E2D8] shadow-inner sm:h-[420px]">
           <iframe
             src={event.googleMapsEmbedUrl}
             width="100%"
@@ -104,25 +105,25 @@ export default function LocationSection() {
             allowFullScreen={false}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title={`Lokasi ${event.venueName}`}
-            className="saturate-90 h-full w-full filter"
+            title={`Lokasi Acara di ${event.venueName}`}
+            className="h-full w-full"
           />
         </div>
 
-        {/* Parking & Practical Tips */}
-        {event.parkingInfo && (
-          <div className="mt-6 flex items-start gap-3 rounded-2xl border border-[#EAD5D5] bg-[#FFF8F8] p-4 text-xs text-[#7A555C] sm:text-sm">
-            <div className="mt-0.5 flex-shrink-0">
-              <BotanicalIconBadge size="sm" variant="rose">
-                <Car size={15} className="text-[#C56D7E]" />
-              </BotanicalIconBadge>
-            </div>
-            <p>
-              <strong className="text-[#3D2429] font-bold">Kemudahan Tempat Letak Kereta:</strong>{" "}
-              {event.parkingInfo}
+        {/* Parking / Arrival Tips */}
+        <div className="mt-6 flex items-start gap-3 rounded-2xl border border-[#E8E2D8] bg-[#FAF7F2] p-4 text-xs text-[#556377] sm:text-sm">
+          <div className="flex-shrink-0 mt-0.5">
+            <BotanicalIconBadge size="sm" variant="sage">
+              <Car size={16} className="text-[#556B2F]" />
+            </BotanicalIconBadge>
+          </div>
+          <div>
+            <h4 className="font-semibold text-[#2D3748]">Panduan Tempat Letak Kereta</h4>
+            <p className="mt-0.5 leading-relaxed">
+              Kawasan parkir percuma yang luas disediakan di sekitar dewan. Tetamu dinasihatkan tiba 15–20 minit lebih awal untuk kemudahan meletak kenderaan.
             </p>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

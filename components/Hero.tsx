@@ -27,8 +27,8 @@ function HeroPersonalizedBadge() {
   if (!guestName) return null;
 
   return (
-    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#EAD5D5] bg-white/95 px-4 py-1.5 text-xs font-semibold text-[#3D2429] shadow-sm backdrop-blur-sm animate-pulse-subtle">
-      <span className="h-2 w-2 rounded-full bg-[#D4A373] animate-ping" />
+    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#E8E2D8] bg-[#FDFBF7] px-4 py-1.5 text-xs font-semibold text-[#2D3748] shadow-xs backdrop-blur-xs">
+      <span className="h-2 w-2 rounded-full bg-[#D4AF37]" />
       <span>Undangan Khas Buat: <strong>{guestName}</strong></span>
     </div>
   );
@@ -74,10 +74,6 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden px-3 sm:px-6 pb-16 pt-24 sm:min-h-screen">
-      {/* Background Decorative Rings */}
-      <div className="pointer-events-none absolute left-1/2 top-16 -z-0 h-[340px] w-[340px] -translate-x-1/2 rounded-full border border-gold-300/25 sm:h-[580px] sm:w-[580px]" />
-      <div className="pointer-events-none absolute left-1/2 top-10 -z-0 h-[380px] w-[380px] -translate-x-1/2 rounded-full border border-blush-300/20 sm:h-[640px] sm:w-[640px]" />
-
       <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center text-center">
         {/* Dynamic Guest Ribbon Badge */}
         <Suspense fallback={null}>
@@ -86,22 +82,22 @@ export default function Hero() {
 
         {/* Bismillah Vector Calligraphy */}
         <div className="mb-4">
-          <BismillahHeader variant="light" size="md" />
+          <BismillahHeader variant="gold" size="md" />
         </div>
 
         {/* Invitation Category Badge */}
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#EAD5D5] bg-[#FDE8EC] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-[#B56576] shadow-sm">
-          <Heart size={13} className="fill-[#D88A96] text-[#D88A96]" />
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#E8E2D8] bg-[#F4F6F2] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#556B2F] shadow-xs">
+          <Heart size={12} className="fill-[#C5A059] text-[#C5A059]" />
           <span>WALIMATULURUS</span>
-          <Heart size={13} className="fill-[#D88A96] text-[#D88A96]" />
+          <Heart size={12} className="fill-[#C5A059] text-[#C5A059]" />
         </div>
 
         {/* Family Side Greeting */}
-        <p className="mb-6 max-w-md text-xs tracking-wide text-[#7A555C] sm:text-sm">
+        <p className="mb-6 max-w-md text-xs tracking-wide text-[#556377] sm:text-sm">
           {couple.familySideNote}
         </p>
 
-        {/* Expansive Multi-Layered Garden Trellis & Floral Archway */}
+        {/* Botanical Trellis & Archway Frame */}
         <GardenArchHeader
           initials={initials}
           subtitle="RAJA SEHARI"
@@ -109,40 +105,40 @@ export default function Hero() {
         >
           {/* Couple Calligraphic Names */}
           <div className="mb-3">
-            <h1 className="font-serif text-4xl font-bold leading-tight tracking-tight text-[#3D2429] sm:text-6xl md:text-7xl">
+            <h1 className="font-serif text-4xl font-bold leading-tight tracking-tight text-[#2D3748] sm:text-6xl md:text-7xl">
               <span>{couple.groom.shortName}</span>
-              <span className="mx-3 font-script text-3xl font-normal text-[#D4A373] sm:mx-4 sm:text-5xl md:text-6xl">
+              <span className="mx-3 font-script text-3xl font-normal text-[#C5A059] sm:mx-4 sm:text-5xl md:text-6xl">
                 &amp;
               </span>
               <span>{couple.bride.shortName}</span>
             </h1>
           </div>
 
-          <p className="font-serif text-xs sm:text-sm text-[#7A555C] italic max-w-md mx-auto mb-2">
+          <p className="font-serif text-xs sm:text-sm text-[#556377] italic max-w-md mx-auto mb-2">
             {couple.groom.fullName} &amp; {couple.bride.fullName}
           </p>
 
-          <FloralSectionDivider size="sm" className="my-3" />
+          <FloralSectionDivider size="sm" variant="gold" className="my-3" />
 
           {/* Date & Venue Subtitle */}
-          <div className="flex flex-col items-center justify-center gap-2 text-xs font-medium text-[#7A555C] sm:flex-row sm:gap-4 sm:text-sm">
-            <div className="flex items-center gap-1.5 text-[#D4A373]">
-              <Calendar size={15} className="text-[#C56D7E]" />
+          <div className="flex flex-col items-center justify-center gap-2 text-xs font-medium text-[#556377] sm:flex-row sm:gap-4 sm:text-sm">
+            <div className="flex items-center gap-1.5 text-[#2D3748]">
+              <Calendar size={15} className="text-[#C5A059]" />
               <span className="font-semibold">{event.dateDisplay}</span>
             </div>
-            <span className="hidden text-[#D4A373] sm:inline">•</span>
-            <span className="text-[#7A555C]">{event.hijriDate}</span>
-            <span className="hidden text-[#D4A373] sm:inline">•</span>
-            <div className="flex items-center gap-1 text-[#3D2429] font-semibold">
-              <MapPin size={15} className="text-[#B56576]" />
+            <span className="hidden text-[#C5A059] sm:inline">•</span>
+            <span className="text-[#556377]">{event.hijriDate}</span>
+            <span className="hidden text-[#C5A059] sm:inline">•</span>
+            <div className="flex items-center gap-1 text-[#2D3748] font-semibold">
+              <MapPin size={15} className="text-[#556B2F]" />
               <span>{event.venueName}</span>
             </div>
           </div>
         </GardenArchHeader>
 
-        {/* Live Countdown Timer with Pressed-Flower Botanical Enclosures */}
+        {/* Live Countdown Timer */}
         <div className="mb-10 w-full max-w-lg">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#B56576]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#7D8B74]">
             {timeLeft.isExpired ? "Alhamdulillah, Hari Bahagia Telah Tiba" : "Menghitung Hari Bahagia"}
           </p>
 
@@ -155,33 +151,13 @@ export default function Hero() {
             ].map((unit, index) => (
               <div
                 key={index}
-                className="group relative flex flex-col items-center justify-center rounded-2xl border-2 border-[#EAD5D5] ring-1 ring-[#FADBD8]/60 bg-white/85 p-3 shadow-rose backdrop-blur-sm transition-all hover:border-[#D4A373] hover:scale-105 sm:p-4 overflow-hidden"
+                className="group relative flex flex-col items-center justify-center rounded-2xl border border-[#E8E2D8] bg-[#FDFBF7] p-3 shadow-xs transition-all hover:border-[#C5A059] hover:scale-102 sm:p-4 overflow-hidden"
               >
-                {/* Micro Petal Corner Florets in Each Box */}
-                <svg
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  className="absolute top-1 left-1 w-3.5 h-3.5 text-[#D4A373] opacity-60 pointer-events-none"
-                  aria-hidden="true"
-                >
-                  <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#D88A96" opacity="0.8" />
-                  <circle cx="2" cy="2" r="1.5" fill="#D4A373" />
-                </svg>
-                <svg
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  className="absolute top-1 right-1 w-3.5 h-3.5 text-[#D4A373] opacity-60 pointer-events-none rotate-90"
-                  aria-hidden="true"
-                >
-                  <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#D88A96" opacity="0.8" />
-                  <circle cx="2" cy="2" r="1.5" fill="#D4A373" />
-                </svg>
-
-                <div className="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-[#D4A373] to-transparent" />
-                <span className="font-serif text-2xl font-bold text-[#3D2429] sm:text-4xl group-hover:text-[#B56576] transition-colors tabular-nums font-mono">
+                <div className="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent" />
+                <span className="font-serif text-2xl font-bold text-[#2D3748] sm:text-4xl group-hover:text-[#556B2F] transition-colors tabular-nums font-mono">
                   {String(unit.value).padStart(2, "0")}
                 </span>
-                <span className="mt-1 text-[10px] font-bold uppercase tracking-wider text-[#7A555C] sm:text-xs">
+                <span className="mt-1 text-[10px] font-bold uppercase tracking-wider text-[#718096] sm:text-xs">
                   {unit.label}
                 </span>
               </div>
@@ -189,18 +165,18 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Primary Call to Actions (Rounded Pill Contours with Rose Gold Borders & Native Press Feedback) */}
+        {/* Primary Call to Actions */}
         <div className="flex w-full flex-col items-center gap-3.5 sm:w-auto sm:flex-row">
           <a
             href="#rsvp"
-            className="flex w-full min-h-[48px] items-center justify-center gap-2 rounded-full border-2 border-[#E2B686] bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] px-8 py-3.5 text-sm font-semibold text-white shadow-rose transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_10px_24px_rgba(201,122,139,0.35)] active:scale-[0.97] sm:w-auto sm:text-base cursor-pointer"
+            className="flex w-full min-h-[48px] items-center justify-center gap-2 rounded-full border border-[#C5A059]/40 bg-gradient-to-r from-[#556B2F] via-[#7D8B74] to-[#556B2F] px-8 py-3.5 text-sm font-semibold text-[#FAF7F2] shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(85,107,47,0.3)] active:scale-98 sm:w-auto sm:text-base cursor-pointer"
           >
             <span>Sahkan Kehadiran (RSVP)</span>
           </a>
 
           <a
             href="#acara"
-            className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#EAD5D5] bg-white/95 px-7 py-3.5 text-sm font-medium text-[#3D2429] shadow-sm transition-all duration-300 hover:border-[#D4A373] hover:bg-[#FDE8EC]/60 hover:shadow-rose active:scale-95 sm:w-auto sm:text-base cursor-pointer"
+            className="flex w-full items-center justify-center gap-2 rounded-full border border-[#E8E2D8] bg-[#FDFBF7] px-7 py-3.5 text-sm font-medium text-[#2D3748] shadow-xs transition-all duration-300 hover:border-[#C5A059] hover:bg-white active:scale-98 sm:w-auto sm:text-base cursor-pointer"
           >
             <span>Maklumat Acara &amp; Lokasi</span>
           </a>
@@ -210,7 +186,7 @@ export default function Hero() {
         <a
           href="#mempelai"
           aria-label="Skrol ke bawah"
-          className="mt-12 flex animate-bounce flex-col items-center gap-1 text-[#B56576] transition-colors hover:text-[#3D2429]"
+          className="mt-12 flex animate-bounce flex-col items-center gap-1 text-[#7D8B74] transition-colors hover:text-[#2D3748]"
         >
           <span className="text-[11px] uppercase tracking-wider">Teruskan Membaca</span>
           <ChevronDown size={18} />

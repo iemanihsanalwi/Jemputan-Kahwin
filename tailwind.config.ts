@@ -10,107 +10,120 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Deep Romantic Mulberry & Warm Espresso (Headings & Primary Text)
-        mulberry: {
-          50: "#FAF0F2",
-          100: "#F4DFE3",
-          200: "#E8BFC7",
-          300: "#D697A4",
-          400: "#C16F81",
-          500: "#B56576", // Muted Dusty Rose
-          600: "#9E475A",
-          700: "#7A3545",
-          800: "#5E2935",
-          900: "#4A2E35", // Deep Mulberry
-          950: "#3D2429", // Warm Espresso Primary
+        // Deep Charcoal & Warm Slate (Headings & Primary Text for high contrast & readability)
+        charcoal: {
+          50: "#F7FAFC",
+          100: "#EDF2F7",
+          200: "#E2E8F0",
+          300: "#CBD5E0",
+          400: "#A0AEC0",
+          500: "#718096",
+          600: "#4A5568",
+          700: "#2D3748", // Primary Deep Charcoal Body/Heading
+          800: "#1A202C", // Deep Contrast Black
+          900: "#171923",
+          950: "#0D0E12",
         },
-        // Dusty Rose & Romantic Pink (Primary Romantic Palette)
-        rose: {
-          50: "#FFF8F8",
-          100: "#FDE8EC", // Soft Blush
-          200: "#FADBD8",
-          300: "#F5B7B1", // Pastel Blossom
-          400: "#E8A598",
-          500: "#D88A96", // Dusty Rose Primary
-          600: "#C56D7E", // Warm Dusty Rose CTA
-          700: "#B56576", // Eyebrow Accent
-          800: "#8C4A58",
-          900: "#4A2E35",
-          950: "#3D2429",
-        },
-        // Dusty Rose & Soft Blush (Romance / Secondary)
-        blush: {
-          50: "#FFF8F8",
-          100: "#FDF2F4",
-          200: "#FCE4E8",
-          300: "#FADBD8", // Soft Blush
-          400: "#F5B7B1", // Pastel Blossom
-          500: "#E8A598",
-          600: "#D88A96", // Dusty Rose
-          700: "#C56D7E",
-          800: "#8C4A58",
-          900: "#4A2E35",
-        },
-        // Brushed Rose Gold & Champagne Gold (Accents / Outlines)
-        gold: {
-          50: "#FFF8F2",
-          100: "#FAEDE3",
-          200: "#F3DAC8",
-          300: "#EAD5D5", // Rose-Gold Border
-          400: "#E2B686", // Brushed Champagne Gold
-          500: "#D4A373", // Rose Gold Primary
-          600: "#C89B7B", // Brushed Rose Gold
-          700: "#B3806D",
-          800: "#8C5E4E",
-          900: "#4A2E35",
-        },
-        // Petal Cream & Alabaster Pearl (Background / Surface)
-        cream: {
-          50: "#FFF8F8", // Soft Petal Cream Primary
-          100: "#FFF1F3",
-          200: "#FDE8EC", // Soft Blush Fading
-          300: "#FADBD8",
-          400: "#EAD5D5", // Rose-Gold Frosted Border
-          500: "#C89B7B",
-        },
-        // Muted Rose Taupe (Text & Borders - Zero Green)
-        olive: {
-          100: "#FAF0F2",
-          200: "#F3E2E5",
-          300: "#DFC1C7",
-          400: "#C9A7AF", // Rose Taupe
-          500: "#9C767E",
-          600: "#7A555C", // Deep Rose Taupe Text
-          700: "#5E3E44",
-          800: "#4A2E35", // Deep Mulberry
-          900: "#3D2429", // Warm Espresso
-        },
-        // Complete Green-to-Pink safety mapping: Sage mapped to Romantic Rose & Mulberry
+        // Botanical Sage & Olive (Contrast / Botanical Green accents)
         sage: {
-          50: "#FFF8F8",
-          100: "#FDE8EC",
-          200: "#FADBD8",
-          300: "#F5B7B1",
-          400: "#E8A598",
-          500: "#D88A96",
-          600: "#C56D7E",
-          700: "#B56576",
+          50: "#F6F8F5",
+          100: "#EDF2EB",
+          200: "#DDE6DA",
+          300: "#C4D4C0",
+          400: "#A2B09B",
+          500: "#7D8B74", // Botanical Sage Primary
+          600: "#556B2F", // Deep Olive Accent
+          700: "#425424",
+          800: "#3B4D36",
+          900: "#2B3827",
+          950: "#1C2419",
+        },
+        // Olive alias
+        olive: {
+          50: "#F6F8F5",
+          100: "#EDF2EB",
+          200: "#DDE6DA",
+          300: "#A2B09B",
+          500: "#7D8B74",
+          600: "#556B2F",
+          700: "#3B4D36",
+          800: "#2B3827",
+          900: "#1A202C",
+        },
+        // Soft Champagne Gold (Accent Foil & Outlines)
+        gold: {
+          50: "#FFFDF5",
+          100: "#FFF8EE",
+          200: "#FAEDE3",
+          300: "#E8E2D8", // Subtle Gold Border
+          400: "#E2C882", // Bright Champagne Gold
+          500: "#D4AF37", // Pure Gold Foil
+          600: "#C5A059", // Warm Antique Gold Primary
+          700: "#B38F48",
+          800: "#9C7838",
+          900: "#6B5020",
+        },
+        // Dusty Rose & Muted Blush (Romantic Floral Accent)
+        rose: {
+          50: "#FAF7F7",
+          100: "#FAF2F2",
+          200: "#F5E6E6",
+          300: "#E8C5BE",
+          400: "#D8A49B",
+          500: "#D4A5A5", // Dusty Rose Primary
+          600: "#C88A8A",
+          700: "#B87B7B",
           800: "#8C4A58",
           900: "#4A2E35",
-          950: "#3D2429",
         },
-        // Legacy compatibility colors mapped to Romantic Mulberry & Blush
-        emerald: {
-          850: "#4A2E35",
-          950: "#3D2429",
+        // Soft Blush
+        blush: {
+          50: "#FAF7F7",
+          100: "#FAF2F2",
+          200: "#F5E6E6",
+          300: "#E8C5BE",
+          400: "#D4A5A5",
+          500: "#C88A8A",
+          600: "#B87B7B",
+          700: "#8C4A58",
+          900: "#2D3748",
         },
+        // Warm Ivory / Cream / Alabaster Pearl (Background / Surface)
+        cream: {
+          50: "#FFFDF9",
+          100: "#FAF7F2", // Primary Warm Ivory Base
+          200: "#FDFBF7", // Card Surface
+          300: "#F5EFEB",
+          400: "#EFE8E0",
+          500: "#E8E2D8", // Subtle Border
+          600: "#D4C8BA",
+        },
+        // Mulberry mapped cleanly to deep charcoal
+        mulberry: {
+          50: "#FAF7F2",
+          100: "#F5EFEB",
+          200: "#E8E2D8",
+          300: "#A0AEC0",
+          400: "#718096",
+          500: "#556377",
+          600: "#4A5568",
+          700: "#2D3748",
+          800: "#1A202C",
+          900: "#171923",
+          950: "#0D0E12",
+        },
+        // Champagne alias
         champagne: {
-          50: "#FFF8F8",
-          100: "#FFF1F3",
-          200: "#FDE8EC",
-          300: "#FADBD8",
+          50: "#FFF8EE",
+          100: "#FAEDE3",
+          200: "#E2C882",
+          300: "#C5A059",
         },
-        parchment: "#FFF8F8",
+        emerald: {
+          850: "#3B4D36",
+          950: "#2B3827",
+        },
+        parchment: "#FAF7F2",
       },
       fontFamily: {
         serif: ["var(--font-playfair)", "Georgia", "serif"],
@@ -121,53 +134,24 @@ const config: Config = {
       animation: {
         "float-slow": "float 6s ease-in-out infinite",
         "pulse-subtle": "pulseSubtle 3s ease-in-out infinite",
-        shimmer: "shimmer 2.5s infinite linear",
         "spin-slow": "spin 20s linear infinite",
-        "float-petal": "floatPetal 14s linear infinite",
-        "sway-gentle": "swayGentle 6s ease-in-out infinite",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" },
+          "50%": { transform: "translateY(-8px)" },
         },
         pulseSubtle: {
           "0%, 100%": { opacity: "1", transform: "scale(1)" },
-          "50%": { opacity: "0.88", transform: "scale(1.02)" },
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
-        floatPetal: {
-          "0%": {
-            transform: "translate3d(0, -30px, 0) rotate(0deg)",
-            opacity: "0",
-          },
-          "10%": {
-            opacity: "0.75",
-          },
-          "85%": {
-            opacity: "0.75",
-          },
-          "100%": {
-            transform: "translate3d(120px, 105vh, 0) rotate(380deg)",
-            opacity: "0",
-          },
-        },
-        swayGentle: {
-          "0%, 100%": { transform: "rotate(-3deg)" },
-          "50%": { transform: "rotate(3deg)" },
+          "50%": { opacity: "0.92", transform: "scale(1.015)" },
         },
       },
       boxShadow: {
-        gold: "0 10px 30px -10px rgba(212, 163, 115, 0.28)",
-        "gold-glow": "0 0 25px rgba(212, 163, 115, 0.35)",
-        card: "0 10px 40px -15px rgba(216, 138, 150, 0.12)",
-        botanical: "0 12px 36px -12px rgba(216, 138, 150, 0.18)",
-        blush: "0 10px 30px -10px rgba(216, 138, 150, 0.28)",
-        rose: "0 8px 18px rgba(201, 122, 139, 0.25)",
-        "rose-glow": "0 8px 24px rgba(216, 138, 150, 0.32)",
+        gold: "0 10px 30px -10px rgba(197, 160, 89, 0.22)",
+        "gold-glow": "0 0 25px rgba(212, 175, 55, 0.25)",
+        card: "0 4px 20px -2px rgba(45, 55, 72, 0.05)",
+        botanical: "0 6px 24px -4px rgba(85, 107, 47, 0.08)",
+        rose: "0 8px 18px rgba(212, 165, 165, 0.18)",
       },
     },
   },

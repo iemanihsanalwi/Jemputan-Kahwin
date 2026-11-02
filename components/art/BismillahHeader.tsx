@@ -2,13 +2,14 @@ import React from "react";
 
 interface BismillahHeaderProps {
   className?: string;
-  variant?: "gold" | "rose" | "light" | "mulberry" | "sage" | "emerald";
+  variant?: "gold" | "sage" | "charcoal" | "rose" | "light";
   size?: "sm" | "md" | "lg";
 }
 
 /**
  * BismillahHeader - Pure vector SVG calligraphy of Bismillah Ar-Rahman Ar-Rahim
- * Classical Thuluth / Diwani style rendering framed by delicate botanical rose-gold flourishes.
+ * Classical Thuluth / Diwani style rendering framed by delicate botanical olive sprigs.
+ * Zero raster filters (<feGaussianBlur> removed) for crisp vector rendering and 0 GPU lag.
  */
 export default function BismillahHeader({
   className = "",
@@ -32,44 +33,49 @@ export default function BismillahHeader({
         viewBox="0 0 680 180"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full drop-shadow-sm transition-transform duration-500 hover:scale-[1.02]"
+        className="w-full h-full drop-shadow-xs transition-transform duration-300 hover:scale-[1.01]"
       >
         <defs>
+          {/* Champagne Gold Gradient */}
           <linearGradient id={`${idPrefix}-gold`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#F5EED6" />
-            <stop offset="25%" stopColor="#D4A373" />
-            <stop offset="50%" stopColor="#FFF2A1" />
-            <stop offset="75%" stopColor="#C56D7E" />
-            <stop offset="100%" stopColor="#8C4A58" />
+            <stop offset="0%" stopColor="#FFF8EE" />
+            <stop offset="35%" stopColor="#D4AF37" />
+            <stop offset="70%" stopColor="#C5A059" />
+            <stop offset="100%" stopColor="#9C7838" />
           </linearGradient>
 
+          {/* Sage Botanical Gradient */}
+          <linearGradient id={`${idPrefix}-sage`} x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#556B2F" />
+            <stop offset="50%" stopColor="#7D8B74" />
+            <stop offset="100%" stopColor="#556B2F" />
+          </linearGradient>
+
+          {/* Deep Charcoal Gradient */}
+          <linearGradient id={`${idPrefix}-charcoal`} x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1A202C" />
+            <stop offset="50%" stopColor="#2D3748" />
+            <stop offset="100%" stopColor="#1A202C" />
+          </linearGradient>
+
+          {/* Dusty Rose Gradient */}
           <linearGradient id={`${idPrefix}-rose`} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#4A2E35" />
-            <stop offset="50%" stopColor="#B56576" />
-            <stop offset="100%" stopColor="#3D2429" />
+            <stop offset="0%" stopColor="#B87B7B" />
+            <stop offset="50%" stopColor="#D4A5A5" />
+            <stop offset="100%" stopColor="#B87B7B" />
           </linearGradient>
-
-          <linearGradient id={`${idPrefix}-light`} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#FFF8F8" />
-            <stop offset="50%" stopColor="#FCE4E8" />
-            <stop offset="100%" stopColor="#FADBD8" />
-          </linearGradient>
-
-          <filter id={`${idPrefix}-glow`} x="-15%" y="-15%" width="130%" height="130%">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-          </filter>
         </defs>
 
         <g
           fill={
-            variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
+            variant === "sage"
+              ? `url(#${idPrefix}-sage)`
+              : variant === "charcoal"
+              ? `url(#${idPrefix}-charcoal)`
+              : variant === "rose"
               ? `url(#${idPrefix}-rose)`
-              : variant === "light"
-              ? `url(#${idPrefix}-light)`
               : `url(#${idPrefix}-gold)`
           }
-          filter={variant === "gold" || variant === "light" ? `url(#${idPrefix}-glow)` : undefined}
         >
           {/* Central Calligraphy Artistic Glyphs Composition */}
           {/* Basmalah Classical Stroke Flourishes (Diwani / Thuluth) */}
@@ -105,9 +111,13 @@ export default function BismillahHeader({
         {/* Botanical Olive Leaf Sprigs Flanking Both Sides */}
         <g
           stroke={
-            variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
-              ? "#B56576"
-              : `url(#${idPrefix}-gold)`
+            variant === "sage"
+              ? "#556B2F"
+              : variant === "charcoal"
+              ? "#2D3748"
+              : variant === "rose"
+              ? "#B87B7B"
+              : "#D4AF37"
           }
           strokeWidth="1.5"
           strokeLinecap="round"
@@ -120,17 +130,25 @@ export default function BismillahHeader({
           <path
             d="M 28 90 C 26 80, 36 80, 36 90 Z"
             fill={
-              variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
-                ? "#B56576"
-                : `url(#${idPrefix}-gold)`
+              variant === "sage"
+                ? "#556B2F"
+                : variant === "charcoal"
+                ? "#2D3748"
+                : variant === "rose"
+                ? "#B87B7B"
+                : "#D4AF37"
             }
           />
           <path
             d="M 40 82 C 40 72, 50 74, 48 84 Z"
             fill={
-              variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
-                ? "#B56576"
-                : `url(#${idPrefix}-gold)`
+              variant === "sage"
+                ? "#556B2F"
+                : variant === "charcoal"
+                ? "#2D3748"
+                : variant === "rose"
+                ? "#B87B7B"
+                : "#D4AF37"
             }
           />
           <circle
@@ -138,9 +156,13 @@ export default function BismillahHeader({
             cy="95"
             r="2.5"
             fill={
-              variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
-                ? "#B56576"
-                : `url(#${idPrefix}-gold)`
+              variant === "sage"
+                ? "#556B2F"
+                : variant === "charcoal"
+                ? "#2D3748"
+                : variant === "rose"
+                ? "#B87B7B"
+                : "#D4AF37"
             }
           />
 
@@ -149,17 +171,25 @@ export default function BismillahHeader({
           <path
             d="M 652 90 C 654 80, 644 80, 644 90 Z"
             fill={
-              variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
-                ? "#B56576"
-                : `url(#${idPrefix}-gold)`
+              variant === "sage"
+                ? "#556B2F"
+                : variant === "charcoal"
+                ? "#2D3748"
+                : variant === "rose"
+                ? "#B87B7B"
+                : "#D4AF37"
             }
           />
           <path
             d="M 640 82 C 640 72, 630 74, 632 84 Z"
             fill={
-              variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
-                ? "#B56576"
-                : `url(#${idPrefix}-gold)`
+              variant === "sage"
+                ? "#556B2F"
+                : variant === "charcoal"
+                ? "#2D3748"
+                : variant === "rose"
+                ? "#B87B7B"
+                : "#D4AF37"
             }
           />
           <circle
@@ -167,9 +197,13 @@ export default function BismillahHeader({
             cy="95"
             r="2.5"
             fill={
-              variant === "rose" || variant === "mulberry" || variant === "sage" || variant === "emerald"
-                ? "#B56576"
-                : `url(#${idPrefix}-gold)`
+              variant === "sage"
+                ? "#556B2F"
+                : variant === "charcoal"
+                ? "#2D3748"
+                : variant === "rose"
+                ? "#B87B7B"
+                : "#D4AF37"
             }
           />
         </g>

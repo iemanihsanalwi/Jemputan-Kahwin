@@ -52,26 +52,26 @@ export default function Navbar() {
     <header
       className={`fixed left-0 right-0 top-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "border-b border-[#EAD5D5] bg-white/90 py-3 shadow-sm backdrop-blur-md"
+          ? "border-b border-[#E8E2D8] bg-[#FAF7F2]/95 py-3 shadow-xs backdrop-blur-md"
           : "bg-transparent py-5"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="#" className="group flex items-center gap-2 transition-transform active:scale-95">
-          <span className="font-serif text-xl font-bold tracking-wider text-[#3D2429] transition-colors group-hover:text-[#D88A96] sm:text-2xl">
+          <span className="font-serif text-xl font-bold tracking-wider text-[#2D3748] transition-colors group-hover:text-[#556B2F] sm:text-2xl">
             {weddingConfig.couple.groom.shortName} &amp; {weddingConfig.couple.bride.shortName}
           </span>
         </Link>
 
         {/* Desktop Links */}
-        <nav className="hidden items-center gap-6 text-sm font-medium text-[#7A555C] md:flex">
+        <nav className="hidden items-center gap-6 text-sm font-medium text-[#556377] md:flex">
           {navLinks.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className={`transition-colors hover:text-[#C56D7E] ${
+              className={`transition-colors hover:text-[#2D3748] ${
                 item.highlight
-                  ? "rounded-full bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-5 py-1.5 font-semibold text-white shadow-rose hover:opacity-95"
+                  ? "rounded-full bg-gradient-to-r from-[#556B2F] to-[#7D8B74] px-5 py-1.5 font-semibold text-white shadow-xs hover:opacity-95"
                   : ""
               }`}
             >
@@ -80,27 +80,27 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Mobile Menu Button - HIG 44pt Touch Targets */}
+        {/* Mobile Menu Button */}
         <div className="flex items-center gap-2 md:hidden">
           <a
             href="#rsvp"
-            className="flex items-center justify-center min-h-[44px] rounded-full bg-gradient-to-r from-[#D88A96] to-[#C56D7E] px-4 py-2 text-xs font-semibold text-white shadow-rose active:scale-[0.96] transition-all"
+            className="flex items-center justify-center min-h-[44px] rounded-full bg-gradient-to-r from-[#556B2F] to-[#7D8B74] px-4 py-2 text-xs font-semibold text-white shadow-xs active:scale-95 transition-all"
           >
             RSVP
           </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
-            className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full border border-[#EAD5D5] bg-white/80 p-2 text-[#7A555C] hover:text-[#C56D7E] active:scale-[0.96] transition-all cursor-pointer"
+            className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full border border-[#E8E2D8] bg-[#FAF7F2] p-2 text-[#556377] hover:text-[#2D3748] active:scale-95 transition-all cursor-pointer"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu with 44pt Targets */}
+      {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="border-b border-[#EAD5D5] bg-white/95 px-6 py-4 shadow-xl backdrop-blur-lg transition-all md:hidden">
+        <div className="border-b border-[#E8E2D8] bg-[#FAF7F2]/98 px-6 py-4 shadow-xl backdrop-blur-lg transition-all md:hidden">
           <div className="grid grid-cols-2 gap-3 text-sm">
             {navLinks.map((item) => {
               const Icon = item.icon;
@@ -109,9 +109,9 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center min-h-[44px] gap-2 rounded-2xl p-2.5 text-[#7A555C] transition-all hover:bg-[#FFF8F8] hover:text-[#C56D7E] active:scale-[0.98]"
+                  className="flex items-center min-h-[44px] gap-2 rounded-2xl p-2.5 text-[#556377] transition-all hover:bg-white hover:text-[#2D3748] active:scale-98"
                 >
-                  <Icon size={16} className="text-[#C56D7E]" />
+                  <Icon size={16} className="text-[#556B2F]" />
                   <span>{item.label}</span>
                 </a>
               );

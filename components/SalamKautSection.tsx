@@ -14,23 +14,23 @@ function DuitNowVectorQr({ accountName }: { accountName: string }) {
   const idPrefix = React.useId().replace(/:/g, "");
 
   return (
-    <div className="relative flex flex-col items-center justify-center p-4 rounded-3xl bg-gradient-to-b from-white via-[#FFF8F8] to-white border-2 border-[#D4A373]/50 shadow-rose overflow-hidden">
-      {/* Pressed Flower Corner Accents on QR Card */}
-      <svg viewBox="0 0 24 24" className="absolute top-1.5 left-1.5 w-4 h-4 text-[#D4A373] pointer-events-none opacity-75" aria-hidden="true">
-        <path d="M 0 0 C 8 2, 10 10, 10 16 C 6 10, 2 8, 0 0 Z" fill="#D88A96" />
-        <circle cx="3" cy="3" r="2" fill="#D4A373" />
+    <div className="relative flex flex-col items-center justify-center p-4 rounded-3xl bg-gradient-to-b from-[#FDFBF7] via-white to-[#FDFBF7] border-2 border-[#D4AF37]/40 shadow-sm overflow-hidden">
+      {/* Botanical Corner Accents on QR Card */}
+      <svg viewBox="0 0 24 24" className="absolute top-1.5 left-1.5 w-4 h-4 text-[#D4AF37] pointer-events-none opacity-75" aria-hidden="true">
+        <path d="M 0 0 C 8 2, 10 10, 10 16 C 6 10, 2 8, 0 0 Z" fill="#7D8B74" />
+        <circle cx="3" cy="3" r="2" fill="#D4AF37" />
       </svg>
-      <svg viewBox="0 0 24 24" className="absolute top-1.5 right-1.5 w-4 h-4 text-[#D4A373] pointer-events-none opacity-75 rotate-90" aria-hidden="true">
-        <path d="M 0 0 C 8 2, 10 10, 10 16 C 6 10, 2 8, 0 0 Z" fill="#D88A96" />
-        <circle cx="3" cy="3" r="2" fill="#D4A373" />
+      <svg viewBox="0 0 24 24" className="absolute top-1.5 right-1.5 w-4 h-4 text-[#D4AF37] pointer-events-none opacity-75 rotate-90" aria-hidden="true">
+        <path d="M 0 0 C 8 2, 10 10, 10 16 C 6 10, 2 8, 0 0 Z" fill="#7D8B74" />
+        <circle cx="3" cy="3" r="2" fill="#D4AF37" />
       </svg>
-      <svg viewBox="0 0 24 24" className="absolute bottom-1.5 left-1.5 w-4 h-4 text-[#D4A373] pointer-events-none opacity-75 -rotate-90" aria-hidden="true">
-        <path d="M 0 0 C 8 2, 10 10, 10 16 C 6 10, 2 8, 0 0 Z" fill="#D88A96" />
-        <circle cx="3" cy="3" r="2" fill="#D4A373" />
+      <svg viewBox="0 0 24 24" className="absolute bottom-1.5 left-1.5 w-4 h-4 text-[#D4AF37] pointer-events-none opacity-75 -rotate-90" aria-hidden="true">
+        <path d="M 0 0 C 8 2, 10 10, 10 16 C 6 10, 2 8, 0 0 Z" fill="#7D8B74" />
+        <circle cx="3" cy="3" r="2" fill="#D4AF37" />
       </svg>
-      <svg viewBox="0 0 24 24" className="absolute bottom-1.5 right-1.5 w-4 h-4 text-[#D4A373] pointer-events-none opacity-75 rotate-180" aria-hidden="true">
-        <path d="M 0 0 C 8 2, 10 10, 10 16 C 6 10, 2 8, 0 0 Z" fill="#D88A96" />
-        <circle cx="3" cy="3" r="2" fill="#D4A373" />
+      <svg viewBox="0 0 24 24" className="absolute bottom-1.5 right-1.5 w-4 h-4 text-[#D4AF37] pointer-events-none opacity-75 rotate-180" aria-hidden="true">
+        <path d="M 0 0 C 8 2, 10 10, 10 16 C 6 10, 2 8, 0 0 Z" fill="#7D8B74" />
+        <circle cx="3" cy="3" r="2" fill="#D4AF37" />
       </svg>
 
       {/* Top DuitNow Banner in SVG */}
@@ -95,10 +95,10 @@ function DuitNowVectorQr({ accountName }: { accountName: string }) {
           <rect x="116" y="56" width="6" height="12" rx="1" />
           <rect x="128" y="56" width="12" height="6" rx="1" />
 
-          {/* Center Botanical Floral Emblem (Rose & Mulberry Tones) */}
-          <circle cx="80" cy="80" r="12" fill="#D4A373" />
-          <circle cx="80" cy="80" r="9" fill="#4A2E35" />
-          <circle cx="80" cy="80" r="4" fill="#FFF8F8" />
+          {/* Center Botanical Floral Emblem (Sage & Gold Tones) */}
+          <circle cx="80" cy="80" r="12" fill="#C5A059" />
+          <circle cx="80" cy="80" r="9" fill="#7D8B74" />
+          <circle cx="80" cy="80" r="4" fill="#FDFBF7" />
 
           {/* Lower Quadrant Modules */}
           <rect x="36" y="80" width="8" height="8" rx="1" />
@@ -127,7 +127,7 @@ function DuitNowVectorQr({ accountName }: { accountName: string }) {
         </g>
       </svg>
 
-      <span className="mt-2 text-[10px] font-mono font-medium text-[#7A555C] uppercase tracking-wider">
+      <span className="mt-2 text-[10px] font-mono font-medium text-[#4A5568] uppercase tracking-wider">
         {accountName}
       </span>
     </div>
@@ -162,71 +162,71 @@ export default function SalamKautSection() {
         className="mb-14"
       />
 
-      <div className="relative mx-auto max-w-2xl overflow-hidden rounded-3xl border border-[#EAD5D5] bg-white/85 p-6 text-center shadow-sm backdrop-blur-md sm:p-10 hover:shadow-rose transition-all">
-        <BotanicalCornerFlourish position="all" size={42} variant="rose" />
+      <div className="relative mx-auto max-w-2xl overflow-hidden rounded-3xl border border-[#E8E2D9] bg-white/90 p-6 text-center shadow-sm backdrop-blur-md sm:p-10 hover:border-[#D4AF37]/50 hover:shadow-md transition-all">
+        <BotanicalCornerFlourish position="all" size={42} variant="gold" />
 
         {/* Decorative Top Accent */}
-        <div className="absolute left-0 right-0 top-0 h-1.5 bg-gradient-to-r from-[#D4A373] via-[#D88A96] to-[#C56D7E]" />
+        <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#D4AF37] via-[#C5A059] to-[#7D8B74]" />
 
         <div className="mb-8 flex flex-col items-center justify-center gap-8 sm:flex-row">
           {/* Pure SVG DuitNow QR Code */}
           <div className="flex flex-col items-center">
             <DuitNowVectorQr accountName={salamKaut.accountName} />
-            <span className="mt-2.5 text-[11px] text-[#7A555C] font-medium flex items-center gap-1">
-              <QrCode size={13} className="text-[#C56D7E]" />
+            <span className="mt-2.5 text-[11px] text-[#6B7280] font-medium flex items-center gap-1">
+              <QrCode size={13} className="text-[#C5A059]" />
               <span>Imbas menggunakan mana-mana aplikasi perbankan</span>
             </span>
           </div>
 
           {/* Account Details Box with Botanical Enclosures */}
           <div className="w-full space-y-4 text-left sm:max-w-xs">
-            <div className="relative overflow-hidden rounded-2xl border border-[#EAD5D5] bg-[#FFF8F8] p-4 shadow-xs">
-              <svg viewBox="0 0 16 16" className="absolute top-1 right-1 w-3.5 h-3.5 text-[#D4A373] opacity-60 pointer-events-none" aria-hidden="true">
-                <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#D88A96" />
-                <circle cx="2" cy="2" r="1.2" fill="#D4A373" />
+            <div className="relative overflow-hidden rounded-2xl border border-[#E8E2D9] bg-[#FDFBF7] p-4 shadow-xs">
+              <svg viewBox="0 0 16 16" className="absolute top-1 right-1 w-3.5 h-3.5 text-[#D4AF37] opacity-60 pointer-events-none" aria-hidden="true">
+                <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#7D8B74" />
+                <circle cx="2" cy="2" r="1.2" fill="#D4AF37" />
               </svg>
-              <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#B56576]">
+              <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#7D8B74]">
                 Nama Bank
               </span>
-              <p className="flex items-center gap-2 text-sm font-semibold text-[#3D2429] sm:text-base">
-                <CreditCard size={18} className="flex-shrink-0 text-[#C56D7E]" />
+              <p className="flex items-center gap-2 text-sm font-semibold text-[#2D3748] sm:text-base">
+                <CreditCard size={18} className="flex-shrink-0 text-[#C5A059]" />
                 <span>{salamKaut.bankName}</span>
               </p>
             </div>
 
-            <div className="relative overflow-hidden rounded-2xl border border-[#EAD5D5] bg-[#FFF8F8] p-4 shadow-xs">
-              <svg viewBox="0 0 16 16" className="absolute top-1 right-1 w-3.5 h-3.5 text-[#D4A373] opacity-60 pointer-events-none" aria-hidden="true">
-                <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#D88A96" />
-                <circle cx="2" cy="2" r="1.2" fill="#D4A373" />
+            <div className="relative overflow-hidden rounded-2xl border border-[#E8E2D9] bg-[#FDFBF7] p-4 shadow-xs">
+              <svg viewBox="0 0 16 16" className="absolute top-1 right-1 w-3.5 h-3.5 text-[#D4AF37] opacity-60 pointer-events-none" aria-hidden="true">
+                <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#7D8B74" />
+                <circle cx="2" cy="2" r="1.2" fill="#D4AF37" />
               </svg>
-              <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#B56576]">
+              <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#7D8B74]">
                 Nama Pemegang Akaun
               </span>
-              <p className="text-sm font-semibold text-[#3D2429] sm:text-base">
+              <p className="text-sm font-semibold text-[#2D3748] sm:text-base">
                 {salamKaut.accountName}
               </p>
             </div>
 
-            <div className="relative overflow-hidden rounded-2xl border border-[#EAD5D5] bg-[#FFF8F8] p-4 shadow-xs">
-              <svg viewBox="0 0 16 16" className="absolute top-1 right-1 w-3.5 h-3.5 text-[#D4A373] opacity-60 pointer-events-none" aria-hidden="true">
-                <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#D88A96" />
-                <circle cx="2" cy="2" r="1.2" fill="#D4A373" />
+            <div className="relative overflow-hidden rounded-2xl border border-[#E8E2D9] bg-[#FDFBF7] p-4 shadow-xs">
+              <svg viewBox="0 0 16 16" className="absolute top-1 right-1 w-3.5 h-3.5 text-[#D4AF37] opacity-60 pointer-events-none" aria-hidden="true">
+                <path d="M 0 0 C 6 2, 8 8, 8 12 C 4 8, 2 6, 0 0 Z" fill="#7D8B74" />
+                <circle cx="2" cy="2" r="1.2" fill="#D4AF37" />
               </svg>
-              <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#B56576]">
+              <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#7D8B74]">
                 Nombor Akaun
               </span>
               <div className="flex items-center justify-between gap-2">
-                <span className="font-mono tabular-nums text-base font-bold tracking-wider text-[#3D2429] sm:text-lg select-all">
+                <span className="font-mono tabular-nums text-base font-bold tracking-wider text-[#2D3748] sm:text-lg select-all">
                   {salamKaut.accountNumber}
                 </span>
 
                 <button
                   onClick={handleCopy}
                   aria-label="Salin nombor akaun bank"
-                  className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full border border-[#EAD5D5] bg-white p-2.5 text-[#B56576] transition-all hover:border-[#D88A96] hover:bg-[#FDE8EC] hover:text-[#3D2429] focus:outline-none focus:ring-2 focus:ring-[#D88A96] active:scale-[0.96] shadow-xs cursor-pointer"
+                  className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full border border-[#E8E2D9] bg-white p-2.5 text-[#7D8B74] transition-all hover:border-[#7D8B74] hover:bg-[#F2F5F0] hover:text-[#2D3748] focus:outline-none focus:ring-2 focus:ring-[#7D8B74] active:scale-[0.96] shadow-xs cursor-pointer"
                 >
                   {copied ? (
-                    <Check size={16} className="text-[#C56D7E]" />
+                    <Check size={16} className="text-[#556B2F]" />
                   ) : (
                     <Copy size={16} />
                   )}
@@ -237,7 +237,7 @@ export default function SalamKautSection() {
                 <p
                   role="status"
                   aria-live="polite"
-                  className="mt-1.5 flex items-center gap-1 text-xs font-medium text-[#C56D7E]"
+                  className="mt-1.5 flex items-center gap-1 text-xs font-medium text-[#556B2F]"
                 >
                   <Check size={12} />
                   <span>Nombor akaun berjaya disalin!</span>
@@ -247,7 +247,7 @@ export default function SalamKautSection() {
           </div>
         </div>
 
-        <p className="mx-auto max-w-md text-[11px] italic text-[#7A555C] sm:text-xs">
+        <p className="mx-auto max-w-md text-[11px] italic text-[#6B7280] sm:text-xs">
           Semoga setiap kebaikan dan keikhlasan anda dibalas dengan ganjaran rezeki yang
           berlipat kali ganda. Jazakumullah Khairan Kathira.
         </p>

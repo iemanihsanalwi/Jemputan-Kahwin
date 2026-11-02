@@ -12,7 +12,8 @@ interface ScrollRevealProps {
 /**
  * ScrollReveal - Smooth Scroll & Reveal Wrapper
  * Adds subtle fade-up entrance animations for invitation sections as the user scrolls down.
- * Hardware accelerated via GPU with prefers-reduced-motion accessibility support.
+ * Efficient memory management: unregisters observer immediately after trigger and releases
+ * will-change GPU layer once animation completes.
  */
 export default function ScrollReveal({
   children,
@@ -21,12 +22,14 @@ export default function ScrollReveal({
   direction = "up",
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [animationDone, setAnimationDone] = useState(false);
   const domRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     // If IntersectionObserver is unavailable, immediately reveal
     if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
       setIsVisible(true);
+      setAnimationDone(true);
       return;
     }
 
@@ -36,6 +39,9 @@ export default function ScrollReveal({
           if (entry.isIntersecting) {
             setIsVisible(true);
             if (domRef.current) observer.unobserve(domRef.current);
+            setTimeout(() => {
+              setAnimationDone(true);
+            }, 850 + delayMs);
           }
         });
       },
@@ -53,7 +59,7 @@ export default function ScrollReveal({
     return () => {
       if (currentElem) observer.unobserve(currentElem);
     };
-  }, []);
+  }, [delayMs]);
 
   const getTransform = () => {
     if (isVisible) {
@@ -62,13 +68,13 @@ export default function ScrollReveal({
 
     switch (direction) {
       case "up":
-        return "translate-y-8 opacity-0 scale-[0.985]";
+        return "translate-y-6 opacity-0 scale-[0.99]";
       case "down":
-        return "-translate-y-8 opacity-0 scale-[0.985]";
+        return "-translate-y-6 opacity-0 scale-[0.99]";
       case "left":
-        return "translate-x-8 opacity-0";
+        return "translate-x-6 opacity-0";
       case "right":
-        return "-translate-x-8 opacity-0";
+        return "-translate-x-6 opacity-0";
       default:
         return "opacity-0";
     }
@@ -78,14 +84,13 @@ export default function ScrollReveal({
     <div
       ref={domRef}
       style={{
-        transitionDuration: "800ms",
+        transitionDuration: "750ms",
         transitionDelay: `${delayMs}ms`,
         transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
       }}
-      className={`transition-all will-change-[transform,opacity] ${getTransform()} ${className}`}
+      className={`transition-all ${!animationDone ? "will-change-[transform,opacity]" : ""} ${getTransform()} ${className}`}
     >
       {children}
     </div>
   );
 }
-

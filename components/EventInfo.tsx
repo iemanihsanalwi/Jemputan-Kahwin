@@ -42,104 +42,104 @@ export default function EventInfo() {
     setTimeout(() => setDownloadedIcs(false), 3000);
   };
 
-
   return (
     <section id="acara" className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
       {/* Strictly-Centered Section Header */}
       <SectionHeader
         eyebrow="ATUR CARA MAJLIS"
         title="Atur Cara &amp; Butiran Acara"
+        dividerVariant="gold"
       />
 
-      {/* Main Event Card with Botanical Corners */}
-      <div className="relative mb-12 rounded-3xl border-2 border-[#EAD5D5] bg-white/85 p-6 shadow-rose backdrop-blur-md sm:p-10">
-        <BotanicalCornerFlourish position="all" size={40} variant="rose" />
+      {/* Main Event Card */}
+      <div className="relative mb-12 rounded-3xl border border-[#E8E2D8] bg-[#FDFBF7] p-6 shadow-xs sm:p-10">
+        <BotanicalCornerFlourish position="all" size={40} variant="gold" />
 
-        <div className="grid grid-cols-1 gap-6 divide-y divide-[#EAD5D5] text-center md:grid-cols-3 md:divide-x md:divide-y-0">
+        <div className="grid grid-cols-1 gap-6 divide-y divide-[#E8E2D8] text-center md:grid-cols-3 md:divide-x md:divide-y-0">
           {/* Tarikh */}
           <div className="flex flex-col items-center justify-center p-4">
             <div className="mb-3">
-              <BotanicalIconBadge size="md" variant="rose">
-                <Calendar size={22} className="text-[#C56D7E]" />
+              <BotanicalIconBadge size="md" variant="gold">
+                <Calendar size={22} className="text-[#C5A059]" />
               </BotanicalIconBadge>
             </div>
-            <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#B56576]">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7D8B74]">
               Tarikh Majlis
             </span>
-            <p className="mt-1 font-serif text-xl font-bold text-[#3D2429] sm:text-2xl">
+            <p className="mt-1 font-serif text-xl font-bold text-[#2D3748] sm:text-2xl">
               {event.dateDisplay}
             </p>
-            <p className="mt-1 text-xs font-medium text-[#D4A373]">{event.hijriDate}</p>
+            <p className="mt-1 text-xs font-medium text-[#C5A059]">{event.hijriDate}</p>
           </div>
 
           {/* Masa */}
           <div className="flex flex-col items-center justify-center p-4">
             <div className="mb-3">
-              <BotanicalIconBadge size="md" variant="rose">
-                <Clock size={22} className="text-[#C56D7E]" />
+              <BotanicalIconBadge size="md" variant="sage">
+                <Clock size={22} className="text-[#556B2F]" />
               </BotanicalIconBadge>
             </div>
-            <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#B56576]">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7D8B74]">
               Waktu Jamuan
             </span>
-            <p className="mt-1 font-serif text-xl font-bold text-[#3D2429] sm:text-2xl">
+            <p className="mt-1 font-serif text-xl font-bold text-[#2D3748] sm:text-2xl">
               {event.receptionTime}
             </p>
             {event.resepsi && (
-              <p className="mt-1 text-xs text-[#7A555C]">{event.resepsi.venue}</p>
+              <p className="mt-1 text-xs text-[#556377]">{event.resepsi.venue}</p>
             )}
           </div>
 
           {/* Tempat */}
           <div className="flex flex-col items-center justify-center p-4">
             <div className="mb-3">
-              <BotanicalIconBadge size="md" variant="rose">
-                <MapPin size={22} className="text-[#C56D7E]" />
+              <BotanicalIconBadge size="md" variant="gold">
+                <MapPin size={22} className="text-[#C5A059]" />
               </BotanicalIconBadge>
             </div>
-            <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#B56576]">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7D8B74]">
               Tempat Acara
             </span>
-            <p className="mt-1 font-serif text-xl font-bold text-[#3D2429] sm:text-2xl">
+            <p className="mt-1 font-serif text-xl font-bold text-[#2D3748] sm:text-2xl">
               {event.venueName}
             </p>
-            <p className="mt-1 text-xs font-medium text-[#7A555C]">{event.venueHall}</p>
+            <p className="mt-1 text-xs font-medium text-[#556377]">{event.venueHall}</p>
           </div>
         </div>
 
         {/* Akad & Resepsi Dual Badge */}
         {(event.akad || event.resepsi) && (
-          <div className="mt-6 pt-6 border-t border-[#EAD5D5] grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="mt-6 pt-6 border-t border-[#E8E2D8] grid grid-cols-1 sm:grid-cols-2 gap-4">
             {event.akad && (
-              <div className="rounded-2xl border border-[#EAD5D5] bg-[#FFF8F8] p-4 text-center">
-                <span className="inline-block rounded-full bg-[#FDE8EC] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#B56576] mb-1">
+              <div className="rounded-2xl border border-[#E8E2D8] bg-[#FAF7F2] p-4 text-center">
+                <span className="inline-block rounded-full bg-[#F4F6F2] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#556B2F] mb-1">
                   Upacara Akad Nikah
                 </span>
-                <p className="font-serif text-sm font-bold text-[#3D2429]">
+                <p className="font-serif text-sm font-bold text-[#2D3748]">
                   {event.akad.time}
                 </p>
-                <p className="text-xs text-[#7A555C]">{event.akad.venue}</p>
+                <p className="text-xs text-[#556377]">{event.akad.venue}</p>
               </div>
             )}
             {event.resepsi && (
-              <div className="rounded-2xl border border-[#EAD5D5] bg-[#FFF8F8] p-4 text-center">
-                <span className="inline-block rounded-full bg-[#FDE8EC] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#B56576] mb-1">
+              <div className="rounded-2xl border border-[#E8E2D8] bg-[#FAF7F2] p-4 text-center">
+                <span className="inline-block rounded-full bg-[#F4F6F2] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#556B2F] mb-1">
                   Majlis Resepsi
                 </span>
-                <p className="font-serif text-sm font-bold text-[#3D2429]">
+                <p className="font-serif text-sm font-bold text-[#2D3748]">
                   {event.resepsi.time}
                 </p>
-                <p className="text-xs text-[#7A555C]">{event.resepsi.venue}</p>
+                <p className="text-xs text-[#556377]">{event.resepsi.venue}</p>
               </div>
             )}
           </div>
         )}
 
         {/* Calendar Integration Buttons */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 border-t border-[#EAD5D5] pt-8">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 border-t border-[#E8E2D8] pt-8">
           <button
             onClick={handleGoogleCalendar}
-            className="flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-[#E2B686] bg-gradient-to-r from-[#D88A96] via-[#C56D7E] to-[#B56576] px-6 py-3 text-xs font-semibold text-white shadow-rose transition-all hover:scale-[1.02] active:scale-[0.97] sm:text-sm cursor-pointer"
+            className="flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-[#C5A059]/40 bg-gradient-to-r from-[#556B2F] via-[#7D8B74] to-[#556B2F] px-6 py-3 text-xs font-semibold text-[#FAF7F2] shadow-xs transition-all hover:scale-[1.02] active:scale-98 sm:text-sm cursor-pointer"
           >
             <CalendarPlus size={16} />
             <span>Simpan ke Google Calendar</span>
@@ -147,16 +147,16 @@ export default function EventInfo() {
 
           <button
             onClick={handleIcsDownload}
-            className="flex min-h-[44px] items-center justify-center gap-2 rounded-full border-2 border-[#EAD5D5] bg-white px-6 py-3 text-xs font-semibold text-[#3D2429] shadow-sm transition-all hover:border-[#D4A373] hover:bg-[#FDE8EC]/60 sm:text-sm active:scale-[0.97] cursor-pointer"
+            className="flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-[#E8E2D8] bg-[#FAF7F2] px-6 py-3 text-xs font-semibold text-[#2D3748] shadow-xs transition-all hover:border-[#C5A059] hover:bg-white sm:text-sm active:scale-98 cursor-pointer"
           >
             {downloadedIcs ? (
               <>
-                <Check size={16} className="text-[#C56D7E]" />
-                <span className="font-medium text-[#C56D7E]">Kalendar Dimuat Turun!</span>
+                <Check size={16} className="text-[#556B2F]" />
+                <span className="font-medium text-[#556B2F]">Kalendar Dimuat Turun!</span>
               </>
             ) : (
               <>
-                <Calendar size={16} className="text-[#D4A373]" />
+                <Calendar size={16} className="text-[#C5A059]" />
                 <span>Apple Calendar / iCal (.ics)</span>
               </>
             )}
@@ -166,13 +166,13 @@ export default function EventInfo() {
 
       {/* Dress Code Box */}
       {event.dressCode && (
-        <div className="relative mb-12 rounded-3xl border-2 border-[#EAD5D5] bg-white/85 p-6 text-center shadow-rose sm:p-8">
-          <BotanicalCornerFlourish position="all" size={32} variant="rose" />
-          <div className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#B56576] sm:text-sm">
-            <Shirt size={16} className="text-[#C56D7E]" />
+        <div className="relative mb-12 rounded-3xl border border-[#E8E2D8] bg-[#FDFBF7] p-6 text-center shadow-xs sm:p-8">
+          <BotanicalCornerFlourish position="all" size={32} variant="sage" />
+          <div className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#7D8B74] sm:text-sm">
+            <Shirt size={16} className="text-[#556B2F]" />
             <span>{event.dressCode.title}</span>
           </div>
-          <p className="mx-auto mb-5 max-w-xl text-sm font-medium text-[#7A555C] sm:text-base">
+          <p className="mx-auto mb-5 max-w-xl text-sm font-medium text-[#556377] sm:text-base">
             {event.dressCode.description}
           </p>
 
@@ -180,11 +180,11 @@ export default function EventInfo() {
             {event.dressCode.colorPalette.map((color, idx) => (
               <div key={idx} className="flex flex-col items-center gap-1.5">
                 <div
-                  className="h-10 w-10 rounded-full border-2 border-white shadow-md transition-transform hover:scale-110"
+                  className="h-10 w-10 rounded-full border-2 border-white shadow-xs transition-transform hover:scale-110"
                   style={{ backgroundColor: color.hex }}
                   title={color.name}
                 />
-                <span className="text-[11px] font-medium text-[#7A555C]">
+                <span className="text-[11px] font-medium text-[#556377]">
                   {color.name}
                 </span>
               </div>
@@ -194,14 +194,14 @@ export default function EventInfo() {
       )}
 
       {/* Schedule Flow / Timeline */}
-      <div className="relative rounded-3xl border-2 border-[#EAD5D5] bg-white/85 p-6 shadow-rose backdrop-blur-md sm:p-10">
-        <BotanicalCornerFlourish position="all" size={36} variant="rose" />
+      <div className="relative rounded-3xl border border-[#E8E2D8] bg-[#FDFBF7] p-6 shadow-xs sm:p-10">
+        <BotanicalCornerFlourish position="all" size={36} variant="gold" />
 
         <div className="mb-8 text-center">
-          <h3 className="mb-1 font-serif text-2xl font-bold text-[#3D2429]">
+          <h3 className="mb-1 font-serif text-2xl font-bold text-[#2D3748]">
             Tentatif Majlis
           </h3>
-          <p className="text-xs text-[#7A555C] sm:text-sm">
+          <p className="text-xs text-[#556377] sm:text-sm">
             Perjalanan acara sepanjang hari bahagia
           </p>
         </div>

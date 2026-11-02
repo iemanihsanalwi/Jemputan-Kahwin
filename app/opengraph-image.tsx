@@ -26,7 +26,7 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #FFF8F8 0%, #FDE8EC 50%, #F5D3D9 100%)",
+          background: "linear-gradient(135deg, #FAF7F2 0%, #FDFBF7 50%, #F5EFEB 100%)",
           padding: "48px",
           position: "relative",
           fontFamily: "serif",
@@ -40,7 +40,7 @@ export default async function Image() {
             left: 24,
             right: 24,
             bottom: 24,
-            border: "2px solid #EAD5D5",
+            border: "2px solid #E8E2D9",
             borderRadius: 32,
             display: "flex",
           }}
@@ -54,7 +54,7 @@ export default async function Image() {
             left: 36,
             right: 36,
             bottom: 36,
-            border: "1px dashed #D4A373",
+            border: "1px dashed #C5A059",
             borderRadius: 24,
             opacity: 0.6,
             display: "flex",
@@ -69,8 +69,8 @@ export default async function Image() {
             gap: 12,
             padding: "8px 24px",
             borderRadius: 999,
-            background: "#FFF8F8",
-            border: "1px solid #EAD5D5",
+            background: "#FFFFFF",
+            border: "1px solid #E8E2D9",
             marginBottom: 24,
           }}
         >
@@ -79,7 +79,7 @@ export default async function Image() {
               fontSize: 18,
               letterSpacing: 4,
               textTransform: "uppercase",
-              color: "#B56576",
+              color: "#7D8B74",
               fontWeight: 700,
             }}
           >
@@ -95,14 +95,14 @@ export default async function Image() {
             justifyContent: "center",
             fontSize: 76,
             fontWeight: 800,
-            color: "#3D2429",
+            color: "#2D3748",
             lineHeight: 1.1,
             marginBottom: 16,
             letterSpacing: -1,
           }}
         >
           <span>{groom}</span>
-          <span style={{ color: "#D4A373", margin: "0 24px", fontWeight: 400 }}>&</span>
+          <span style={{ color: "#C5A059", margin: "0 24px", fontWeight: 400 }}>&</span>
           <span>{bride}</span>
         </div>
 
@@ -111,7 +111,7 @@ export default async function Image() {
           style={{
             fontSize: 22,
             fontStyle: "italic",
-            color: "#7A555C",
+            color: "#4A5568",
             marginBottom: 28,
           }}
         >
@@ -127,9 +127,9 @@ export default async function Image() {
             marginBottom: 28,
           }}
         >
-          <div style={{ width: 80, height: 1, background: "#D4A373", opacity: 0.7 }} />
-          <div style={{ width: 8, height: 8, borderRadius: 999, background: "#D88A96" }} />
-          <div style={{ width: 80, height: 1, background: "#D4A373", opacity: 0.7 }} />
+          <div style={{ width: 80, height: 1, background: "#C5A059", opacity: 0.7 }} />
+          <div style={{ width: 8, height: 8, borderRadius: 999, background: "#7D8B74" }} />
+          <div style={{ width: 80, height: 1, background: "#C5A059", opacity: 0.7 }} />
         </div>
 
         {/* Date and Venue Pill */}
@@ -140,15 +140,15 @@ export default async function Image() {
             gap: 16,
             fontSize: 22,
             fontWeight: 600,
-            color: "#4A2E35",
+            color: "#2D3748",
             padding: "12px 32px",
             borderRadius: 999,
-            background: "rgba(255, 255, 255, 0.8)",
-            border: "1px solid #EAD5D5",
+            background: "rgba(255, 255, 255, 0.9)",
+            border: "1px solid #E8E2D9",
           }}
         >
           <span>{dateDisplay}</span>
-          <span style={{ color: "#D4A373" }}>•</span>
+          <span style={{ color: "#C5A059" }}>•</span>
           <span>{venue}</span>
         </div>
       </div>

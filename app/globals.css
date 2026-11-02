@@ -3,17 +3,18 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --color-mulberry-deep: #3d2429;
-  --color-mulberry: #4a2e35;
-  --color-rose-dusty: #d88a96;
-  --color-rose-muted: #b56576;
-  --color-blush-soft: #fde8ec;
-  --color-gold-rose: #d4a373;
-  --color-gold-champagne: #e2b686;
-  --color-cream-petal: #fff8f8;
-  --color-cream-pearl: #fff1f3;
-  --color-rose-border: #ead5d5;
-  --color-taupe-rose: #7a555c;
+  --color-cream-base: #faf7f2;
+  --color-cream-card: #fdfbf7;
+  --color-charcoal-deep: #1a202c;
+  --color-charcoal: #2d3748;
+  --color-charcoal-muted: #556377;
+  --color-sage-botanical: #7d8b74;
+  --color-sage-olive: #556b2f;
+  --color-gold-champagne: #c5a059;
+  --color-gold-foil: #d4af37;
+  --color-rose-dusty: #d4a5a5;
+  --color-rose-muted: #c88a8a;
+  --color-border-subtle: #e8e2d8;
 }
 
 html {
@@ -22,129 +23,120 @@ html {
 }
 
 body {
-  background-color: #fff8f8;
-  color: #3d2429;
+  background-color: #faf7f2;
+  color: #2d3748;
   overflow-x: hidden;
-  selection-background-color: #d88a96;
-  selection-color: #ffffff;
 }
 
 ::selection {
-  background: #d88a96;
+  background: #7d8b74;
   color: #ffffff;
 }
 
-/* Romantic Dusty Rose & Rose-Gold Custom Scrollbar */
+/* Elegant Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #fff1f3;
+  background: #faf7f2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d88a96;
+  background: #c5a059;
   border-radius: 9999px;
-  border: 2px solid #fff1f3;
+  border: 2px solid #faf7f2;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #b56576;
+  background: #7d8b74;
 }
 
-/* Warm Rose Gold & Dusty Rose Gradient Text */
+/* Champagne Gold & Sage Gradient Text */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #a66f58 0%, #d4a373 40%, #e2b686 75%, #c89b7b 100%);
+  background: linear-gradient(135deg, #a67c38 0%, #c5a059 40%, #e2c882 75%, #b38f48 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gold-light {
-  background: linear-gradient(135deg, #fff8f2 0%, #faede3 50%, #f3dac8 100%);
+  background: linear-gradient(135deg, #fff8ee 0%, #faede3 50%, #f3dac8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-mulberry-gradient {
-  background: linear-gradient(135deg, #3d2429 0%, #4a2e35 60%, #7a3545 100%);
+.text-charcoal-gradient {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 60%, #4a5568 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-sage-gradient {
-  background: linear-gradient(135deg, #3d2429 0%, #4a2e35 60%, #7a3545 100%);
+  background: linear-gradient(135deg, #3b4d36 0%, #556b2f 60%, #7d8b74 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-rose-gradient {
-  background: linear-gradient(135deg, #b56576 0%, #d88a96 60%, #f5b7b1 100%);
+  background: linear-gradient(135deg, #b87b7b 0%, #d4a5a5 60%, #e8c5be 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Romantic Pink Floral Gradients */
+/* Background Gradients */
 .bg-gold-gradient {
-  background: linear-gradient(135deg, #e2b686 0%, #d4a373 50%, #c89b7b 100%);
-}
-
-.bg-rose-gradient {
-  background: linear-gradient(135deg, #d88a96 0%, #c56d7e 100%);
-}
-
-.bg-mulberry-gradient {
-  background: linear-gradient(145deg, #4a2e35 0%, #3d2429 100%);
-}
-
-.bg-rose-gradient {
-  background: linear-gradient(135deg, #d88a96 0%, #c56d7e 100%);
+  background: linear-gradient(135deg, #e2c882 0%, #c5a059 50%, #b38f48 100%);
 }
 
 .bg-sage-gradient {
-  background: linear-gradient(145deg, #4a2e35 0%, #3d2429 100%);
+  background: linear-gradient(135deg, #556b2f 0%, #7d8b74 100%);
 }
 
-.bg-blush-gradient {
-  background: linear-gradient(135deg, #fff8f8 0%, #fde8ec 50%, #fadbd8 100%);
+.bg-rose-gradient {
+  background: linear-gradient(135deg, #d4a5a5 0%, #b87b7b 100%);
 }
 
-/* Card Styling: Translucent Alabaster / Soft White Frosted Cards */
+.bg-cream-gradient {
+  background: linear-gradient(180deg, #faf7f2 0%, #fdfbf7 50%, #f5efeb 100%);
+}
+
+/* Card Styling: Warm Ivory Alabaster Cards with Delicate Borders */
 .bg-champagne-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  border: 1px solid #ead5d5;
+  background: rgba(253, 251, 247, 0.94);
+  border: 1px solid #e8e2d8;
+  box-shadow: 0 4px 20px -2px rgba(45, 55, 72, 0.05);
 }
 
 .bg-botanical-card {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(10px);
-  border: 1px solid #ead5d5;
+  background: rgba(253, 251, 247, 0.95);
+  border: 1px solid #e8e2d8;
+  box-shadow: 0 6px 24px -4px rgba(45, 55, 72, 0.06);
 }
 
 .bg-frosted-card {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(253, 251, 247, 0.92);
   backdrop-filter: blur(8px);
-  border: 1px solid #ead5d5;
+  border: 1px solid #e8e2d8;
+  box-shadow: 0 4px 20px -2px rgba(45, 55, 72, 0.05);
 }
 
 .gold-border {
-  border-color: rgba(212, 163, 115, 0.35);
+  border-color: rgba(197, 160, 89, 0.35);
 }
 
 .sage-border {
-  border-color: #ead5d5;
+  border-color: #e8e2d8;
 }
 
 .rose-border {
-  border-color: #ead5d5;
+  border-color: #e8e2d8;
 }
 
-/* Repeating Romantic Floral Motif Pattern */
+/* Repeating Subtle Grid/Dot Pattern */
 .bg-wedding-pattern {
-  background-color: #fff8f8;
-  background-image: radial-gradient(rgba(216, 138, 150, 0.15) 1.2px, transparent 1.2px);
+  background-color: #faf7f2;
+  background-image: radial-gradient(rgba(197, 160, 89, 0.12) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* Pulsating Sound Wave Animation */
+/* Sound Wave Animation for Audio Equalizer */
 @keyframes soundWave {
   0%, 100% {
     transform: scaleY(0.35);
@@ -152,88 +144,6 @@ body {
   50% {
     transform: scaleY(1);
   }
-}
-
-/* Pure CSS Floating Petals */
-@keyframes floatPetal {
-  0% {
-    transform: translate3d(0, -30px, 0) rotate(0deg);
-    opacity: 0;
-  }
-  15% {
-    opacity: 0.8;
-  }
-  85% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate3d(100px, 105vh, 0) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* Garden Drift: Diagonal gentle drifting of petals and leaves using GPU-accelerated translate3d and rotateZ */
-@keyframes gardenDrift {
-  0% {
-    transform: translate3d(0, -40px, 0) rotateZ(0deg);
-    opacity: 0;
-  }
-  12% {
-    opacity: 0.85;
-  }
-  85% {
-    opacity: 0.85;
-  }
-  100% {
-    transform: translate3d(140px, 108vh, 0) rotateZ(420deg);
-    opacity: 0;
-  }
-}
-
-/* Ambient Golden Pollen Float */
-@keyframes pollenFloat {
-  0% {
-    transform: translate3d(0, -20px, 0) scale(0.85);
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.75;
-  }
-  50% {
-    transform: translate3d(35px, 50vh, 0) scale(1.15);
-    opacity: 0.9;
-  }
-  80% {
-    opacity: 0.75;
-  }
-  100% {
-    transform: translate3d(70px, 104vh, 0) scale(0.9);
-    opacity: 0;
-  }
-}
-
-/* Dappled Sunlight Breathing Glow (Komorebi) */
-@keyframes sunbeamPulse {
-  0%, 100% {
-    opacity: 0.45;
-    transform: scale(1) translate3d(0, 0, 0);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.08) translate3d(15px, -10px, 0);
-  }
-}
-
-.animate-garden-drift {
-  animation: gardenDrift 16s linear infinite;
-}
-
-.animate-pollen-float {
-  animation: pollenFloat 14s ease-in-out infinite;
-}
-
-.animate-sunbeam {
-  animation: sunbeamPulse 8s ease-in-out infinite;
 }
 
 /* WCAG 2.2 AA Reduced Motion Support */
