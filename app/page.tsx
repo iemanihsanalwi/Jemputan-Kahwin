@@ -20,6 +20,7 @@ import { fetchWeddingConfig } from "@/lib/db";
 import { WeddingConfigProvider } from "@/context/WeddingConfigContext";
 
 // Ensure real-time dynamic rendering so updates are immediately visible to guests
+export const runtime = "edge";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
