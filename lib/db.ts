@@ -1,4 +1,9 @@
-import { supabase, isSupabaseConfigured, getServiceSupabase } from "./supabase";
+import {
+  supabase,
+  checkSupabaseConfigured,
+  getSupabaseClient,
+  getServiceSupabase,
+} from "./supabase";
 import { RsvpSubmission, GuestWish, WeddingConfig } from "@/types/wedding";
 import { weddingConfig as defaultWeddingConfig } from "@/config/wedding";
 
@@ -109,8 +114,9 @@ export async function submitRsvp(data: {
   dietary_requirements?: string;
 }): Promise<{ success: boolean; data?: RsvpSubmission; error?: string }> {
   try {
-    if (isSupabaseConfigured && supabase) {
-      const { data: result, error } = await supabase
+    const client = getServiceSupabase() || getSupabaseClient() || supabase;
+    if (checkSupabaseConfigured() && client) {
+      const { data: result, error } = await client
         .from("rsvp_submissions")
         .insert([
           {
@@ -161,8 +167,9 @@ export async function submitRsvp(data: {
  */
 export async function getRsvpList(): Promise<RsvpSubmission[]> {
   try {
-    if (isSupabaseConfigured && supabase) {
-      const { data, error } = await supabase
+    const client = getServiceSupabase() || getSupabaseClient() || supabase;
+    if (checkSupabaseConfigured() && client) {
+      const { data, error } = await client
         .from("rsvp_submissions")
         .select("*")
         .order("created_at", { ascending: false });
@@ -183,8 +190,9 @@ export async function getRsvpList(): Promise<RsvpSubmission[]> {
  */
 export async function getApprovedWishes(limit = 20, offset = 0): Promise<GuestWish[]> {
   try {
-    if (isSupabaseConfigured && supabase) {
-      const { data, error } = await supabase
+    const client = getServiceSupabase() || getSupabaseClient() || supabase;
+    if (checkSupabaseConfigured() && client) {
+      const { data, error } = await client
         .from("guest_wishes")
         .select("*")
         .eq("is_approved", true)
@@ -212,8 +220,9 @@ export async function submitWish(data: {
   message: string;
 }): Promise<{ success: boolean; data?: GuestWish; error?: string }> {
   try {
-    if (isSupabaseConfigured && supabase) {
-      const { data: result, error } = await supabase
+    const client = getServiceSupabase() || getSupabaseClient() || supabase;
+    if (checkSupabaseConfigured() && client) {
+      const { data: result, error } = await client
         .from("guest_wishes")
         .insert([
           {
@@ -262,8 +271,9 @@ export async function toggleWishApproval(
   newStatus: boolean
 ): Promise<boolean> {
   try {
-    if (isSupabaseConfigured && supabase) {
-      const { error } = await supabase
+    const client = getServiceSupabase() || getSupabaseClient() || supabase;
+    if (checkSupabaseConfigured() && client) {
+      const { error } = await client
         .from("guest_wishes")
         .update({ is_approved: newStatus })
         .eq("id", id);
@@ -287,17 +297,18 @@ export async function toggleWishApproval(
  */
 export async function likeWish(id: string): Promise<boolean> {
   try {
-    if (isSupabaseConfigured && supabase) {
-      const { error } = await supabase.rpc("increment_wish_like", { wish_id: id });
+    const client = getServiceSupabase() || getSupabaseClient() || supabase;
+    if (checkSupabaseConfigured() && client) {
+      const { error } = await client.rpc("increment_wish_like", { wish_id: id });
       if (error) {
         // Fallback update if RPC not created
-        const { data } = await supabase
+        const { data } = await client
           .from("guest_wishes")
           .select("likes_count")
           .eq("id", id)
           .single();
         if (data) {
-          await supabase
+          await client
             .from("guest_wishes")
             .update({ likes_count: (data.likes_count || 0) + 1 })
             .eq("id", id);
@@ -324,8 +335,8 @@ export async function likeWish(id: string): Promise<boolean> {
  */
 export async function fetchWeddingConfig(): Promise<WeddingConfig> {
   try {
-    const client = getServiceSupabase() || supabase;
-    if (isSupabaseConfigured && client) {
+    const client = getServiceSupabase() || getSupabaseClient() || supabase;
+    if (checkSupabaseConfigured() && client) {
       const { data, error } = await client
         .from("wedding_config")
         .select("config")
@@ -352,8 +363,8 @@ export async function saveWeddingConfig(
   newConfig: WeddingConfig
 ): Promise<{ success: boolean; data?: WeddingConfig; error?: string }> {
   try {
-    const client = getServiceSupabase() || supabase;
-    if (!isSupabaseConfigured || !client) {
+    const client = getServiceSupabase() || getSupabaseClient() || supabase;
+    if (!checkSupabaseConfigured() || !client) {
       return {
         success: false,
         error: "Pangkalan data Supabase belum dikonfigurasikan sepenuhnya.",

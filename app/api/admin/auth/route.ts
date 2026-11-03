@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { weddingConfig } from "@/config/wedding";
+import { getEnvVar } from "@/lib/supabase";
 
 export const runtime = "edge";
 
 export async function POST(req: NextRequest) {
   try {
     const { pin } = await req.json();
-    const correctPin = process.env.ADMIN_PIN || weddingConfig.admin.pin;
+    const correctPin =
+      getEnvVar("ADMIN_PIN") || weddingConfig.admin.pin || "037172";
 
     if (!pin || pin.toString().trim() !== correctPin.toString().trim()) {
       return NextResponse.json(

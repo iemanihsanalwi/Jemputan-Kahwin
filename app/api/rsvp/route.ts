@@ -3,6 +3,7 @@ import { rsvpSchema } from "@/lib/validations";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { submitRsvp, getRsvpList } from "@/lib/db";
 import { weddingConfig } from "@/config/wedding";
+import { getEnvVar } from "@/lib/supabase";
 
 export const runtime = "edge";
 
@@ -72,7 +73,8 @@ export async function GET(req: NextRequest) {
   try {
     // Check admin authentication via header
     const authHeader = req.headers.get("x-admin-pin");
-    const configuredPin = process.env.ADMIN_PIN || weddingConfig.admin.pin;
+    const configuredPin =
+      getEnvVar("ADMIN_PIN") || weddingConfig.admin.pin || "037172";
 
     if (!authHeader || authHeader !== configuredPin) {
       return NextResponse.json(

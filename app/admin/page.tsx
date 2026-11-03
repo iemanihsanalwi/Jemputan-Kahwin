@@ -2,9 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { RsvpSubmission, GuestWish } from "@/types/wedding";
+import { RsvpSubmission, GuestWish, WeddingConfig } from "@/types/wedding";
 import { weddingConfig as defaultWeddingConfig } from "@/config/wedding";
-import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+import {
+  supabase,
+  checkSupabaseConfigured,
+  getSupabaseClient,
+} from "@/lib/supabase";
 import { exportToCsv, formatMalayDate, formatTimeAgo } from "@/lib/utils";
 import {
   Lock,
@@ -84,14 +88,16 @@ export default function AdminPage() {
     setLoading(true);
     try {
       // Fetch dynamic wedding config
-      if (isSupabaseConfigured && supabase) {
-        const { data: supaConfig } = await supabase
+      const supaClient = getSupabaseClient() || supabase;
+      if (checkSupabaseConfigured() && supaClient) {
+        const { data: supaConfig } = await supaClient
           .from("wedding_config")
           .select("config")
           .eq("id", 1)
           .maybeSingle();
-        if (supaConfig?.config) {
-          setConfig(supaConfig.config);
+        const typedConfig = supaConfig as { config?: WeddingConfig } | null;
+        if (typedConfig?.config) {
+          setConfig(typedConfig.config);
         }
       }
 

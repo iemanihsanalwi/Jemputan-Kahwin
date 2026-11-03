@@ -2,7 +2,11 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { WeddingConfig, EventScheduleItem, ContactPerson, WishlistItem } from "@/types/wedding";
-import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+import {
+  supabase,
+  checkSupabaseConfigured,
+  getSupabaseClient,
+} from "@/lib/supabase";
 import {
   Save,
   Download,
@@ -52,15 +56,17 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
     setErrorMessage(null);
     try {
       // 1. Try directly fetching from Supabase wedding_config table (row id = 1)
-      if (isSupabaseConfigured && supabase) {
-        const { data: supaData, error: supaErr } = await supabase
+      const supaClient = getSupabaseClient() || supabase;
+      if (checkSupabaseConfigured() && supaClient) {
+        const { data: supaData, error: supaErr } = await supaClient
           .from("wedding_config")
           .select("config")
           .eq("id", 1)
           .maybeSingle();
 
-        if (!supaErr && supaData?.config) {
-          setConfig(supaData.config as WeddingConfig);
+        const typedData = supaData as { config?: WeddingConfig } | null;
+        if (!supaErr && typedData?.config) {
+          setConfig(typedData.config);
           setLoading(false);
           return;
         }
@@ -99,8 +105,9 @@ export default function WeddingConfigEditor({ pin }: WeddingConfigEditorProps) {
       let savedDirectly = false;
 
       // 1. Execute direct Supabase upsert (row id = 1)
-      if (isSupabaseConfigured && supabase) {
-        const { error: supaError } = await supabase
+      const supaClient = getSupabaseClient() || supabase;
+      if (checkSupabaseConfigured() && supaClient) {
+        const { error: supaError } = await supaClient
           .from("wedding_config")
           .upsert(
             {

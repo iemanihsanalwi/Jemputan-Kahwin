@@ -2,12 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { weddingConfig } from "@/config/wedding";
 import { fetchWeddingConfig, saveWeddingConfig } from "@/lib/db";
 import { WeddingConfig } from "@/types/wedding";
+import { getEnvVar } from "@/lib/supabase";
 
 export const runtime = "edge";
 
 function verifyPin(req: NextRequest): boolean {
   const adminPin = req.headers.get("x-admin-pin");
-  const expectedPin = process.env.ADMIN_PIN || weddingConfig.admin.pin || "037172";
+  const expectedPin =
+    getEnvVar("ADMIN_PIN") || weddingConfig.admin.pin || "037172";
   return adminPin?.trim() === expectedPin.toString().trim();
 }
 
